@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { TechBadge } from "@/components/ui/tech-badge";
+import { profile } from "@/data/profile";
 import { buildLocalizedHref } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
 import type { ProjectSummary } from "@/types/project";
@@ -38,9 +39,9 @@ export function ProjectCard({
                 {t("placeholderLabel")}
               </p>
               <a
-                href="https://github.com/"
+                href={profile.githubUrl}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex h-9 w-9 items-center justify-center rounded-[6px] border border-border text-muted-foreground transition hover:border-border-strong hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 aria-label={t("githubAria")}
               >

@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/container";
 import { SocialButton } from "@/components/ui/social-button";
+import { profile } from "@/data/profile";
 import { socialLinks } from "@/data/social-links";
 
 export async function Footer() {
@@ -12,9 +13,11 @@ export async function Footer() {
       <Container className="flex flex-col gap-6 text-sm text-muted md:flex-row md:items-center md:justify-between">
         <div>
           <p>
-            © {year} {t("name")}
+            © {year} {profile.shortName}
           </p>
-          <p className="mt-1">{t("builtBy")}</p>
+          <p className="mt-1">
+            {profile.role}. {t("builtBy")}
+          </p>
         </div>
         <div className="flex flex-wrap gap-2">
           {socialLinks.map((link) => (

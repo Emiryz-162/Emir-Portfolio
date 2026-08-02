@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { StatusDot } from "@/components/ui/status-dot";
 import { navItems } from "@/data/navigation";
+import { profile } from "@/data/profile";
 import { cvDownloadHref } from "@/data/social-links";
 import { buildLocalizedHref } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
@@ -45,7 +46,7 @@ export function Navbar() {
           className="flex min-w-0 items-center gap-3 text-sm font-semibold tracking-normal text-foreground sm:text-base"
           onClick={() => setIsOpen(false)}
         >
-          <span>{t("brand")}</span>
+          <span>{profile.shortName}</span>
           <span className="hidden items-center gap-2 border-l border-border pl-3 text-xs font-normal text-muted lg:flex">
             <StatusDot />
             {t("status")}
@@ -72,7 +73,7 @@ export function Navbar() {
           <LanguageSwitcher />
           <ThemeToggle />
           <Button asChild>
-            <a href={cvDownloadHref} aria-disabled="true">
+            <a href={cvDownloadHref} download>
               <Download size={16} aria-hidden="true" />
               {t("cv")}
             </a>
@@ -123,7 +124,7 @@ export function Navbar() {
           <div className="mt-2 flex items-center gap-2 border-t border-border pt-4">
             <LanguageSwitcher />
             <Button asChild className="flex-1">
-              <a href={cvDownloadHref} aria-disabled="true">
+              <a href={cvDownloadHref} download>
                 <Download size={16} aria-hidden="true" />
                 {t("cv")}
               </a>

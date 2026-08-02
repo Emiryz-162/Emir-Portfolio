@@ -15,7 +15,7 @@ export function TechnicalSkillsSection() {
           title={t("title")}
           description={t("description")}
         />
-        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {skillGroups.map((group) => (
             <SkillGroup
               key={group.key}

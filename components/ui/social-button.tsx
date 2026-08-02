@@ -27,7 +27,7 @@ export function SocialButton({
     <a
       href={href}
       target={href.startsWith("mailto:") ? undefined : "_blank"}
-      rel={href.startsWith("mailto:") ? undefined : "noreferrer"}
+      rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
       className={cn(
         "inline-flex items-center justify-center gap-2 rounded-[6px] border border-border bg-surface px-3 text-sm font-medium text-muted-foreground transition duration-200 hover:-translate-y-0.5 hover:border-border-strong hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
         compact ? "h-9 w-9 px-0" : "h-10",

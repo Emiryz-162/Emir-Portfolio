@@ -1,16 +1,18 @@
+import { profile } from "@/data/profile";
+
 export const socialLinks = [
   {
     key: "github",
-    href: "https://github.com/",
+    href: profile.githubUrl,
   },
   {
     key: "linkedin",
-    href: "https://www.linkedin.com/",
+    href: profile.linkedInUrl,
   },
   {
     key: "email",
-    href: "mailto:hello@example.com",
+    href: `mailto:${profile.email}`,
   },
 ] as const;
 
-export const cvDownloadHref = "#";
+export const cvDownloadHref = profile.resumeUrl;

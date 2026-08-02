@@ -17,15 +17,30 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     key: "database",
-    items: ["Microsoft SQL Server", "CRUD Operations", "SQL / Database Design"],
-  },
-  {
-    key: "tools",
-    items: ["Git", "GitHub", "Visual Studio", "VS Code"],
+    items: [
+      "Microsoft SQL Server",
+      "CRUD Operations",
+      "SQL",
+      "Database Design",
+    ],
   },
   {
     key: "gameDevelopment",
     items: ["Unity 2D", "Godot"],
+  },
+  {
+    key: "toolsAndTechnologies",
+    items: ["Git", "GitHub", "Visual Studio", "Visual Studio Code"],
+  },
+  {
+    key: "professionalSkills",
+    items: [
+      "Problem Solving",
+      "Algorithmic Thinking",
+      "Teamwork",
+      "Communication",
+      "Project-Based Work Discipline",
+    ],
   },
 ];
 
@@ -36,11 +51,11 @@ export const currentStackGroups = [
   },
   {
     key: "backend",
-    items: ["C#", "ASP.NET Core", "RESTful API"],
+    items: ["C#", "ASP.NET Core", "REST API"],
   },
   {
     key: "database",
-    items: ["Microsoft SQL Server", "CRUD Operations", "Database Design"],
+    items: ["SQL Server"],
   },
   {
     key: "gameDevelopment",

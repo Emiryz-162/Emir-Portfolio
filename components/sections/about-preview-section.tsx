@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/ui/section-header";
 import { StatusDot } from "@/components/ui/status-dot";
+import { profile } from "@/data/profile";
 import { buildLocalizedHref } from "@/i18n/routing";
 
 type AboutPreviewSectionProps = {
@@ -13,7 +14,7 @@ export function AboutPreviewSection({ locale }: AboutPreviewSectionProps) {
   const t = useTranslations("Home.about");
 
   const facts = [
-    { label: t("facts.location.label"), value: t("facts.location.value") },
+    { label: t("facts.location.label"), value: profile.location },
     { label: t("facts.focus.label"), value: t("facts.focus.value") },
     {
       label: t("facts.availability.label"),
@@ -29,7 +30,7 @@ export function AboutPreviewSection({ locale }: AboutPreviewSectionProps) {
             <div className="absolute inset-5 border border-border bg-background/70" />
             <div className="absolute bottom-8 left-8 right-8">
               <div className="flex h-24 w-24 items-center justify-center rounded-[6px] border border-border-strong bg-surface-elevated font-mono text-3xl text-foreground">
-                EY
+                {profile.initials}
               </div>
               <p className="mt-6 max-w-xs text-sm leading-6 text-muted">
                 {t("photoPlaceholder")}
@@ -67,13 +68,11 @@ export function AboutPreviewSection({ locale }: AboutPreviewSectionProps) {
                 </h3>
               </div>
               <dl className="grid gap-3 sm:grid-cols-3">
-                {["turkish", "english", "german"].map((key) => (
-                  <div key={key}>
-                    <dt className="text-sm text-muted">
-                      {t(`languages.${key}.label`)}
-                    </dt>
+                {profile.languages.map((language) => (
+                  <div key={language.name}>
+                    <dt className="text-sm text-muted">{language.name}</dt>
                     <dd className="mt-1 text-sm font-medium text-muted-foreground">
-                      {t(`languages.${key}.value`)}
+                      {language.level}
                     </dd>
                   </div>
                 ))}

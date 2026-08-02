@@ -1,8 +1,8 @@
 # Emir Portfolio
 
-Modern, responsive, multilingual-ready personal portfolio foundation for Muhammet Emir Yilmaz.
+Modern, responsive, multilingual-ready personal portfolio for Emir Yılmaz.
 
-This first phase focuses on architecture and a clean UI skeleton. Real project content, GitHub API, chatbot, mini game, advanced animations, and production CV data are intentionally left out.
+The project uses the Concept A - Digital Workbench design direction: minimal, technical, personal, and prepared for future GitHub, chatbot, mini game, and multilingual improvements.
 
 ## Stack
 
@@ -24,7 +24,7 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Open `http://localhost:3000/en`.
 
 ## Scripts
 
@@ -39,15 +39,25 @@ npm run format:check
 ## Architecture
 
 - `app/[locale]`: Locale-based App Router pages.
-- `components/layout`: Shared layout pieces such as navbar, footer, theme toggle, and language switcher.
-- `components/ui`: Reusable primitives such as button, card, badge, container, and heading.
-- `components/sections`: Page-level composition blocks.
-- `i18n`: Locale routing, request config, and navigation wrappers for `next-intl`.
-- `messages`: Translation message files. They are intentionally empty placeholders for now.
-- `lib`: Shared helpers and static navigation config.
-- `hooks`: Reusable client hooks.
+- `components/layout`: Navbar, footer, theme toggle, and language switcher.
+- `components/ui`: Shared primitives such as button, card, badge, section header, and social button.
+- `components/sections`: Homepage and reusable page sections.
+- `data`: Central profile, navigation, social link, project, skill, and experience data.
+- `i18n`: Locale routing, request config, and navigation wrappers.
+- `messages`: Translation message files. English is filled; other locales currently mirror English.
 - `types`: Shared TypeScript domain types.
-- `styles`: Central style-related constants for future expansion.
+
+## Completed In This Phase
+
+- Real profile information
+- Real social links
+- CV download path
+- Skills content
+- Education content
+- Internship content
+- Certification training content
+- Spoken language levels
+- About, Skills, Education, and Contact pages
 
 ## Current Routes
 
@@ -61,12 +71,24 @@ npm run format:check
 
 Default locale is English. Supported locale placeholders are Turkish, English, German, French, Spanish, Italian, Portuguese, Polish, and Dutch.
 
+## CV
+
+Add the CV PDF file to:
+
+```text
+public/documents/emir-yilmaz-cv.pdf
+```
+
+All Download CV buttons point to `/documents/emir-yilmaz-cv.pdf`.
+
 ## TODO
 
-- Add real portfolio content.
-- Add translations to the message files.
+- Add the CV PDF file to `public/documents/emir-yilmaz-cv.pdf`.
 - Connect GitHub API when project data is ready.
-- Add chatbot architecture and UI.
-- Add mini game route or embedded experience.
-- Add real CV download asset.
-- Add advanced animations with Framer Motion.
+- Replace placeholder project slots with verified real project data.
+- Graphic Design education details require confirmation.
+- Microsoft certification title and verification details require confirmation.
+- Add real translations for non-English locales.
+- Add contact form backend.
+- Add mini game.
+- Add chatbot.

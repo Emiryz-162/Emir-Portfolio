@@ -1,5 +1,6 @@
 import type { ProjectSummary } from "@/types/project";
 
+// Temporary local source. Replace this file with a GitHub-backed source in a later phase.
 export const featuredProjects: ProjectSummary[] = [
   {
     slug: "e-commerce-api",

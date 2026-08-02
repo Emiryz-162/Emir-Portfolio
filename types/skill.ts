@@ -1,4 +1,10 @@
 export type SkillGroup = {
-  key: "frontend" | "backend" | "database" | "tools" | "gameDevelopment";
+  key:
+    | "frontend"
+    | "backend"
+    | "database"
+    | "gameDevelopment"
+    | "toolsAndTechnologies"
+    | "professionalSkills";
   items: string[];
 };

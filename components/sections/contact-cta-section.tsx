@@ -45,7 +45,7 @@ export function ContactCtaSection({ locale }: ContactCtaSectionProps) {
                 <a
                   href={linkedIn?.href ?? "#"}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   <BriefcaseBusiness size={16} aria-hidden="true" />
                   {t("linkedinButton")}

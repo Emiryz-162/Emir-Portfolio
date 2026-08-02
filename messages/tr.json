@@ -1,6 +1,7 @@
 {
   "Common": {
     "selectLanguage": "Select language",
+    "translationNote": "Translations are created with AI assistance.",
     "theme": {
       "dark": "Switch to dark theme",
       "light": "Switch to light theme",
@@ -12,7 +13,7 @@
     }
   },
   "Navigation": {
-    "brand": "Emir Yilmaz",
+    "brand": "Emir Yılmaz",
     "status": "Open to opportunities",
     "cv": "Download CV",
     "openMenu": "Open menu",
@@ -27,7 +28,6 @@
     }
   },
   "Footer": {
-    "name": "Emir Yilmaz",
     "builtBy": "Designed and built by Emir.",
     "social": {
       "github": "GitHub",
@@ -38,10 +38,10 @@
   "Home": {
     "hero": {
       "eyebrow": "Hello, I'm",
-      "name": "Emir Yilmaz",
+      "name": "Emir Yılmaz",
       "role": "Full Stack Developer",
       "description": "I build responsive web applications, backend services and interactive digital experiences.",
-      "secondaryDescription": "Also interested in frontend, backend, game development, game design and IT opportunities.",
+      "secondaryDescription": "Primarily focused on full stack development, while remaining open to frontend, backend, game development, game design and IT opportunities.",
       "primaryButton": "Explore Projects",
       "cvButton": "Download CV",
       "social": {
@@ -74,42 +74,42 @@
       "items": {
         "problemSolver": {
           "title": "Problem Solver",
-          "description": "Turns unclear requirements into small, workable steps."
+          "description": "Breaks technical problems into smaller, manageable parts."
         },
         "alwaysLearning": {
           "title": "Always Learning",
-          "description": "Builds with curiosity, iteration and careful practice."
+          "description": "Improves through projects, documentation and practical experiments."
         },
         "teamPlayer": {
           "title": "Team Player",
-          "description": "Values clear communication and reliable handoffs."
+          "description": "Values clear communication, shared responsibility and feedback."
         },
         "creativeDeveloper": {
           "title": "Creative Developer",
-          "description": "Connects engineering structure with interactive ideas."
+          "description": "Connects software development with interactive and game ideas."
         }
       }
     },
     "projects": {
       "eyebrow": "Featured Projects",
-      "title": "Placeholder work, structured like real case studies",
-      "description": "A local project source for now, prepared to be swapped with GitHub or manual case-study data later.",
+      "title": "A project layout ready for verified work",
+      "description": "Selected projects will be synchronized from GitHub in a later phase. The current cards keep the layout ready without presenting placeholder data as completed work.",
       "viewAll": "View all projects",
-      "placeholderLabel": "Placeholder",
+      "placeholderLabel": "Draft slot",
       "detailLink": "Project detail",
-      "githubAria": "Open placeholder GitHub link",
+      "githubAria": "Open GitHub profile placeholder",
       "items": {
         "eCommerceApi": {
           "title": "E-Commerce API",
-          "description": "A draft API concept for product, order and user workflows."
+          "description": "A draft API slot reserved for backend and database-focused work."
         },
         "taskManagement": {
           "title": "Task Management Web App",
-          "description": "A responsive app concept for everyday planning and team visibility."
+          "description": "A draft web app slot reserved for responsive interface work."
         },
         "gamePrototype": {
           "title": "2D Game Prototype",
-          "description": "A small game systems placeholder for mechanics, levels and iteration."
+          "description": "A draft slot for future Unity or Godot game development work."
         },
         "portfolioWebsite": {
           "title": "Portfolio Website",
@@ -120,55 +120,43 @@
     "about": {
       "eyebrow": "About Preview",
       "title": "A practical developer profile with room to grow",
-      "description": "This section keeps the story short for now and leaves space for a more personal introduction when the final copy is ready.",
+      "description": "Emir studied Computer Programming and builds project-based web applications using frontend, backend and database fundamentals.",
       "photoPlaceholder": "Initials placeholder. A real photo can be added later without changing the layout.",
       "link": "Open about page",
       "facts": {
         "location": {
-          "label": "Location",
-          "value": "Istanbul, Turkiye"
+          "label": "Location"
         },
         "focus": {
           "label": "Focus",
-          "value": "Learning, building and improving full stack projects"
+          "value": "Full stack development and project-based learning"
         },
         "availability": {
           "label": "Availability",
-          "value": "Open to junior developer and IT opportunities"
+          "value": "Open to junior full stack and related technology roles"
         }
       },
       "languages": {
-        "title": "Languages",
-        "turkish": {
-          "label": "Turkish",
-          "value": "Native"
-        },
-        "english": {
-          "label": "English",
-          "value": "Upper-Intermediate"
-        },
-        "german": {
-          "label": "German",
-          "value": "Beginner"
-        }
+        "title": "Spoken Languages"
       }
     },
     "skills": {
       "eyebrow": "Technical Skills",
       "title": "Skills grouped by practical use",
-      "description": "No percentages or inflated levels, just the areas this portfolio will present clearly.",
+      "description": "No percentages or inflated levels, just the areas this portfolio presents clearly.",
       "groups": {
         "frontend": "Frontend",
         "backend": "Backend",
         "database": "Database",
-        "tools": "Tools",
-        "gameDevelopment": "Game Development"
+        "gameDevelopment": "Game Development",
+        "toolsAndTechnologies": "Tools & Technologies",
+        "professionalSkills": "Professional Skills"
       }
     },
     "timeline": {
       "eyebrow": "Education & Experience",
-      "title": "A compact record of the verified path",
-      "description": "Only the current confirmed information is shown here.",
+      "title": "Confirmed learning and internship record",
+      "description": "Only the currently confirmed education, training and internship information is shown here.",
       "labels": {
         "experience": "Experience",
         "education": "Education",
@@ -198,6 +186,127 @@
       "description": "Let's build something useful together.",
       "contactButton": "Contact Me",
       "linkedinButton": "LinkedIn"
+    }
+  },
+  "AboutPage": {
+    "status": "Open to junior full stack and related technology roles",
+    "introduction": {
+      "eyebrow": "Introduction",
+      "paragraphs": [
+        "I studied Computer Programming and have built project-based web applications using HTML, CSS, JavaScript, C#, SQL and ASP.NET technologies.",
+        "My work so far has focused on frontend structure, backend services, database operations and RESTful API development. I am still developing my problem-solving and software design skills through practical projects.",
+        "I am primarily looking for junior full stack development opportunities, while also staying open to suitable frontend, backend, game development, game design and IT roles."
+      ]
+    },
+    "focus": {
+      "eyebrow": "Development Focus",
+      "title": "Core software areas",
+      "items": {
+        "fullStack": "Full Stack Development",
+        "frontend": "Frontend Development",
+        "backend": "Backend Development",
+        "apis": "RESTful APIs",
+        "database": "Database Operations",
+        "responsive": "Responsive Web Applications"
+      }
+    },
+    "interests": {
+      "eyebrow": "Additional Interests",
+      "title": "Related areas",
+      "items": {
+        "gameDevelopment": "Game Development",
+        "gameDesign": "Game Design",
+        "unity": "Unity 2D",
+        "godot": "Godot",
+        "it": "IT and technical troubleshooting"
+      }
+    },
+    "work": {
+      "eyebrow": "How I Work",
+      "title": "Working habits",
+      "items": {
+        "problemSolving": "Problem solving",
+        "algorithmicThinking": "Algorithmic thinking",
+        "teamwork": "Teamwork and communication",
+        "discipline": "Project-based work discipline",
+        "learning": "Willingness to learn"
+      }
+    },
+    "goal": {
+      "eyebrow": "Current Goal",
+      "title": "Focused on the next practical step",
+      "description": "Primarily seeking junior full stack development opportunities while also considering suitable frontend, backend, game development, game design and IT roles."
+    }
+  },
+  "SkillsPage": {
+    "eyebrow": "Skills",
+    "title": "Technical and professional skills",
+    "description": "A clear list of confirmed skills, without ratings, percentages or inflated seniority labels.",
+    "groups": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "gameDevelopment": "Game Development",
+      "toolsAndTechnologies": "Tools & Technologies",
+      "professionalSkills": "Professional Skills"
+    }
+  },
+  "EducationPage": {
+    "eyebrow": "Education & Experience",
+    "title": "Confirmed background",
+    "description": "Education, certification training and internship details currently confirmed for the portfolio.",
+    "items": {
+      "education": {
+        "label": "Education",
+        "title": "Computer Programming",
+        "organization": "Okan University",
+        "meta": "2022 - 2024",
+        "details": [
+          "Studied Computer Programming with a focus on software fundamentals.",
+          "Built a foundation for web applications, algorithms and database-driven projects."
+        ]
+      },
+      "certification": {
+        "label": "Certification Training",
+        "title": "Project-Based Full Stack Web Development Training",
+        "organization": "SmartPro Software Academy",
+        "meta": "240 Hours",
+        "details": [
+          "Completed project-based full stack web development training.",
+          "Worked with web, backend and database technologies during the program."
+        ],
+        "technologies": ["ASP.NET", "C#", "SQL", "HTML", "CSS", "JavaScript"]
+      },
+      "experience": {
+        "label": "Experience",
+        "title": "IT Technician Intern",
+        "organization": "Egebant",
+        "meta": "June 2021 - August 2021",
+        "details": [
+          "Assisted with computer repair, maintenance and troubleshooting tasks.",
+          "Improved practical technical support and problem-solving skills.",
+          "Supported day-to-day IT operations during the internship."
+        ]
+      }
+    }
+  },
+  "ContactPage": {
+    "eyebrow": "Contact",
+    "title": "Let's get in touch.",
+    "description": "I'm open to junior full stack opportunities and suitable roles in related software and technology fields.",
+    "items": {
+      "email": {
+        "label": "Email",
+        "aria": "Send an email to Emir"
+      },
+      "linkedin": {
+        "label": "LinkedIn",
+        "aria": "Open Emir's LinkedIn profile"
+      },
+      "github": {
+        "label": "GitHub",
+        "aria": "Open Emir's GitHub profile"
+      }
     }
   }
 }

@@ -6,6 +6,7 @@ import { SystemFlowPlaceholder } from "@/components/sections/system-flow-placeho
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SocialButton } from "@/components/ui/social-button";
+import { profile } from "@/data/profile";
 import { cvDownloadHref, socialLinks } from "@/data/social-links";
 import { buildLocalizedHref } from "@/i18n/routing";
 
@@ -24,13 +25,13 @@ export function HeroSection({ locale }: HeroSectionProps) {
             {t("eyebrow")}
           </p>
           <h1 className="mt-5 max-w-4xl text-5xl font-semibold tracking-normal text-foreground sm:text-6xl lg:text-7xl">
-            {t("name")}
+            {profile.shortName}
             <span className="ml-2 text-accent" aria-hidden="true">
               _
             </span>
           </h1>
           <p className="mt-5 text-2xl font-medium text-muted-foreground sm:text-3xl">
-            {t("role")}
+            {profile.role}
           </p>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
             {t("description")}
@@ -46,7 +47,7 @@ export function HeroSection({ locale }: HeroSectionProps) {
               </Link>
             </Button>
             <Button asChild variant="secondary">
-              <a href={cvDownloadHref} aria-disabled="true">
+              <a href={cvDownloadHref} download>
                 <Download size={16} aria-hidden="true" />
                 {t("cvButton")}
               </a>
