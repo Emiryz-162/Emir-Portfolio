@@ -68,6 +68,45 @@
           "database": "Database",
           "deploy": "Deploy"
         }
+      },
+      "miniGame": {
+        "eyebrow": "Minigame",
+        "title": "Packet Route",
+        "description": "Leid een klein datapakket door de full stack-flow.",
+        "instruction": "Route het verzoek in de juiste systeemvolgorde.",
+        "completedBefore": "Packet Route is ontgrendeld. Je kunt het altijd opnieuw spelen.",
+        "nodes": {
+          "client": "Client",
+          "frontend": "Frontend",
+          "api": "API",
+          "database": "Database",
+          "deploy": "Deploy"
+        },
+        "labels": {
+          "request": "Verzoek",
+          "interface": "Interface",
+          "logic": "Logica",
+          "data": "Data",
+          "production": "Productie"
+        },
+        "actions": {
+          "reset": "Resetten",
+          "skip": "Interactie overslaan",
+          "playAgain": "Opnieuw spelen",
+          "viewProjects": "Projecten bekijken"
+        },
+        "feedback": {
+          "ready": "Begin bij Client en kies de volgende service.",
+          "correct": "Route geaccepteerd",
+          "wrong": "400 - Verkeerde route",
+          "tryAgain": "Probeer een andere service"
+        },
+        "success": {
+          "status": "200 OK",
+          "message": "Deployment geslaagd",
+          "achievement": "Portfolio Explorer ontgrendeld",
+          "dismiss": "Prestatie sluiten"
+        }
       }
     },
     "valueStrip": {

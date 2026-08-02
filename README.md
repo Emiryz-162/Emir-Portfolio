@@ -1,8 +1,8 @@
 # Emir Portfolio
 
-Modern, responsive, multilingual-ready personal portfolio for Emir Yılmaz.
+Modern, responsive, multilingual personal portfolio for Emir Yılmaz.
 
-The project uses the Concept A - Digital Workbench design direction: minimal, technical, personal, and prepared for future GitHub, chatbot, mini game, and multilingual improvements.
+The project uses the Concept A - Digital Workbench design direction: minimal, technical, personal, and prepared for future GitHub, chatbot, and portfolio interaction improvements.
 
 ## Stack
 
@@ -61,6 +61,7 @@ npm run validate:translations
 
 - `app/[locale]`: Locale-based App Router pages.
 - `components/layout`: Navbar, footer, theme toggle, and language switcher.
+- `components/mini-game`: The Packet Route homepage mini game.
 - `components/projects`: Client-side project search, filtering, sorting, and empty states.
 - `components/ui`: Shared primitives such as button, card, badge, section header, and social button.
 - `components/sections`: Homepage and reusable page sections.
@@ -68,6 +69,7 @@ npm run validate:translations
 - `data`: Central profile, navigation, social link, project, skill, and experience data.
 - `i18n`: Locale routing, request config, and navigation wrappers.
 - `lib/github`: GitHub REST client, repository mapping, language stats, README fetching, and Markdown URL resolution.
+- `lib/mini-game`: Type-safe Packet Route step order and route selection helpers.
 - `messages`: Translation message files for all supported locales.
 - `scripts/validate-translations.mjs`: Checks locale files against the English message schema.
 - `types`: Shared TypeScript domain types.
@@ -94,6 +96,39 @@ shown in the original language so technical project information stays accurate.
 When adding a new locale, update `i18n/routing.ts`, add `messages/{locale}.json`
 with the same shape as `messages/en.json`, then run
 `npm run validate:translations`.
+
+## Packet Route
+
+Packet Route is a small homepage mini game inside the hero system-flow area. It
+keeps the original Full Stack flow visible while making it interactive:
+
+```text
+Client -> Frontend -> API -> Database -> Deploy
+```
+
+The player clicks, taps, or tabs through real button nodes in that order. A
+correct choice advances a small packet indicator and marks the node complete.
+An incorrect choice shows a short, non-punitive `400 - Wrong route` style
+message without resetting progress. Completion shows an inline achievement:
+`200 OK`, `Deployment successful`, and `Portfolio Explorer unlocked`.
+
+The game never locks portfolio content. The normal hero projects button remains
+available, and the game includes a skip/view projects action.
+
+Completion is remembered with the device-local boolean key
+`portfolio-packet-route-completed`. If `localStorage` is unavailable, the game
+still works normally and stores nothing.
+
+Reduced motion is respected: packet movement and reveal transitions are skipped
+when the user prefers reduced motion. Mobile interaction uses sequential taps,
+not drag-and-drop, so the nodes remain usable on narrow screens. Keyboard users
+can tab through nodes and activate them with Enter or Space.
+
+Small micro interactions are intentionally limited to active navigation
+feedback, button press movement, project card hover lift, tech badge hover
+states, social button movement, timeline focus/hover emphasis, language menu
+transitions, and a subtle theme icon transition. No audio, haptics, analytics,
+custom cursor, chatbot, AI API, canvas engine, or leaderboard is included.
 
 ## GitHub Portfolio Data
 
@@ -140,6 +175,8 @@ without changing page components.
   European Portuguese, Dutch, and Polish
 - Accessible language switcher with current-page locale switching
 - Translation validation script
+- Packet Route mini game in the homepage hero system-flow area
+- Reduced-motion-aware reveal and micro interactions
 
 ## Current Routes
 
@@ -171,5 +208,6 @@ All Download CV buttons point to `/documents/emir-yilmaz-cv.pdf`.
 - Review AI-assisted translations with native speakers or a human reviewer.
 - Add optional `portfolio.json` metadata support for richer repo-specific overrides.
 - Add contact form backend.
-- Add mini game.
 - Add chatbot.
+- Add lightweight tests for Packet Route route order, reset, wrong route, and
+  localStorage fallback behavior.

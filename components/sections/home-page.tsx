@@ -5,6 +5,7 @@ import { FeaturedProjectsSection } from "@/components/sections/featured-projects
 import { HeroSection } from "@/components/sections/hero-section";
 import { TechnicalSkillsSection } from "@/components/sections/technical-skills-section";
 import { ValueStripSection } from "@/components/sections/value-strip-section";
+import { Reveal } from "@/components/ui/reveal";
 
 type HomePageContentProps = {
   locale: string;
@@ -14,12 +15,24 @@ export function HomePageContent({ locale }: HomePageContentProps) {
   return (
     <>
       <HeroSection locale={locale} />
-      <ValueStripSection />
-      <FeaturedProjectsSection locale={locale} />
-      <AboutPreviewSection locale={locale} />
-      <TechnicalSkillsSection />
-      <EducationExperienceSection />
-      <ContactCtaSection locale={locale} />
+      <Reveal>
+        <ValueStripSection />
+      </Reveal>
+      <Reveal delay="short">
+        <FeaturedProjectsSection locale={locale} />
+      </Reveal>
+      <Reveal>
+        <AboutPreviewSection locale={locale} />
+      </Reveal>
+      <Reveal delay="short">
+        <TechnicalSkillsSection />
+      </Reveal>
+      <Reveal>
+        <EducationExperienceSection />
+      </Reveal>
+      <Reveal delay="short">
+        <ContactCtaSection locale={locale} />
+      </Reveal>
     </>
   );
 }

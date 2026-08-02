@@ -59,7 +59,7 @@ export function Navbar() {
               key={item.href}
               href={buildLocalizedHref(locale, item.href)}
               className={cn(
-                "relative rounded-[6px] px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-surface hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                "relative rounded-[6px] px-3 py-2 text-sm font-medium text-muted-foreground transition hover:bg-surface hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring after:transition-all after:duration-200",
                 isActivePath(pathname, locale, item.href) &&
                   "bg-surface text-foreground after:absolute after:inset-x-3 after:-bottom-0.5 after:h-px after:bg-accent",
               )}
@@ -71,7 +71,7 @@ export function Navbar() {
 
         <div className="hidden items-center gap-2 md:flex">
           <LanguageSwitcher />
-          <ThemeToggle />
+          <ThemeToggle testId="desktop-theme-toggle" />
           <Button asChild>
             <a href={cvDownloadHref} download>
               <Download size={16} aria-hidden="true" />
@@ -81,7 +81,7 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
+          <ThemeToggle testId="mobile-theme-toggle" />
           <button
             className="inline-flex h-10 w-10 items-center justify-center rounded-[6px] border border-border bg-surface text-foreground transition hover:border-border-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             type="button"

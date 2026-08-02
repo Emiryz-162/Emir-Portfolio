@@ -68,6 +68,45 @@
           "database": "Veritabanı",
           "deploy": "Deploy"
         }
+      },
+      "miniGame": {
+        "eyebrow": "Mini oyun",
+        "title": "Packet Route",
+        "description": "Küçük bir veri paketini full stack akışında doğru yoldan geçir.",
+        "instruction": "İstek paketini doğru sistem sırasından yönlendir.",
+        "completedBefore": "Packet Route açıldı. İstediğin zaman tekrar oynayabilirsin.",
+        "nodes": {
+          "client": "Client",
+          "frontend": "Frontend",
+          "api": "API",
+          "database": "Database",
+          "deploy": "Deploy"
+        },
+        "labels": {
+          "request": "İstek",
+          "interface": "Arayüz",
+          "logic": "Mantık",
+          "data": "Veri",
+          "production": "Üretim"
+        },
+        "actions": {
+          "reset": "Sıfırla",
+          "skip": "Etkileşimi atla",
+          "playAgain": "Tekrar oyna",
+          "viewProjects": "Projeleri Gör"
+        },
+        "feedback": {
+          "ready": "Client ile başla ve sonraki servisi seç.",
+          "correct": "Rota kabul edildi",
+          "wrong": "400 - Yanlış rota",
+          "tryAgain": "Başka bir servis dene"
+        },
+        "success": {
+          "status": "200 OK",
+          "message": "Deployment başarılı",
+          "achievement": "Portfolio Explorer açıldı",
+          "dismiss": "Başarı bildirimini kapat"
+        }
       }
     },
     "valueStrip": {

@@ -68,6 +68,45 @@
           "database": "Base de données",
           "deploy": "Déploiement"
         }
+      },
+      "miniGame": {
+        "eyebrow": "Mini-jeu",
+        "title": "Packet Route",
+        "description": "Guide un petit paquet de données dans le flux full stack.",
+        "instruction": "Fais passer la requête dans le bon ordre système.",
+        "completedBefore": "Packet Route est débloqué. Tu peux le rejouer à tout moment.",
+        "nodes": {
+          "client": "Client",
+          "frontend": "Frontend",
+          "api": "API",
+          "database": "Database",
+          "deploy": "Deploy"
+        },
+        "labels": {
+          "request": "Requête",
+          "interface": "Interface",
+          "logic": "Logique",
+          "data": "Données",
+          "production": "Production"
+        },
+        "actions": {
+          "reset": "Réinitialiser",
+          "skip": "Passer l’interaction",
+          "playAgain": "Rejouer",
+          "viewProjects": "Voir les projets"
+        },
+        "feedback": {
+          "ready": "Commence par Client et choisis le service suivant.",
+          "correct": "Route acceptée",
+          "wrong": "400 - Mauvaise route",
+          "tryAgain": "Essaie un autre service"
+        },
+        "success": {
+          "status": "200 OK",
+          "message": "Deployment réussi",
+          "achievement": "Portfolio Explorer débloqué",
+          "dismiss": "Fermer la notification de succès"
+        }
       }
     },
     "valueStrip": {

@@ -14,9 +14,9 @@ export function TimelineItem({
   index,
 }: TimelineItemProps) {
   return (
-    <article className="relative rounded-[6px] border border-border bg-surface/72 p-5">
+    <article className="group relative rounded-[6px] border border-border bg-surface/72 p-5 transition duration-200 hover:-translate-y-0.5 hover:border-border-strong focus-within:border-border-strong motion-reduce:transition-none motion-reduce:hover:translate-y-0">
       <div className="mb-7 flex items-center justify-between gap-3">
-        <span className="font-mono text-xs uppercase tracking-normal text-accent">
+        <span className="font-mono text-xs uppercase tracking-normal text-accent transition group-hover:text-foreground">
           {label}
         </span>
         <span className="font-mono text-xs text-muted">

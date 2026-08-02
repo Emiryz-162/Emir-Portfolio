@@ -68,6 +68,45 @@
           "database": "Database",
           "deploy": "Deploy"
         }
+      },
+      "miniGame": {
+        "eyebrow": "Mini game",
+        "title": "Packet Route",
+        "description": "Guide a small data packet through the full stack flow.",
+        "instruction": "Route the request through the correct system order.",
+        "completedBefore": "Packet Route is unlocked. You can replay it anytime.",
+        "nodes": {
+          "client": "Client",
+          "frontend": "Frontend",
+          "api": "API",
+          "database": "Database",
+          "deploy": "Deploy"
+        },
+        "labels": {
+          "request": "Request",
+          "interface": "Interface",
+          "logic": "Logic",
+          "data": "Data",
+          "production": "Production"
+        },
+        "actions": {
+          "reset": "Reset",
+          "skip": "Skip interaction",
+          "playAgain": "Play again",
+          "viewProjects": "View Projects"
+        },
+        "feedback": {
+          "ready": "Start from Client and choose the next service.",
+          "correct": "Route accepted",
+          "wrong": "400 - Wrong route",
+          "tryAgain": "Try another service"
+        },
+        "success": {
+          "status": "200 OK",
+          "message": "Deployment successful",
+          "achievement": "Portfolio Explorer unlocked",
+          "dismiss": "Dismiss achievement"
+        }
       }
     },
     "valueStrip": {

@@ -5,7 +5,11 @@ import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { useMounted } from "@/hooks/use-mounted";
 
-export function ThemeToggle() {
+type ThemeToggleProps = {
+  testId?: string;
+};
+
+export function ThemeToggle({ testId }: ThemeToggleProps) {
   const t = useTranslations("Common");
   const { resolvedTheme, setTheme } = useTheme();
   const mounted = useMounted();
@@ -21,11 +25,16 @@ export function ThemeToggle() {
       type="button"
       aria-label={t(`theme.${nextTheme}`)}
       title={mounted ? t(`theme.current.${activeTheme}`) : t("theme.loading")}
+      data-testid={testId}
       onClick={() => setTheme(nextTheme)}
       disabled={!mounted}
     >
       <Icon
-        className={mounted ? "opacity-100" : "opacity-0"}
+        className={
+          mounted
+            ? "opacity-100 transition duration-200 motion-reduce:transition-none"
+            : "opacity-0"
+        }
         size={18}
         aria-hidden="true"
       />
