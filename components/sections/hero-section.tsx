@@ -9,6 +9,7 @@ import { SocialButton } from "@/components/ui/social-button";
 import { profile } from "@/data/profile";
 import { cvDownloadHref, socialLinks } from "@/data/social-links";
 import { buildLocalizedHref } from "@/i18n/routing";
+import { getCvAvailability } from "@/lib/cv";
 
 type HeroSectionProps = {
   locale: string;
@@ -16,6 +17,8 @@ type HeroSectionProps = {
 
 export function HeroSection({ locale }: HeroSectionProps) {
   const t = useTranslations("Home.hero");
+  const commonT = useTranslations("Common");
+  const isCvAvailable = getCvAvailability();
 
   return (
     <section className="border-b border-border">
@@ -46,12 +49,32 @@ export function HeroSection({ locale }: HeroSectionProps) {
                 <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </Button>
-            <Button asChild variant="secondary">
-              <a href={cvDownloadHref} download>
+            {isCvAvailable ? (
+              <Button asChild variant="secondary">
+                <a
+                  href={cvDownloadHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  aria-label={commonT("cv.aria")}
+                >
+                  <Download size={16} aria-hidden="true" />
+                  {t("cvButton")}
+                  <span className="font-mono text-[11px] uppercase">
+                    {commonT("cv.pdf")}
+                  </span>
+                </a>
+              </Button>
+            ) : (
+              <Button
+                variant="secondary"
+                disabled
+                aria-label={commonT("cv.unavailableTitle")}
+              >
                 <Download size={16} aria-hidden="true" />
                 {t("cvButton")}
-              </a>
-            </Button>
+              </Button>
+            )}
           </div>
           <div className="mt-7 flex flex-wrap gap-2">
             {socialLinks.map((link) => (

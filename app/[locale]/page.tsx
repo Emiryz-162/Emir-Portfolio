@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { setRequestLocale } from "next-intl/server";
 import { HomePageContent } from "@/components/sections/home-page";
-import { getLocalizedAlternates, getMetadataBase } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/metadata";
+import { getHomeStructuredData } from "@/lib/seo/structured-data";
 
 type HomePageProps = {
   params: Promise<{ locale: string }>;
@@ -14,17 +15,28 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
-  return {
-    metadataBase: getMetadataBase(),
+  return createPageMetadata({
     title: t("home.title"),
     description: t("home.description"),
-    alternates: getLocalizedAlternates("/"),
-  };
+    pathname: "/",
+    locale,
+  });
 }
 
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <HomePageContent locale={locale} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getHomeStructuredData()),
+        }}
+      />
+      <HomePageContent locale={locale} />
+    </>
+  );
 }

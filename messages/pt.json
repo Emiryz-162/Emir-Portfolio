@@ -10,6 +10,14 @@
         "dark": "Tema actual: escuro",
         "light": "Tema actual: claro"
       }
+    },
+    "skipToContent": "Saltar para o conte?do principal",
+    "cv": {
+      "download": "Descarregar CV",
+      "aria": "Descarregar o CV de Emir Yilmaz em PDF",
+      "pdf": "PDF",
+      "unavailableTitle": "O ficheiro do CV ainda n?o est? dispon?vel",
+      "unavailableDescription": "Adicione public/documents/emir-yilmaz-cv.pdf para ativar esta liga??o."
     }
   },
   "Navigation": {
@@ -25,7 +33,10 @@
       "skills": "Competências",
       "education": "Formação",
       "contact": "Contacto"
-    }
+    },
+    "cvAria": "Descarregar o CV de Emir Yilmaz em PDF",
+    "cvUnavailable": "O ficheiro do CV ainda n?o est? dispon?vel",
+    "cvPdf": "PDF"
   },
   "Footer": {
     "builtBy": "Built by Emir.",
@@ -414,6 +425,54 @@
         "label": "GitHub",
         "aria": "Abra o perfil GitHub do Emir"
       }
+    },
+    "status": "Dispon?vel para oportunidades",
+    "cv": {
+      "title": "CV"
+    },
+    "form": {
+      "eyebrow": "Mensagem",
+      "title": "Enviar uma mensagem",
+      "description": "Use o formul?rio para fun??es, projetos ou ideias pr?ticas de colabora??o.",
+      "honeypot": "Empresa",
+      "privacy": "As suas informa??es s?o usadas apenas para responder ? sua mensagem.",
+      "emailFallback": "Enviar e-mail em alternativa",
+      "fields": {
+        "name": {
+          "label": "Nome"
+        },
+        "email": {
+          "label": "E-mail"
+        },
+        "subject": {
+          "label": "Assunto"
+        },
+        "message": {
+          "label": "Mensagem"
+        }
+      },
+      "actions": {
+        "submit": "Enviar mensagem",
+        "sending": "A enviar..."
+      },
+      "status": {
+        "success": "A sua mensagem foi enviada. Responderei assim que poss?vel.",
+        "validationError": "Verifique os campos assinalados.",
+        "serverError": "A mensagem n?o p?de ser enviada neste momento.",
+        "rateLimited": "Foram enviadas demasiadas mensagens. Tente novamente mais tarde.",
+        "unavailable": "O formul?rio de contacto est? temporariamente indispon?vel."
+      },
+      "errors": {
+        "required": "Preencha este campo.",
+        "nameTooShort": "Introduza pelo menos 2 caracteres.",
+        "nameTooLong": "Mantenha o nome abaixo de 80 caracteres.",
+        "emailInvalid": "Introduza um endere?o de e-mail v?lido.",
+        "emailTooLong": "Mantenha o e-mail abaixo de 254 caracteres.",
+        "subjectTooShort": "Introduza um assunto.",
+        "subjectTooLong": "Mantenha o assunto abaixo de 120 caracteres.",
+        "messageTooShort": "A mensagem deve conter pelo menos 20 caracteres.",
+        "messageTooLong": "Mantenha a mensagem abaixo de 3000 caracteres."
+      }
     }
   },
   "Projects": {
@@ -552,6 +611,14 @@
     "eyebrow": "Não encontrado",
     "title": "404",
     "description": "A página que você procura não existe ou não está mais disponível.",
-    "homeLink": "Voltar para a página inicial"
+    "homeLink": "Voltar para a página inicial",
+    "projectsLink": "Ver projetos"
+  },
+  "ErrorPage": {
+    "eyebrow": "Algo correu mal",
+    "title": "Esta p?gina precisa de ser atualizada.",
+    "description": "A p?gina n?o foi carregada corretamente. Pode tentar novamente ou voltar ao in?cio.",
+    "retry": "Tentar novamente",
+    "homeLink": "Voltar ao in?cio"
   }
 }

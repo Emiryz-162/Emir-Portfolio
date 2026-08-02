@@ -3,7 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SkillGroup } from "@/components/sections/skill-group";
 import { Container } from "@/components/ui/container";
 import { skillGroups } from "@/data/skills";
-import { getLocalizedAlternates, getMetadataBase } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/metadata";
 
 type SkillsPageProps = {
   params: Promise<{ locale: string }>;
@@ -15,12 +15,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
-  return {
-    metadataBase: getMetadataBase(),
+  return createPageMetadata({
     title: t("skills.title"),
     description: t("skills.description"),
-    alternates: getLocalizedAlternates("/skills"),
-  };
+    pathname: "/skills",
+    locale,
+  });
 }
 
 export default async function SkillsPage({ params }: SkillsPageProps) {

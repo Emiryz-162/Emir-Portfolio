@@ -10,6 +10,14 @@
         "dark": "Current theme: dark",
         "light": "Current theme: light"
       }
+    },
+    "skipToContent": "Skip to main content",
+    "cv": {
+      "download": "Download CV",
+      "aria": "Download Emir Yilmaz's CV as PDF",
+      "pdf": "PDF",
+      "unavailableTitle": "CV file is not available yet",
+      "unavailableDescription": "Add public/documents/emir-yilmaz-cv.pdf to enable this link."
     }
   },
   "Navigation": {
@@ -25,7 +33,10 @@
       "skills": "Skills",
       "education": "Education",
       "contact": "Contact"
-    }
+    },
+    "cvAria": "Download Emir Yilmaz's CV as PDF",
+    "cvUnavailable": "CV file is not available yet",
+    "cvPdf": "PDF"
   },
   "Footer": {
     "builtBy": "Designed and built by Emir.",
@@ -414,6 +425,54 @@
         "label": "GitHub",
         "aria": "Open Emir's GitHub profile"
       }
+    },
+    "status": "Open to opportunities",
+    "cv": {
+      "title": "CV"
+    },
+    "form": {
+      "eyebrow": "Message",
+      "title": "Send a message",
+      "description": "Use the form for roles, projects or practical collaboration ideas.",
+      "honeypot": "Company",
+      "privacy": "Your information is only used to reply to your message.",
+      "emailFallback": "Send an email instead",
+      "fields": {
+        "name": {
+          "label": "Name"
+        },
+        "email": {
+          "label": "Email"
+        },
+        "subject": {
+          "label": "Subject"
+        },
+        "message": {
+          "label": "Message"
+        }
+      },
+      "actions": {
+        "submit": "Send message",
+        "sending": "Sending..."
+      },
+      "status": {
+        "success": "Your message has been sent. I'll get back to you as soon as possible.",
+        "validationError": "Please check the highlighted fields.",
+        "serverError": "The message could not be sent right now.",
+        "rateLimited": "Too many messages were sent. Please try again later.",
+        "unavailable": "The contact form is temporarily unavailable."
+      },
+      "errors": {
+        "required": "Please fill in this field.",
+        "nameTooShort": "Please enter at least 2 characters.",
+        "nameTooLong": "Please keep the name under 80 characters.",
+        "emailInvalid": "Enter a valid email address.",
+        "emailTooLong": "Please keep the email under 254 characters.",
+        "subjectTooShort": "Please enter a subject.",
+        "subjectTooLong": "Please keep the subject under 120 characters.",
+        "messageTooShort": "Your message must contain at least 20 characters.",
+        "messageTooLong": "Please keep the message under 3000 characters."
+      }
     }
   },
   "Projects": {
@@ -552,6 +611,14 @@
     "eyebrow": "Not found",
     "title": "404",
     "description": "The page you are looking for does not exist or is no longer available.",
+    "homeLink": "Back to home",
+    "projectsLink": "View projects"
+  },
+  "ErrorPage": {
+    "eyebrow": "Something went wrong",
+    "title": "This page needs a refresh.",
+    "description": "The page could not be loaded correctly. You can try again or return home.",
+    "retry": "Try again",
     "homeLink": "Back to home"
   }
 }

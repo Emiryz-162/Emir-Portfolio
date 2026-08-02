@@ -9,7 +9,8 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "validate:translations": "node scripts/validate-translations.mjs"
+    "validate:translations": "node scripts/validate-translations.mjs",
+    "validate:production": "node scripts/validate-production.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -22,6 +23,7 @@
     "react-dom": "19.2.4",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
+    "resend": "^6.18.1",
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {

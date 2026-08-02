@@ -14,6 +14,7 @@ The project uses the Concept A - Digital Workbench design direction: minimal, te
 - Framer Motion
 - react-markdown
 - remark-gfm
+- Resend
 - clsx
 - tailwind-merge
 - ESLint
@@ -36,6 +37,9 @@ but recommended for a higher GitHub API rate limit:
 ```bash
 GITHUB_TOKEN=
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
+RESEND_API_KEY=
+CONTACT_EMAIL_TO=yz.emir@hotmail.com
+CONTACT_EMAIL_FROM=
 ```
 
 Create a local `.env.local` from `.env.example` and add a classic or fine-grained
@@ -46,6 +50,13 @@ to client components.
 the localhost value for development only, and set the production origin when the
 real domain is available.
 
+The contact form sends email through Resend from a server action. Add a Resend
+API key and a verified sender address in `CONTACT_EMAIL_FROM`; production
+domains should be verified in Resend before using a custom sender. Missing
+contact environment variables do not break the whole site. The form shows a
+localized unavailable message and keeps a direct email fallback visible. Secret
+values are read only on the server and are never sent to client components.
+
 ## Scripts
 
 ```bash
@@ -55,6 +66,7 @@ npm run lint
 npm run format
 npm run format:check
 npm run validate:translations
+npm run validate:production
 ```
 
 ## Architecture
@@ -69,9 +81,12 @@ npm run validate:translations
 - `data`: Central profile, navigation, social link, project, skill, and experience data.
 - `i18n`: Locale routing, request config, and navigation wrappers.
 - `lib/github`: GitHub REST client, repository mapping, language stats, README fetching, and Markdown URL resolution.
+- `lib/contact`: Contact form validation, environment lookup, email rendering, and rate limiting.
 - `lib/mini-game`: Type-safe Packet Route step order and route selection helpers.
+- `lib/seo`: Person and WebSite JSON-LD data.
 - `messages`: Translation message files for all supported locales.
 - `scripts/validate-translations.mjs`: Checks locale files against the English message schema.
+- `scripts/validate-production.mjs`: Checks production readiness conventions that do not require secrets.
 - `types`: Shared TypeScript domain types.
 
 ## Internationalization
@@ -177,6 +192,10 @@ without changing page components.
 - Translation validation script
 - Packet Route mini game in the homepage hero system-flow area
 - Reduced-motion-aware reveal and micro interactions
+- CV availability-aware links
+- Resend-backed localized contact form with server validation
+- Sitemap, robots, manifest, generated icons, Open Graph image, JSON-LD, and
+  security headers
 
 ## Current Routes
 
@@ -200,6 +219,94 @@ public/documents/emir-yilmaz-cv.pdf
 
 All Download CV buttons point to `/documents/emir-yilmaz-cv.pdf`.
 
+If the file is not present, the site does not create a fake or empty PDF and it
+does not render broken CV links. Header and hero CV actions are disabled, and
+the contact page shows a localized development-friendly note naming the missing
+path. After adding the real file, the same central profile CV path enables the
+header, hero, and contact CV links. The links open the PDF in a new tab and use
+the `download` attribute when supported.
+
+## Contact Form
+
+The contact form lives only on the Contact page and uses a Next.js App Router
+server action with the official `resend` package. Fields are limited to name,
+email, subject, and message; phone number, company, file upload, accounts, admin
+features, database storage, analytics, CAPTCHA, and chatbot functionality are
+not included.
+
+Validation runs on the server with shared limits: name 2-80 characters, email
+required with a basic email format and 254 character limit, subject 3-120
+characters, and message 20-3000 characters. Client validation is present only
+for user experience.
+
+Spam protection is intentionally lightweight: a visually hidden honeypot, a
+minimum submit time check, and in-memory server-side rate limiting. The memory
+rate limit is useful as a first guard but is not distributed or persistent in
+serverless deployments. Redis, a database-backed limiter, Turnstile, or
+reCAPTCHA can be evaluated later if traffic requires it.
+
+Form data is not saved to a database. It is used to send the Resend email and to
+reply to the sender. User-provided content is escaped before HTML email output,
+and the user email is used as `Reply-To`, not as the sender.
+
+## SEO And Production Metadata
+
+The site uses the Next.js Metadata API for localized page titles, descriptions,
+canonical URLs, hreflang alternates, Open Graph, and Twitter card metadata.
+`NEXT_PUBLIC_SITE_URL` is the single production origin source; if it is missing
+or points to localhost during production, canonical URL generation is skipped
+instead of publishing localhost URLs.
+
+Metadata routes provide:
+
+- `app/sitemap.ts`: Locale-aware sitemap for static pages and available public
+  project detail pages. GitHub failures are handled without crashing the route.
+- `app/robots.ts`: Allows public routes in production, blocks API/internal
+  paths, and disallows indexing in development/preview.
+- `app/opengraph-image.tsx`: Code-generated Concept A Open Graph image.
+- `app/icon.tsx` and `app/apple-icon.tsx`: Minimal generated EY icons.
+- `app/manifest.ts`: Basic web app metadata without service worker, offline
+  mode, install prompt, or push notifications.
+
+The homepage renders static Person and WebSite JSON-LD with confirmed profile
+information only: name, alternate name, job title, Istanbul/Turkiye location,
+site URL, GitHub, and LinkedIn. Phone number, birth date, employer, awards, and
+unconfirmed claims are not included.
+
+## Security Headers
+
+`next.config.ts` adds conservative headers:
+
+- `X-Content-Type-Options: nosniff`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Permissions-Policy` disabling camera, microphone, geolocation, payment, USB,
+  magnetometer, and gyroscope
+- `X-Frame-Options: DENY`
+
+A Content Security Policy is intentionally left as a production hardening TODO
+because it should be tested against Next.js development/HMR behavior, remote
+GitHub README images, and any final deployment/image domains before enforcement.
+
+## Production Checklist
+
+- Add `public/documents/emir-yilmaz-cv.pdf`.
+- Set `NEXT_PUBLIC_SITE_URL` to the production origin.
+- Verify the Resend sender domain or sender address.
+- Add `RESEND_API_KEY`, `CONTACT_EMAIL_TO`, and `CONTACT_EMAIL_FROM`.
+- Add `GITHUB_TOKEN` if higher GitHub API rate limits are needed.
+- Run `npm run validate:translations`.
+- Run `npm run validate:production`.
+- Run `npm run lint`.
+- Run `npm run format:check`.
+- Run `npm run build`.
+- Check `/sitemap.xml`, `/robots.txt`, `/opengraph-image`, and page metadata.
+- Test the contact form unavailable fallback without a real API key before live
+  email testing.
+- Review AI-assisted translations with native speakers or a human reviewer.
+- Keep chatbot, AI API, analytics, database storage, service worker,
+  newsletter, authentication, and admin panel work for later phases only if
+  explicitly requested.
+
 ## TODO
 
 - Add the CV PDF file to `public/documents/emir-yilmaz-cv.pdf`.
@@ -207,7 +314,7 @@ All Download CV buttons point to `/documents/emir-yilmaz-cv.pdf`.
 - Microsoft certification title and verification details require confirmation.
 - Review AI-assisted translations with native speakers or a human reviewer.
 - Add optional `portfolio.json` metadata support for richer repo-specific overrides.
-- Add contact form backend.
-- Add chatbot.
 - Add lightweight tests for Packet Route route order, reset, wrong route, and
   localStorage fallback behavior.
+- Evaluate a production-tested Content Security Policy after the final hosting
+  and image domains are known.

@@ -10,6 +10,14 @@
         "dark": "Huidig thema: donker",
         "light": "Huidig thema: licht"
       }
+    },
+    "skipToContent": "Ga naar hoofdinhoud",
+    "cv": {
+      "download": "CV downloaden",
+      "aria": "Download het CV van Emir Yilmaz als PDF",
+      "pdf": "PDF",
+      "unavailableTitle": "Het CV-bestand is nog niet beschikbaar",
+      "unavailableDescription": "Voeg public/documents/emir-yilmaz-cv.pdf toe om deze link te activeren."
     }
   },
   "Navigation": {
@@ -25,7 +33,10 @@
       "skills": "Vaardigheden",
       "education": "Opleiding",
       "contact": "Contact"
-    }
+    },
+    "cvAria": "Download het CV van Emir Yilmaz als PDF",
+    "cvUnavailable": "Het CV-bestand is nog niet beschikbaar",
+    "cvPdf": "PDF"
   },
   "Footer": {
     "builtBy": "Ontworpen en gebouwd door Emir.",
@@ -414,6 +425,54 @@
         "label": "GitHub",
         "aria": "Emir’in GitHub profilini aç"
       }
+    },
+    "status": "Open voor kansen",
+    "cv": {
+      "title": "CV"
+    },
+    "form": {
+      "eyebrow": "Bericht",
+      "title": "Stuur een bericht",
+      "description": "Gebruik het formulier voor rollen, projecten of praktische samenwerkingsidee?n.",
+      "honeypot": "Bedrijf",
+      "privacy": "Je gegevens worden alleen gebruikt om op je bericht te reageren.",
+      "emailFallback": "Stuur in plaats daarvan een e-mail",
+      "fields": {
+        "name": {
+          "label": "Naam"
+        },
+        "email": {
+          "label": "E-mail"
+        },
+        "subject": {
+          "label": "Onderwerp"
+        },
+        "message": {
+          "label": "Bericht"
+        }
+      },
+      "actions": {
+        "submit": "Bericht sturen",
+        "sending": "Versturen..."
+      },
+      "status": {
+        "success": "Je bericht is verzonden. Ik neem zo snel mogelijk contact op.",
+        "validationError": "Controleer de gemarkeerde velden.",
+        "serverError": "Het bericht kan nu niet worden verzonden.",
+        "rateLimited": "Er zijn te veel berichten verzonden. Probeer het later opnieuw.",
+        "unavailable": "Het contactformulier is tijdelijk niet beschikbaar."
+      },
+      "errors": {
+        "required": "Vul dit veld in.",
+        "nameTooShort": "Voer minstens 2 tekens in.",
+        "nameTooLong": "Houd de naam onder 80 tekens.",
+        "emailInvalid": "Voer een geldig e-mailadres in.",
+        "emailTooLong": "Houd de e-mail onder 254 tekens.",
+        "subjectTooShort": "Voer een onderwerp in.",
+        "subjectTooLong": "Houd het onderwerp onder 120 tekens.",
+        "messageTooShort": "Je bericht moet minstens 20 tekens bevatten.",
+        "messageTooLong": "Houd het bericht onder 3000 tekens."
+      }
     }
   },
   "Projects": {
@@ -552,6 +611,14 @@
     "eyebrow": "Bulunamadı",
     "title": "404",
     "description": "Aradığınız sayfa yok veya artık kullanılamıyor.",
+    "homeLink": "Terug naar home",
+    "projectsLink": "Projecten bekijken"
+  },
+  "ErrorPage": {
+    "eyebrow": "Er is iets misgegaan",
+    "title": "Deze pagina moet worden vernieuwd.",
+    "description": "De pagina kon niet goed worden geladen. Je kunt het opnieuw proberen of naar de startpagina gaan.",
+    "retry": "Opnieuw proberen",
     "homeLink": "Terug naar home"
   }
 }

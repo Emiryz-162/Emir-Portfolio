@@ -25,7 +25,7 @@ import {
   getPortfolioProjectResult,
 } from "@/lib/github/repositories";
 import { getGitHubRepositoryLanguages } from "@/lib/github/repository-details";
-import { getLocalizedAlternates, getMetadataBase } from "@/lib/metadata";
+import { createPageMetadata, getMetadataBase } from "@/lib/metadata";
 
 type ProjectDetailPageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -48,15 +48,15 @@ export async function generateMetadata({
     };
   }
 
-  return {
-    metadataBase: getMetadataBase(),
+  return createPageMetadata({
     title: `${project.name} | Emir Yılmaz`,
     description: truncateText(
       project.description ?? t("fallbackDescription"),
       155,
     ),
-    alternates: getLocalizedAlternates(`/projects/${project.slug}`),
-  };
+    pathname: `/projects/${project.slug}`,
+    locale,
+  });
 }
 
 export default async function ProjectDetailPage({

@@ -9,7 +9,8 @@ import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { routing } from "@/i18n/routing";
-import { getLocalizedAlternates, getMetadataBase } from "@/lib/metadata";
+import { getCvAvailability } from "@/lib/cv";
+import { createPageMetadata } from "@/lib/metadata";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,12 +39,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
-  return {
-    metadataBase: getMetadataBase(),
+  return createPageMetadata({
     title: t("site.title"),
     description: t("site.description"),
-    alternates: getLocalizedAlternates("/"),
-  };
+    pathname: "/",
+    locale,
+  });
 }
 
 export default async function LocaleLayout({
@@ -57,6 +58,8 @@ export default async function LocaleLayout({
   }
 
   setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "Common" });
+  const isCvAvailable = getCvAvailability();
 
   return (
     <html
@@ -67,8 +70,16 @@ export default async function LocaleLayout({
       <body className="flex min-h-full flex-col bg-background text-foreground antialiased">
         <NextIntlClientProvider>
           <ThemeProvider>
-            <Navbar />
-            <main className="flex-1 pt-20">{children}</main>
+            <a
+              href="#main-content"
+              className="fixed left-4 top-4 z-[60] -translate-y-20 rounded-[6px] border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground transition focus:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              {t("skipToContent")}
+            </a>
+            <Navbar cvAvailable={isCvAvailable} />
+            <main id="main-content" className="flex-1 pt-20" tabIndex={-1}>
+              {children}
+            </main>
             <Footer />
           </ThemeProvider>
         </NextIntlClientProvider>

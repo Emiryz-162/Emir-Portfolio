@@ -5,7 +5,7 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { StatusDot } from "@/components/ui/status-dot";
 import { TechBadge } from "@/components/ui/tech-badge";
 import { profile } from "@/data/profile";
-import { getLocalizedAlternates, getMetadataBase } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/metadata";
 
 type AboutPageProps = {
   params: Promise<{ locale: string }>;
@@ -17,12 +17,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
-  return {
-    metadataBase: getMetadataBase(),
+  return createPageMetadata({
     title: t("about.title"),
     description: t("about.description"),
-    alternates: getLocalizedAlternates("/about"),
-  };
+    pathname: "/about",
+    locale,
+  });
 }
 
 const focusKeys = [

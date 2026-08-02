@@ -16,7 +16,11 @@ import { cvDownloadHref } from "@/data/social-links";
 import { buildLocalizedHref } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
 
-export function Navbar() {
+type NavbarProps = {
+  cvAvailable: boolean;
+};
+
+export function Navbar({ cvAvailable }: NavbarProps) {
   const t = useTranslations("Navigation");
   const locale = useLocale();
   const pathname = usePathname();
@@ -72,12 +76,7 @@ export function Navbar() {
         <div className="hidden items-center gap-2 md:flex">
           <LanguageSwitcher />
           <ThemeToggle testId="desktop-theme-toggle" />
-          <Button asChild>
-            <a href={cvDownloadHref} download>
-              <Download size={16} aria-hidden="true" />
-              {t("cv")}
-            </a>
-          </Button>
+          <CvButton cvAvailable={cvAvailable} />
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
@@ -123,16 +122,46 @@ export function Navbar() {
           ))}
           <div className="mt-2 flex items-center gap-2 border-t border-border pt-4">
             <LanguageSwitcher align="left" />
-            <Button asChild className="flex-1">
-              <a href={cvDownloadHref} download>
-                <Download size={16} aria-hidden="true" />
-                {t("cv")}
-              </a>
-            </Button>
+            <CvButton cvAvailable={cvAvailable} className="flex-1" />
           </div>
         </Container>
       </div>
     </header>
+  );
+}
+
+function CvButton({
+  cvAvailable,
+  className,
+}: {
+  cvAvailable: boolean;
+  className?: string;
+}) {
+  const t = useTranslations("Navigation");
+
+  if (!cvAvailable) {
+    return (
+      <Button className={className} disabled aria-label={t("cvUnavailable")}>
+        <Download size={16} aria-hidden="true" />
+        {t("cv")}
+      </Button>
+    );
+  }
+
+  return (
+    <Button asChild className={className}>
+      <a
+        href={cvDownloadHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        download
+        aria-label={t("cvAria")}
+      >
+        <Download size={16} aria-hidden="true" />
+        {t("cv")}
+        <span className="font-mono text-[11px] uppercase">{t("cvPdf")}</span>
+      </a>
+    </Button>
   );
 }
 

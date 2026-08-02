@@ -10,6 +10,14 @@
         "dark": "Tema attuale: scuro",
         "light": "Tema attuale: chiaro"
       }
+    },
+    "skipToContent": "Vai al contenuto principale",
+    "cv": {
+      "download": "Scarica CV",
+      "aria": "Scarica il CV di Emir Yilmaz in PDF",
+      "pdf": "PDF",
+      "unavailableTitle": "Il file CV non ? ancora disponibile",
+      "unavailableDescription": "Aggiungi public/documents/emir-yilmaz-cv.pdf per attivare questo link."
     }
   },
   "Navigation": {
@@ -25,7 +33,10 @@
       "skills": "Competenze",
       "education": "Formazione",
       "contact": "Contatti"
-    }
+    },
+    "cvAria": "Scarica il CV di Emir Yilmaz in PDF",
+    "cvUnavailable": "Il file CV non ? ancora disponibile",
+    "cvPdf": "PDF"
   },
   "Footer": {
     "builtBy": "Progettato e sviluppato da Emir.",
@@ -414,6 +425,54 @@
         "label": "GitHub",
         "aria": "Apri il profilo GitHub di Emir"
       }
+    },
+    "status": "Aperto a opportunit?",
+    "cv": {
+      "title": "CV"
+    },
+    "form": {
+      "eyebrow": "Messaggio",
+      "title": "Invia un messaggio",
+      "description": "Usa il modulo per ruoli, progetti o idee pratiche di collaborazione.",
+      "honeypot": "Azienda",
+      "privacy": "Le tue informazioni sono usate solo per rispondere al tuo messaggio.",
+      "emailFallback": "Invia invece una e-mail",
+      "fields": {
+        "name": {
+          "label": "Nome"
+        },
+        "email": {
+          "label": "E-mail"
+        },
+        "subject": {
+          "label": "Oggetto"
+        },
+        "message": {
+          "label": "Messaggio"
+        }
+      },
+      "actions": {
+        "submit": "Invia messaggio",
+        "sending": "Invio..."
+      },
+      "status": {
+        "success": "Il tuo messaggio ? stato inviato. Ti risponder? il prima possibile.",
+        "validationError": "Controlla i campi evidenziati.",
+        "serverError": "Il messaggio non pu? essere inviato al momento.",
+        "rateLimited": "Sono stati inviati troppi messaggi. Riprova pi? tardi.",
+        "unavailable": "Il modulo di contatto ? temporaneamente non disponibile."
+      },
+      "errors": {
+        "required": "Compila questo campo.",
+        "nameTooShort": "Inserisci almeno 2 caratteri.",
+        "nameTooLong": "Mantieni il nome sotto 80 caratteri.",
+        "emailInvalid": "Inserisci un indirizzo e-mail valido.",
+        "emailTooLong": "Mantieni l e-mail sotto 254 caratteri.",
+        "subjectTooShort": "Inserisci un oggetto.",
+        "subjectTooLong": "Mantieni l oggetto sotto 120 caratteri.",
+        "messageTooShort": "Il messaggio deve contenere almeno 20 caratteri.",
+        "messageTooLong": "Mantieni il messaggio sotto 3000 caratteri."
+      }
     }
   },
   "Projects": {
@@ -552,6 +611,14 @@
     "eyebrow": "Non trovato",
     "title": "404",
     "description": "La pagina che stai cercando non esiste o non è più disponibile.",
+    "homeLink": "Torna alla home",
+    "projectsLink": "Vedi progetti"
+  },
+  "ErrorPage": {
+    "eyebrow": "Qualcosa ? andato storto",
+    "title": "Questa pagina deve essere aggiornata.",
+    "description": "La pagina non ? stata caricata correttamente. Puoi riprovare o tornare alla home.",
+    "retry": "Riprova",
     "homeLink": "Torna alla home"
   }
 }

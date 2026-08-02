@@ -5,7 +5,7 @@ import { ProjectsUnavailableState } from "@/components/projects/projects-empty-s
 import { Container } from "@/components/ui/container";
 import { Heading } from "@/components/ui/heading";
 import { getPortfolioProjects } from "@/lib/github/repositories";
-import { getLocalizedAlternates, getMetadataBase } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/metadata";
 
 type ProjectsPageProps = {
   params: Promise<{ locale: string }>;
@@ -17,12 +17,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
-  return {
-    metadataBase: getMetadataBase(),
+  return createPageMetadata({
     title: t("projects.title"),
     description: t("projects.description"),
-    alternates: getLocalizedAlternates("/projects"),
-  };
+    pathname: "/projects",
+    locale,
+  });
 }
 
 export default async function ProjectsPage({ params }: ProjectsPageProps) {

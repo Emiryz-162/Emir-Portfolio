@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/ui/container";
 import { TechBadge } from "@/components/ui/tech-badge";
-import { getLocalizedAlternates, getMetadataBase } from "@/lib/metadata";
+import { createPageMetadata } from "@/lib/metadata";
 
 type EducationPageProps = {
   params: Promise<{ locale: string }>;
@@ -14,12 +14,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
-  return {
-    metadataBase: getMetadataBase(),
+  return createPageMetadata({
     title: t("education.title"),
     description: t("education.description"),
-    alternates: getLocalizedAlternates("/education"),
-  };
+    pathname: "/education",
+    locale,
+  });
 }
 
 const educationKeys = ["education", "certification", "experience"] as const;

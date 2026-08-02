@@ -10,6 +10,14 @@
         "dark": "Geçerli tema: koyu",
         "light": "Geçerli tema: açık"
       }
+    },
+    "skipToContent": "Ana i?eri?e ge?",
+    "cv": {
+      "download": "CV indir",
+      "aria": "Emir Y?lmaz'?n CV dosyas?n? PDF olarak indir",
+      "pdf": "PDF",
+      "unavailableTitle": "CV dosyas? hen?z mevcut de?il",
+      "unavailableDescription": "Bu ba?lant?y? etkinle?tirmek i?in public/documents/emir-yilmaz-cv.pdf dosyas?n? ekleyin."
     }
   },
   "Navigation": {
@@ -25,7 +33,10 @@
       "skills": "Beceriler",
       "education": "Eğitim",
       "contact": "İletişim"
-    }
+    },
+    "cvAria": "Emir Y?lmaz'?n CV dosyas?n? PDF olarak indir",
+    "cvUnavailable": "CV dosyas? hen?z mevcut de?il",
+    "cvPdf": "PDF"
   },
   "Footer": {
     "builtBy": "Emir tarafından tasarlandı ve geliştirildi.",
@@ -414,6 +425,54 @@
         "label": "GitHub",
         "aria": "Emir’in GitHub profilini aç"
       }
+    },
+    "status": "F?rsatlara a??k",
+    "cv": {
+      "title": "CV"
+    },
+    "form": {
+      "eyebrow": "Mesaj",
+      "title": "Mesaj g?nder",
+      "description": "Rol, proje veya pratik i? birli?i fikirleri i?in formu kullanabilirsiniz.",
+      "honeypot": "?irket",
+      "privacy": "Bilgileriniz yaln?zca mesaj?n?za yan?t vermek i?in kullan?l?r.",
+      "emailFallback": "Bunun yerine e-posta g?nder",
+      "fields": {
+        "name": {
+          "label": "Ad"
+        },
+        "email": {
+          "label": "E-posta"
+        },
+        "subject": {
+          "label": "Konu"
+        },
+        "message": {
+          "label": "Mesaj"
+        }
+      },
+      "actions": {
+        "submit": "Mesaj? g?nder",
+        "sending": "G?nderiliyor..."
+      },
+      "status": {
+        "success": "Mesaj?n?z g?nderildi. En k?sa s?rede size d?n?? yapaca??m.",
+        "validationError": "L?tfen i?aretlenen alanlar? kontrol edin.",
+        "serverError": "Mesaj ?u anda g?nderilemedi.",
+        "rateLimited": "?ok fazla mesaj g?nderildi. L?tfen daha sonra tekrar deneyin.",
+        "unavailable": "?leti?im formu ge?ici olarak kullan?lam?yor."
+      },
+      "errors": {
+        "required": "L?tfen bu alan? doldurun.",
+        "nameTooShort": "L?tfen en az 2 karakter girin.",
+        "nameTooLong": "L?tfen ad? 80 karakterin alt?nda tutun.",
+        "emailInvalid": "Ge?erli bir e-posta adresi girin.",
+        "emailTooLong": "L?tfen e-postay? 254 karakterin alt?nda tutun.",
+        "subjectTooShort": "L?tfen bir konu girin.",
+        "subjectTooLong": "L?tfen konuyu 120 karakterin alt?nda tutun.",
+        "messageTooShort": "Mesaj?n?z en az 20 karakter i?ermelidir.",
+        "messageTooLong": "L?tfen mesaj? 3000 karakterin alt?nda tutun."
+      }
     }
   },
   "Projects": {
@@ -552,6 +611,14 @@
     "eyebrow": "Bulunamadı",
     "title": "404",
     "description": "Aradığınız sayfa yok veya artık kullanılamıyor.",
-    "homeLink": "Ana sayfaya dön"
+    "homeLink": "Ana sayfaya dön",
+    "projectsLink": "Projeleri g?r?nt?le"
+  },
+  "ErrorPage": {
+    "eyebrow": "Bir ?eyler ters gitti",
+    "title": "Bu sayfan?n yenilenmesi gerekiyor.",
+    "description": "Sayfa do?ru ?ekilde y?klenemedi. Tekrar deneyebilir veya ana sayfaya d?nebilirsiniz.",
+    "retry": "Tekrar dene",
+    "homeLink": "Ana sayfaya d?n"
   }
 }
