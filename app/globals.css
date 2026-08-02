@@ -4,34 +4,36 @@
 
 :root {
   color-scheme: dark;
-  --background: #050505;
-  --foreground: #f5f5f5;
-  --surface: #0d0d0d;
-  --surface-elevated: #151515;
-  --surface-muted: #1d1d1d;
+  --background: #080807;
+  --foreground: #f3f1ec;
+  --surface: #10100f;
+  --surface-elevated: #181817;
+  --surface-muted: #242321;
   --border: rgba(255, 255, 255, 0.12);
   --border-strong: rgba(255, 255, 255, 0.2);
-  --muted: #a1a1aa;
-  --muted-strong: #d4d4d8;
-  --accent: #d1915b;
-  --accent-foreground: #1a0f08;
-  --ring: rgba(209, 145, 91, 0.42);
+  --muted: #8d8a84;
+  --muted-foreground: #c8c5bd;
+  --muted-strong: #d8d5cd;
+  --accent: #c47a43;
+  --accent-foreground: #120b06;
+  --ring: rgba(196, 122, 67, 0.36);
 }
 
 .light {
   color-scheme: light;
-  --background: #f7f7f4;
+  --background: #f6f4ef;
   --foreground: #111111;
-  --surface: #ffffff;
-  --surface-elevated: #f1f1ee;
-  --surface-muted: #e6e6e1;
-  --border: rgba(17, 17, 17, 0.1);
+  --surface: #fbfaf7;
+  --surface-elevated: #ece9e2;
+  --surface-muted: #dfdbd2;
+  --border: rgba(17, 17, 17, 0.12);
   --border-strong: rgba(17, 17, 17, 0.18);
-  --muted: #626262;
+  --muted: #6d6860;
+  --muted-foreground: #3f3c37;
   --muted-strong: #333333;
-  --accent: #b66d35;
+  --accent: #aa6331;
   --accent-foreground: #ffffff;
-  --ring: rgba(182, 109, 53, 0.35);
+  --ring: rgba(170, 99, 49, 0.34);
 }
 
 @theme inline {
@@ -43,6 +45,7 @@
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
   --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
   --color-muted-strong: var(--muted-strong);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
@@ -64,6 +67,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 body::before {
@@ -78,10 +82,28 @@ body::before {
   background-position: top center;
   background-size: 44px 44px;
   mask-image: linear-gradient(to bottom, black, transparent 68%);
-  opacity: 0.34;
+  opacity: 0.28;
 }
 
 ::selection {
   background: var(--accent);
   color: var(--accent-foreground);
+}
+
+@media (max-width: 767px) {
+  body::before {
+    background-size: 32px 32px;
+    opacity: 0.14;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

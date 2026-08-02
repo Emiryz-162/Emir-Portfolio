@@ -18,7 +18,7 @@ export function Card({
   ...props
 }: CardProps) {
   const classes = cn(
-    "border border-border bg-surface/82 transition hover:border-border-strong",
+    "rounded-[6px] border border-border bg-surface/82 transition duration-200 hover:border-border-strong",
     className,
   );
 

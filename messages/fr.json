@@ -1,1 +1,203 @@
-{}
+{
+  "Common": {
+    "selectLanguage": "Select language",
+    "theme": {
+      "dark": "Switch to dark theme",
+      "light": "Switch to light theme",
+      "loading": "Theme is loading",
+      "current": {
+        "dark": "Current theme: dark",
+        "light": "Current theme: light"
+      }
+    }
+  },
+  "Navigation": {
+    "brand": "Emir Yilmaz",
+    "status": "Open to opportunities",
+    "cv": "Download CV",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "items": {
+      "home": "Home",
+      "projects": "Projects",
+      "about": "About",
+      "skills": "Skills",
+      "education": "Education",
+      "contact": "Contact"
+    }
+  },
+  "Footer": {
+    "name": "Emir Yilmaz",
+    "builtBy": "Designed and built by Emir.",
+    "social": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "email": "Email"
+    }
+  },
+  "Home": {
+    "hero": {
+      "eyebrow": "Hello, I'm",
+      "name": "Emir Yilmaz",
+      "role": "Full Stack Developer",
+      "description": "I build responsive web applications, backend services and interactive digital experiences.",
+      "secondaryDescription": "Also interested in frontend, backend, game development, game design and IT opportunities.",
+      "primaryButton": "Explore Projects",
+      "cvButton": "Download CV",
+      "social": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "email": "Email"
+      },
+      "stack": {
+        "title": "Current Stack",
+        "status": "Local setup",
+        "groups": {
+          "frontend": "Frontend",
+          "backend": "Backend",
+          "database": "Database",
+          "gameDevelopment": "Game Development"
+        }
+      },
+      "systemFlow": {
+        "title": "System Status",
+        "steps": {
+          "client": "Client",
+          "frontend": "Frontend",
+          "api": "API",
+          "database": "Database",
+          "deploy": "Deploy"
+        }
+      }
+    },
+    "valueStrip": {
+      "items": {
+        "problemSolver": {
+          "title": "Problem Solver",
+          "description": "Turns unclear requirements into small, workable steps."
+        },
+        "alwaysLearning": {
+          "title": "Always Learning",
+          "description": "Builds with curiosity, iteration and careful practice."
+        },
+        "teamPlayer": {
+          "title": "Team Player",
+          "description": "Values clear communication and reliable handoffs."
+        },
+        "creativeDeveloper": {
+          "title": "Creative Developer",
+          "description": "Connects engineering structure with interactive ideas."
+        }
+      }
+    },
+    "projects": {
+      "eyebrow": "Featured Projects",
+      "title": "Placeholder work, structured like real case studies",
+      "description": "A local project source for now, prepared to be swapped with GitHub or manual case-study data later.",
+      "viewAll": "View all projects",
+      "placeholderLabel": "Placeholder",
+      "detailLink": "Project detail",
+      "githubAria": "Open placeholder GitHub link",
+      "items": {
+        "eCommerceApi": {
+          "title": "E-Commerce API",
+          "description": "A draft API concept for product, order and user workflows."
+        },
+        "taskManagement": {
+          "title": "Task Management Web App",
+          "description": "A responsive app concept for everyday planning and team visibility."
+        },
+        "gamePrototype": {
+          "title": "2D Game Prototype",
+          "description": "A small game systems placeholder for mechanics, levels and iteration."
+        },
+        "portfolioWebsite": {
+          "title": "Portfolio Website",
+          "description": "This portfolio foundation, designed as a clean digital workbench."
+        }
+      }
+    },
+    "about": {
+      "eyebrow": "About Preview",
+      "title": "A practical developer profile with room to grow",
+      "description": "This section keeps the story short for now and leaves space for a more personal introduction when the final copy is ready.",
+      "photoPlaceholder": "Initials placeholder. A real photo can be added later without changing the layout.",
+      "link": "Open about page",
+      "facts": {
+        "location": {
+          "label": "Location",
+          "value": "Istanbul, Turkiye"
+        },
+        "focus": {
+          "label": "Focus",
+          "value": "Learning, building and improving full stack projects"
+        },
+        "availability": {
+          "label": "Availability",
+          "value": "Open to junior developer and IT opportunities"
+        }
+      },
+      "languages": {
+        "title": "Languages",
+        "turkish": {
+          "label": "Turkish",
+          "value": "Native"
+        },
+        "english": {
+          "label": "English",
+          "value": "Upper-Intermediate"
+        },
+        "german": {
+          "label": "German",
+          "value": "Beginner"
+        }
+      }
+    },
+    "skills": {
+      "eyebrow": "Technical Skills",
+      "title": "Skills grouped by practical use",
+      "description": "No percentages or inflated levels, just the areas this portfolio will present clearly.",
+      "groups": {
+        "frontend": "Frontend",
+        "backend": "Backend",
+        "database": "Database",
+        "tools": "Tools",
+        "gameDevelopment": "Game Development"
+      }
+    },
+    "timeline": {
+      "eyebrow": "Education & Experience",
+      "title": "A compact record of the verified path",
+      "description": "Only the current confirmed information is shown here.",
+      "labels": {
+        "experience": "Experience",
+        "education": "Education",
+        "certification": "Certification"
+      },
+      "items": {
+        "experience": {
+          "title": "IT Technician Intern",
+          "organization": "Egebant",
+          "meta": "June 2021 - August 2021"
+        },
+        "education": {
+          "title": "Computer Programming",
+          "organization": "Okan University",
+          "meta": "2022 - 2024"
+        },
+        "certification": {
+          "title": "SmartPro Software Academy",
+          "organization": "Project-Based Full Stack Web Development Training",
+          "meta": "240 Hours"
+        }
+      }
+    },
+    "contactCta": {
+      "eyebrow": "Contact",
+      "title": "Have a project or opportunity in mind?",
+      "description": "Let's build something useful together.",
+      "contactButton": "Contact Me",
+      "linkedinButton": "LinkedIn"
+    }
+  }
+}

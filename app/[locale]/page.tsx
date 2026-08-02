@@ -1,6 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
-import { HeroSection } from "@/components/sections/hero-section";
-import { SectionPreviewGrid } from "@/components/sections/section-preview-grid";
+import { HomePageContent } from "@/components/sections/home-page";
 
 type HomePageProps = {
   params: Promise<{ locale: string }>;
@@ -10,10 +9,5 @@ export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return (
-    <>
-      <HeroSection locale={locale} />
-      <SectionPreviewGrid locale={locale} />
-    </>
-  );
+  return <HomePageContent locale={locale} />;
 }
