@@ -91,31 +91,11 @@
       }
     },
     "projects": {
-      "eyebrow": "Featured Projects",
-      "title": "A project layout ready for verified work",
-      "description": "Selected projects will be synchronized from GitHub in a later phase. The current cards keep the layout ready without presenting placeholder data as completed work.",
-      "viewAll": "View all projects",
-      "placeholderLabel": "Draft slot",
-      "detailLink": "Project detail",
-      "githubAria": "Open GitHub profile placeholder",
-      "items": {
-        "eCommerceApi": {
-          "title": "E-Commerce API",
-          "description": "A draft API slot reserved for backend and database-focused work."
-        },
-        "taskManagement": {
-          "title": "Task Management Web App",
-          "description": "A draft web app slot reserved for responsive interface work."
-        },
-        "gamePrototype": {
-          "title": "2D Game Prototype",
-          "description": "A draft slot for future Unity or Godot game development work."
-        },
-        "portfolioWebsite": {
-          "title": "Portfolio Website",
-          "description": "This portfolio foundation, designed as a clean digital workbench."
-        }
-      }
+      "eyebrow": "?ne ??kan Projeler",
+      "title": "GitHub?dan gelen ger?ek ?al??malar",
+      "description": "Se?ilen herkese a??k repolar GitHub?dan senkronize edilir ve odakl? bir portfolio listesine d?n??t?r?l?r.",
+      "viewAll": "T?m projeleri g?r",
+      "emptyDescription": "?u anda ?ne ??kar?lacak herkese a??k repo bulunamad?. Uygun GitHub repolar? bulundu?unda portfolio ger?ek projeleri g?sterecek."
     },
     "about": {
       "eyebrow": "About Preview",
@@ -307,6 +287,103 @@
         "label": "GitHub",
         "aria": "Open Emir's GitHub profile"
       }
+    }
+  },
+  "Projects": {
+    "eyebrow": "Projeler",
+    "title": "Herkese a??k GitHub repo listesi",
+    "description": "Sunucu taraf?nda GitHub?dan ?ekilen, arama ve filtrelerle desteklenen canl? portfolio proje g?r?n?m?.",
+    "githubSync": "GitHub senkronizasyonu",
+    "publicProjects": "{count} herkese a??k proje",
+    "search": "Ara",
+    "searchPlaceholder": "?sim, dil, konu veya a??klama ile ara",
+    "category": "Kategori",
+    "sort": "S?rala",
+    "clearFilters": "Filtreleri temizle",
+    "emptyTitle": "Bu filtrelerle e?le?en proje yok",
+    "emptyDescription": "Farkl? bir arama terimi, kategori veya s?ralama se?ene?i deneyin.",
+    "noProjects": "?u anda herkese a??k portfolio projesi bulunmuyor.",
+    "viewGitHubProfile": "GitHub profilini a?",
+    "resultCount": "{count} proje g?steriliyor",
+    "updated": "{date} tarihinde g?ncellendi",
+    "archived": "Ar?ivlendi",
+    "categories": {
+      "all": "T?m?",
+      "fullstack": "Full stack",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "game": "Oyun",
+      "tool": "Ara?",
+      "experiment": "Deneysel",
+      "archived": "Ar?ivlenenler",
+      "other": "Di?er"
+    },
+    "sorts": {
+      "updated": "Son g?ncellenen",
+      "newest": "En yeni",
+      "oldest": "En eski",
+      "name": "?sim"
+    },
+    "statuses": {
+      "completed": "Tamamland?",
+      "inDevelopment": "Geli?tiriliyor",
+      "experimental": "Deneysel",
+      "archived": "Ar?ivlendi"
+    },
+    "card": {
+      "detail": "Proje detay?",
+      "liveDemo": "Canl? demo",
+      "noDescription": "Bu repo i?in hen?z a??klama bulunmuyor.",
+      "githubAria": "{name} reposunu GitHub?da a?",
+      "liveDemoAria": "{name} canl? demosunu a?"
+    },
+    "error": {
+      "title": "Projeler y?klenemedi",
+      "description": "GitHub verisi ge?ici olarak kullan?lam?yor. Canl? veriye ula??lamad???nda portfolio sahte proje verisi g?stermez."
+    }
+  },
+  "ProjectDetail": {
+    "back": "Projelere d?n",
+    "viewGitHub": "GitHub?da g?r",
+    "liveDemo": "Canl? demo",
+    "archived": "Ar?ivlendi",
+    "archivedWarning": "Bu repo ar?ivlenmi?, bu y?zden art?k aktif g?ncelleme alm?yor olabilir.",
+    "overview": "Genel bak??",
+    "metadata": "Repo detaylar?",
+    "languages": "Diller",
+    "readme": "Repo README i?eri?i",
+    "noReadme": "Bu repoda hen?z README i?eri?i bulunmuyor.",
+    "noDescription": "Bu repo i?in hen?z a??klama bulunmuyor.",
+    "created": "Olu?turulma",
+    "updated": "G?ncelleme",
+    "pushed": "Son push",
+    "license": "Lisans",
+    "stars": "{count} y?ld?z",
+    "forks": "{count} fork",
+    "primaryLanguage": "Ana dil",
+    "topics": "Konular",
+    "notAvailable": "Mevcut de?il",
+    "categories": {
+      "all": "T?m?",
+      "fullstack": "Full stack",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "game": "Oyun",
+      "tool": "Ara?",
+      "experiment": "Deneysel",
+      "archived": "Ar?ivlenenler",
+      "other": "Di?er"
+    },
+    "statuses": {
+      "completed": "Tamamland?",
+      "inDevelopment": "Geli?tiriliyor",
+      "experimental": "Deneysel",
+      "archived": "Ar?ivlendi"
+    },
+    "sources": {
+      "portfolio": "portfolio.md",
+      "readme": "README",
+      "description": "A??klama"
     }
   }
 }

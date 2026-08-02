@@ -92,30 +92,10 @@
     },
     "projects": {
       "eyebrow": "Featured Projects",
-      "title": "A project layout ready for verified work",
-      "description": "Selected projects will be synchronized from GitHub in a later phase. The current cards keep the layout ready without presenting placeholder data as completed work.",
+      "title": "Public work from GitHub",
+      "description": "Selected public repositories are synchronized from GitHub and filtered into a focused portfolio index.",
       "viewAll": "View all projects",
-      "placeholderLabel": "Draft slot",
-      "detailLink": "Project detail",
-      "githubAria": "Open GitHub profile placeholder",
-      "items": {
-        "eCommerceApi": {
-          "title": "E-Commerce API",
-          "description": "A draft API slot reserved for backend and database-focused work."
-        },
-        "taskManagement": {
-          "title": "Task Management Web App",
-          "description": "A draft web app slot reserved for responsive interface work."
-        },
-        "gamePrototype": {
-          "title": "2D Game Prototype",
-          "description": "A draft slot for future Unity or Godot game development work."
-        },
-        "portfolioWebsite": {
-          "title": "Portfolio Website",
-          "description": "This portfolio foundation, designed as a clean digital workbench."
-        }
-      }
+      "emptyDescription": "No featured public repositories are available right now. The portfolio will show real projects as soon as matching GitHub repositories are found."
     },
     "about": {
       "eyebrow": "About Preview",
@@ -307,6 +287,103 @@
         "label": "GitHub",
         "aria": "Open Emir's GitHub profile"
       }
+    }
+  },
+  "Projects": {
+    "eyebrow": "Projects",
+    "title": "Public GitHub repository index",
+    "description": "A live portfolio view built from public repositories, with server-side GitHub fetching, search, filters and stable fallbacks.",
+    "githubSync": "GitHub sync",
+    "publicProjects": "{count} public projects",
+    "search": "Search",
+    "searchPlaceholder": "Search by name, language, topic or description",
+    "category": "Category",
+    "sort": "Sort",
+    "clearFilters": "Clear filters",
+    "emptyTitle": "No projects match these filters",
+    "emptyDescription": "Try a different search term, category or sort option.",
+    "noProjects": "No public portfolio projects are currently available.",
+    "viewGitHubProfile": "Open GitHub profile",
+    "resultCount": "{count} projects shown",
+    "updated": "Updated {date}",
+    "archived": "Archived",
+    "categories": {
+      "all": "All",
+      "fullstack": "Full stack",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "game": "Game",
+      "tool": "Tool",
+      "experiment": "Experiment",
+      "archived": "Archived",
+      "other": "Other"
+    },
+    "sorts": {
+      "updated": "Recently updated",
+      "newest": "Newest",
+      "oldest": "Oldest",
+      "name": "Name"
+    },
+    "statuses": {
+      "completed": "Completed",
+      "inDevelopment": "In development",
+      "experimental": "Experimental",
+      "archived": "Archived"
+    },
+    "card": {
+      "detail": "Project detail",
+      "liveDemo": "Live demo",
+      "noDescription": "No repository description is available yet.",
+      "githubAria": "Open {name} on GitHub",
+      "liveDemoAria": "Open live demo for {name}"
+    },
+    "error": {
+      "title": "Projects could not be loaded",
+      "description": "GitHub data is temporarily unavailable. The portfolio avoids showing fake project data when live data cannot be reached."
+    }
+  },
+  "ProjectDetail": {
+    "back": "Back to projects",
+    "viewGitHub": "View GitHub",
+    "liveDemo": "Live demo",
+    "archived": "Archived",
+    "archivedWarning": "This repository is archived, so it may no longer receive active updates.",
+    "overview": "Overview",
+    "metadata": "Repository details",
+    "languages": "Languages",
+    "readme": "Repository README",
+    "noReadme": "This repository does not include README content yet.",
+    "noDescription": "No repository description is available yet.",
+    "created": "Created",
+    "updated": "Updated",
+    "pushed": "Last push",
+    "license": "License",
+    "stars": "{count} stars",
+    "forks": "{count} forks",
+    "primaryLanguage": "Primary language",
+    "topics": "Topics",
+    "notAvailable": "Not available",
+    "categories": {
+      "all": "All",
+      "fullstack": "Full stack",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "game": "Game",
+      "tool": "Tool",
+      "experiment": "Experiment",
+      "archived": "Archived",
+      "other": "Other"
+    },
+    "statuses": {
+      "completed": "Completed",
+      "inDevelopment": "In development",
+      "experimental": "Experimental",
+      "archived": "Archived"
+    },
+    "sources": {
+      "portfolio": "portfolio.md",
+      "readme": "README",
+      "description": "Description"
     }
   }
 }

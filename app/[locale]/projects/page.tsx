@@ -1,50 +1,97 @@
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { ProjectsBrowser } from "@/components/projects/projects-browser";
+import { ProjectsUnavailableState } from "@/components/projects/projects-empty-state";
 import { Container } from "@/components/ui/container";
 import { Heading } from "@/components/ui/heading";
-import { ProjectPlaceholderCard } from "@/components/sections/project-placeholder-card";
+import { getPortfolioProjects } from "@/lib/github/repositories";
 
 type ProjectsPageProps = {
   params: Promise<{ locale: string }>;
 };
 
-const placeholderProjects = [
-  {
-    slug: "portfolio-platform",
-    title: "Portfolio Platform",
-    description: "Placeholder route for the future portfolio case study.",
-  },
-  {
-    slug: "developer-tooling",
-    title: "Developer Tooling",
-    description: "Placeholder route for future full stack work.",
-  },
-  {
-    slug: "game-systems",
-    title: "Game Systems",
-    description: "Placeholder route for future game development work.",
-  },
-];
-
 export default async function ProjectsPage({ params }: ProjectsPageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const t = await getTranslations("Projects");
+  const projectsResult = await getPortfolioProjects();
+
+  const labels = {
+    search: t("search"),
+    searchPlaceholder: t("searchPlaceholder"),
+    category: t("category"),
+    sort: t("sort"),
+    clearFilters: t("clearFilters"),
+    emptyTitle: t("emptyTitle"),
+    emptyDescription: t("emptyDescription"),
+    viewGitHubProfile: t("viewGitHubProfile"),
+    resultCount: t.raw("resultCount") as string,
+    updated: t.raw("updated") as string,
+    archived: t("archived"),
+    detail: t("card.detail"),
+    liveDemo: t("card.liveDemo"),
+    noDescription: t("card.noDescription"),
+    githubAria: t.raw("card.githubAria") as string,
+    liveDemoAria: t.raw("card.liveDemoAria") as string,
+    categories: {
+      all: t("categories.all"),
+      fullstack: t("categories.fullstack"),
+      frontend: t("categories.frontend"),
+      backend: t("categories.backend"),
+      game: t("categories.game"),
+      tool: t("categories.tool"),
+      experiment: t("categories.experiment"),
+      other: t("categories.other"),
+      archived: t("categories.archived"),
+    },
+    sorts: {
+      updated: t("sorts.updated"),
+      newest: t("sorts.newest"),
+      oldest: t("sorts.oldest"),
+      name: t("sorts.name"),
+    },
+    statuses: {
+      completed: t("statuses.completed"),
+      "in-development": t("statuses.inDevelopment"),
+      experimental: t("statuses.experimental"),
+      archived: t("statuses.archived"),
+    },
+  };
+
   return (
     <Container className="py-12 sm:py-16">
-      <Heading
-        eyebrow="Projects"
-        title="Selected work framework"
-        description="A flexible project index that can later connect to GitHub data, manual case studies, or a mixed content source."
-      />
-      <div className="mt-10 grid gap-4 md:grid-cols-3">
-        {placeholderProjects.map((project) => (
-          <ProjectPlaceholderCard
-            key={project.slug}
-            locale={locale}
-            project={project}
-          />
-        ))}
+      <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <Heading
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+          description={t("description")}
+        />
+        <div className="rounded-[6px] border border-border bg-surface/72 px-4 py-3 font-mono text-xs uppercase tracking-normal text-muted">
+          {projectsResult.ok
+            ? t("publicProjects", { count: projectsResult.projects.length })
+            : t("githubSync")}
+        </div>
       </div>
+
+      {projectsResult.ok ? (
+        projectsResult.projects.length > 0 ? (
+          <ProjectsBrowser
+            locale={locale}
+            projects={projectsResult.projects}
+            labels={labels}
+          />
+        ) : (
+          <ProjectsUnavailableState
+            className="mt-10"
+            message={t("noProjects")}
+          />
+        )
+      ) : (
+        <ProjectsUnavailableState
+          className="mt-10"
+          message={projectsResult.message}
+        />
+      )}
     </Container>
   );
 }
