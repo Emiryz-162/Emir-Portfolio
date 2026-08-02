@@ -1,34 +1,34 @@
 {
   "Common": {
-    "selectLanguage": "Select language",
-    "translationNote": "Translations are created with AI assistance.",
+    "selectLanguage": "Seleziona lingua",
+    "translationNote": "Le traduzioni sono state create con assistenza IA.",
     "theme": {
-      "dark": "Switch to dark theme",
-      "light": "Switch to light theme",
-      "loading": "Theme is loading",
+      "dark": "Passa al tema scuro",
+      "light": "Passa al tema chiaro",
+      "loading": "Il tema è in caricamento",
       "current": {
-        "dark": "Current theme: dark",
-        "light": "Current theme: light"
+        "dark": "Tema attuale: scuro",
+        "light": "Tema attuale: chiaro"
       }
     }
   },
   "Navigation": {
-    "brand": "Emir Yılmaz",
-    "status": "Open to opportunities",
-    "cv": "Download CV",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu",
+    "brand": "L'emiro Yilmaz",
+    "status": "Aprire un'opportunità",
+    "cv": "Scarica CV",
+    "openMenu": "Menù di aprile",
+    "closeMenu": "Chiudi menu",
     "items": {
       "home": "Home",
-      "projects": "Projects",
-      "about": "About",
-      "skills": "Skills",
-      "education": "Education",
-      "contact": "Contact"
+      "projects": "Progetti",
+      "about": "Chi sono",
+      "skills": "Competenze",
+      "education": "Formazione",
+      "contact": "Contatti"
     }
   },
   "Footer": {
-    "builtBy": "Designed and built by Emir.",
+    "builtBy": "Progettato e sviluppato da Emir.",
     "social": {
       "github": "GitHub",
       "linkedin": "LinkedIn",
@@ -37,30 +37,30 @@
   },
   "Home": {
     "hero": {
-      "eyebrow": "Hello, I'm",
-      "name": "Emir Yılmaz",
+      "eyebrow": "Ciao, sono",
+      "name": "L'emiro Yilmaz",
       "role": "Full Stack Developer",
-      "description": "I build responsive web applications, backend services and interactive digital experiences.",
-      "secondaryDescription": "Primarily focused on full stack development, while remaining open to frontend, backend, game development, game design and IT opportunities.",
-      "primaryButton": "Explore Projects",
-      "cvButton": "Download CV",
+      "description": "Sviluppo applicazioni web responsive, servizi backend ed esperienze digitali interattive.",
+      "secondaryDescription": "Mi concentro soprattutto sullo sviluppo full stack, restando aperto anche a opportunità frontend, backend, sviluppo di giochi, game design e IT.",
+      "primaryButton": "Esplora i progetti",
+      "cvButton": "Scarica CV",
       "social": {
         "github": "GitHub",
         "linkedin": "LinkedIn",
         "email": "Email"
       },
       "stack": {
-        "title": "Current Stack",
-        "status": "Local setup",
+        "title": "Stack attuale",
+        "status": "Ambiente locale",
         "groups": {
           "frontend": "Frontend",
           "backend": "Backend",
           "database": "Database",
-          "gameDevelopment": "Game Development"
+          "gameDevelopment": "Sviluppo di giochi"
         }
       },
       "systemFlow": {
-        "title": "System Status",
+        "title": "Stato del sistema",
         "steps": {
           "client": "Client",
           "frontend": "Frontend",
@@ -73,317 +73,446 @@
     "valueStrip": {
       "items": {
         "problemSolver": {
-          "title": "Problem Solver",
-          "description": "Breaks technical problems into smaller, manageable parts."
+          "title": "Problem solver",
+          "description": "Scompone i problemi tecnici in parti piccole e gestibili."
         },
         "alwaysLearning": {
-          "title": "Always Learning",
-          "description": "Improves through projects, documentation and practical experiments."
+          "title": "Sempre in apprendimento",
+          "description": "Cresce attraverso progetti, documentazione e prove pratiche."
         },
         "teamPlayer": {
-          "title": "Team Player",
-          "description": "Values clear communication, shared responsibility and feedback."
+          "title": "Gioco di squadra",
+          "description": "Do valore alla comunicazione chiara, alla responsabilità condivisa e al feedback."
         },
         "creativeDeveloper": {
-          "title": "Creative Developer",
-          "description": "Connects software development with interactive and game ideas."
+          "title": "Sviluppatore creativo",
+          "description": "Unisce lo sviluppo software a idee interattive e orientate ai giochi."
         }
       }
     },
     "projects": {
-      "eyebrow": "Featured Projects",
-      "title": "Public work from GitHub",
-      "description": "Selected public repositories are synchronized from GitHub and filtered into a focused portfolio index.",
-      "viewAll": "View all projects",
-      "emptyDescription": "No featured public repositories are available right now. The portfolio will show real projects as soon as matching GitHub repositories are found."
+      "eyebrow": "Progetti in evidenza",
+      "title": "Lavori reali da GitHub",
+      "description": "I repository pubblici selezionati vengono sincronizzati da GitHub e trasformati in un indice portfolio mirato.",
+      "viewAll": "Vedi tutti i progetti",
+      "emptyDescription": "Al momento non ci sono repository pubblici da mettere in evidenza."
     },
     "about": {
-      "eyebrow": "About Preview",
-      "title": "A practical developer profile with room to grow",
-      "description": "Emir studied Computer Programming and builds project-based web applications using frontend, backend and database fundamentals.",
-      "photoPlaceholder": "Initials placeholder. A real photo can be added later without changing the layout.",
-      "link": "Open about page",
+      "eyebrow": "Anteprima profilo",
+      "title": "Un profilo sviluppatore pratico e in crescita",
+      "description": "Emir ha studiato Programmazione Informatica e sviluppa applicazioni web basate su fondamenta frontend, backend e database.",
+      "photoPlaceholder": "Spazio iniziale con iniziali. Una foto reale potrà essere aggiunta in seguito senza modificare il layout.",
+      "link": "Apri la pagina Chi sono",
       "facts": {
         "location": {
-          "label": "Location"
+          "label": "Località"
         },
         "focus": {
           "label": "Focus",
-          "value": "Full stack development and project-based learning"
+          "value": "Sviluppo full stack e apprendimento basato su progetti"
         },
         "availability": {
-          "label": "Availability",
-          "value": "Open to junior full stack and related technology roles"
+          "label": "Disponibilità",
+          "value": "Aperto a ruoli junior full stack e ruoli tecnologici correlati"
         }
       },
       "languages": {
-        "title": "Spoken Languages"
+        "title": "Lingue parlate",
+        "items": {
+          "turkish": {
+            "name": "Turco",
+            "level": "Madrelingua"
+          },
+          "english": {
+            "name": "Inglese",
+            "level": "Intermedio superiore"
+          },
+          "german": {
+            "name": "Tedesco",
+            "level": "Principiante"
+          }
+        }
       }
     },
     "skills": {
-      "eyebrow": "Technical Skills",
-      "title": "Skills grouped by practical use",
-      "description": "No percentages or inflated levels, just the areas this portfolio presents clearly.",
+      "eyebrow": "Competenze tecniche",
+      "title": "Competenze raggruppate per uso pratico",
+      "description": "Niente percentuali o livelli esagerati, solo aree presentate con chiarezza.",
       "groups": {
         "frontend": "Frontend",
         "backend": "Backend",
         "database": "Database",
-        "gameDevelopment": "Game Development",
-        "toolsAndTechnologies": "Tools & Technologies",
-        "professionalSkills": "Professional Skills"
+        "gameDevelopment": "Sviluppo di giochi",
+        "toolsAndTechnologies": "Strumenti & tecnologie",
+        "professionalSkills": "Competenze professionali"
+      },
+      "items": {
+        "frontend": {
+          "html5": "HTML5",
+          "css3": "CSS3",
+          "javascript": "JavaScript",
+          "responsiveWebDesign": "Web design responsive",
+          "basicUiUxPrinciples": "Principi base di UI/UX"
+        },
+        "backend": {
+          "csharp": "C#",
+          "aspnetCore": "ASP.NET Core",
+          "restApiDevelopment": "Sviluppo API REST"
+        },
+        "database": {
+          "sqlServer": "SQL Server",
+          "crudOperations": "Operazioni CRUD",
+          "sql": "SQL",
+          "databaseDesign": "Progettazione database"
+        },
+        "gameDevelopment": {
+          "unity2d": "Unity 2D",
+          "godot": "Godot"
+        },
+        "toolsAndTechnologies": {
+          "git": "Git",
+          "github": "GitHub",
+          "visualStudio": "Visual Studio",
+          "visualStudioCode": "Visual Studio Code"
+        },
+        "professionalSkills": {
+          "problemSolving": "Problem solving",
+          "algorithmicThinking": "Pensiero algoritmico",
+          "teamwork": "Lavoro di squadra",
+          "communication": "Comunicazione",
+          "projectDiscipline": "Disciplina di lavoro per progetti"
+        }
       }
     },
     "timeline": {
-      "eyebrow": "Education & Experience",
-      "title": "Confirmed learning and internship record",
-      "description": "Only the currently confirmed education, training and internship information is shown here.",
+      "eyebrow": "Formazione & esperienza",
+      "title": "Formazione e tirocinio verificati",
+      "description": "Qui sono mostrate solo le informazioni attualmente verificate su formazione, corsi e tirocinio.",
       "labels": {
-        "experience": "Experience",
-        "education": "Education",
-        "certification": "Certification"
+        "experience": "Esperienza",
+        "education": "Formazione",
+        "certification": "Certificazione"
       },
       "items": {
         "experience": {
-          "title": "IT Technician Intern",
+          "title": "Tirocinante tecnico IT",
           "organization": "Egebant",
-          "meta": "June 2021 - August 2021"
+          "meta": "Giugno 2021 - Agosto 2021"
         },
         "education": {
-          "title": "Computer Programming",
-          "organization": "Okan University",
+          "title": "Programmazione Informatica",
+          "organization": "Università Okan",
           "meta": "2022 - 2024"
         },
         "certification": {
           "title": "SmartPro Software Academy",
-          "organization": "Project-Based Full Stack Web Development Training",
-          "meta": "240 Hours"
+          "organization": "Formazione Full Stack Web Development basata su progetti",
+          "meta": "240 ore"
         }
       }
     },
     "contactCta": {
-      "eyebrow": "Contact",
-      "title": "Have a project or opportunity in mind?",
-      "description": "Let's build something useful together.",
-      "contactButton": "Contact Me",
+      "eyebrow": "Contatti",
+      "title": "Hai in mente un progetto o un opportunità?",
+      "description": "Costruiamo insieme qualcosa di utile.",
+      "contactButton": "Contattami",
       "linkedinButton": "LinkedIn"
     }
   },
   "AboutPage": {
-    "status": "Open to junior full stack and related technology roles",
+    "status": "Aperto a ruoli junior full stack e ruoli tecnologici correlati",
     "introduction": {
-      "eyebrow": "Introduction",
+      "eyebrow": "Introduzione",
       "paragraphs": [
-        "I studied Computer Programming and have built project-based web applications using HTML, CSS, JavaScript, C#, SQL and ASP.NET technologies.",
-        "My work so far has focused on frontend structure, backend services, database operations and RESTful API development. I am still developing my problem-solving and software design skills through practical projects.",
-        "I am primarily looking for junior full stack development opportunities, while also staying open to suitable frontend, backend, game development, game design and IT roles."
+        "Ho studiato Programmazione Informatica e ho sviluppato applicazioni web basate su progetti con HTML, CSS, JavaScript, C#, SQL e tecnologie ASP.NET.",
+        "Il mio lavoro si e concentrato su struttura frontend, servizi backend, operazioni database e sviluppo di REST API. Continuo a crescere attraverso progetti pratici.",
+        "Cerco principalmente opportunità junior full stack, ma sono aperto anche a ruoli frontend, backend, sviluppo di giochi, game design e IT."
       ]
     },
     "focus": {
-      "eyebrow": "Development Focus",
-      "title": "Core software areas",
+      "eyebrow": "Focus di sviluppo",
+      "title": "Aree software principali",
       "items": {
         "fullStack": "Full Stack Development",
         "frontend": "Frontend Development",
         "backend": "Backend Development",
-        "apis": "RESTful APIs",
-        "database": "Database Operations",
-        "responsive": "Responsive Web Applications"
+        "apis": "API REST",
+        "database": "Operazioni database",
+        "responsive": "Applicazioni web responsive"
       }
     },
     "interests": {
-      "eyebrow": "Additional Interests",
-      "title": "Related areas",
+      "eyebrow": "Interessi aggiuntivi",
+      "title": "Aree correlate",
       "items": {
-        "gameDevelopment": "Game Development",
-        "gameDesign": "Game Design",
+        "gameDevelopment": "Sviluppo di giochi",
+        "gameDesign": "Game design",
         "unity": "Unity 2D",
         "godot": "Godot",
-        "it": "IT and technical troubleshooting"
+        "it": "IT e risoluzione di problemi tecnici"
       }
     },
     "work": {
-      "eyebrow": "How I Work",
-      "title": "Working habits",
+      "eyebrow": "Come lavoro",
+      "title": "Abitudini di lavoro",
       "items": {
-        "problemSolving": "Problem solving",
-        "algorithmicThinking": "Algorithmic thinking",
-        "teamwork": "Teamwork and communication",
-        "discipline": "Project-based work discipline",
-        "learning": "Willingness to learn"
+        "problemSolving": "risoluzione dei problemi",
+        "algorithmicThinking": "pensiero algoritmico",
+        "teamwork": "Lavoro di squadra e comunicazione",
+        "discipline": "Disciplina del lavoro a progetto",
+        "learning": "voglia di imparare"
       }
     },
     "goal": {
-      "eyebrow": "Current Goal",
-      "title": "Focused on the next practical step",
-      "description": "Primarily seeking junior full stack development opportunities while also considering suitable frontend, backend, game development, game design and IT roles."
+      "eyebrow": "Obiettivo attuale",
+      "title": "Concentrato sul prossimo passo pratico",
+      "description": "Cerco principalmente opportunità junior full stack, valutando anche ruoli frontend, backend, sviluppo di giochi, game design e IT adatti."
     }
   },
   "SkillsPage": {
-    "eyebrow": "Skills",
-    "title": "Technical and professional skills",
-    "description": "A clear list of confirmed skills, without ratings, percentages or inflated seniority labels.",
+    "eyebrow": "Competenze",
+    "title": "Competenze tecniche e professionali",
+    "description": "Un elenco chiaro di competenze verificate, senza punteggi, percentuali o livelli esagerati.",
     "groups": {
       "frontend": "Frontend",
       "backend": "Backend",
       "database": "Database",
       "gameDevelopment": "Game Development",
-      "toolsAndTechnologies": "Tools & Technologies",
-      "professionalSkills": "Professional Skills"
+      "toolsAndTechnologies": "Strumenti & tecnologie",
+      "professionalSkills": "Competenze professionali"
+    },
+    "items": {
+      "frontend": {
+        "html5": "HTML5",
+        "css3": "CSS3",
+        "javascript": "JavaScript",
+        "responsiveWebDesign": "Web design responsive",
+        "basicUiUxPrinciples": "Principi base di UI/UX"
+      },
+      "backend": {
+        "csharp": "C#",
+        "aspnetCore": "ASP.NET Core",
+        "restApiDevelopment": "Sviluppo API REST"
+      },
+      "database": {
+        "sqlServer": "SQL Server",
+        "crudOperations": "Operazioni CRUD",
+        "sql": "SQL",
+        "databaseDesign": "Progettazione database"
+      },
+      "gameDevelopment": {
+        "unity2d": "Unity 2D",
+        "godot": "Godot"
+      },
+      "toolsAndTechnologies": {
+        "git": "Git",
+        "github": "GitHub",
+        "visualStudio": "Visual Studio",
+        "visualStudioCode": "Visual Studio Code"
+      },
+      "professionalSkills": {
+        "problemSolving": "Problem solving",
+        "algorithmicThinking": "Pensiero algoritmico",
+        "teamwork": "Lavoro di squadra",
+        "communication": "Comunicazione",
+        "projectDiscipline": "Disciplina di lavoro per progetti"
+      }
     }
   },
   "EducationPage": {
-    "eyebrow": "Education & Experience",
-    "title": "Confirmed background",
-    "description": "Education, certification training and internship details currently confirmed for the portfolio.",
+    "eyebrow": "Formazione & esperienza",
+    "title": "storia verificata",
+    "description": "Formazione, percorso certificato e tirocinio attualmente verificati per il portfolio.",
     "items": {
       "education": {
-        "label": "Education",
-        "title": "Computer Programming",
-        "organization": "Okan University",
+        "label": "Istruzione",
+        "title": "Programmazione Informatica",
+        "organization": "Università Okan",
         "meta": "2022 - 2024",
         "details": [
-          "Studied Computer Programming with a focus on software fundamentals.",
-          "Built a foundation for web applications, algorithms and database-driven projects."
+          "Ho studiato Programmazione Informatica con attenzione ai fondamenti dello sviluppo software.",
+          "Ho costruito una base per applicazioni web, algoritmi e progetti orientati ai database."
         ]
       },
       "certification": {
-        "label": "Certification Training",
-        "title": "Project-Based Full Stack Web Development Training",
+        "label": "Formazione certificata",
+        "title": "Formazione Full Stack Web Development basata su progetti",
         "organization": "SmartPro Software Academy",
-        "meta": "240 Hours",
+        "meta": "240 Saat",
         "details": [
-          "Completed project-based full stack web development training.",
-          "Worked with web, backend and database technologies during the program."
+          "Ho completato una formazione full stack web development basata su progetti.",
+          "Durante il programma ho lavorato con tecnologie web, backend e database."
         ],
         "technologies": ["ASP.NET", "C#", "SQL", "HTML", "CSS", "JavaScript"]
       },
       "experience": {
-        "label": "Experience",
-        "title": "IT Technician Intern",
+        "label": "Esperienza",
+        "title": "Tirocinante tecnico IT",
         "organization": "Egebant",
-        "meta": "June 2021 - August 2021",
+        "meta": "Giugno 2021 - agosto 2021",
         "details": [
-          "Assisted with computer repair, maintenance and troubleshooting tasks.",
-          "Improved practical technical support and problem-solving skills.",
-          "Supported day-to-day IT operations during the internship."
+          "Ho supportato attività di riparazione, manutenzione e troubleshooting dei computer.",
+          "Ho sviluppato competenze pratiche di supporto tecnico e problem solving.",
+          "Durante il tirocinio ho assistito le operazioni IT quotidiane."
         ]
       }
     }
   },
   "ContactPage": {
-    "eyebrow": "Contact",
-    "title": "Let's get in touch.",
-    "description": "I'm open to junior full stack opportunities and suitable roles in related software and technology fields.",
+    "eyebrow": "Comunicazione",
+    "title": "Mettiamoci in contatto.",
+    "description": "Sono aperto a opportunità junior full stack e a ruoli software/tecnologia correlati.",
     "items": {
       "email": {
-        "label": "Email",
-        "aria": "Send an email to Emir"
+        "label": "E-posta",
+        "aria": "Invia un'e-mail a Emiro"
       },
       "linkedin": {
         "label": "LinkedIn",
-        "aria": "Open Emir's LinkedIn profile"
+        "aria": "Apri il profilo LinkedIn di Emir"
       },
       "github": {
         "label": "GitHub",
-        "aria": "Open Emir's GitHub profile"
+        "aria": "Apri il profilo GitHub di Emir"
       }
     }
   },
   "Projects": {
-    "eyebrow": "Projects",
-    "title": "Public GitHub repository index",
-    "description": "A live portfolio view built from public repositories, with server-side GitHub fetching, search, filters and stable fallbacks.",
-    "githubSync": "GitHub sync",
-    "publicProjects": "{count} public projects",
-    "search": "Search",
-    "searchPlaceholder": "Search by name, language, topic or description",
-    "category": "Category",
-    "sort": "Sort",
-    "clearFilters": "Clear filters",
-    "emptyTitle": "No projects match these filters",
-    "emptyDescription": "Try a different search term, category or sort option.",
-    "noProjects": "No public portfolio projects are currently available.",
-    "viewGitHubProfile": "Open GitHub profile",
-    "resultCount": "{count} projects shown",
-    "updated": "Updated {date}",
-    "archived": "Archived",
+    "eyebrow": "Progetti",
+    "title": "Indice dei repository GitHub pubblici",
+    "description": "Una vista portfolio live basata su repository pubblici, con fetch GitHub lato server, ricerca, filtri e stati stabili.",
+    "githubSync": "Sincronizzazione GitHub",
+    "publicProjects": "{count} progetti pubblici",
+    "search": "Cerca",
+    "searchPlaceholder": "Cerca per nome, linguaggio, topic o descrizione",
+    "category": "Categoria",
+    "sort": "Ordina",
+    "clearFilters": "Cancella filtri",
+    "emptyTitle": "Nessun progetto corrisponde a questi filtri",
+    "emptyDescription": "Prova un termine, una categoria o un ordinamento diverso.",
+    "noProjects": "Al momento non sono disponibili progetti portfolio pubblici.",
+    "viewGitHubProfile": "Apri profilo GitHub",
+    "resultCount": "{count} progetti mostrati",
+    "updated": "Aggiornato il {date}",
+    "archived": "Archiviato",
     "categories": {
-      "all": "All",
-      "fullstack": "Full stack",
+      "all": "Tutti",
+      "fullstack": "Full Stack",
       "frontend": "Frontend",
       "backend": "Backend",
-      "game": "Game",
-      "tool": "Tool",
-      "experiment": "Experiment",
-      "archived": "Archived",
-      "other": "Other"
+      "game": "Sviluppo di giochi",
+      "tool": "Strumenti",
+      "experiment": "Esperimenti",
+      "archived": "Archiviato",
+      "other": "Altro"
     },
     "sorts": {
-      "updated": "Recently updated",
-      "newest": "Newest",
-      "oldest": "Oldest",
-      "name": "Name"
+      "updated": "Aggiornati di recente",
+      "newest": "Piu recenti",
+      "oldest": "Piu vecchi",
+      "name": "Nome"
     },
     "statuses": {
-      "completed": "Completed",
-      "inDevelopment": "In development",
-      "experimental": "Experimental",
-      "archived": "Archived"
+      "completed": "Completato",
+      "inDevelopment": "In sviluppo",
+      "experimental": "Sperimentale",
+      "archived": "Archiviato"
     },
     "card": {
-      "detail": "Project detail",
-      "liveDemo": "Live demo",
-      "noDescription": "No repository description is available yet.",
-      "githubAria": "Open {name} on GitHub",
-      "liveDemoAria": "Open live demo for {name}"
+      "detail": "Dettaglio progetto",
+      "liveDemo": "Demo live",
+      "noDescription": "Questo repository non ha ancora una descrizione.",
+      "githubAria": "Apri {name} su GitHub",
+      "liveDemoAria": "Apri la demo live di {name}"
     },
     "error": {
-      "title": "Projects could not be loaded",
-      "description": "GitHub data is temporarily unavailable. The portfolio avoids showing fake project data when live data cannot be reached."
+      "title": "Impossibile caricare i progetti",
+      "description": "I dati GitHub sono temporaneamente non disponibili. Il portfolio evita di mostrare dati di progetto inventati quando i dati live non sono raggiungibili."
     }
   },
   "ProjectDetail": {
-    "back": "Back to projects",
-    "viewGitHub": "View GitHub",
-    "liveDemo": "Live demo",
-    "archived": "Archived",
-    "archivedWarning": "This repository is archived, so it may no longer receive active updates.",
-    "overview": "Overview",
-    "metadata": "Repository details",
-    "languages": "Languages",
-    "readme": "Repository README",
-    "noReadme": "This repository does not include README content yet.",
-    "noDescription": "No repository description is available yet.",
-    "created": "Created",
-    "updated": "Updated",
-    "pushed": "Last push",
-    "license": "License",
-    "stars": "{count} stars",
-    "forks": "{count} forks",
-    "primaryLanguage": "Primary language",
+    "back": "Torna ai progetti",
+    "viewGitHub": "Vedi su GitHub",
+    "liveDemo": "Demo live",
+    "archived": "Archiviato",
+    "archivedWarning": "Questo repository e archiviato e potrebbe non ricevere più aggiornamenti attivi.",
+    "overview": "Panoramica",
+    "metadata": "Dettagli repository",
+    "languages": "Linguaggi",
+    "readme": "Contenuto README del repository",
+    "noReadme": "Questo repository non ha ancora contenuto README.",
+    "noDescription": "Questo repository non ha ancora una descrizione.",
+    "created": "Creato",
+    "updated": "Aggiornato",
+    "pushed": "Ultimo push",
+    "license": "Licenza",
+    "stars": "{count} stelle",
+    "forks": "{count} fork",
+    "primaryLanguage": "Linguaggio principale",
     "topics": "Topics",
-    "notAvailable": "Not available",
+    "notAvailable": "Non disponibile",
+    "originalLanguageNote": "La documentazione del progetto viene mostrata nella lingua originale.",
     "categories": {
-      "all": "All",
-      "fullstack": "Full stack",
+      "all": "Tutti",
+      "fullstack": "Full Stack",
       "frontend": "Frontend",
       "backend": "Backend",
-      "game": "Game",
-      "tool": "Tool",
-      "experiment": "Experiment",
-      "archived": "Archived",
-      "other": "Other"
+      "game": "Sviluppo di giochi",
+      "tool": "Strumenti",
+      "experiment": "Esperimenti",
+      "archived": "Archiviato",
+      "other": "Altro"
     },
     "statuses": {
-      "completed": "Completed",
-      "inDevelopment": "In development",
-      "experimental": "Experimental",
-      "archived": "Archived"
+      "completed": "Completato",
+      "inDevelopment": "In sviluppo",
+      "experimental": "Sperimentale",
+      "archived": "Archiviato"
     },
     "sources": {
       "portfolio": "portfolio.md",
       "readme": "README",
-      "description": "Description"
+      "description": "Descrizione"
     }
+  },
+  "Metadata": {
+    "site": {
+      "title": "Emiro Yilmaz | Sviluppatore stack completo",
+      "description": "Full Stack Developer focalizzato su applicazioni web responsive, servizi backend, REST API e progetti orientati ai database."
+    },
+    "home": {
+      "title": "Emiro Yilmaz | portfolio",
+      "description": "Portfolio personale di Emir Yılmaz con progetti GitHub, competenze, formazione e informazioni di contatto."
+    },
+    "about": {
+      "title": "Chi sono | Emir Yılmaz",
+      "description": "Una panoramica pratica del focus di sviluppo, del modo di lavorare e degli obiettivi attuali di Emir Yılmaz."
+    },
+    "skills": {
+      "title": "Competenze | Emir Yılmaz",
+      "description": "Competenze tecniche e professionali raggruppate per uso pratico."
+    },
+    "education": {
+      "title": "Istruzione | L'emiro Yilmaz",
+      "description": "Formazione verificata, percorso certificato e tirocinio."
+    },
+    "contact": {
+      "title": "Contatto | L'emiro Yilmaz",
+      "description": "Collegamenti di contatto per junior full stack e opportunità tecnologiche correlate."
+    },
+    "projects": {
+      "title": "Progetti | Emir Yılmaz",
+      "description": "Repository GitHub pubblici mostrati come indice di progetti portfolio."
+    },
+    "projectDetail": {
+      "notFoundTitle": "Progetto non trovato",
+      "fallbackDescription": "Un progetto software pubblico sviluppato da Emir Yılmaz."
+    }
+  },
+  "NotFound": {
+    "eyebrow": "Non trovato",
+    "title": "404",
+    "description": "La pagina che stai cercando non esiste o non è più disponibile.",
+    "homeLink": "Torna alla home"
   }
 }

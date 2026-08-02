@@ -1,29 +1,29 @@
 import { defineRouting } from "next-intl/routing";
 
 export const locales = [
-  "tr",
   "en",
+  "tr",
   "de",
   "fr",
   "es",
   "it",
   "pt",
-  "pl",
   "nl",
+  "pl",
 ] as const;
 
 export type Locale = (typeof locales)[number];
 
 export const localeLabels: Record<Locale, string> = {
-  tr: "Turkce",
   en: "English",
+  tr: "Türkçe",
   de: "Deutsch",
-  fr: "Francais",
-  es: "Espanol",
+  fr: "Français",
+  es: "Español",
   it: "Italiano",
-  pt: "Portugues",
-  pl: "Polski",
+  pt: "Português",
   nl: "Nederlands",
+  pl: "Polski",
 };
 
 export const routing = defineRouting({
@@ -32,13 +32,16 @@ export const routing = defineRouting({
 });
 
 export function buildLocalizedHref(locale: string, href: string) {
-  const pathWithoutLocale = stripLocalePrefix(href);
+  const [pathWithSearch, hash = ""] = href.split("#", 2);
+  const [path, search = ""] = pathWithSearch.split("?", 2);
+  const pathWithoutLocale = stripLocalePrefix(path);
 
-  if (pathWithoutLocale === "/") {
-    return `/${locale}`;
-  }
+  const localizedPath =
+    pathWithoutLocale === "/" ? `/${locale}` : `/${locale}${pathWithoutLocale}`;
+  const query = search ? `?${search}` : "";
+  const fragment = hash ? `#${hash}` : "";
 
-  return `/${locale}${pathWithoutLocale}`;
+  return `${localizedPath}${query}${fragment}`;
 }
 
 function stripLocalePrefix(pathname: string) {

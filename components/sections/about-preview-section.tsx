@@ -69,10 +69,12 @@ export function AboutPreviewSection({ locale }: AboutPreviewSectionProps) {
               </div>
               <dl className="grid gap-3 sm:grid-cols-3">
                 {profile.languages.map((language) => (
-                  <div key={language.name}>
-                    <dt className="text-sm text-muted">{language.name}</dt>
+                  <div key={language.key}>
+                    <dt className="text-sm text-muted">
+                      {t(`languages.items.${language.key}.name`)}
+                    </dt>
                     <dd className="mt-1 text-sm font-medium text-muted-foreground">
-                      {language.level}
+                      {t(`languages.items.${language.key}.level`)}
                     </dd>
                   </div>
                 ))}

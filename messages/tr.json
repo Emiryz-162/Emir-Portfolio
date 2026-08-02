@@ -1,71 +1,71 @@
 {
   "Common": {
-    "selectLanguage": "Select language",
-    "translationNote": "Translations are created with AI assistance.",
+    "selectLanguage": "Dil seç",
+    "translationNote": "Çeviriler yapay zekâ yardımıyla oluşturuldu.",
     "theme": {
-      "dark": "Switch to dark theme",
-      "light": "Switch to light theme",
-      "loading": "Theme is loading",
+      "dark": "Koyu temaya geç",
+      "light": "Açık temaya geç",
+      "loading": "Tema yükleniyor",
       "current": {
-        "dark": "Current theme: dark",
-        "light": "Current theme: light"
+        "dark": "Geçerli tema: koyu",
+        "light": "Geçerli tema: açık"
       }
     }
   },
   "Navigation": {
     "brand": "Emir Yılmaz",
-    "status": "Open to opportunities",
-    "cv": "Download CV",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu",
+    "status": "Yeni fırsatlara açığım",
+    "cv": "CV’yi İndir",
+    "openMenu": "Menüyü aç",
+    "closeMenu": "Menüyü kapat",
     "items": {
-      "home": "Home",
-      "projects": "Projects",
-      "about": "About",
-      "skills": "Skills",
-      "education": "Education",
-      "contact": "Contact"
+      "home": "Ana Sayfa",
+      "projects": "Projeler",
+      "about": "Hakkımda",
+      "skills": "Beceriler",
+      "education": "Eğitim",
+      "contact": "İletişim"
     }
   },
   "Footer": {
-    "builtBy": "Designed and built by Emir.",
+    "builtBy": "Emir tarafından tasarlandı ve geliştirildi.",
     "social": {
       "github": "GitHub",
       "linkedin": "LinkedIn",
-      "email": "Email"
+      "email": "E-posta"
     }
   },
   "Home": {
     "hero": {
-      "eyebrow": "Hello, I'm",
+      "eyebrow": "Merhaba, ben",
       "name": "Emir Yılmaz",
       "role": "Full Stack Developer",
-      "description": "I build responsive web applications, backend services and interactive digital experiences.",
-      "secondaryDescription": "Primarily focused on full stack development, while remaining open to frontend, backend, game development, game design and IT opportunities.",
-      "primaryButton": "Explore Projects",
-      "cvButton": "Download CV",
+      "description": "Responsive web uygulamaları, backend servisleri ve etkileşimli dijital deneyimler geliştiriyorum.",
+      "secondaryDescription": "Önceliğim full stack geliştirme; bunun yanında frontend, backend, oyun geliştirme, oyun tasarımı ve IT fırsatlarına da açığım.",
+      "primaryButton": "Projeleri Keşfet",
+      "cvButton": "CV’yi İndir",
       "social": {
         "github": "GitHub",
         "linkedin": "LinkedIn",
-        "email": "Email"
+        "email": "E-posta"
       },
       "stack": {
-        "title": "Current Stack",
-        "status": "Local setup",
+        "title": "Güncel Teknolojiler",
+        "status": "Yerel kurulum",
         "groups": {
           "frontend": "Frontend",
           "backend": "Backend",
-          "database": "Database",
-          "gameDevelopment": "Game Development"
+          "database": "Veritabanı",
+          "gameDevelopment": "Oyun Geliştirme"
         }
       },
       "systemFlow": {
-        "title": "System Status",
+        "title": "Sistem Durumu",
         "steps": {
-          "client": "Client",
+          "client": "İstemci",
           "frontend": "Frontend",
           "api": "API",
-          "database": "Database",
+          "database": "Veritabanı",
           "deploy": "Deploy"
         }
       }
@@ -73,317 +73,446 @@
     "valueStrip": {
       "items": {
         "problemSolver": {
-          "title": "Problem Solver",
-          "description": "Breaks technical problems into smaller, manageable parts."
+          "title": "Problem Çözen",
+          "description": "Teknik problemleri küçük ve yönetilebilir parçalara ayırır."
         },
         "alwaysLearning": {
-          "title": "Always Learning",
-          "description": "Improves through projects, documentation and practical experiments."
+          "title": "Öğrenmeye Açık",
+          "description": "Projeler, dokümantasyon ve pratik denemelerle kendini geliştirir."
         },
         "teamPlayer": {
-          "title": "Team Player",
-          "description": "Values clear communication, shared responsibility and feedback."
+          "title": "Takım Oyuncusu",
+          "description": "Açık iletişime, ortak sorumluluğa ve geri bildirime değer verir."
         },
         "creativeDeveloper": {
-          "title": "Creative Developer",
-          "description": "Connects software development with interactive and game ideas."
+          "title": "Yaratıcı Geliştirici",
+          "description": "Yazılım geliştirmeyi etkileşimli ve oyun odaklı fikirlerle birleştirir."
         }
       }
     },
     "projects": {
-      "eyebrow": "?ne ??kan Projeler",
-      "title": "GitHub?dan gelen ger?ek ?al??malar",
-      "description": "Se?ilen herkese a??k repolar GitHub?dan senkronize edilir ve odakl? bir portfolio listesine d?n??t?r?l?r.",
-      "viewAll": "T?m projeleri g?r",
-      "emptyDescription": "?u anda ?ne ??kar?lacak herkese a??k repo bulunamad?. Uygun GitHub repolar? bulundu?unda portfolio ger?ek projeleri g?sterecek."
+      "eyebrow": "Öne Çıkan Projeler",
+      "title": "GitHub’dan gelen gerçek çalışmalar",
+      "description": "Seçilen herkese açık repolar GitHub’dan senkronize edilir ve odaklı bir portfolio listesine dönüştürülür.",
+      "viewAll": "Tüm projeleri gör",
+      "emptyDescription": "Şu anda öne çıkarılacak herkese açık repo bulunamadı."
     },
     "about": {
-      "eyebrow": "About Preview",
-      "title": "A practical developer profile with room to grow",
-      "description": "Emir studied Computer Programming and builds project-based web applications using frontend, backend and database fundamentals.",
-      "photoPlaceholder": "Initials placeholder. A real photo can be added later without changing the layout.",
-      "link": "Open about page",
+      "eyebrow": "Hakkımda Önizleme",
+      "title": "Gelişmeye açık, pratik bir geliştirici profili",
+      "description": "Emir, Bilgisayar Programcılığı eğitimi aldı ve frontend, backend ve veritabanı temelleriyle proje tabanlı web uygulamaları geliştiriyor.",
+      "photoPlaceholder": "Şimdilik baş harf alanı. Gerçek bir fotoğraf daha sonra tasarımı değiştirmeden eklenebilir.",
+      "link": "Hakkımda sayfasını aç",
       "facts": {
         "location": {
-          "label": "Location"
+          "label": "Konum"
         },
         "focus": {
-          "label": "Focus",
-          "value": "Full stack development and project-based learning"
+          "label": "Odak",
+          "value": "Full stack geliştirme ve proje tabanlı öğrenme"
         },
         "availability": {
-          "label": "Availability",
-          "value": "Open to junior full stack and related technology roles"
+          "label": "Uygunluk",
+          "value": "Junior full stack ve ilgili teknoloji rollerine açık"
         }
       },
       "languages": {
-        "title": "Spoken Languages"
+        "title": "Konuşulan Diller",
+        "items": {
+          "turkish": {
+            "name": "Türkçe",
+            "level": "Ana dil"
+          },
+          "english": {
+            "name": "İngilizce",
+            "level": "Üst orta seviye"
+          },
+          "german": {
+            "name": "Almanca",
+            "level": "Başlangıç"
+          }
+        }
       }
     },
     "skills": {
-      "eyebrow": "Technical Skills",
-      "title": "Skills grouped by practical use",
-      "description": "No percentages or inflated levels, just the areas this portfolio presents clearly.",
+      "eyebrow": "Teknik Beceriler",
+      "title": "Beceriler pratik kullanıma göre gruplanmıştır",
+      "description": "Yüzde ya da abartılı seviye yok; yalnızca net şekilde sunulan alanlar var.",
       "groups": {
         "frontend": "Frontend",
         "backend": "Backend",
-        "database": "Database",
-        "gameDevelopment": "Game Development",
-        "toolsAndTechnologies": "Tools & Technologies",
-        "professionalSkills": "Professional Skills"
+        "database": "Veritabanı",
+        "gameDevelopment": "Oyun Geliştirme",
+        "toolsAndTechnologies": "Araçlar & Teknolojiler",
+        "professionalSkills": "Profesyonel Beceriler"
+      },
+      "items": {
+        "frontend": {
+          "html5": "HTML5",
+          "css3": "CSS3",
+          "javascript": "JavaScript",
+          "responsiveWebDesign": "Responsive Web tasarım",
+          "basicUiUxPrinciples": "Temel UI/UX ilkeleri"
+        },
+        "backend": {
+          "csharp": "C#",
+          "aspnetCore": "ASP.NET Core",
+          "restApiDevelopment": "REST API geliştirme"
+        },
+        "database": {
+          "sqlServer": "SQL Server",
+          "crudOperations": "CRUD işlemleri",
+          "sql": "SQL",
+          "databaseDesign": "Veritabanı tasarımı"
+        },
+        "gameDevelopment": {
+          "unity2d": "Unity 2D",
+          "godot": "Godot"
+        },
+        "toolsAndTechnologies": {
+          "git": "Git",
+          "github": "GitHub",
+          "visualStudio": "Visual Studio",
+          "visualStudioCode": "Visual Studio Code"
+        },
+        "professionalSkills": {
+          "problemSolving": "Problem çözme",
+          "algorithmicThinking": "Algoritmik düşünme",
+          "teamwork": "Takım çalışması",
+          "communication": "İletişim",
+          "projectDiscipline": "Proje odaklı çalışma disiplini"
+        }
       }
     },
     "timeline": {
-      "eyebrow": "Education & Experience",
-      "title": "Confirmed learning and internship record",
-      "description": "Only the currently confirmed education, training and internship information is shown here.",
+      "eyebrow": "Eğitim & Deneyim",
+      "title": "Doğrulanmış eğitim ve staj kaydı",
+      "description": "Burada yalnızca şu an doğrulanmış eğitim, kurs ve staj bilgileri yer alır.",
       "labels": {
-        "experience": "Experience",
-        "education": "Education",
-        "certification": "Certification"
+        "experience": "Deneyim",
+        "education": "Eğitim",
+        "certification": "Sertifika"
       },
       "items": {
         "experience": {
-          "title": "IT Technician Intern",
+          "title": "IT Teknikeri Stajyeri",
           "organization": "Egebant",
-          "meta": "June 2021 - August 2021"
+          "meta": "Haziran 2021 - Ağustos 2021"
         },
         "education": {
-          "title": "Computer Programming",
-          "organization": "Okan University",
+          "title": "Bilgisayar Programcılığı",
+          "organization": "Okan Üniversitesi",
           "meta": "2022 - 2024"
         },
         "certification": {
-          "title": "SmartPro Software Academy",
-          "organization": "Project-Based Full Stack Web Development Training",
-          "meta": "240 Hours"
+          "title": "SmartPro Yazılım Akademisi",
+          "organization": "Proje Tabanlı Full Stack Web Geliştirme Eğitimi",
+          "meta": "240 Saat"
         }
       }
     },
     "contactCta": {
-      "eyebrow": "Contact",
-      "title": "Have a project or opportunity in mind?",
-      "description": "Let's build something useful together.",
-      "contactButton": "Contact Me",
+      "eyebrow": "İletişim",
+      "title": "Aklında bir proje ya da fırsat mı var?",
+      "description": "Birlikte işe yarar bir şey geliştirelim.",
+      "contactButton": "İletişime Geç",
       "linkedinButton": "LinkedIn"
     }
   },
   "AboutPage": {
-    "status": "Open to junior full stack and related technology roles",
+    "status": "Junior full stack ve ilgili teknoloji rollerine açık",
     "introduction": {
-      "eyebrow": "Introduction",
+      "eyebrow": "Tanıtım",
       "paragraphs": [
-        "I studied Computer Programming and have built project-based web applications using HTML, CSS, JavaScript, C#, SQL and ASP.NET technologies.",
-        "My work so far has focused on frontend structure, backend services, database operations and RESTful API development. I am still developing my problem-solving and software design skills through practical projects.",
-        "I am primarily looking for junior full stack development opportunities, while also staying open to suitable frontend, backend, game development, game design and IT roles."
+        "Bilgisayar Programcılığı eğitimi aldım ve HTML, CSS, JavaScript, C#, SQL ve ASP.NET teknolojileriyle proje tabanlı web uygulamaları geliştirdim.",
+        "Çalışmalarım frontend yapı, backend servisleri, veritabanı işlemleri ve REST API geliştirme üzerine yoğunlaştı. Pratik projelerle gelişmeye devam ediyorum.",
+        "Öncelikli olarak junior full stack geliştirme fırsatları arıyorum; uygun frontend, backend, oyun geliştirme, oyun tasarımı ve IT rollerine de açığım."
       ]
     },
     "focus": {
-      "eyebrow": "Development Focus",
-      "title": "Core software areas",
+      "eyebrow": "Geliştirme Odağı",
+      "title": "Temel yazılım alanları",
       "items": {
         "fullStack": "Full Stack Development",
         "frontend": "Frontend Development",
         "backend": "Backend Development",
-        "apis": "RESTful APIs",
-        "database": "Database Operations",
-        "responsive": "Responsive Web Applications"
+        "apis": "REST API’ler",
+        "database": "Veritabanı işlemleri",
+        "responsive": "Responsive web uygulamaları"
       }
     },
     "interests": {
-      "eyebrow": "Additional Interests",
-      "title": "Related areas",
+      "eyebrow": "Ek İlgi Alanları",
+      "title": "Yakın alanlar",
       "items": {
-        "gameDevelopment": "Game Development",
-        "gameDesign": "Game Design",
+        "gameDevelopment": "Oyun Geliştirme",
+        "gameDesign": "Oyun Tasarımı",
         "unity": "Unity 2D",
         "godot": "Godot",
-        "it": "IT and technical troubleshooting"
+        "it": "IT ve teknik sorun giderme"
       }
     },
     "work": {
-      "eyebrow": "How I Work",
-      "title": "Working habits",
+      "eyebrow": "Çalışma Şeklim",
+      "title": "Çalışma alışkanlıkları",
       "items": {
-        "problemSolving": "Problem solving",
-        "algorithmicThinking": "Algorithmic thinking",
-        "teamwork": "Teamwork and communication",
-        "discipline": "Project-based work discipline",
-        "learning": "Willingness to learn"
+        "problemSolving": "Problem çözme",
+        "algorithmicThinking": "Algoritmik düşünme",
+        "teamwork": "Takım çalışması ve iletişim",
+        "discipline": "Proje tabanlı çalışma disiplini",
+        "learning": "Öğrenme isteği"
       }
     },
     "goal": {
-      "eyebrow": "Current Goal",
-      "title": "Focused on the next practical step",
-      "description": "Primarily seeking junior full stack development opportunities while also considering suitable frontend, backend, game development, game design and IT roles."
+      "eyebrow": "Güncel Hedef",
+      "title": "Bir sonraki pratik adıma odaklı",
+      "description": "Öncelikli olarak junior full stack geliştirme fırsatları arıyorum; uygun frontend, backend, oyun geliştirme, oyun tasarımı ve IT rollerini de değerlendiriyorum."
     }
   },
   "SkillsPage": {
-    "eyebrow": "Skills",
-    "title": "Technical and professional skills",
-    "description": "A clear list of confirmed skills, without ratings, percentages or inflated seniority labels.",
+    "eyebrow": "Beceriler",
+    "title": "Teknik ve profesyonel beceriler",
+    "description": "Puanlama, yüzde ya da abartılı seviye ifadeleri olmadan doğrulanmış becerilerin net listesi.",
     "groups": {
       "frontend": "Frontend",
       "backend": "Backend",
-      "database": "Database",
-      "gameDevelopment": "Game Development",
-      "toolsAndTechnologies": "Tools & Technologies",
-      "professionalSkills": "Professional Skills"
+      "database": "Veritabanı",
+      "gameDevelopment": "Oyun Geliştirme",
+      "toolsAndTechnologies": "Araçlar & Teknolojiler",
+      "professionalSkills": "Profesyonel Beceriler"
+    },
+    "items": {
+      "frontend": {
+        "html5": "HTML5",
+        "css3": "CSS3",
+        "javascript": "JavaScript",
+        "responsiveWebDesign": "Responsive Web tasarım",
+        "basicUiUxPrinciples": "Temel UI/UX ilkeleri"
+      },
+      "backend": {
+        "csharp": "C#",
+        "aspnetCore": "ASP.NET Core",
+        "restApiDevelopment": "REST API geliştirme"
+      },
+      "database": {
+        "sqlServer": "SQL Server",
+        "crudOperations": "CRUD işlemleri",
+        "sql": "SQL",
+        "databaseDesign": "Veritabanı tasarımı"
+      },
+      "gameDevelopment": {
+        "unity2d": "Unity 2D",
+        "godot": "Godot"
+      },
+      "toolsAndTechnologies": {
+        "git": "Git",
+        "github": "GitHub",
+        "visualStudio": "Visual Studio",
+        "visualStudioCode": "Visual Studio Code"
+      },
+      "professionalSkills": {
+        "problemSolving": "Problem çözme",
+        "algorithmicThinking": "Algoritmik düşünme",
+        "teamwork": "Takım çalışması",
+        "communication": "İletişim",
+        "projectDiscipline": "Proje odaklı çalışma disiplini"
+      }
     }
   },
   "EducationPage": {
-    "eyebrow": "Education & Experience",
-    "title": "Confirmed background",
-    "description": "Education, certification training and internship details currently confirmed for the portfolio.",
+    "eyebrow": "Eğitim & Deneyim",
+    "title": "Doğrulanmış geçmiş",
+    "description": "Portfolio için şu an doğrulanmış eğitim, sertifika eğitimi ve staj bilgileri.",
     "items": {
       "education": {
-        "label": "Education",
-        "title": "Computer Programming",
-        "organization": "Okan University",
+        "label": "Eğitim",
+        "title": "Bilgisayar Programcılığı",
+        "organization": "Okan Üniversitesi",
         "meta": "2022 - 2024",
         "details": [
-          "Studied Computer Programming with a focus on software fundamentals.",
-          "Built a foundation for web applications, algorithms and database-driven projects."
+          "Yazılım temellerine odaklanan Bilgisayar Programcılığı eğitimi aldım.",
+          "Web uygulamaları, algoritmalar ve veritabanı odaklı projeler için temel oluşturdum."
         ]
       },
       "certification": {
-        "label": "Certification Training",
-        "title": "Project-Based Full Stack Web Development Training",
-        "organization": "SmartPro Software Academy",
-        "meta": "240 Hours",
+        "label": "Sertifika Eğitimi",
+        "title": "Proje Tabanlı Full Stack Web Geliştirme Eğitimi",
+        "organization": "SmartPro Yazılım Akademisi",
+        "meta": "240 Saat",
         "details": [
-          "Completed project-based full stack web development training.",
-          "Worked with web, backend and database technologies during the program."
+          "Proje tabanlı full stack web geliştirme eğitimini tamamladım.",
+          "Program boyunca web, backend ve veritabanı teknolojileriyle çalıştım."
         ],
         "technologies": ["ASP.NET", "C#", "SQL", "HTML", "CSS", "JavaScript"]
       },
       "experience": {
-        "label": "Experience",
-        "title": "IT Technician Intern",
+        "label": "Deneyim",
+        "title": "IT Teknikeri Stajyeri",
         "organization": "Egebant",
-        "meta": "June 2021 - August 2021",
+        "meta": "Haziran 2021 - Ağustos 2021",
         "details": [
-          "Assisted with computer repair, maintenance and troubleshooting tasks.",
-          "Improved practical technical support and problem-solving skills.",
-          "Supported day-to-day IT operations during the internship."
+          "Bilgisayar onarım, bakım ve sorun giderme görevlerine destek verdim.",
+          "Pratik teknik destek ve problem çözme becerilerimi geliştirdim.",
+          "Staj süresince günlük IT operasyonlarına yardımcı oldum."
         ]
       }
     }
   },
   "ContactPage": {
-    "eyebrow": "Contact",
-    "title": "Let's get in touch.",
-    "description": "I'm open to junior full stack opportunities and suitable roles in related software and technology fields.",
+    "eyebrow": "İletişim",
+    "title": "İletişime geçelim.",
+    "description": "Junior full stack fırsatlarına ve ilgili yazılım/teknoloji rollerine açığım.",
     "items": {
       "email": {
-        "label": "Email",
-        "aria": "Send an email to Emir"
+        "label": "E-posta",
+        "aria": "Emir’e e-posta gönder"
       },
       "linkedin": {
         "label": "LinkedIn",
-        "aria": "Open Emir's LinkedIn profile"
+        "aria": "Emir’in LinkedIn profilini aç"
       },
       "github": {
         "label": "GitHub",
-        "aria": "Open Emir's GitHub profile"
+        "aria": "Emir’in GitHub profilini aç"
       }
     }
   },
   "Projects": {
     "eyebrow": "Projeler",
-    "title": "Herkese a??k GitHub repo listesi",
-    "description": "Sunucu taraf?nda GitHub?dan ?ekilen, arama ve filtrelerle desteklenen canl? portfolio proje g?r?n?m?.",
+    "title": "Herkese açık GitHub repo listesi",
+    "description": "Sunucu tarafında GitHub’dan çekilen, arama ve filtrelerle desteklenen canlı portfolio proje görünümü.",
     "githubSync": "GitHub senkronizasyonu",
-    "publicProjects": "{count} herkese a??k proje",
+    "publicProjects": "{count} herkese açık proje",
     "search": "Ara",
-    "searchPlaceholder": "?sim, dil, konu veya a??klama ile ara",
+    "searchPlaceholder": "İsim, dil, konu veya açıklama ile ara",
     "category": "Kategori",
-    "sort": "S?rala",
+    "sort": "Sırala",
     "clearFilters": "Filtreleri temizle",
-    "emptyTitle": "Bu filtrelerle e?le?en proje yok",
-    "emptyDescription": "Farkl? bir arama terimi, kategori veya s?ralama se?ene?i deneyin.",
-    "noProjects": "?u anda herkese a??k portfolio projesi bulunmuyor.",
-    "viewGitHubProfile": "GitHub profilini a?",
-    "resultCount": "{count} proje g?steriliyor",
-    "updated": "{date} tarihinde g?ncellendi",
-    "archived": "Ar?ivlendi",
+    "emptyTitle": "Bu filtrelerle eşleşen proje yok",
+    "emptyDescription": "Farklı bir arama terimi, kategori veya sıralama seçeneği deneyin.",
+    "noProjects": "Şu anda herkese açık portfolio projesi bulunmuyor.",
+    "viewGitHubProfile": "GitHub profilini aç",
+    "resultCount": "{count} proje gösteriliyor",
+    "updated": "{date} tarihinde güncellendi",
+    "archived": "Arşivlendi",
     "categories": {
-      "all": "T?m?",
-      "fullstack": "Full stack",
+      "all": "Tümü",
+      "fullstack": "Full Stack",
       "frontend": "Frontend",
       "backend": "Backend",
-      "game": "Oyun",
-      "tool": "Ara?",
-      "experiment": "Deneysel",
-      "archived": "Ar?ivlenenler",
-      "other": "Di?er"
+      "game": "Oyun Geliştirme",
+      "tool": "Araçlar",
+      "experiment": "Deneyler",
+      "archived": "Arşivlenmiş",
+      "other": "Diğer"
     },
     "sorts": {
-      "updated": "Son g?ncellenen",
-      "newest": "En yeni",
-      "oldest": "En eski",
-      "name": "?sim"
+      "updated": "Son güncellenenler",
+      "newest": "En yeniler",
+      "oldest": "En eskiler",
+      "name": "İsim"
     },
     "statuses": {
-      "completed": "Tamamland?",
-      "inDevelopment": "Geli?tiriliyor",
+      "completed": "Tamamlandı",
+      "inDevelopment": "Geliştiriliyor",
       "experimental": "Deneysel",
-      "archived": "Ar?ivlendi"
+      "archived": "Arşivlendi"
     },
     "card": {
-      "detail": "Proje detay?",
-      "liveDemo": "Canl? demo",
-      "noDescription": "Bu repo i?in hen?z a??klama bulunmuyor.",
-      "githubAria": "{name} reposunu GitHub?da a?",
-      "liveDemoAria": "{name} canl? demosunu a?"
+      "detail": "Proje detayı",
+      "liveDemo": "Live Demo",
+      "noDescription": "Bu repo için henüz açıklama bulunmuyor.",
+      "githubAria": "{name} reposunu GitHub’da aç",
+      "liveDemoAria": "{name} canlı demosunu aç"
     },
     "error": {
-      "title": "Projeler y?klenemedi",
-      "description": "GitHub verisi ge?ici olarak kullan?lam?yor. Canl? veriye ula??lamad???nda portfolio sahte proje verisi g?stermez."
+      "title": "Projeler yüklenemedi",
+      "description": "GitHub verisi geçici olarak kullanılamıyor. Canlı veriye ulaşılamadığında portfolio sahte proje verisi göstermez."
     }
   },
   "ProjectDetail": {
-    "back": "Projelere d?n",
-    "viewGitHub": "GitHub?da g?r",
-    "liveDemo": "Canl? demo",
-    "archived": "Ar?ivlendi",
-    "archivedWarning": "Bu repo ar?ivlenmi?, bu y?zden art?k aktif g?ncelleme alm?yor olabilir.",
-    "overview": "Genel bak??",
-    "metadata": "Repo detaylar?",
+    "back": "Projelere Dön",
+    "viewGitHub": "GitHub’da Gör",
+    "liveDemo": "Canlı Demo",
+    "archived": "Arşivlendi",
+    "archivedWarning": "Bu repo arşivlenmiş, bu yüzden artık aktif güncelleme almıyor olabilir.",
+    "overview": "Genel bakış",
+    "metadata": "Repo detayları",
     "languages": "Diller",
-    "readme": "Repo README i?eri?i",
-    "noReadme": "Bu repoda hen?z README i?eri?i bulunmuyor.",
-    "noDescription": "Bu repo i?in hen?z a??klama bulunmuyor.",
-    "created": "Olu?turulma",
-    "updated": "G?ncelleme",
+    "readme": "Repo README içeriği",
+    "noReadme": "Bu repoda henüz README içeriği bulunmuyor.",
+    "noDescription": "Bu repo için henüz açıklama bulunmuyor.",
+    "created": "Oluşturulma",
+    "updated": "Güncelleme",
     "pushed": "Son push",
     "license": "Lisans",
-    "stars": "{count} y?ld?z",
+    "stars": "{count} yıldız",
     "forks": "{count} fork",
     "primaryLanguage": "Ana dil",
     "topics": "Konular",
-    "notAvailable": "Mevcut de?il",
+    "notAvailable": "Mevcut değil",
+    "originalLanguageNote": "Proje dokümantasyonu orijinal dilinde gösterilir.",
     "categories": {
-      "all": "T?m?",
-      "fullstack": "Full stack",
+      "all": "Tümü",
+      "fullstack": "Full Stack",
       "frontend": "Frontend",
       "backend": "Backend",
-      "game": "Oyun",
-      "tool": "Ara?",
-      "experiment": "Deneysel",
-      "archived": "Ar?ivlenenler",
-      "other": "Di?er"
+      "game": "Oyun Geliştirme",
+      "tool": "Araçlar",
+      "experiment": "Deneyler",
+      "archived": "Arşivlenmiş",
+      "other": "Diğer"
     },
     "statuses": {
-      "completed": "Tamamland?",
-      "inDevelopment": "Geli?tiriliyor",
+      "completed": "Tamamlandı",
+      "inDevelopment": "Geliştiriliyor",
       "experimental": "Deneysel",
-      "archived": "Ar?ivlendi"
+      "archived": "Arşivlendi"
     },
     "sources": {
       "portfolio": "portfolio.md",
       "readme": "README",
-      "description": "A??klama"
+      "description": "Açıklama"
     }
+  },
+  "Metadata": {
+    "site": {
+      "title": "Emir Yılmaz | Full Stack Developer",
+      "description": "Responsive web uygulamaları, backend servisleri, REST API’ler ve veritabanı odaklı projelere odaklanan Full Stack Developer."
+    },
+    "home": {
+      "title": "Emir Yılmaz | Portfolio",
+      "description": "Emir Yılmaz için GitHub projeleri, beceriler, eğitim ve iletişim bilgilerini içeren kişisel portfolio."
+    },
+    "about": {
+      "title": "Hakkımda | Emir Yılmaz",
+      "description": "Emir Yılmaz’ın geliştirme odağını, çalışma şeklini ve güncel hedeflerini anlatan pratik özet."
+    },
+    "skills": {
+      "title": "Beceriler | Emir Yılmaz",
+      "description": "Pratik kullanıma göre gruplanmış teknik ve profesyonel beceriler."
+    },
+    "education": {
+      "title": "Eğitim | Emir Yılmaz",
+      "description": "Doğrulanmış eğitim, sertifika eğitimi ve staj geçmişi."
+    },
+    "contact": {
+      "title": "İletişim | Emir Yılmaz",
+      "description": "Junior full stack ve ilgili teknoloji fırsatları için iletişim bağlantıları."
+    },
+    "projects": {
+      "title": "Projeler | Emir Yılmaz",
+      "description": "Odaklı bir portfolio proje listesi olarak gösterilen herkese açık GitHub repoları."
+    },
+    "projectDetail": {
+      "notFoundTitle": "Proje bulunamadı",
+      "fallbackDescription": "Emir Yılmaz tarafından geliştirilen herkese açık bir yazılım projesi."
+    }
+  },
+  "NotFound": {
+    "eyebrow": "Bulunamadı",
+    "title": "404",
+    "description": "Aradığınız sayfa yok veya artık kullanılamıyor.",
+    "homeLink": "Ana sayfaya dön"
   }
 }

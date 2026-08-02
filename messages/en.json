@@ -1,7 +1,7 @@
 {
   "Common": {
     "selectLanguage": "Select language",
-    "translationNote": "Translations are created with AI assistance.",
+    "translationNote": "Translations were created with AI assistance.",
     "theme": {
       "dark": "Switch to dark theme",
       "light": "Switch to light theme",
@@ -41,7 +41,7 @@
       "name": "Emir Yılmaz",
       "role": "Full Stack Developer",
       "description": "I build responsive web applications, backend services and interactive digital experiences.",
-      "secondaryDescription": "Primarily focused on full stack development, while remaining open to frontend, backend, game development, game design and IT opportunities.",
+      "secondaryDescription": "Focused mainly on full stack development, while remaining open to frontend, backend, game development, game design and IT opportunities.",
       "primaryButton": "Explore Projects",
       "cvButton": "Download CV",
       "social": {
@@ -95,7 +95,7 @@
       "title": "Public work from GitHub",
       "description": "Selected public repositories are synchronized from GitHub and filtered into a focused portfolio index.",
       "viewAll": "View all projects",
-      "emptyDescription": "No featured public repositories are available right now. The portfolio will show real projects as soon as matching GitHub repositories are found."
+      "emptyDescription": "No featured public repositories are available right now."
     },
     "about": {
       "eyebrow": "About Preview",
@@ -117,7 +117,21 @@
         }
       },
       "languages": {
-        "title": "Spoken Languages"
+        "title": "Spoken Languages",
+        "items": {
+          "turkish": {
+            "name": "Turkish",
+            "level": "Native"
+          },
+          "english": {
+            "name": "English",
+            "level": "Upper-intermediate"
+          },
+          "german": {
+            "name": "German",
+            "level": "Beginner"
+          }
+        }
       }
     },
     "skills": {
@@ -131,6 +145,43 @@
         "gameDevelopment": "Game Development",
         "toolsAndTechnologies": "Tools & Technologies",
         "professionalSkills": "Professional Skills"
+      },
+      "items": {
+        "frontend": {
+          "html5": "HTML5",
+          "css3": "CSS3",
+          "javascript": "JavaScript",
+          "responsiveWebDesign": "Responsive Web Design",
+          "basicUiUxPrinciples": "Basic UI/UX Principles"
+        },
+        "backend": {
+          "csharp": "C#",
+          "aspnetCore": "ASP.NET Core",
+          "restApiDevelopment": "REST API Development"
+        },
+        "database": {
+          "sqlServer": "SQL Server",
+          "crudOperations": "CRUD operations",
+          "sql": "SQL",
+          "databaseDesign": "Database design"
+        },
+        "gameDevelopment": {
+          "unity2d": "Unity 2D",
+          "godot": "Godot"
+        },
+        "toolsAndTechnologies": {
+          "git": "Git",
+          "github": "GitHub",
+          "visualStudio": "Visual Studio",
+          "visualStudioCode": "Visual Studio Code"
+        },
+        "professionalSkills": {
+          "problemSolving": "Problem solving",
+          "algorithmicThinking": "Algorithmic thinking",
+          "teamwork": "Teamwork",
+          "communication": "Communication",
+          "projectDiscipline": "Project-based work discipline"
+        }
       }
     },
     "timeline": {
@@ -174,8 +225,8 @@
       "eyebrow": "Introduction",
       "paragraphs": [
         "I studied Computer Programming and have built project-based web applications using HTML, CSS, JavaScript, C#, SQL and ASP.NET technologies.",
-        "My work so far has focused on frontend structure, backend services, database operations and RESTful API development. I am still developing my problem-solving and software design skills through practical projects.",
-        "I am primarily looking for junior full stack development opportunities, while also staying open to suitable frontend, backend, game development, game design and IT roles."
+        "My work so far has focused on frontend structure, backend services, database operations and REST API development. I keep improving through practical projects.",
+        "I am mainly looking for junior full stack development opportunities, while also staying open to suitable frontend, backend, game development, game design and IT roles."
       ]
     },
     "focus": {
@@ -185,9 +236,9 @@
         "fullStack": "Full Stack Development",
         "frontend": "Frontend Development",
         "backend": "Backend Development",
-        "apis": "RESTful APIs",
-        "database": "Database Operations",
-        "responsive": "Responsive Web Applications"
+        "apis": "REST APIs",
+        "database": "Database operations",
+        "responsive": "Responsive web applications"
       }
     },
     "interests": {
@@ -229,6 +280,43 @@
       "gameDevelopment": "Game Development",
       "toolsAndTechnologies": "Tools & Technologies",
       "professionalSkills": "Professional Skills"
+    },
+    "items": {
+      "frontend": {
+        "html5": "HTML5",
+        "css3": "CSS3",
+        "javascript": "JavaScript",
+        "responsiveWebDesign": "Responsive Web Design",
+        "basicUiUxPrinciples": "Basic UI/UX Principles"
+      },
+      "backend": {
+        "csharp": "C#",
+        "aspnetCore": "ASP.NET Core",
+        "restApiDevelopment": "REST API Development"
+      },
+      "database": {
+        "sqlServer": "SQL Server",
+        "crudOperations": "CRUD operations",
+        "sql": "SQL",
+        "databaseDesign": "Database design"
+      },
+      "gameDevelopment": {
+        "unity2d": "Unity 2D",
+        "godot": "Godot"
+      },
+      "toolsAndTechnologies": {
+        "git": "Git",
+        "github": "GitHub",
+        "visualStudio": "Visual Studio",
+        "visualStudioCode": "Visual Studio Code"
+      },
+      "professionalSkills": {
+        "problemSolving": "Problem solving",
+        "algorithmicThinking": "Algorithmic thinking",
+        "teamwork": "Teamwork",
+        "communication": "Communication",
+        "projectDiscipline": "Project-based work discipline"
+      }
     }
   },
   "EducationPage": {
@@ -309,12 +397,12 @@
     "archived": "Archived",
     "categories": {
       "all": "All",
-      "fullstack": "Full stack",
+      "fullstack": "Full Stack",
       "frontend": "Frontend",
       "backend": "Backend",
-      "game": "Game",
-      "tool": "Tool",
-      "experiment": "Experiment",
+      "game": "Game Development",
+      "tool": "Tools",
+      "experiment": "Experiments",
       "archived": "Archived",
       "other": "Other"
     },
@@ -332,7 +420,7 @@
     },
     "card": {
       "detail": "Project detail",
-      "liveDemo": "Live demo",
+      "liveDemo": "Live Demo",
       "noDescription": "No repository description is available yet.",
       "githubAria": "Open {name} on GitHub",
       "liveDemoAria": "Open live demo for {name}"
@@ -345,7 +433,7 @@
   "ProjectDetail": {
     "back": "Back to projects",
     "viewGitHub": "View GitHub",
-    "liveDemo": "Live demo",
+    "liveDemo": "Live Demo",
     "archived": "Archived",
     "archivedWarning": "This repository is archived, so it may no longer receive active updates.",
     "overview": "Overview",
@@ -363,14 +451,15 @@
     "primaryLanguage": "Primary language",
     "topics": "Topics",
     "notAvailable": "Not available",
+    "originalLanguageNote": "Project documentation is displayed in its original language.",
     "categories": {
       "all": "All",
-      "fullstack": "Full stack",
+      "fullstack": "Full Stack",
       "frontend": "Frontend",
       "backend": "Backend",
-      "game": "Game",
-      "tool": "Tool",
-      "experiment": "Experiment",
+      "game": "Game Development",
+      "tool": "Tools",
+      "experiment": "Experiments",
       "archived": "Archived",
       "other": "Other"
     },
@@ -385,5 +474,45 @@
       "readme": "README",
       "description": "Description"
     }
+  },
+  "Metadata": {
+    "site": {
+      "title": "Emir Yılmaz | Full Stack Developer",
+      "description": "Full Stack Developer focused on responsive web applications, backend services, REST APIs and database-driven projects."
+    },
+    "home": {
+      "title": "Emir Yılmaz | Portfolio",
+      "description": "A personal portfolio for Emir Yılmaz with GitHub projects, skills, education and contact information."
+    },
+    "about": {
+      "title": "About | Emir Yılmaz",
+      "description": "A practical overview of Emir Yılmaz, his development focus and current goals."
+    },
+    "skills": {
+      "title": "Skills | Emir Yılmaz",
+      "description": "Technical and professional skills grouped by practical use."
+    },
+    "education": {
+      "title": "Education | Emir Yılmaz",
+      "description": "Confirmed education, certification training and internship background."
+    },
+    "contact": {
+      "title": "Contact | Emir Yılmaz",
+      "description": "Contact links for junior full stack and related technology opportunities."
+    },
+    "projects": {
+      "title": "Projects | Emir Yılmaz",
+      "description": "Public GitHub repositories shown as a focused portfolio project index."
+    },
+    "projectDetail": {
+      "notFoundTitle": "Project not found",
+      "fallbackDescription": "A public software project by Emir Yılmaz."
+    }
+  },
+  "NotFound": {
+    "eyebrow": "Not found",
+    "title": "404",
+    "description": "The page you are looking for does not exist or is no longer available.",
+    "homeLink": "Back to home"
   }
 }

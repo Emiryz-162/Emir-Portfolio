@@ -18,13 +18,14 @@ import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { TechBadge } from "@/components/ui/tech-badge";
 import { buildLocalizedHref } from "@/i18n/routing";
-import { formatDate, truncateText } from "@/lib/format";
+import { formatDate, formatNumber, truncateText } from "@/lib/format";
 import { getProjectMarkdownContent } from "@/lib/github/readme";
 import {
   getPortfolioProject,
   getPortfolioProjectResult,
 } from "@/lib/github/repositories";
 import { getGitHubRepositoryLanguages } from "@/lib/github/repository-details";
+import { getLocalizedAlternates, getMetadataBase } from "@/lib/metadata";
 
 type ProjectDetailPageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -33,21 +34,28 @@ type ProjectDetailPageProps = {
 export async function generateMetadata({
   params,
 }: ProjectDetailPageProps): Promise<Metadata> {
-  const { slug } = await params;
+  const { locale, slug } = await params;
+  const t = await getTranslations({
+    locale,
+    namespace: "Metadata.projectDetail",
+  });
   const project = await getPortfolioProject(slug);
 
   if (!project) {
     return {
-      title: "Project not found",
+      metadataBase: getMetadataBase(),
+      title: t("notFoundTitle"),
     };
   }
 
   return {
-    title: `${project.name} | Emir Yilmaz`,
+    metadataBase: getMetadataBase(),
+    title: `${project.name} | Emir Yılmaz`,
     description: truncateText(
-      project.description ?? `A public software project by Emir Yilmaz.`,
+      project.description ?? t("fallbackDescription"),
       155,
     ),
+    alternates: getLocalizedAlternates(`/projects/${project.slug}`),
   };
 }
 
@@ -179,11 +187,11 @@ export default async function ProjectDetailPage({
             <div className="mt-5 flex flex-wrap gap-2 text-sm text-muted">
               <span className="inline-flex items-center gap-1.5 rounded-[6px] border border-border px-2.5 py-1">
                 <Star size={14} aria-hidden="true" />
-                {t("stars", { count: project.stars })}
+                {t("stars", { count: formatNumber(project.stars, locale) })}
               </span>
               <span className="inline-flex items-center gap-1.5 rounded-[6px] border border-border px-2.5 py-1">
                 <GitFork size={14} aria-hidden="true" />
-                {t("forks", { count: project.forks })}
+                {t("forks", { count: formatNumber(project.forks, locale) })}
               </span>
             </div>
           </Card>
@@ -245,6 +253,9 @@ export default async function ProjectDetailPage({
               {t(`sources.${markdownContent.source}`)}
             </span>
           </div>
+          <p className="mt-4 text-xs leading-5 text-muted">
+            {t("originalLanguageNote")}
+          </p>
 
           {markdownContent.markdown ? (
             <SafeMarkdown

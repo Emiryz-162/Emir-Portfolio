@@ -1,13 +1,29 @@
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ProjectsBrowser } from "@/components/projects/projects-browser";
 import { ProjectsUnavailableState } from "@/components/projects/projects-empty-state";
 import { Container } from "@/components/ui/container";
 import { Heading } from "@/components/ui/heading";
 import { getPortfolioProjects } from "@/lib/github/repositories";
+import { getLocalizedAlternates, getMetadataBase } from "@/lib/metadata";
 
 type ProjectsPageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: ProjectsPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  return {
+    metadataBase: getMetadataBase(),
+    title: t("projects.title"),
+    description: t("projects.description"),
+    alternates: getLocalizedAlternates("/projects"),
+  };
+}
 
 export default async function ProjectsPage({ params }: ProjectsPageProps) {
   const { locale } = await params;

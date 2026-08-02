@@ -21,6 +21,7 @@ export function TechnicalSkillsSection() {
               key={group.key}
               group={group}
               title={t(`groups.${group.key}`)}
+              items={group.items.map((item) => t(`items.${group.key}.${item}`))}
             />
           ))}
         </div>

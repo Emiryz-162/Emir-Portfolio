@@ -122,7 +122,7 @@ export function Navbar() {
             </Link>
           ))}
           <div className="mt-2 flex items-center gap-2 border-t border-border pt-4">
-            <LanguageSwitcher />
+            <LanguageSwitcher align="left" />
             <Button asChild className="flex-1">
               <a href={cvDownloadHref} download>
                 <Download size={16} aria-hidden="true" />

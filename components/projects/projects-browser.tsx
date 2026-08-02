@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TechBadge } from "@/components/ui/tech-badge";
@@ -74,6 +74,7 @@ export function ProjectsBrowser({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [, startTransition] = useTransition();
+  const shouldKeepSortParam = useRef(searchParams.has("sort"));
 
   const [query, setQuery] = useState(searchParams.get("query") ?? "");
   const [category, setCategory] = useState<ProjectFilter>(
@@ -87,17 +88,24 @@ export function ProjectsBrowser({
     const params = new URLSearchParams();
     if (query.trim()) params.set("query", query.trim());
     if (category !== "all") params.set("category", category);
-    if (sort !== "updated") params.set("sort", sort);
+    if (sort !== "updated" || shouldKeepSortParam.current) {
+      params.set("sort", sort);
+    }
+
+    const hash = window.location.hash;
 
     startTransition(() => {
-      router.replace(params.size ? `${pathname}?${params}` : pathname, {
-        scroll: false,
-      });
+      router.replace(
+        params.size ? `${pathname}?${params}${hash}` : `${pathname}${hash}`,
+        {
+          scroll: false,
+        },
+      );
     });
   }, [category, pathname, query, router, sort]);
 
   const filteredProjects = useMemo(() => {
-    const normalizedQuery = query.trim().toLowerCase();
+    const normalizedQuery = normalizeSearchValue(query, locale);
 
     return sortProjectsForClient(
       projects.filter((project) => {
@@ -117,17 +125,16 @@ export function ProjectsBrowser({
           project.description ?? "",
           project.primaryLanguage ?? "",
           ...project.topics,
-        ]
-          .join(" ")
-          .toLowerCase();
+        ].join(" ");
 
-        return haystack.includes(normalizedQuery);
+        return normalizeSearchValue(haystack, locale).includes(normalizedQuery);
       }),
       sort,
     );
-  }, [category, projects, query, sort]);
+  }, [category, locale, projects, query, sort]);
 
   const clearFilters = () => {
+    shouldKeepSortParam.current = false;
     setQuery("");
     setCategory("all");
     setSort("updated");
@@ -180,7 +187,10 @@ export function ProjectsBrowser({
           </span>
           <select
             value={sort}
-            onChange={(event) => setSort(event.target.value as ProjectSort)}
+            onChange={(event) => {
+              shouldKeepSortParam.current = true;
+              setSort(event.target.value as ProjectSort);
+            }}
             className="h-11 rounded-[6px] border border-border bg-background px-3 text-sm text-foreground outline-none transition focus:border-border-strong focus:ring-2 focus:ring-ring"
           >
             {sorts.map((item) => (
@@ -408,4 +418,12 @@ function sortProjectsForClient(
 
     return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
   });
+}
+
+function normalizeSearchValue(value: string, locale: string) {
+  return value
+    .trim()
+    .normalize("NFKD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLocaleLowerCase(locale);
 }

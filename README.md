@@ -35,11 +35,16 @@ but recommended for a higher GitHub API rate limit:
 
 ```bash
 GITHUB_TOKEN=
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
 Create a local `.env.local` from `.env.example` and add a classic or fine-grained
 token only if needed. The token is read only on the server and is never exposed
 to client components.
+
+`NEXT_PUBLIC_SITE_URL` is used for metadata alternates and hreflang URLs. Keep
+the localhost value for development only, and set the production origin when the
+real domain is available.
 
 ## Scripts
 
@@ -49,6 +54,7 @@ npm run build
 npm run lint
 npm run format
 npm run format:check
+npm run validate:translations
 ```
 
 ## Architecture
@@ -62,8 +68,32 @@ npm run format:check
 - `data`: Central profile, navigation, social link, project, skill, and experience data.
 - `i18n`: Locale routing, request config, and navigation wrappers.
 - `lib/github`: GitHub REST client, repository mapping, language stats, README fetching, and Markdown URL resolution.
-- `messages`: Translation message files. English is filled; other locales currently mirror English.
+- `messages`: Translation message files for all supported locales.
+- `scripts/validate-translations.mjs`: Checks locale files against the English message schema.
 - `types`: Shared TypeScript domain types.
+
+## Internationalization
+
+Default locale is English (`en`). Supported routes are `/en`, `/tr`, `/de`,
+`/fr`, `/es`, `/it`, `/pt`, `/nl`, and `/pl`. Portuguese copy is written for
+European Portuguese while keeping the `pt` locale code.
+
+The language switcher keeps the current page, query string and hash when
+switching languages. For example, `/en/projects?category=backend` becomes
+`/tr/projects?category=backend`. next-intl handles the lightweight
+`NEXT_LOCALE` preference cookie when a user chooses a language.
+
+The menu includes a small note that translations were created with AI
+assistance. These translations can be reviewed by a human later, but the UI does
+not claim that review has already happened.
+
+GitHub repository names, descriptions, topics, programming languages, license
+names, README files and `portfolio.md` content are not translated. They are
+shown in the original language so technical project information stays accurate.
+
+When adding a new locale, update `i18n/routing.ts`, add `messages/{locale}.json`
+with the same shape as `messages/en.json`, then run
+`npm run validate:translations`.
 
 ## GitHub Portfolio Data
 
@@ -106,6 +136,10 @@ without changing page components.
 - Server-side GitHub repository integration
 - Project index with search, filters, sorting, empty states, and unavailable states
 - Dynamic project detail pages with README/portfolio Markdown, language stats, and metadata
+- Real locale files for English, Turkish, German, French, Spanish, Italian,
+  European Portuguese, Dutch, and Polish
+- Accessible language switcher with current-page locale switching
+- Translation validation script
 
 ## Current Routes
 
@@ -117,7 +151,7 @@ without changing page components.
 - `/en/education`
 - `/en/contact`
 
-Default locale is English. Supported locale placeholders are Turkish, English, German, French, Spanish, Italian, Portuguese, Polish, and Dutch.
+Default locale is English. Supported locales are Turkish, English, German, French, Spanish, Italian, European Portuguese, Dutch, and Polish.
 
 ## CV
 
@@ -134,7 +168,7 @@ All Download CV buttons point to `/documents/emir-yilmaz-cv.pdf`.
 - Add the CV PDF file to `public/documents/emir-yilmaz-cv.pdf`.
 - Graphic Design education details require confirmation.
 - Microsoft certification title and verification details require confirmation.
-- Add real translations for non-English locales.
+- Review AI-assisted translations with native speakers or a human reviewer.
 - Add optional `portfolio.json` metadata support for richer repo-specific overrides.
 - Add contact form backend.
 - Add mini game.

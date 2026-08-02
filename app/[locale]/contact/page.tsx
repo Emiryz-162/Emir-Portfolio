@@ -1,11 +1,27 @@
+import type { Metadata } from "next";
 import { BriefcaseBusiness, Code2, Mail } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/ui/container";
 import { profile } from "@/data/profile";
+import { getLocalizedAlternates, getMetadataBase } from "@/lib/metadata";
 
 type ContactPageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: ContactPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  return {
+    metadataBase: getMetadataBase(),
+    title: t("contact.title"),
+    description: t("contact.description"),
+    alternates: getLocalizedAlternates("/contact"),
+  };
+}
 
 const contactItems = [
   {

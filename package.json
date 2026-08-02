@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "validate:translations": "node scripts/validate-translations.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

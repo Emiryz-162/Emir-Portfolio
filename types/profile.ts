@@ -1,6 +1,7 @@
 export type ProfileLinkKey = "github" | "linkedin" | "email";
 
 export type ProfileLanguage = {
+  key: "turkish" | "english" | "german";
   name: string;
   level: string;
 };

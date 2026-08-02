@@ -11,8 +11,8 @@ export const profile: Profile = {
   linkedInUrl: "https://www.linkedin.com/in/emir-y/",
   resumeUrl: "/documents/emir-yilmaz-cv.pdf",
   languages: [
-    { name: "Turkish", level: "Native" },
-    { name: "English", level: "Upper-Intermediate" },
-    { name: "German", level: "Beginner" },
+    { key: "turkish", name: "Turkish", level: "Native" },
+    { key: "english", name: "English", level: "Upper-Intermediate" },
+    { key: "german", name: "German", level: "Beginner" },
   ],
 };

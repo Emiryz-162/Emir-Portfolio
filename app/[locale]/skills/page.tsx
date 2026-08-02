@@ -1,11 +1,27 @@
+import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SkillGroup } from "@/components/sections/skill-group";
 import { Container } from "@/components/ui/container";
 import { skillGroups } from "@/data/skills";
+import { getLocalizedAlternates, getMetadataBase } from "@/lib/metadata";
 
 type SkillsPageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: SkillsPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  return {
+    metadataBase: getMetadataBase(),
+    title: t("skills.title"),
+    description: t("skills.description"),
+    alternates: getLocalizedAlternates("/skills"),
+  };
+}
 
 export default async function SkillsPage({ params }: SkillsPageProps) {
   const { locale } = await params;
@@ -32,6 +48,7 @@ export default async function SkillsPage({ params }: SkillsPageProps) {
             key={group.key}
             group={group}
             title={t(`groups.${group.key}`)}
+            items={group.items.map((item) => t(`items.${group.key}.${item}`))}
           />
         ))}
       </div>

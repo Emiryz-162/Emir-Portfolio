@@ -4,42 +4,37 @@ export const skillGroups: SkillGroup[] = [
   {
     key: "frontend",
     items: [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Responsive Web Design",
-      "Basic UI/UX Principles",
+      "html5",
+      "css3",
+      "javascript",
+      "responsiveWebDesign",
+      "basicUiUxPrinciples",
     ],
   },
   {
     key: "backend",
-    items: ["C#", "ASP.NET Core", "RESTful API Development"],
+    items: ["csharp", "aspnetCore", "restApiDevelopment"],
   },
   {
     key: "database",
-    items: [
-      "Microsoft SQL Server",
-      "CRUD Operations",
-      "SQL",
-      "Database Design",
-    ],
+    items: ["sqlServer", "crudOperations", "sql", "databaseDesign"],
   },
   {
     key: "gameDevelopment",
-    items: ["Unity 2D", "Godot"],
+    items: ["unity2d", "godot"],
   },
   {
     key: "toolsAndTechnologies",
-    items: ["Git", "GitHub", "Visual Studio", "Visual Studio Code"],
+    items: ["git", "github", "visualStudio", "visualStudioCode"],
   },
   {
     key: "professionalSkills",
     items: [
-      "Problem Solving",
-      "Algorithmic Thinking",
-      "Teamwork",
-      "Communication",
-      "Project-Based Work Discipline",
+      "problemSolving",
+      "algorithmicThinking",
+      "teamwork",
+      "communication",
+      "projectDiscipline",
     ],
   },
 ];
