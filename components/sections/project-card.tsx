@@ -1,16 +1,10 @@
-import {
-  Archive,
-  ArrowUpRight,
-  CalendarDays,
-  Code2,
-  ExternalLink,
-} from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
+import { GitHubMark } from "@/components/icons/brand-icons";
 import { Card } from "@/components/ui/card";
 import { TechBadge } from "@/components/ui/tech-badge";
 import { buildLocalizedHref } from "@/i18n/routing";
-import { formatDate } from "@/lib/format";
 import { cn } from "@/lib/cn";
 import type { PortfolioProject } from "@/types/github";
 
@@ -26,8 +20,6 @@ export async function ProjectCard({
   featured = false,
 }: ProjectCardProps) {
   const t = await getTranslations("Projects");
-  const visibleTopics = project.topics.slice(0, 4);
-  const remainingTopicCount = project.topics.length - visibleTopics.length;
 
   return (
     <Card
@@ -42,12 +34,8 @@ export async function ProjectCard({
           <div className="min-w-0">
             <div className="flex items-start justify-between gap-3">
               <div className="flex flex-wrap items-center gap-2">
-                <TechBadge>{t(`categories.${project.category}`)}</TechBadge>
-                {project.isArchived ? (
-                  <span className="inline-flex items-center gap-1 rounded-[6px] border border-border bg-background/70 px-2.5 py-1 font-mono text-[11px] uppercase tracking-normal text-muted">
-                    <Archive size={12} aria-hidden="true" />
-                    {t("archived")}
-                  </span>
+                {project.primaryLanguage ? (
+                  <TechBadge>{project.primaryLanguage}</TechBadge>
                 ) : null}
               </div>
               <a
@@ -57,7 +45,7 @@ export async function ProjectCard({
                 className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[6px] border border-border text-muted-foreground transition hover:border-border-strong hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 aria-label={t("card.githubAria", { name: project.name })}
               >
-                <Code2 size={16} aria-hidden="true" />
+                <GitHubMark size={16} aria-hidden="true" />
               </a>
             </div>
 
@@ -67,31 +55,21 @@ export async function ProjectCard({
             <p className="mt-3 line-clamp-3 max-w-xl text-sm leading-6 text-muted">
               {project.description ?? t("card.noDescription")}
             </p>
-
-            <div className="mt-5 flex flex-wrap gap-2">
-              {project.primaryLanguage ? (
-                <TechBadge>{project.primaryLanguage}</TechBadge>
-              ) : null}
-              {visibleTopics.map((topic) => (
-                <TechBadge key={topic}>{topic}</TechBadge>
-              ))}
-              {remainingTopicCount > 0 ? (
-                <TechBadge>{`+${remainingTopicCount}`}</TechBadge>
-              ) : null}
-            </div>
-
-            <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-muted">
-              <span className="inline-flex items-center gap-1.5">
-                <CalendarDays size={14} aria-hidden="true" />
-                {t("updated", { date: formatDate(project.updatedAt, locale) })}
-              </span>
-              {project.status ? (
-                <span>{t(`statuses.${statusKey(project.status)}`)}</span>
-              ) : null}
-            </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            {project.liveDemoUrl ? (
+              <a
+                href={project.liveDemoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-10 items-center justify-center gap-2 rounded-[6px] border border-accent bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                aria-label={t("card.liveDemoAria", { name: project.name })}
+              >
+                {t("card.liveDemo")}
+                <ExternalLink size={16} aria-hidden="true" />
+              </a>
+            ) : null}
             <Link
               href={buildLocalizedHref(locale, `/projects/${project.slug}`)}
               className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -99,27 +77,11 @@ export async function ProjectCard({
               {t("card.detail")}
               <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
-            {project.liveDemoUrl ? (
-              <a
-                href={project.liveDemoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                aria-label={t("card.liveDemoAria", { name: project.name })}
-              >
-                {t("card.liveDemo")}
-                <ExternalLink size={16} aria-hidden="true" />
-              </a>
-            ) : null}
           </div>
         </div>
       </div>
     </Card>
   );
-}
-
-function statusKey(status: string) {
-  return status === "in-development" ? "inDevelopment" : status;
 }
 
 function ProjectCover({ project }: { project: PortfolioProject }) {

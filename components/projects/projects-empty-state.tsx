@@ -1,4 +1,4 @@
-import { Code2 } from "lucide-react";
+import { GitHubMark } from "@/components/icons/brand-icons";
 import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { profile } from "@/data/profile";
@@ -30,7 +30,7 @@ export async function ProjectsUnavailableState({
       </p>
       <Button asChild className="mt-6" variant="secondary">
         <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer">
-          <Code2 size={16} aria-hidden="true" />
+          <GitHubMark size={16} aria-hidden="true" />
           {t("viewGitHubProfile")}
         </a>
       </Button>

@@ -11,19 +11,10 @@
         "light": "Huidig thema: licht"
       }
     },
-    "skipToContent": "Ga naar hoofdinhoud",
-    "cv": {
-      "download": "Contact opnemen",
-      "aria": "Ga naar de contactpagina",
-      "pdf": "PDF",
-      "unavailableTitle": "Het CV wordt binnenkort toegevoegd.",
-      "unavailableDescription": "Het CV wordt binnenkort toegevoegd."
-    }
+    "skipToContent": "Ga naar hoofdinhoud"
   },
   "Navigation": {
     "brand": "Emir Yılmaz",
-    "status": "Open voor kansen",
-    "cv": "Contact opnemen",
     "openMenu": "Menu openen",
     "closeMenu": "Menu sluiten",
     "items": {
@@ -34,9 +25,8 @@
       "education": "Opleiding",
       "contact": "Contact"
     },
-    "cvAria": "Ga naar de contactpagina",
-    "cvUnavailable": "Het CV wordt binnenkort toegevoegd.",
-    "cvPdf": "PDF"
+    "contact": "Contact opnemen",
+    "contactAria": "Ga naar de contactpagina"
   },
   "Footer": {
     "builtBy": "Ontworpen en gebouwd door Emir.",
@@ -52,9 +42,7 @@
       "name": "Emir Yılmaz",
       "role": "Full Stack Developer",
       "description": "Ik ontwikkel responsieve webapplicaties, backendservices en interactieve digitale ervaringen.",
-      "secondaryDescription": "Mijn focus ligt vooral op full stack development, met openheid voor frontend, backend, game development, game design en IT-kansen.",
       "primaryButton": "Projecten verkennen",
-      "cvButton": "Contact opnemen",
       "social": {
         "github": "GitHub",
         "linkedin": "LinkedIn",
@@ -118,27 +106,8 @@
           "achievement": "Portfolio Explorer ontgrendeld",
           "dismiss": "Prestatie sluiten"
         }
-      }
-    },
-    "valueStrip": {
-      "items": {
-        "problemSolver": {
-          "title": "Probleemoplosser",
-          "description": "Breekt technische problemen op in kleine, beheersbare onderdelen."
-        },
-        "alwaysLearning": {
-          "title": "Leergierig",
-          "description": "Groeit door projecten, documentatie en praktische experimenten."
-        },
-        "teamPlayer": {
-          "title": "Teamspeler",
-          "description": "Hecht waarde aan heldere communicatie, gedeelde verantwoordelijkheid en feedback."
-        },
-        "creativeDeveloper": {
-          "title": "Creatieve developer",
-          "description": "Combineert softwareontwikkeling met interactieve en gamegerichte ideeën."
-        }
-      }
+      },
+      "contactButton": "Contact opnemen"
     },
     "projects": {
       "eyebrow": "Uitgelichte projecten",
@@ -160,10 +129,6 @@
         "focus": {
           "label": "Focus",
           "value": "Full stack development en projectmatig leren"
-        },
-        "availability": {
-          "label": "Beschikbaarheid",
-          "value": "Projectgericht leren en ontwikkelen"
         }
       },
       "languages": {
@@ -241,7 +206,8 @@
       "labels": {
         "experience": "Ervaring",
         "education": "Opleiding",
-        "certification": "Certificering"
+        "certification": "Certificering",
+        "graphicDesign": "Opleiding"
       },
       "items": {
         "experience": {
@@ -258,6 +224,11 @@
           "title": "SmartPro Software Academy",
           "organization": "Projectgerichte Full Stack Web Development-training",
           "meta": "240 uur"
+        },
+        "graphicDesign": {
+          "title": "Grafisch ontwerp",
+          "organization": "Istanbul University",
+          "meta": "2023 - Heden"
         }
       }
     },
@@ -270,7 +241,6 @@
     }
   },
   "AboutPage": {
-    "status": "Open voor junior full stack en verwante technologierollen",
     "introduction": {
       "eyebrow": "Introductie",
       "paragraphs": [
@@ -405,6 +375,16 @@
           "Ik ontwikkelde praktische vaardigheden in technische ondersteuning en probleemoplossing.",
           "Tijdens de stage hielp ik bij dagelijkse IT-operaties."
         ]
+      },
+      "graphicDesign": {
+        "label": "Opleiding",
+        "title": "Grafisch ontwerp",
+        "organization": "Istanbul University",
+        "meta": "2023 - Heden",
+        "details": [
+          "Studeert Grafisch ontwerp aan Istanbul University.",
+          "Zet het programma voort en versterkt de basis in visueel ontwerp."
+        ]
       }
     }
   },
@@ -425,10 +405,6 @@
         "label": "GitHub",
         "aria": "Emir’in GitHub profilini aç"
       }
-    },
-    "status": "Open voor nieuwe kansen",
-    "cv": {
-      "title": "CV"
     },
     "form": {
       "eyebrow": "Bericht",
@@ -491,8 +467,6 @@
     "noProjects": "Er zijn momenteel geen openbare portfolioprojecten beschikbaar.",
     "viewGitHubProfile": "GitHub-profiel openen",
     "resultCount": "{count} projecten getoond",
-    "updated": "Bijgewerkt op {date}",
-    "archived": "Gearchiveerd",
     "categories": {
       "all": "Alle",
       "fullstack": "Full Stack",
@@ -505,16 +479,10 @@
       "other": "Overig"
     },
     "sorts": {
-      "updated": "Recent bijgewerkt",
+      "updated": "Standaard",
       "newest": "Nieuwste",
       "oldest": "Oudste",
       "name": "Naam"
-    },
-    "statuses": {
-      "completed": "Voltooid",
-      "inDevelopment": "In ontwikkeling",
-      "experimental": "Experimenteel",
-      "archived": "Gearchiveerd"
     },
     "card": {
       "detail": "Projectdetail",
@@ -540,33 +508,12 @@
     "readme": "Repository README-inhoud",
     "noReadme": "Deze repository heeft nog geen README-inhoud.",
     "noDescription": "Deze repository heeft nog geen beschrijving.",
-    "created": "Aangemaakt",
-    "updated": "Bijgewerkt",
-    "pushed": "Laatste push",
     "license": "Licentie",
     "stars": "{count} sterren",
     "forks": "{count} forks",
     "primaryLanguage": "Primaire taal",
-    "topics": "Topics",
     "notAvailable": "Niet beschikbaar",
     "originalLanguageNote": "Projectdocumentatie wordt in de oorspronkelijke taal getoond.",
-    "categories": {
-      "all": "Alle",
-      "fullstack": "Full Stack",
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "game": "Game development",
-      "tool": "Tools",
-      "experiment": "Experimenten",
-      "archived": "Gearchiveerd",
-      "other": "Overig"
-    },
-    "statuses": {
-      "completed": "Voltooid",
-      "inDevelopment": "In ontwikkeling",
-      "experimental": "Experimenteel",
-      "archived": "Gearchiveerd"
-    },
     "sources": {
       "portfolio": "portfolio.md",
       "readme": "README",

@@ -11,19 +11,10 @@
         "light": "Tema actual: claro"
       }
     },
-    "skipToContent": "Saltar al contenido principal",
-    "cv": {
-      "download": "Contactar",
-      "aria": "Ir a la página de contacto",
-      "pdf": "PDF",
-      "unavailableTitle": "El CV se añadirá pronto.",
-      "unavailableDescription": "El CV se añadirá pronto."
-    }
+    "skipToContent": "Saltar al contenido principal"
   },
   "Navigation": {
     "brand": "Emir Yilmaz",
-    "status": "Abierto a oportunidades",
-    "cv": "Contactar",
     "openMenu": "Abrir menú",
     "closeMenu": "Cerrar menú",
     "items": {
@@ -34,9 +25,8 @@
       "education": "Educación",
       "contact": "Contacto"
     },
-    "cvAria": "Ir a la página de contacto",
-    "cvUnavailable": "El CV se añadirá pronto.",
-    "cvPdf": "PDF"
+    "contact": "Contactar",
+    "contactAria": "Ir a la página de contacto"
   },
   "Footer": {
     "builtBy": "Diseñado y construido por Emir.",
@@ -52,9 +42,7 @@
       "name": "Emir Yilmaz",
       "role": "Full Stack Developer",
       "description": "Desarrollo aplicaciones web responsivas, servicios backend y experiencias digitales interactivas.",
-      "secondaryDescription": "Mi prioridad es el desarrollo completo; Además, también estoy abierto a oportunidades de frontend, backend, desarrollo de juegos, diseño de juegos y TI.",
       "primaryButton": "Descubrir Proyectos",
-      "cvButton": "Contactar",
       "social": {
         "github": "GitHub",
         "linkedin": "LinkedIn",
@@ -118,27 +106,8 @@
           "achievement": "Portfolio Explorer desbloqueado",
           "dismiss": "Cerrar logro"
         }
-      }
-    },
-    "valueStrip": {
-      "items": {
-        "problemSolver": {
-          "title": "solucionador de problemas",
-          "description": "Divide los problemas técnicos en partes pequeñas y manejables."
-        },
-        "alwaysLearning": {
-          "title": "Abierto al aprendizaje",
-          "description": "Se mejora a través de proyectos, documentación y pruebas prácticas."
-        },
-        "teamPlayer": {
-          "title": "Jugador de equipo",
-          "description": "Valoramos la comunicación abierta, la responsabilidad compartida y la retroalimentación."
-        },
-        "creativeDeveloper": {
-          "title": "Desarrollador creativo",
-          "description": "Combina el desarrollo de software con ideas interactivas y orientadas a juegos."
-        }
-      }
+      },
+      "contactButton": "Contactar"
     },
     "projects": {
       "eyebrow": "Proyectos destacados",
@@ -160,10 +129,6 @@
         "focus": {
           "label": "Odak",
           "value": "Desarrollo completo y aprendizaje basado en proyectos."
-        },
-        "availability": {
-          "label": "Uygunluk",
-          "value": "Aprendizaje y desarrollo basados en proyectos"
         }
       },
       "languages": {
@@ -241,7 +206,8 @@
       "labels": {
         "experience": "Experiencia",
         "education": "Educación",
-        "certification": "Certificado"
+        "certification": "Certificado",
+        "graphicDesign": "Educación"
       },
       "items": {
         "experience": {
@@ -258,6 +224,11 @@
           "title": "Academia de software SmartPro",
           "organization": "Capacitación en desarrollo web Full Stack basada en proyectos",
           "meta": "240 Saat"
+        },
+        "graphicDesign": {
+          "title": "Diseño gráfico",
+          "organization": "Istanbul University",
+          "meta": "2023 - Presente"
         }
       }
     },
@@ -270,7 +241,6 @@
     }
   },
   "AboutPage": {
-    "status": "Abierto a puestos junior full stack y tecnológicos relacionados",
     "introduction": {
       "eyebrow": "Promoción",
       "paragraphs": [
@@ -405,6 +375,16 @@
           "Mejoré mi soporte técnico práctico y mis habilidades de resolución de problemas.",
           "Durante mi pasantía, ayudé en las operaciones diarias de TI."
         ]
+      },
+      "graphicDesign": {
+        "label": "Educación",
+        "title": "Diseño gráfico",
+        "organization": "Istanbul University",
+        "meta": "2023 - Presente",
+        "details": [
+          "Estudia Diseño gráfico en Istanbul University.",
+          "Continúa el programa mientras fortalece su base de diseño visual."
+        ]
       }
     }
   },
@@ -425,10 +405,6 @@
         "label": "GitHub",
         "aria": "Abrir el perfil de GitHub de Emir"
       }
-    },
-    "status": "Abierto a oportunidades",
-    "cv": {
-      "title": "CV"
     },
     "form": {
       "eyebrow": "Mensaje",
@@ -491,8 +467,6 @@
     "noProjects": "Ahora mismo no hay proyectos públicos de portfolio disponibles.",
     "viewGitHubProfile": "Abrir perfil de GitHub",
     "resultCount": "{count} proyectos mostrados",
-    "updated": "Actualizado el {date}",
-    "archived": "Archivado",
     "categories": {
       "all": "Todos",
       "fullstack": "Full Stack",
@@ -505,16 +479,10 @@
       "other": "Otro"
     },
     "sorts": {
-      "updated": "Actualizados recientemente",
+      "updated": "Predeterminado",
       "newest": "Más recientes",
       "oldest": "Más antiguos",
       "name": "Nombre"
-    },
-    "statuses": {
-      "completed": "Completado",
-      "inDevelopment": "En desarrollo",
-      "experimental": "Experimental",
-      "archived": "Archivado"
     },
     "card": {
       "detail": "Detalle del proyecto",
@@ -540,33 +508,12 @@
     "readme": "Contenido README del repositorio",
     "noReadme": "Este repositorio aún no tiene contenido README.",
     "noDescription": "Este repositorio aún no tiene descripción.",
-    "created": "Creado",
-    "updated": "Actualizado",
-    "pushed": "Último push",
     "license": "Licencia",
     "stars": "{count} estrellas",
     "forks": "{count} forks",
     "primaryLanguage": "Lenguaje principal",
-    "topics": "Topics",
     "notAvailable": "No disponible",
     "originalLanguageNote": "La documentación del proyecto se muestra en su idioma original.",
-    "categories": {
-      "all": "Todos",
-      "fullstack": "Full Stack",
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "game": "Desarrollo de juegos",
-      "tool": "Herramientas",
-      "experiment": "Experimentos",
-      "archived": "Archivado",
-      "other": "Otro"
-    },
-    "statuses": {
-      "completed": "Completado",
-      "inDevelopment": "En desarrollo",
-      "experimental": "Experimental",
-      "archived": "Archivado"
-    },
     "sources": {
       "portfolio": "portfolio.md",
       "readme": "README",

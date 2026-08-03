@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { routing, type Locale } from "@/i18n/routing";
 
-let warnedMissingProductionSiteUrl = false;
 let warnedLocalhostProductionSiteUrl = false;
 
 export function getSiteUrl() {
@@ -22,16 +21,6 @@ export function getSiteUrl() {
         warnedLocalhostProductionSiteUrl = true;
       }
       return null;
-    }
-    if (
-      process.env.NODE_ENV === "production" &&
-      !siteConfig.url &&
-      !warnedMissingProductionSiteUrl
-    ) {
-      console.warn(
-        "[metadata] NEXT_PUBLIC_SITE_URL is missing in production; using the central production URL fallback.",
-      );
-      warnedMissingProductionSiteUrl = true;
     }
     return url;
   } catch {

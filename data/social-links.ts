@@ -14,5 +14,3 @@ export const socialLinks = [
     href: `mailto:${profile.email}`,
   },
 ] as const;
-
-export const cvDownloadHref = profile.resumeUrl;

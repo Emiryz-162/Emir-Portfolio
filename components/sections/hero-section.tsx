@@ -36,9 +36,6 @@ export function HeroSection({ locale }: HeroSectionProps) {
           <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
             {t("description")}
           </p>
-          <p className="mt-3 max-w-2xl text-base leading-7 text-muted">
-            {t("secondaryDescription")}
-          </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Button asChild>
               <Link href={buildLocalizedHref(locale, "/projects")}>
@@ -49,7 +46,7 @@ export function HeroSection({ locale }: HeroSectionProps) {
             <Button asChild variant="secondary">
               <Link href={buildLocalizedHref(locale, "/contact")}>
                 <Mail size={16} aria-hidden="true" />
-                {t("cvButton")}
+                {t("contactButton")}
               </Link>
             </Button>
           </div>

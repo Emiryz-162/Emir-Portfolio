@@ -28,16 +28,7 @@ const requiredFiles = [
 
 const requiredMessagePaths = [
   "Common.skipToContent",
-  "Common.cv.download",
-  "Common.cv.aria",
-  "Common.cv.pdf",
-  "Common.cv.unavailableTitle",
-  "Common.cv.unavailableDescription",
-  "Navigation.cvAria",
-  "Navigation.cvUnavailable",
-  "Navigation.cvPdf",
-  "ContactPage.status",
-  "ContactPage.cv.title",
+  "Navigation.contactAria",
   "ContactPage.form.fields.name.label",
   "ContactPage.form.fields.email.label",
   "ContactPage.form.fields.subject.label",
@@ -103,13 +94,6 @@ for (const header of [
   "X-Frame-Options",
 ]) {
   assert(nextConfig.includes(header), `next.config.ts is missing ${header}`);
-}
-
-const cvPath = join(root, "public", "documents", "emir-yilmaz-cv.pdf");
-if (!existsSync(cvPath)) {
-  console.warn(
-    "! public/documents/emir-yilmaz-cv.pdf is not present; the UI should avoid broken CV download links.",
-  );
 }
 
 if (failed) {

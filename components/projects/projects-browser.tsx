@@ -1,23 +1,15 @@
 "use client";
 
-import {
-  Archive,
-  ArrowUpRight,
-  CalendarDays,
-  Code2,
-  ExternalLink,
-  Search,
-  X,
-} from "lucide-react";
+import { ArrowUpRight, ExternalLink, Search, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState, useTransition } from "react";
+import { GitHubMark } from "@/components/icons/brand-icons";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { TechBadge } from "@/components/ui/tech-badge";
 import { profile } from "@/data/profile";
 import { buildLocalizedHref } from "@/i18n/routing";
-import { formatDate } from "@/lib/format";
 import type { PortfolioCategory, PortfolioProject } from "@/types/github";
 
 type ProjectSort = "updated" | "newest" | "oldest" | "name";
@@ -33,8 +25,6 @@ type ProjectsBrowserLabels = {
   emptyDescription: string;
   viewGitHubProfile: string;
   resultCount: string;
-  updated: string;
-  archived: string;
   detail: string;
   liveDemo: string;
   noDescription: string;
@@ -42,7 +32,6 @@ type ProjectsBrowserLabels = {
   liveDemoAria: string;
   categories: Record<ProjectFilter, string>;
   sorts: Record<ProjectSort, string>;
-  statuses: Record<string, string>;
 };
 
 type ProjectsBrowserProps = {
@@ -250,7 +239,7 @@ export function ProjectsBrowser({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Code2 size={16} aria-hidden="true" />
+                <GitHubMark size={16} aria-hidden="true" />
                 {labels.viewGitHubProfile}
               </a>
             </Button>
@@ -270,9 +259,6 @@ function ClientProjectCard({
   project: PortfolioProject;
   labels: ProjectsBrowserLabels;
 }) {
-  const visibleTopics = project.topics.slice(0, 4);
-  const remainingTopicCount = project.topics.length - visibleTopics.length;
-
   return (
     <Card className="group overflow-hidden hover:-translate-y-1">
       <div className="grid h-full md:grid-cols-[0.86fr_1.14fr] lg:grid-cols-1">
@@ -281,12 +267,8 @@ function ClientProjectCard({
           <div className="min-w-0">
             <div className="flex items-start justify-between gap-3">
               <div className="flex flex-wrap items-center gap-2">
-                <TechBadge>{labels.categories[project.category]}</TechBadge>
-                {project.isArchived ? (
-                  <span className="inline-flex items-center gap-1 rounded-[6px] border border-border bg-background/70 px-2.5 py-1 font-mono text-[11px] uppercase tracking-normal text-muted">
-                    <Archive size={12} aria-hidden="true" />
-                    {labels.archived}
-                  </span>
+                {project.primaryLanguage ? (
+                  <TechBadge>{project.primaryLanguage}</TechBadge>
                 ) : null}
               </div>
               <a
@@ -296,7 +278,7 @@ function ClientProjectCard({
                 className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[6px] border border-border text-muted-foreground transition hover:border-border-strong hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 aria-label={labels.githubAria.replace("{name}", project.name)}
               >
-                <Code2 size={16} aria-hidden="true" />
+                <GitHubMark size={16} aria-hidden="true" />
               </a>
             </div>
             <h2 className="mt-5 break-words text-2xl font-semibold tracking-normal text-foreground">
@@ -305,32 +287,21 @@ function ClientProjectCard({
             <p className="mt-3 line-clamp-3 max-w-xl text-sm leading-6 text-muted">
               {project.description ?? labels.noDescription}
             </p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {project.primaryLanguage ? (
-                <TechBadge>{project.primaryLanguage}</TechBadge>
-              ) : null}
-              {visibleTopics.map((topic) => (
-                <TechBadge key={topic}>{topic}</TechBadge>
-              ))}
-              {remainingTopicCount > 0 ? (
-                <TechBadge>{`+${remainingTopicCount}`}</TechBadge>
-              ) : null}
-            </div>
-            <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-muted">
-              <span className="inline-flex items-center gap-1.5">
-                <CalendarDays size={14} aria-hidden="true" />
-                {labels.updated.replace(
-                  "{date}",
-                  formatDate(project.updatedAt, locale),
-                )}
-              </span>
-              {project.status ? (
-                <span>{labels.statuses[project.status]}</span>
-              ) : null}
-            </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            {project.liveDemoUrl ? (
+              <a
+                href={project.liveDemoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-10 items-center justify-center gap-2 rounded-[6px] border border-accent bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition duration-200 hover:-translate-y-0.5 hover:brightness-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                aria-label={labels.liveDemoAria.replace("{name}", project.name)}
+              >
+                {labels.liveDemo}
+                <ExternalLink size={16} aria-hidden="true" />
+              </a>
+            ) : null}
             <Link
               href={buildLocalizedHref(locale, `/projects/${project.slug}`)}
               className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -338,18 +309,6 @@ function ClientProjectCard({
               {labels.detail}
               <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
-            {project.liveDemoUrl ? (
-              <a
-                href={project.liveDemoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-muted-foreground transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                aria-label={labels.liveDemoAria.replace("{name}", project.name)}
-              >
-                {labels.liveDemo}
-                <ExternalLink size={16} aria-hidden="true" />
-              </a>
-            ) : null}
           </div>
         </div>
       </div>

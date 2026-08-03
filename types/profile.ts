@@ -15,6 +15,5 @@ export type Profile = {
   email: string;
   githubUrl: string;
   linkedInUrl: string;
-  resumeUrl: string;
   languages: ProfileLanguage[];
 };

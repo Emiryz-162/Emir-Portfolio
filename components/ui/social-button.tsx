@@ -1,10 +1,13 @@
-import { BriefcaseBusiness, Code2, Mail } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { Mail } from "lucide-react";
+import type { ComponentType, SVGProps } from "react";
+import { GitHubMark, LinkedInMark } from "@/components/icons/brand-icons";
 import { cn } from "@/lib/cn";
 
-const icons: Record<string, LucideIcon> = {
-  github: Code2,
-  linkedin: BriefcaseBusiness,
+type IconComponent = ComponentType<SVGProps<SVGSVGElement> & { size?: number }>;
+
+const icons: Record<string, IconComponent> = {
+  github: GitHubMark,
+  linkedin: LinkedInMark,
   email: Mail,
 };
 

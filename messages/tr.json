@@ -11,19 +11,10 @@
         "light": "Geçerli tema: açık"
       }
     },
-    "skipToContent": "Ana içeriğe geç",
-    "cv": {
-      "download": "İletişime Geç",
-      "aria": "İletişim sayfasına git",
-      "pdf": "PDF",
-      "unavailableTitle": "CV yakında eklenecek.",
-      "unavailableDescription": "CV yakında eklenecek."
-    }
+    "skipToContent": "Ana içeriğe geç"
   },
   "Navigation": {
     "brand": "Emir Yılmaz",
-    "status": "Yeni fırsatlara açığım",
-    "cv": "İletişime Geç",
     "openMenu": "Menüyü aç",
     "closeMenu": "Menüyü kapat",
     "items": {
@@ -34,9 +25,8 @@
       "education": "Eğitim",
       "contact": "İletişim"
     },
-    "cvAria": "İletişim sayfasına git",
-    "cvUnavailable": "CV yakında eklenecek.",
-    "cvPdf": "PDF"
+    "contact": "İletişime Geç",
+    "contactAria": "İletişim sayfasına git"
   },
   "Footer": {
     "builtBy": "Emir Yılmaz tarafından tasarlandı ve geliştirildi.",
@@ -52,9 +42,7 @@
       "name": "Emir Yılmaz",
       "role": "Full Stack Developer",
       "description": "Responsive web uygulamaları, backend servisleri ve etkileşimli dijital deneyimler geliştiriyorum.",
-      "secondaryDescription": "Önceliğim full stack geliştirme; bunun yanında frontend, backend, oyun geliştirme, oyun tasarımı ve IT fırsatlarına da açığım.",
       "primaryButton": "Projeleri Keşfet",
-      "cvButton": "İletişime Geç",
       "social": {
         "github": "GitHub",
         "linkedin": "LinkedIn",
@@ -118,27 +106,8 @@
           "achievement": "Portfolio Explorer açıldı",
           "dismiss": "Başarı bildirimini kapat"
         }
-      }
-    },
-    "valueStrip": {
-      "items": {
-        "problemSolver": {
-          "title": "Problem Çözen",
-          "description": "Teknik problemleri küçük ve yönetilebilir parçalara ayırır."
-        },
-        "alwaysLearning": {
-          "title": "Öğrenmeye Açık",
-          "description": "Projeler, dokümantasyon ve pratik denemelerle kendini geliştirir."
-        },
-        "teamPlayer": {
-          "title": "Takım Oyuncusu",
-          "description": "Açık iletişime, ortak sorumluluğa ve geri bildirime değer verir."
-        },
-        "creativeDeveloper": {
-          "title": "Yaratıcı Geliştirici",
-          "description": "Yazılım geliştirmeyi etkileşimli ve oyun odaklı fikirlerle birleştirir."
-        }
-      }
+      },
+      "contactButton": "İletişime Geç"
     },
     "projects": {
       "eyebrow": "Öne Çıkan Projeler",
@@ -160,10 +129,6 @@
         "focus": {
           "label": "Odak",
           "value": "Full stack geliştirme ve proje tabanlı öğrenme"
-        },
-        "availability": {
-          "label": "Uygunluk",
-          "value": "Proje tabanlı öğrenme ve geliştirme"
         }
       },
       "languages": {
@@ -241,7 +206,8 @@
       "labels": {
         "experience": "Deneyim",
         "education": "Eğitim",
-        "certification": "Mesleki Eğitim"
+        "certification": "Mesleki Eğitim",
+        "graphicDesign": "Eğitim"
       },
       "items": {
         "experience": {
@@ -258,6 +224,11 @@
           "title": "SmartPro Yazılım Akademisi",
           "organization": "Proje Tabanlı Full Stack Web Geliştirme Eğitimi",
           "meta": "240 Saat"
+        },
+        "graphicDesign": {
+          "title": "Grafik Tasarım",
+          "organization": "İstanbul Üniversitesi",
+          "meta": "2023 - Devam Ediyor"
         }
       }
     },
@@ -270,7 +241,6 @@
     }
   },
   "AboutPage": {
-    "status": "Junior full stack ve ilgili teknoloji rollerine açık",
     "introduction": {
       "eyebrow": "Tanıtım",
       "paragraphs": [
@@ -404,6 +374,16 @@
           "Pratik teknik destek ve problem çözme becerilerimi geliştirdim.",
           "Staj süresince günlük IT operasyonlarına yardımcı oldum."
         ]
+      },
+      "graphicDesign": {
+        "label": "Eğitim",
+        "title": "Grafik Tasarım",
+        "organization": "İstanbul Üniversitesi",
+        "meta": "2023 - Devam Ediyor",
+        "details": [
+          "İstanbul Üniversitesi Grafik Tasarım programında eğitim görüyor.",
+          "Görsel tasarım temelini güçlendirerek programa devam ediyor."
+        ]
       }
     }
   },
@@ -424,10 +404,6 @@
         "label": "GitHub",
         "aria": "Emir’in GitHub profilini aç"
       }
-    },
-    "status": "Yeni fırsatlara açığım",
-    "cv": {
-      "title": "CV"
     },
     "form": {
       "eyebrow": "Mesaj",
@@ -490,8 +466,6 @@
     "noProjects": "Şu anda herkese açık portfolio projesi bulunmuyor.",
     "viewGitHubProfile": "GitHub profilini aç",
     "resultCount": "{count} proje gösteriliyor",
-    "updated": "{date} tarihinde güncellendi",
-    "archived": "Arşivlendi",
     "categories": {
       "all": "Tümü",
       "fullstack": "Full Stack",
@@ -504,16 +478,10 @@
       "other": "Diğer"
     },
     "sorts": {
-      "updated": "Son güncellenenler",
+      "updated": "Varsayılan",
       "newest": "En yeniler",
       "oldest": "En eskiler",
       "name": "İsim"
-    },
-    "statuses": {
-      "completed": "Tamamlandı",
-      "inDevelopment": "Geliştiriliyor",
-      "experimental": "Deneysel",
-      "archived": "Arşivlendi"
     },
     "card": {
       "detail": "Proje detayı",
@@ -539,33 +507,12 @@
     "readme": "Repo README içeriği",
     "noReadme": "Bu repoda henüz README içeriği bulunmuyor.",
     "noDescription": "Bu repo için henüz açıklama bulunmuyor.",
-    "created": "Oluşturulma",
-    "updated": "Güncelleme",
-    "pushed": "Son push",
     "license": "Lisans",
     "stars": "{count} yıldız",
     "forks": "{count} fork",
     "primaryLanguage": "Ana dil",
-    "topics": "Konular",
     "notAvailable": "Mevcut değil",
     "originalLanguageNote": "Proje dokümantasyonu orijinal dilinde gösterilir.",
-    "categories": {
-      "all": "Tümü",
-      "fullstack": "Full Stack",
-      "frontend": "Frontend",
-      "backend": "Backend",
-      "game": "Oyun Geliştirme",
-      "tool": "Araçlar",
-      "experiment": "Deneyler",
-      "archived": "Arşivlenmiş",
-      "other": "Diğer"
-    },
-    "statuses": {
-      "completed": "Tamamlandı",
-      "inDevelopment": "Geliştiriliyor",
-      "experimental": "Deneysel",
-      "archived": "Arşivlendi"
-    },
     "sources": {
       "portfolio": "portfolio.md",
       "readme": "README",

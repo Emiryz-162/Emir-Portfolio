@@ -2,7 +2,6 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/ui/section-header";
-import { StatusDot } from "@/components/ui/status-dot";
 import { profile } from "@/data/profile";
 import { buildLocalizedHref } from "@/i18n/routing";
 
@@ -16,10 +15,6 @@ export function AboutPreviewSection({ locale }: AboutPreviewSectionProps) {
   const facts = [
     { label: t("facts.location.label"), value: profile.location },
     { label: t("facts.focus.label"), value: t("facts.focus.value") },
-    {
-      label: t("facts.availability.label"),
-      value: t("facts.availability.value"),
-    },
   ];
 
   return (
@@ -44,7 +39,7 @@ export function AboutPreviewSection({ locale }: AboutPreviewSectionProps) {
               title={t("title")}
               description={t("description")}
             />
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {facts.map((fact) => (
                 <div
                   key={fact.label}
@@ -61,8 +56,7 @@ export function AboutPreviewSection({ locale }: AboutPreviewSectionProps) {
             </div>
 
             <div className="mt-6 rounded-[6px] border border-border bg-background/52 p-5">
-              <div className="mb-4 flex items-center gap-2">
-                <StatusDot />
+              <div className="mb-4">
                 <h3 className="text-sm font-semibold text-foreground">
                   {t("languages.title")}
                 </h3>

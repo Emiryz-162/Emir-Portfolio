@@ -1,3 +1,3 @@
 export type TimelineEntry = {
-  key: "experience" | "education" | "certification";
+  key: "experience" | "education" | "graphicDesign" | "certification";
 };

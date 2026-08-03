@@ -22,7 +22,12 @@ export async function generateMetadata({
   });
 }
 
-const educationKeys = ["education", "certification", "experience"] as const;
+const educationKeys = [
+  "education",
+  "graphicDesign",
+  "certification",
+  "experience",
+] as const;
 
 export default async function EducationPage({ params }: EducationPageProps) {
   const { locale } = await params;

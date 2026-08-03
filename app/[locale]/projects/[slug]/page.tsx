@@ -1,24 +1,17 @@
-import {
-  Archive,
-  ArrowLeft,
-  Code2,
-  ExternalLink,
-  GitFork,
-  Star,
-} from "lucide-react";
+import { Archive, ArrowLeft, ExternalLink, GitFork, Star } from "lucide-react";
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
+import { GitHubMark } from "@/components/icons/brand-icons";
 import { SafeMarkdown } from "@/components/markdown/safe-markdown";
 import { ProjectsUnavailableState } from "@/components/projects/projects-empty-state";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
-import { TechBadge } from "@/components/ui/tech-badge";
 import { buildLocalizedHref } from "@/i18n/routing";
-import { formatDate, formatNumber, truncateText } from "@/lib/format";
+import { formatNumber, truncateText } from "@/lib/format";
 import { getProjectMarkdownContent } from "@/lib/github/readme";
 import { getPortfolioProjectResult } from "@/lib/github/repositories";
 import { getGitHubRepositoryLanguages } from "@/lib/github/repository-details";
@@ -109,12 +102,6 @@ export default async function ProjectDetailPage({
       <section className="mt-8 grid gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
         <div>
           <div className="flex flex-wrap gap-2">
-            <TechBadge>{t(`categories.${project.category}`)}</TechBadge>
-            {project.status ? (
-              <TechBadge>
-                {t(`statuses.${statusKey(project.status)}`)}
-              </TechBadge>
-            ) : null}
             {project.isArchived ? (
               <span className="inline-flex items-center gap-1 rounded-[6px] border border-border bg-surface px-2.5 py-1 font-mono text-[11px] uppercase tracking-normal text-muted">
                 <Archive size={12} aria-hidden="true" />
@@ -136,12 +123,12 @@ export default async function ProjectDetailPage({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Code2 size={16} aria-hidden="true" />
+                <GitHubMark size={16} aria-hidden="true" />
                 {t("viewGitHub")}
               </a>
             </Button>
             {project.liveDemoUrl ? (
-              <Button asChild variant="secondary">
+              <Button asChild>
                 <a
                   href={project.liveDemoUrl}
                   target="_blank"
@@ -174,17 +161,6 @@ export default async function ProjectDetailPage({
               <MetaRow label={t("primaryLanguage")}>
                 {project.primaryLanguage ?? t("notAvailable")}
               </MetaRow>
-              <MetaRow label={t("created")}>
-                {formatDate(project.createdAt, locale)}
-              </MetaRow>
-              <MetaRow label={t("updated")}>
-                {formatDate(project.updatedAt, locale)}
-              </MetaRow>
-              <MetaRow label={t("pushed")}>
-                {project.pushedAt
-                  ? formatDate(project.pushedAt, locale)
-                  : t("notAvailable")}
-              </MetaRow>
               <MetaRow label={t("license")}>
                 {project.licenseName ?? t("notAvailable")}
               </MetaRow>
@@ -198,21 +174,6 @@ export default async function ProjectDetailPage({
                 <GitFork size={14} aria-hidden="true" />
                 {t("forks", { count: formatNumber(project.forks, locale) })}
               </span>
-            </div>
-          </Card>
-
-          <Card className="p-5">
-            <h2 className="text-lg font-semibold text-foreground">
-              {t("topics")}
-            </h2>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {project.topics.length > 0 ? (
-                project.topics.map((topic) => (
-                  <TechBadge key={topic}>{topic}</TechBadge>
-                ))
-              ) : (
-                <p className="text-sm text-muted">{t("notAvailable")}</p>
-              )}
             </div>
           </Card>
 
@@ -329,10 +290,6 @@ function ProjectCover({
       </div>
     </div>
   );
-}
-
-function statusKey(status: string) {
-  return status === "in-development" ? "inDevelopment" : status;
 }
 
 function decorativeCode(name: string) {

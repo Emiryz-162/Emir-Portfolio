@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { BriefcaseBusiness, Code2, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ContactForm } from "@/components/contact/contact-form";
+import { GitHubMark, LinkedInMark } from "@/components/icons/brand-icons";
 import { Container } from "@/components/ui/container";
 import { profile } from "@/data/profile";
 import { getContactEnv } from "@/lib/contact/env";
@@ -37,14 +38,14 @@ const contactItems = [
     key: "linkedin",
     href: profile.linkedInUrl,
     value: profile.linkedInUrl,
-    icon: BriefcaseBusiness,
+    icon: LinkedInMark,
     external: true,
   },
   {
     key: "github",
     href: profile.githubUrl,
     value: profile.githubUrl,
-    icon: Code2,
+    icon: GitHubMark,
     external: true,
   },
 ] as const;
@@ -67,9 +68,6 @@ export default async function ContactPage({ params }: ContactPageProps) {
           </h1>
           <p className="mt-5 text-base leading-7 text-muted">
             {t("description")}
-          </p>
-          <p className="mt-5 inline-flex items-center rounded-[6px] border border-border bg-surface/72 px-3 py-2 text-sm text-muted-foreground">
-            {t("status")}
           </p>
 
           <div className="mt-8 grid gap-4">

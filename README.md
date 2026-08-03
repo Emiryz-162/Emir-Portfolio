@@ -177,7 +177,6 @@ without changing page components.
 
 - Real profile information
 - Real social links
-- CV download path
 - Skills content
 - Education content
 - Internship content
@@ -193,7 +192,6 @@ without changing page components.
 - Translation validation script
 - Packet Route mini game in the homepage hero system-flow area
 - Reduced-motion-aware reveal and micro interactions
-- CV availability-aware links
 - Resend-backed localized contact form with server validation
 - Sitemap, robots, manifest, generated icons, Open Graph image, JSON-LD, and
   security headers
@@ -209,19 +207,6 @@ without changing page components.
 - `/en/contact`
 
 Default locale is English. Supported locales are Turkish, English, German, French, Spanish, Italian, European Portuguese, Dutch, and Polish.
-
-## CV
-
-Add the CV PDF file to:
-
-```text
-public/documents/emir-yilmaz-cv.pdf
-```
-
-The live UI does not currently render CV download buttons. Header and hero
-actions point users to the localized Contact page instead, so a missing PDF
-cannot create a broken visitor-facing link. The central CV path remains in the
-profile data for a future dedicated CV phase.
 
 ## Contact Form
 
@@ -306,9 +291,6 @@ and final image domains before enforcement.
 
 ## TODO
 
-- Decide whether a future CV phase should reintroduce a download action after
-  adding `public/documents/emir-yilmaz-cv.pdf`.
-- Graphic Design education details require confirmation.
 - Microsoft certification title and verification details require confirmation.
 - Review AI-assisted translations with native speakers or a human reviewer.
 - Add optional `portfolio.json` metadata support for richer repo-specific overrides.

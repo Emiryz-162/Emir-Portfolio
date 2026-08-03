@@ -43,8 +43,6 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
     emptyDescription: t("emptyDescription"),
     viewGitHubProfile: t("viewGitHubProfile"),
     resultCount: t.raw("resultCount") as string,
-    updated: t.raw("updated") as string,
-    archived: t("archived"),
     detail: t("card.detail"),
     liveDemo: t("card.liveDemo"),
     noDescription: t("card.noDescription"),
@@ -66,12 +64,6 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
       newest: t("sorts.newest"),
       oldest: t("sorts.oldest"),
       name: t("sorts.name"),
-    },
-    statuses: {
-      completed: t("statuses.completed"),
-      "in-development": t("statuses.inDevelopment"),
-      experimental: t("statuses.experimental"),
-      archived: t("statuses.archived"),
     },
   };
 

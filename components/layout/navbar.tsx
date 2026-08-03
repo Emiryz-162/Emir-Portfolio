@@ -9,7 +9,6 @@ import { LanguageSwitcher } from "@/components/layout/language-switcher";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { StatusDot } from "@/components/ui/status-dot";
 import { navItems } from "@/data/navigation";
 import { profile } from "@/data/profile";
 import { buildLocalizedHref } from "@/i18n/routing";
@@ -46,10 +45,6 @@ export function Navbar() {
           onClick={() => setIsOpen(false)}
         >
           <span>{profile.shortName}</span>
-          <span className="hidden items-center gap-2 border-l border-border pl-3 text-xs font-normal text-muted lg:flex">
-            <StatusDot />
-            {t("status")}
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
@@ -101,10 +96,6 @@ export function Navbar() {
         )}
       >
         <Container className="grid max-h-[calc(100svh-5rem)] gap-2 overflow-y-auto py-4">
-          <div className="mb-2 flex items-center gap-2 rounded-[6px] border border-border bg-surface px-3 py-3 text-sm text-muted-foreground">
-            <StatusDot />
-            {t("status")}
-          </div>
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -142,11 +133,11 @@ function ContactButton({
     <Button asChild className={className}>
       <a
         href={buildLocalizedHref(locale, "/contact")}
-        aria-label={t("cvAria")}
+        aria-label={t("contactAria")}
         onClick={onClick}
       >
         <Mail size={16} aria-hidden="true" />
-        {t("cv")}
+        {t("contact")}
       </a>
     </Button>
   );

@@ -9,7 +9,6 @@ export const profile: Profile = {
   email: "yz.emir@hotmail.com",
   githubUrl: "https://github.com/Emiryz-162",
   linkedInUrl: "https://www.linkedin.com/in/emir-y/",
-  resumeUrl: "/documents/emir-yilmaz-cv.pdf",
   languages: [
     { key: "turkish", name: "Turkish", level: "Native" },
     { key: "english", name: "English", level: "Upper-Intermediate" },

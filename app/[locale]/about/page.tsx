@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/ui/container";
 import { SectionHeader } from "@/components/ui/section-header";
-import { StatusDot } from "@/components/ui/status-dot";
 import { TechBadge } from "@/components/ui/tech-badge";
 import { profile } from "@/data/profile";
 import { createPageMetadata } from "@/lib/metadata";
@@ -68,10 +67,6 @@ export default async function AboutPage({ params }: AboutPageProps) {
           </h1>
           <p className="mt-3 text-lg text-muted-foreground">{profile.role}</p>
           <div className="mt-6 grid gap-3 text-sm">
-            <p className="flex items-center gap-2 text-muted-foreground">
-              <StatusDot />
-              {t("status")}
-            </p>
             <p className="text-muted">{profile.location}</p>
           </div>
         </div>

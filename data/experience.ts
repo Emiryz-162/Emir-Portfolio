@@ -8,6 +8,9 @@ export const timelineEntries: TimelineEntry[] = [
     key: "education",
   },
   {
+    key: "graphicDesign",
+  },
+  {
     key: "certification",
   },
 ];

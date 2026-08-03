@@ -1,6 +1,6 @@
-import { BriefcaseBusiness } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { LinkedInMark } from "@/components/icons/brand-icons";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { socialLinks } from "@/data/social-links";
@@ -47,7 +47,7 @@ export function ContactCtaSection({ locale }: ContactCtaSectionProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <BriefcaseBusiness size={16} aria-hidden="true" />
+                  <LinkedInMark size={16} aria-hidden="true" />
                   {t("linkedinButton")}
                 </a>
               </Button>
