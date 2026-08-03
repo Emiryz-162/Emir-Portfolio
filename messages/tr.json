@@ -13,8 +13,8 @@
     },
     "skipToContent": "Ana içeriğe geç",
     "cv": {
-      "download": "CV indir",
-      "aria": "Emir Yılmaz'ın CV dosyasını PDF olarak indir",
+      "download": "İletişime Geç",
+      "aria": "İletişim sayfasına git",
       "pdf": "PDF",
       "unavailableTitle": "CV yakında eklenecek.",
       "unavailableDescription": "CV yakında eklenecek."
@@ -23,7 +23,7 @@
   "Navigation": {
     "brand": "Emir Yılmaz",
     "status": "Yeni fırsatlara açığım",
-    "cv": "CV’yi İndir",
+    "cv": "İletişime Geç",
     "openMenu": "Menüyü aç",
     "closeMenu": "Menüyü kapat",
     "items": {
@@ -34,7 +34,7 @@
       "education": "Eğitim",
       "contact": "İletişim"
     },
-    "cvAria": "Emir Yılmaz'ın CV dosyasını PDF olarak indir",
+    "cvAria": "İletişim sayfasına git",
     "cvUnavailable": "CV yakında eklenecek.",
     "cvPdf": "PDF"
   },
@@ -54,7 +54,7 @@
       "description": "Responsive web uygulamaları, backend servisleri ve etkileşimli dijital deneyimler geliştiriyorum.",
       "secondaryDescription": "Önceliğim full stack geliştirme; bunun yanında frontend, backend, oyun geliştirme, oyun tasarımı ve IT fırsatlarına da açığım.",
       "primaryButton": "Projeleri Keşfet",
-      "cvButton": "CV’yi İndir",
+      "cvButton": "İletişime Geç",
       "social": {
         "github": "GitHub",
         "linkedin": "LinkedIn",

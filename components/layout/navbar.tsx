@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Menu, X } from "lucide-react";
+import { Mail, Menu, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -12,15 +12,10 @@ import { Container } from "@/components/ui/container";
 import { StatusDot } from "@/components/ui/status-dot";
 import { navItems } from "@/data/navigation";
 import { profile } from "@/data/profile";
-import { cvDownloadHref } from "@/data/social-links";
 import { buildLocalizedHref } from "@/i18n/routing";
 import { cn } from "@/lib/cn";
 
-type NavbarProps = {
-  cvAvailable: boolean;
-};
-
-export function Navbar({ cvAvailable }: NavbarProps) {
+export function Navbar() {
   const t = useTranslations("Navigation");
   const locale = useLocale();
   const pathname = usePathname();
@@ -76,7 +71,7 @@ export function Navbar({ cvAvailable }: NavbarProps) {
         <div className="hidden items-center gap-2 md:flex">
           <LanguageSwitcher />
           <ThemeToggle testId="desktop-theme-toggle" />
-          <CvButton cvAvailable={cvAvailable} />
+          <ContactButton />
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
@@ -122,7 +117,10 @@ export function Navbar({ cvAvailable }: NavbarProps) {
           ))}
           <div className="mt-2 flex items-center gap-2 border-t border-border pt-4">
             <LanguageSwitcher align="left" />
-            <CvButton cvAvailable={cvAvailable} className="flex-1" />
+            <ContactButton
+              className="flex-1"
+              onClick={() => setIsOpen(false)}
+            />
           </div>
         </Container>
       </div>
@@ -130,41 +128,25 @@ export function Navbar({ cvAvailable }: NavbarProps) {
   );
 }
 
-function CvButton({
-  cvAvailable,
+function ContactButton({
   className,
+  onClick,
 }: {
-  cvAvailable: boolean;
   className?: string;
+  onClick?: () => void;
 }) {
   const t = useTranslations("Navigation");
-
-  if (!cvAvailable) {
-    return (
-      <Button
-        className={className}
-        disabled
-        aria-label={t("cvUnavailable")}
-        title={t("cvUnavailable")}
-      >
-        <Download size={16} aria-hidden="true" />
-        {t("cv")}
-      </Button>
-    );
-  }
+  const locale = useLocale();
 
   return (
     <Button asChild className={className}>
       <a
-        href={cvDownloadHref}
-        target="_blank"
-        rel="noopener noreferrer"
-        download
+        href={buildLocalizedHref(locale, "/contact")}
         aria-label={t("cvAria")}
+        onClick={onClick}
       >
-        <Download size={16} aria-hidden="true" />
+        <Mail size={16} aria-hidden="true" />
         {t("cv")}
-        <span className="font-mono text-[11px] uppercase">{t("cvPdf")}</span>
       </a>
     </Button>
   );

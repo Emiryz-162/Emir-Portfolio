@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { BriefcaseBusiness, Code2, FileText, Mail } from "lucide-react";
+import { BriefcaseBusiness, Code2, Mail } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ContactForm } from "@/components/contact/contact-form";
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { profile } from "@/data/profile";
-import { cvPublicHref, getCvAvailability } from "@/lib/cv";
 import { getContactEnv } from "@/lib/contact/env";
 import { createPageMetadata } from "@/lib/metadata";
 
@@ -55,8 +53,6 @@ export default async function ContactPage({ params }: ContactPageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("ContactPage");
-  const commonT = await getTranslations("Common");
-  const isCvAvailable = getCvAvailability();
   const isContactFormAvailable = getContactEnv().ok;
 
   return (
@@ -101,23 +97,6 @@ export default async function ContactPage({ params }: ContactPageProps) {
                 </a>
               );
             })}
-            {isCvAvailable ? (
-              <Button asChild variant="secondary">
-                <a
-                  href={cvPublicHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  download
-                  aria-label={commonT("cv.aria")}
-                >
-                  <FileText size={16} aria-hidden="true" />
-                  {commonT("cv.download")}
-                  <span className="font-mono text-[11px] uppercase">
-                    {commonT("cv.pdf")}
-                  </span>
-                </a>
-              </Button>
-            ) : null}
           </div>
         </section>
 

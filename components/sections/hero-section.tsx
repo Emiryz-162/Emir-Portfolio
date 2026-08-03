@@ -1,4 +1,4 @@
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import { PacketRouteGame } from "@/components/mini-game/packet-route-game";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -7,9 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { SocialButton } from "@/components/ui/social-button";
 import { profile } from "@/data/profile";
-import { cvDownloadHref, socialLinks } from "@/data/social-links";
+import { socialLinks } from "@/data/social-links";
 import { buildLocalizedHref } from "@/i18n/routing";
-import { getCvAvailability } from "@/lib/cv";
 
 type HeroSectionProps = {
   locale: string;
@@ -17,8 +16,6 @@ type HeroSectionProps = {
 
 export function HeroSection({ locale }: HeroSectionProps) {
   const t = useTranslations("Home.hero");
-  const commonT = useTranslations("Common");
-  const isCvAvailable = getCvAvailability();
 
   return (
     <section className="border-b border-border">
@@ -49,33 +46,12 @@ export function HeroSection({ locale }: HeroSectionProps) {
                 <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </Button>
-            {isCvAvailable ? (
-              <Button asChild variant="secondary">
-                <a
-                  href={cvDownloadHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  download
-                  aria-label={commonT("cv.aria")}
-                >
-                  <Download size={16} aria-hidden="true" />
-                  {t("cvButton")}
-                  <span className="font-mono text-[11px] uppercase">
-                    {commonT("cv.pdf")}
-                  </span>
-                </a>
-              </Button>
-            ) : (
-              <Button
-                variant="secondary"
-                disabled
-                aria-label={commonT("cv.unavailableTitle")}
-                title={commonT("cv.unavailableTitle")}
-              >
-                <Download size={16} aria-hidden="true" />
+            <Button asChild variant="secondary">
+              <Link href={buildLocalizedHref(locale, "/contact")}>
+                <Mail size={16} aria-hidden="true" />
                 {t("cvButton")}
-              </Button>
-            )}
+              </Link>
+            </Button>
           </div>
           <div className="mt-7 flex flex-wrap gap-2">
             {socialLinks.map((link) => (

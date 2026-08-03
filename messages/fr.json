@@ -13,8 +13,8 @@
     },
     "skipToContent": "Aller au contenu principal",
     "cv": {
-      "download": "Télécharger le CV",
-      "aria": "Télécharger le CV d'Emir Yilmaz au format PDF",
+      "download": "Me contacter",
+      "aria": "Aller à la page de contact",
       "pdf": "PDF",
       "unavailableTitle": "Le CV sera bientôt ajouté.",
       "unavailableDescription": "Le CV sera bientôt ajouté."
@@ -23,7 +23,7 @@
   "Navigation": {
     "brand": "Emir Yılmaz",
     "status": "Ouvert aux opportunités",
-    "cv": "Télécharger le CV",
+    "cv": "Me contacter",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu",
     "items": {
@@ -34,7 +34,7 @@
       "education": "Formation",
       "contact": "Contact"
     },
-    "cvAria": "Télécharger le CV d'Emir Yilmaz au format PDF",
+    "cvAria": "Aller à la page de contact",
     "cvUnavailable": "Le CV sera bientôt ajouté.",
     "cvPdf": "PDF"
   },
@@ -54,7 +54,7 @@
       "description": "Je développe des applications web responsives, des services backend et des expériences numériques interactives.",
       "secondaryDescription": "Je me concentre surtout sur le full stack development, tout en restant ouvert aux opportunités frontend, backend, game development, game design et IT.",
       "primaryButton": "Voir les projets",
-      "cvButton": "Télécharger le CV",
+      "cvButton": "Me contacter",
       "social": {
         "github": "GitHub",
         "linkedin": "LinkedIn",

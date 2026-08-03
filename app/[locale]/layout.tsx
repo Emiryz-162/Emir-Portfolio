@@ -9,7 +9,6 @@ import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { routing } from "@/i18n/routing";
-import { getCvAvailability } from "@/lib/cv";
 import { createPageMetadata } from "@/lib/metadata";
 
 const geistSans = Geist({
@@ -59,7 +58,6 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Common" });
-  const isCvAvailable = getCvAvailability();
 
   return (
     <html
@@ -76,7 +74,7 @@ export default async function LocaleLayout({
             >
               {t("skipToContent")}
             </a>
-            <Navbar cvAvailable={isCvAvailable} />
+            <Navbar />
             <main id="main-content" className="flex-1 pt-20" tabIndex={-1}>
               {children}
             </main>

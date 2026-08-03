@@ -13,8 +13,8 @@
     },
     "skipToContent": "Ga naar hoofdinhoud",
     "cv": {
-      "download": "CV downloaden",
-      "aria": "Download het CV van Emir Yilmaz als PDF",
+      "download": "Contact opnemen",
+      "aria": "Ga naar de contactpagina",
       "pdf": "PDF",
       "unavailableTitle": "Het CV wordt binnenkort toegevoegd.",
       "unavailableDescription": "Het CV wordt binnenkort toegevoegd."
@@ -23,7 +23,7 @@
   "Navigation": {
     "brand": "Emir Yılmaz",
     "status": "Open voor kansen",
-    "cv": "CV downloaden",
+    "cv": "Contact opnemen",
     "openMenu": "Menu openen",
     "closeMenu": "Menu sluiten",
     "items": {
@@ -34,7 +34,7 @@
       "education": "Opleiding",
       "contact": "Contact"
     },
-    "cvAria": "Download het CV van Emir Yilmaz als PDF",
+    "cvAria": "Ga naar de contactpagina",
     "cvUnavailable": "Het CV wordt binnenkort toegevoegd.",
     "cvPdf": "PDF"
   },
@@ -54,7 +54,7 @@
       "description": "Ik ontwikkel responsieve webapplicaties, backendservices en interactieve digitale ervaringen.",
       "secondaryDescription": "Mijn focus ligt vooral op full stack development, met openheid voor frontend, backend, game development, game design en IT-kansen.",
       "primaryButton": "Projecten verkennen",
-      "cvButton": "CV downloaden",
+      "cvButton": "Contact opnemen",
       "social": {
         "github": "GitHub",
         "linkedin": "LinkedIn",
