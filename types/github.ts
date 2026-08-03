@@ -54,7 +54,7 @@ export type PortfolioProject = {
   primaryLanguage: string | null;
   topics: string[];
   category: PortfolioCategory;
-  status: PortfolioStatus;
+  status?: PortfolioStatus;
   isFeatured: boolean;
   isArchived: boolean;
   stars: number;

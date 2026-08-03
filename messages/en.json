@@ -14,10 +14,10 @@
     "skipToContent": "Skip to main content",
     "cv": {
       "download": "Download CV",
-      "aria": "Download Emir Yilmaz's CV as PDF",
+      "aria": "Download Emir Yilmaz's CV as a PDF",
       "pdf": "PDF",
-      "unavailableTitle": "CV file is not available yet",
-      "unavailableDescription": "Add public/documents/emir-yilmaz-cv.pdf to enable this link."
+      "unavailableTitle": "CV will be added soon.",
+      "unavailableDescription": "CV will be added soon."
     }
   },
   "Navigation": {
@@ -34,12 +34,12 @@
       "education": "Education",
       "contact": "Contact"
     },
-    "cvAria": "Download Emir Yilmaz's CV as PDF",
-    "cvUnavailable": "CV file is not available yet",
+    "cvAria": "Download Emir Yilmaz's CV as a PDF",
+    "cvUnavailable": "CV will be added soon.",
     "cvPdf": "PDF"
   },
   "Footer": {
-    "builtBy": "Designed and built by Emir.",
+    "builtBy": "Designed and built by Emir Yilmaz.",
     "social": {
       "github": "GitHub",
       "linkedin": "LinkedIn",
@@ -142,10 +142,10 @@
     },
     "projects": {
       "eyebrow": "Featured Projects",
-      "title": "Public work from GitHub",
-      "description": "Selected public repositories are synchronized from GitHub and filtered into a focused portfolio index.",
+      "title": "Featured projects",
+      "description": "Selected projects automatically synchronized from my GitHub profile.",
       "viewAll": "View all projects",
-      "emptyDescription": "No featured public repositories are available right now."
+      "emptyDescription": "There are no featured projects to show right now."
     },
     "about": {
       "eyebrow": "About Preview",
@@ -163,7 +163,7 @@
         },
         "availability": {
           "label": "Availability",
-          "value": "Open to junior full stack and related technology roles"
+          "value": "Project-based learning and development"
         }
       },
       "languages": {
@@ -187,7 +187,7 @@
     "skills": {
       "eyebrow": "Technical Skills",
       "title": "Skills grouped by practical use",
-      "description": "No percentages or inflated levels, just the areas this portfolio presents clearly.",
+      "description": "Technologies I use in my projects and education, along with my working skills.",
       "groups": {
         "frontend": "Frontend",
         "backend": "Backend",
@@ -236,12 +236,12 @@
     },
     "timeline": {
       "eyebrow": "Education & Experience",
-      "title": "Confirmed learning and internship record",
-      "description": "Only the currently confirmed education, training and internship information is shown here.",
+      "title": "Education and experience",
+      "description": "My education background, professional training and IT internship experience.",
       "labels": {
         "experience": "Experience",
         "education": "Education",
-        "certification": "Certification"
+        "certification": "Professional Training"
       },
       "items": {
         "experience": {
@@ -274,9 +274,8 @@
     "introduction": {
       "eyebrow": "Introduction",
       "paragraphs": [
-        "I studied Computer Programming and have built project-based web applications using HTML, CSS, JavaScript, C#, SQL and ASP.NET technologies.",
-        "My work so far has focused on frontend structure, backend services, database operations and REST API development. I keep improving through practical projects.",
-        "I am mainly looking for junior full stack development opportunities, while also staying open to suitable frontend, backend, game development, game design and IT roles."
+        "I studied Computer Programming and built project-based web applications with HTML, CSS, JavaScript, C#, SQL and ASP.NET technologies.",
+        "My work has focused on frontend structure, backend services, database operations and REST API development. I continue improving through practical projects."
       ]
     },
     "focus": {
@@ -315,14 +314,14 @@
     },
     "goal": {
       "eyebrow": "Current Goal",
-      "title": "Focused on the next practical step",
-      "description": "Primarily seeking junior full stack development opportunities while also considering suitable frontend, backend, game development, game design and IT roles."
+      "title": "What am I looking for now?",
+      "description": "I am primarily looking for full stack development positions. I also consider suitable opportunities in frontend, backend, game development, game design and IT."
     }
   },
   "SkillsPage": {
     "eyebrow": "Skills",
     "title": "Technical and professional skills",
-    "description": "A clear list of confirmed skills, without ratings, percentages or inflated seniority labels.",
+    "description": "Technologies I use in my projects and education, along with my working skills.",
     "groups": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -361,18 +360,18 @@
         "visualStudioCode": "Visual Studio Code"
       },
       "professionalSkills": {
-        "problemSolving": "Problem solving",
-        "algorithmicThinking": "Algorithmic thinking",
+        "problemSolving": "Problem Solving",
+        "algorithmicThinking": "Algorithmic Thinking",
         "teamwork": "Teamwork",
         "communication": "Communication",
-        "projectDiscipline": "Project-based work discipline"
+        "projectDiscipline": "Project-Focused Work Discipline"
       }
     }
   },
   "EducationPage": {
     "eyebrow": "Education & Experience",
-    "title": "Confirmed background",
-    "description": "Education, certification training and internship details currently confirmed for the portfolio.",
+    "title": "Education and experience",
+    "description": "My education background, professional training and IT internship experience.",
     "items": {
       "education": {
         "label": "Education",
@@ -385,7 +384,7 @@
         ]
       },
       "certification": {
-        "label": "Certification Training",
+        "label": "Professional Training",
         "title": "Project-Based Full Stack Web Development Training",
         "organization": "SmartPro Software Academy",
         "meta": "240 Hours",
@@ -411,7 +410,7 @@
   "ContactPage": {
     "eyebrow": "Contact",
     "title": "Let's get in touch.",
-    "description": "I'm open to junior full stack opportunities and suitable roles in related software and technology fields.",
+    "description": "I'm open to opportunities in full stack development and related software roles.",
     "items": {
       "email": {
         "label": "Email",
@@ -426,16 +425,16 @@
         "aria": "Open Emir's GitHub profile"
       }
     },
-    "status": "Open to opportunities",
+    "status": "Open to new opportunities",
     "cv": {
       "title": "CV"
     },
     "form": {
       "eyebrow": "Message",
       "title": "Send a message",
-      "description": "Use the form for roles, projects or practical collaboration ideas.",
+      "description": "You can contact me about a position, project or collaboration.",
       "honeypot": "Company",
-      "privacy": "Your information is only used to reply to your message.",
+      "privacy": "Your information is used only to respond to your message.",
       "emailFallback": "Send an email instead",
       "fields": {
         "name": {
@@ -452,7 +451,7 @@
         }
       },
       "actions": {
-        "submit": "Send message",
+        "submit": "Send Message",
         "sending": "Sending..."
       },
       "status": {
@@ -460,7 +459,7 @@
         "validationError": "Please check the highlighted fields.",
         "serverError": "The message could not be sent right now.",
         "rateLimited": "Too many messages were sent. Please try again later.",
-        "unavailable": "The contact form is temporarily unavailable."
+        "unavailable": "The contact form is currently unavailable. You can email me directly."
       },
       "errors": {
         "required": "Please fill in this field.",
@@ -477,10 +476,10 @@
   },
   "Projects": {
     "eyebrow": "Projects",
-    "title": "Public GitHub repository index",
-    "description": "A live portfolio view built from public repositories, with server-side GitHub fetching, search, filters and stable fallbacks.",
-    "githubSync": "GitHub sync",
-    "publicProjects": "{count} public projects",
+    "title": "Projects",
+    "description": "Public work I have developed across web development, backend and different software areas.",
+    "githubSync": "Projects are synchronized automatically from GitHub.",
+    "publicProjects": "{count} projects",
     "search": "Search",
     "searchPlaceholder": "Search by name, language, topic or description",
     "category": "Category",
@@ -592,15 +591,15 @@
     },
     "education": {
       "title": "Education | Emir Yılmaz",
-      "description": "Confirmed education, certification training and internship background."
+      "description": "Education background, professional training and IT internship experience."
     },
     "contact": {
       "title": "Contact | Emir Yılmaz",
-      "description": "Contact links for junior full stack and related technology opportunities."
+      "description": "Contact links for full stack development and related software opportunities."
     },
     "projects": {
       "title": "Projects | Emir Yılmaz",
-      "description": "Public GitHub repositories shown as a focused portfolio project index."
+      "description": "Public software projects developed across web, backend and related areas."
     },
     "projectDetail": {
       "notFoundTitle": "Project not found",

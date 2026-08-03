@@ -59,7 +59,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
   return (
     <Container className="py-12 sm:py-16">
       <section className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-        <div className="sticky top-28 rounded-[6px] border border-border bg-surface/82 p-5">
+        <div className="rounded-[6px] border border-border bg-surface/82 p-5 lg:sticky lg:top-28">
           <div className="flex h-28 w-28 items-center justify-center rounded-[6px] border border-border-strong bg-surface-elevated font-mono text-4xl text-foreground">
             {profile.initials}
           </div>

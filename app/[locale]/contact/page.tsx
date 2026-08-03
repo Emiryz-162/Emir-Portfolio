@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { profile } from "@/data/profile";
 import { cvPublicHref, getCvAvailability } from "@/lib/cv";
+import { getContactEnv } from "@/lib/contact/env";
 import { createPageMetadata } from "@/lib/metadata";
 
 type ContactPageProps = {
@@ -56,6 +57,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
   const t = await getTranslations("ContactPage");
   const commonT = await getTranslations("Common");
   const isCvAvailable = getCvAvailability();
+  const isContactFormAvailable = getContactEnv().ok;
 
   return (
     <Container className="py-12 sm:py-16">
@@ -115,21 +117,15 @@ export default async function ContactPage({ params }: ContactPageProps) {
                   </span>
                 </a>
               </Button>
-            ) : (
-              <div className="rounded-[6px] border border-border bg-surface/72 p-5 text-sm leading-6 text-muted">
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-[6px] border border-border bg-background text-accent">
-                  <FileText size={18} aria-hidden="true" />
-                </div>
-                <p className="font-semibold text-foreground">
-                  {commonT("cv.unavailableTitle")}
-                </p>
-                <p className="mt-2">{commonT("cv.unavailableDescription")}</p>
-              </div>
-            )}
+            ) : null}
           </div>
         </section>
 
-        <ContactForm locale={locale} email={profile.email} />
+        <ContactForm
+          locale={locale}
+          email={profile.email}
+          isAvailable={isContactFormAvailable}
+        />
       </div>
     </Container>
   );

@@ -141,7 +141,12 @@ function CvButton({
 
   if (!cvAvailable) {
     return (
-      <Button className={className} disabled aria-label={t("cvUnavailable")}>
+      <Button
+        className={className}
+        disabled
+        aria-label={t("cvUnavailable")}
+        title={t("cvUnavailable")}
+      >
         <Download size={16} aria-hidden="true" />
         {t("cv")}
       </Button>

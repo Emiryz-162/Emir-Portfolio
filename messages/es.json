@@ -16,8 +16,8 @@
       "download": "Descargar CV",
       "aria": "Descargar el CV de Emir Yilmaz como PDF",
       "pdf": "PDF",
-      "unavailableTitle": "El archivo del CV a?n no est? disponible",
-      "unavailableDescription": "A?ade public/documents/emir-yilmaz-cv.pdf para activar este enlace."
+      "unavailableTitle": "El CV se añadirá pronto.",
+      "unavailableDescription": "El CV se añadirá pronto."
     }
   },
   "Navigation": {
@@ -35,7 +35,7 @@
       "contact": "Contacto"
     },
     "cvAria": "Descargar el CV de Emir Yilmaz como PDF",
-    "cvUnavailable": "El archivo del CV a?n no est? disponible",
+    "cvUnavailable": "El CV se añadirá pronto.",
     "cvPdf": "PDF"
   },
   "Footer": {
@@ -142,8 +142,8 @@
     },
     "projects": {
       "eyebrow": "Proyectos destacados",
-      "title": "Trabajo real de GitHub",
-      "description": "Los repositorios públicos seleccionados se sincronizan desde GitHub y se convierten en una lista de cartera enfocada.",
+      "title": "Proyectos destacados",
+      "description": "Proyectos seleccionados sincronizados automáticamente desde mi perfil de GitHub.",
       "viewAll": "Ver todos los proyectos",
       "emptyDescription": "Actualmente no hay repositorios públicos para presentar."
     },
@@ -163,7 +163,7 @@
         },
         "availability": {
           "label": "Uygunluk",
-          "value": "Abierto a puestos junior full stack y tecnológicos relacionados"
+          "value": "Aprendizaje y desarrollo basados en proyectos"
         }
       },
       "languages": {
@@ -236,8 +236,8 @@
     },
     "timeline": {
       "eyebrow": "Educación y experiencia",
-      "title": "Registro verificado de educación y pasantías.",
-      "description": "Aquí solo se incluye información sobre educación, cursos y pasantías actualmente verificada.",
+      "title": "Educación y experiencia",
+      "description": "Mi formación, capacitación profesional y experiencia de prácticas en IT.",
       "labels": {
         "experience": "Experiencia",
         "education": "Educación",
@@ -322,7 +322,7 @@
   "SkillsPage": {
     "eyebrow": "Habilidades",
     "title": "Habilidades técnicas y profesionales.",
-    "description": "Una lista clara de habilidades verificadas, sin calificaciones, porcentajes ni declaraciones de nivel exageradas.",
+    "description": "Tecnologías que uso en mis proyectos y formación, junto con mis habilidades de trabajo.",
     "groups": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -371,8 +371,8 @@
   },
   "EducationPage": {
     "eyebrow": "Educación y experiencia",
-    "title": "historia verificada",
-    "description": "Información actualmente verificada sobre educación, certificación y pasantías para Portfolio.",
+    "title": "Educación y experiencia",
+    "description": "Mi formación, capacitación profesional y experiencia de prácticas en IT.",
     "items": {
       "education": {
         "label": "Educación",
@@ -385,7 +385,7 @@
         ]
       },
       "certification": {
-        "label": "Capacitación certificada",
+        "label": "Capacitación profesional",
         "title": "Capacitación en desarrollo web Full Stack basada en proyectos",
         "organization": "Academia de software SmartPro",
         "meta": "240 Saat",
@@ -433,16 +433,16 @@
     "form": {
       "eyebrow": "Mensaje",
       "title": "Enviar un mensaje",
-      "description": "Usa el formulario para roles, proyectos o ideas pr?cticas de colaboraci?n.",
+      "description": "Puedes contactarme sobre una posición, proyecto o colaboración.",
       "honeypot": "Empresa",
-      "privacy": "Tu informaci?n solo se usa para responder a tu mensaje.",
+      "privacy": "Tu información solo se usa para responder a tu mensaje.",
       "emailFallback": "Enviar un correo en su lugar",
       "fields": {
         "name": {
           "label": "Nombre"
         },
         "email": {
-          "label": "Correo electr?nico"
+          "label": "Correo electrónico"
         },
         "subject": {
           "label": "Asunto"
@@ -456,31 +456,31 @@
         "sending": "Enviando..."
       },
       "status": {
-        "success": "Tu mensaje se ha enviado. Responder? lo antes posible.",
+        "success": "Tu mensaje fue enviado. Responderé lo antes posible.",
         "validationError": "Revisa los campos marcados.",
         "serverError": "El mensaje no se pudo enviar ahora mismo.",
-        "rateLimited": "Se enviaron demasiados mensajes. Int?ntalo de nuevo m?s tarde.",
-        "unavailable": "El formulario de contacto no est? disponible temporalmente."
+        "rateLimited": "Se enviaron demasiados mensajes. Inténtalo de nuevo más tarde.",
+        "unavailable": "El formulario de contacto no está disponible ahora. Puedes escribirme directamente por correo."
       },
       "errors": {
         "required": "Completa este campo.",
         "nameTooShort": "Introduce al menos 2 caracteres.",
-        "nameTooLong": "Mant?n el nombre por debajo de 80 caracteres.",
-        "emailInvalid": "Introduce una direcci?n de correo v?lida.",
-        "emailTooLong": "Mant?n el correo por debajo de 254 caracteres.",
+        "nameTooLong": "Mantén el nombre por debajo de 80 caracteres.",
+        "emailInvalid": "Introduce una dirección de correo válida.",
+        "emailTooLong": "Mantén el correo por debajo de 254 caracteres.",
         "subjectTooShort": "Introduce un asunto.",
-        "subjectTooLong": "Mant?n el asunto por debajo de 120 caracteres.",
+        "subjectTooLong": "Mantén el asunto por debajo de 120 caracteres.",
         "messageTooShort": "Tu mensaje debe contener al menos 20 caracteres.",
-        "messageTooLong": "Mant?n el mensaje por debajo de 3000 caracteres."
+        "messageTooLong": "Mantén el mensaje por debajo de 3000 caracteres."
       }
     }
   },
   "Projects": {
     "eyebrow": "Proyectos",
-    "title": "Índice de repositorios públicos de GitHub",
-    "description": "Una vista de portfolio en vivo creada desde repositorios públicos, con consulta a GitHub del lado del servidor, búsqueda, filtros y estados estables.",
-    "githubSync": "Sincronización GitHub",
-    "publicProjects": "{count} proyectos públicos",
+    "title": "Proyectos",
+    "description": "Trabajos públicos que he desarrollado en web, backend y distintas áreas de software.",
+    "githubSync": "Los proyectos se sincronizan automáticamente desde GitHub.",
+    "publicProjects": "{count} proyectos",
     "search": "Buscar",
     "searchPlaceholder": "Buscar por nombre, lenguaje, topic o descripción",
     "category": "Categoría",
@@ -592,7 +592,7 @@
     },
     "education": {
       "title": "Educación | Emir Yilmaz",
-      "description": "Educación verificada, capacitación certificada e historial de pasantías."
+      "description": "Formación, capacitación profesional y experiencia de prácticas en IT."
     },
     "contact": {
       "title": "Contacto | Emir Yilmaz",
@@ -600,7 +600,7 @@
     },
     "projects": {
       "title": "Proyectos | Emir Yılmaz",
-      "description": "Repositorios públicos de GitHub mostrados como índices de proyectos de portafolio."
+      "description": "Proyectos públicos de software en web, backend y áreas relacionadas."
     },
     "projectDetail": {
       "notFoundTitle": "Proyecto no encontrado",
@@ -615,9 +615,9 @@
     "projectsLink": "Ver proyectos"
   },
   "ErrorPage": {
-    "eyebrow": "Algo sali? mal",
-    "title": "Esta p?gina necesita actualizarse.",
-    "description": "La p?gina no se pudo cargar correctamente. Puedes intentarlo de nuevo o volver al inicio.",
+    "eyebrow": "Algo salió mal",
+    "title": "Esta página necesita actualizarse.",
+    "description": "La página no se pudo cargar correctamente. Puedes intentarlo de nuevo o volver al inicio.",
     "retry": "Intentar de nuevo",
     "homeLink": "Volver al inicio"
   }

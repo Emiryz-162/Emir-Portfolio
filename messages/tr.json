@@ -11,13 +11,13 @@
         "light": "Geçerli tema: açık"
       }
     },
-    "skipToContent": "Ana i?eri?e ge?",
+    "skipToContent": "Ana içeriğe geç",
     "cv": {
       "download": "CV indir",
-      "aria": "Emir Y?lmaz'?n CV dosyas?n? PDF olarak indir",
+      "aria": "Emir Yılmaz'ın CV dosyasını PDF olarak indir",
       "pdf": "PDF",
-      "unavailableTitle": "CV dosyas? hen?z mevcut de?il",
-      "unavailableDescription": "Bu ba?lant?y? etkinle?tirmek i?in public/documents/emir-yilmaz-cv.pdf dosyas?n? ekleyin."
+      "unavailableTitle": "CV yakında eklenecek.",
+      "unavailableDescription": "CV yakında eklenecek."
     }
   },
   "Navigation": {
@@ -34,12 +34,12 @@
       "education": "Eğitim",
       "contact": "İletişim"
     },
-    "cvAria": "Emir Y?lmaz'?n CV dosyas?n? PDF olarak indir",
-    "cvUnavailable": "CV dosyas? hen?z mevcut de?il",
+    "cvAria": "Emir Yılmaz'ın CV dosyasını PDF olarak indir",
+    "cvUnavailable": "CV yakında eklenecek.",
     "cvPdf": "PDF"
   },
   "Footer": {
-    "builtBy": "Emir tarafından tasarlandı ve geliştirildi.",
+    "builtBy": "Emir Yılmaz tarafından tasarlandı ve geliştirildi.",
     "social": {
       "github": "GitHub",
       "linkedin": "LinkedIn",
@@ -142,10 +142,10 @@
     },
     "projects": {
       "eyebrow": "Öne Çıkan Projeler",
-      "title": "GitHub’dan gelen gerçek çalışmalar",
-      "description": "Seçilen herkese açık repolar GitHub’dan senkronize edilir ve odaklı bir portfolio listesine dönüştürülür.",
+      "title": "Öne çıkan projeler",
+      "description": "GitHub profilimden otomatik olarak senkronize edilen seçili projeler.",
       "viewAll": "Tüm projeleri gör",
-      "emptyDescription": "Şu anda öne çıkarılacak herkese açık repo bulunamadı."
+      "emptyDescription": "Şu anda öne çıkarılacak proje bulunmuyor."
     },
     "about": {
       "eyebrow": "Hakkımda Önizleme",
@@ -163,7 +163,7 @@
         },
         "availability": {
           "label": "Uygunluk",
-          "value": "Junior full stack ve ilgili teknoloji rollerine açık"
+          "value": "Proje tabanlı öğrenme ve geliştirme"
         }
       },
       "languages": {
@@ -187,7 +187,7 @@
     "skills": {
       "eyebrow": "Teknik Beceriler",
       "title": "Beceriler pratik kullanıma göre gruplanmıştır",
-      "description": "Yüzde ya da abartılı seviye yok; yalnızca net şekilde sunulan alanlar var.",
+      "description": "Projelerimde ve eğitim sürecimde kullandığım teknolojiler ile çalışma becerilerim.",
       "groups": {
         "frontend": "Frontend",
         "backend": "Backend",
@@ -236,12 +236,12 @@
     },
     "timeline": {
       "eyebrow": "Eğitim & Deneyim",
-      "title": "Doğrulanmış eğitim ve staj kaydı",
-      "description": "Burada yalnızca şu an doğrulanmış eğitim, kurs ve staj bilgileri yer alır.",
+      "title": "Eğitim ve deneyim",
+      "description": "Eğitim geçmişim, mesleki eğitimim ve IT staj deneyimim.",
       "labels": {
         "experience": "Deneyim",
         "education": "Eğitim",
-        "certification": "Sertifika"
+        "certification": "Mesleki Eğitim"
       },
       "items": {
         "experience": {
@@ -275,8 +275,7 @@
       "eyebrow": "Tanıtım",
       "paragraphs": [
         "Bilgisayar Programcılığı eğitimi aldım ve HTML, CSS, JavaScript, C#, SQL ve ASP.NET teknolojileriyle proje tabanlı web uygulamaları geliştirdim.",
-        "Çalışmalarım frontend yapı, backend servisleri, veritabanı işlemleri ve REST API geliştirme üzerine yoğunlaştı. Pratik projelerle gelişmeye devam ediyorum.",
-        "Öncelikli olarak junior full stack geliştirme fırsatları arıyorum; uygun frontend, backend, oyun geliştirme, oyun tasarımı ve IT rollerine de açığım."
+        "Çalışmalarım frontend yapı, backend servisleri, veritabanı işlemleri ve REST API geliştirme üzerine yoğunlaştı. Pratik projelerle gelişmeye devam ediyorum."
       ]
     },
     "focus": {
@@ -315,14 +314,14 @@
     },
     "goal": {
       "eyebrow": "Güncel Hedef",
-      "title": "Bir sonraki pratik adıma odaklı",
-      "description": "Öncelikli olarak junior full stack geliştirme fırsatları arıyorum; uygun frontend, backend, oyun geliştirme, oyun tasarımı ve IT rollerini de değerlendiriyorum."
+      "title": "Şu anda ne arıyorum?",
+      "description": "Öncelikli olarak full stack geliştirme pozisyonları arıyorum. Frontend, backend, oyun geliştirme, oyun tasarımı ve IT alanlarındaki uygun fırsatları da değerlendiriyorum."
     }
   },
   "SkillsPage": {
     "eyebrow": "Beceriler",
     "title": "Teknik ve profesyonel beceriler",
-    "description": "Puanlama, yüzde ya da abartılı seviye ifadeleri olmadan doğrulanmış becerilerin net listesi.",
+    "description": "Projelerimde ve eğitim sürecimde kullandığım teknolojiler ile çalışma becerilerim.",
     "groups": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -336,8 +335,8 @@
         "html5": "HTML5",
         "css3": "CSS3",
         "javascript": "JavaScript",
-        "responsiveWebDesign": "Responsive Web tasarım",
-        "basicUiUxPrinciples": "Temel UI/UX ilkeleri"
+        "responsiveWebDesign": "Responsive Web Tasarım",
+        "basicUiUxPrinciples": "Temel UI/UX İlkeleri"
       },
       "backend": {
         "csharp": "C#",
@@ -361,18 +360,18 @@
         "visualStudioCode": "Visual Studio Code"
       },
       "professionalSkills": {
-        "problemSolving": "Problem çözme",
-        "algorithmicThinking": "Algoritmik düşünme",
-        "teamwork": "Takım çalışması",
+        "problemSolving": "Problem Çözme",
+        "algorithmicThinking": "Algoritmik Düşünme",
+        "teamwork": "Takım Çalışması",
         "communication": "İletişim",
-        "projectDiscipline": "Proje odaklı çalışma disiplini"
+        "projectDiscipline": "Proje Odaklı Çalışma Disiplini"
       }
     }
   },
   "EducationPage": {
     "eyebrow": "Eğitim & Deneyim",
-    "title": "Doğrulanmış geçmiş",
-    "description": "Portfolio için şu an doğrulanmış eğitim, sertifika eğitimi ve staj bilgileri.",
+    "title": "Eğitim ve deneyim",
+    "description": "Eğitim geçmişim, mesleki eğitimim ve IT staj deneyimim.",
     "items": {
       "education": {
         "label": "Eğitim",
@@ -385,7 +384,7 @@
         ]
       },
       "certification": {
-        "label": "Sertifika Eğitimi",
+        "label": "Mesleki Eğitim",
         "title": "Proje Tabanlı Full Stack Web Geliştirme Eğitimi",
         "organization": "SmartPro Yazılım Akademisi",
         "meta": "240 Saat",
@@ -411,7 +410,7 @@
   "ContactPage": {
     "eyebrow": "İletişim",
     "title": "İletişime geçelim.",
-    "description": "Junior full stack fırsatlarına ve ilgili yazılım/teknoloji rollerine açığım.",
+    "description": "Full stack geliştirme ve ilgili yazılım pozisyonlarındaki fırsatlara açığım.",
     "items": {
       "email": {
         "label": "E-posta",
@@ -426,17 +425,17 @@
         "aria": "Emir’in GitHub profilini aç"
       }
     },
-    "status": "F?rsatlara a??k",
+    "status": "Yeni fırsatlara açığım",
     "cv": {
       "title": "CV"
     },
     "form": {
       "eyebrow": "Mesaj",
-      "title": "Mesaj g?nder",
-      "description": "Rol, proje veya pratik i? birli?i fikirleri i?in formu kullanabilirsiniz.",
-      "honeypot": "?irket",
-      "privacy": "Bilgileriniz yaln?zca mesaj?n?za yan?t vermek i?in kullan?l?r.",
-      "emailFallback": "Bunun yerine e-posta g?nder",
+      "title": "Mesaj gönder",
+      "description": "Bir pozisyon, proje veya iş birliği hakkında benimle iletişime geçebilirsin.",
+      "honeypot": "Şirket",
+      "privacy": "Bilgilerin yalnızca mesajına yanıt vermek amacıyla kullanılır.",
+      "emailFallback": "Bunun yerine e-posta gönder",
       "fields": {
         "name": {
           "label": "Ad"
@@ -452,35 +451,35 @@
         }
       },
       "actions": {
-        "submit": "Mesaj? g?nder",
-        "sending": "G?nderiliyor..."
+        "submit": "Mesaj Gönder",
+        "sending": "Gönderiliyor..."
       },
       "status": {
-        "success": "Mesaj?n?z g?nderildi. En k?sa s?rede size d?n?? yapaca??m.",
-        "validationError": "L?tfen i?aretlenen alanlar? kontrol edin.",
-        "serverError": "Mesaj ?u anda g?nderilemedi.",
-        "rateLimited": "?ok fazla mesaj g?nderildi. L?tfen daha sonra tekrar deneyin.",
-        "unavailable": "?leti?im formu ge?ici olarak kullan?lam?yor."
+        "success": "Mesajınız gönderildi. En kısa sürede size dönüş yapacağım.",
+        "validationError": "Lütfen işaretlenen alanları kontrol edin.",
+        "serverError": "Mesaj şu anda gönderilemedi.",
+        "rateLimited": "Çok fazla mesaj gönderildi. Lütfen daha sonra tekrar deneyin.",
+        "unavailable": "İletişim formu şu anda kullanılamıyor. Bana doğrudan e-posta gönderebilirsin."
       },
       "errors": {
-        "required": "L?tfen bu alan? doldurun.",
-        "nameTooShort": "L?tfen en az 2 karakter girin.",
-        "nameTooLong": "L?tfen ad? 80 karakterin alt?nda tutun.",
-        "emailInvalid": "Ge?erli bir e-posta adresi girin.",
-        "emailTooLong": "L?tfen e-postay? 254 karakterin alt?nda tutun.",
-        "subjectTooShort": "L?tfen bir konu girin.",
-        "subjectTooLong": "L?tfen konuyu 120 karakterin alt?nda tutun.",
-        "messageTooShort": "Mesaj?n?z en az 20 karakter i?ermelidir.",
-        "messageTooLong": "L?tfen mesaj? 3000 karakterin alt?nda tutun."
+        "required": "Lütfen bu alanı doldurun.",
+        "nameTooShort": "Lütfen en az 2 karakter girin.",
+        "nameTooLong": "Lütfen adı 80 karakterin altında tutun.",
+        "emailInvalid": "Geçerli bir e-posta adresi girin.",
+        "emailTooLong": "Lütfen e-postayı 254 karakterin altında tutun.",
+        "subjectTooShort": "Lütfen bir konu girin.",
+        "subjectTooLong": "Lütfen konuyu 120 karakterin altında tutun.",
+        "messageTooShort": "Mesajınız en az 20 karakter içermelidir.",
+        "messageTooLong": "Lütfen mesajı 3000 karakterin altında tutun."
       }
     }
   },
   "Projects": {
     "eyebrow": "Projeler",
-    "title": "Herkese açık GitHub repo listesi",
-    "description": "Sunucu tarafında GitHub’dan çekilen, arama ve filtrelerle desteklenen canlı portfolio proje görünümü.",
-    "githubSync": "GitHub senkronizasyonu",
-    "publicProjects": "{count} herkese açık proje",
+    "title": "Projeler",
+    "description": "Web geliştirme, backend ve farklı yazılım alanlarında geliştirdiğim herkese açık çalışmalar.",
+    "githubSync": "Projeler GitHub’dan otomatik olarak senkronize edilir.",
+    "publicProjects": "{count} proje",
     "search": "Ara",
     "searchPlaceholder": "İsim, dil, konu veya açıklama ile ara",
     "category": "Kategori",
@@ -592,15 +591,15 @@
     },
     "education": {
       "title": "Eğitim | Emir Yılmaz",
-      "description": "Doğrulanmış eğitim, sertifika eğitimi ve staj geçmişi."
+      "description": "Eğitim geçmişim, mesleki eğitimim ve IT staj deneyimim."
     },
     "contact": {
       "title": "İletişim | Emir Yılmaz",
-      "description": "Junior full stack ve ilgili teknoloji fırsatları için iletişim bağlantıları."
+      "description": "Full stack geliştirme ve ilgili yazılım fırsatları için iletişim bağlantıları."
     },
     "projects": {
       "title": "Projeler | Emir Yılmaz",
-      "description": "Odaklı bir portfolio proje listesi olarak gösterilen herkese açık GitHub repoları."
+      "description": "Web, backend ve farklı yazılım alanlarında geliştirdiğim herkese açık projeler."
     },
     "projectDetail": {
       "notFoundTitle": "Proje bulunamadı",
@@ -612,13 +611,13 @@
     "title": "404",
     "description": "Aradığınız sayfa yok veya artık kullanılamıyor.",
     "homeLink": "Ana sayfaya dön",
-    "projectsLink": "Projeleri g?r?nt?le"
+    "projectsLink": "Projeleri görüntüle"
   },
   "ErrorPage": {
-    "eyebrow": "Bir ?eyler ters gitti",
-    "title": "Bu sayfan?n yenilenmesi gerekiyor.",
-    "description": "Sayfa do?ru ?ekilde y?klenemedi. Tekrar deneyebilir veya ana sayfaya d?nebilirsiniz.",
+    "eyebrow": "Bir şeyler ters gitti",
+    "title": "Bu sayfanın yenilenmesi gerekiyor.",
+    "description": "Sayfa doğru şekilde yüklenemedi. Tekrar deneyebilir veya ana sayfaya dönebilirsiniz.",
     "retry": "Tekrar dene",
-    "homeLink": "Ana sayfaya d?n"
+    "homeLink": "Ana sayfaya dön"
   }
 }

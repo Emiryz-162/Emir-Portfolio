@@ -70,6 +70,7 @@ export function HeroSection({ locale }: HeroSectionProps) {
                 variant="secondary"
                 disabled
                 aria-label={commonT("cv.unavailableTitle")}
+                title={commonT("cv.unavailableTitle")}
               >
                 <Download size={16} aria-hidden="true" />
                 {t("cvButton")}

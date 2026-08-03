@@ -17,4 +17,10 @@ export const portfolioTopics = {
     tool: "portfolio-tool",
     experiment: "portfolio-experiment",
   },
+  statuses: {
+    completed: "portfolio-status-completed",
+    inDevelopment: "portfolio-status-in-development",
+    experimental: "portfolio-status-experimental",
+    archived: "portfolio-status-archived",
+  },
 } as const;

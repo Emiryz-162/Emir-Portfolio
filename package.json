@@ -10,6 +10,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "validate:translations": "node scripts/validate-translations.mjs",
+    "validate:encoding": "node scripts/validate-encoding.mjs",
     "validate:production": "node scripts/validate-production.mjs"
   },
   "dependencies": {

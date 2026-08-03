@@ -17,7 +17,9 @@ export function SkillGroup({
       <h3 className="text-base font-semibold text-foreground">{title}</h3>
       <div className="mt-5 flex flex-wrap gap-2">
         {items.map((item) => (
-          <TechBadge key={item}>{item}</TechBadge>
+          <TechBadge key={item} preserveCase>
+            {item}
+          </TechBadge>
         ))}
       </div>
     </div>

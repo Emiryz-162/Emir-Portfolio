@@ -58,7 +58,7 @@ export function mapGitHubRepositoryToProject(
 
   const topics = normalizeTopics(repo.topics);
   const category = config?.category ?? inferCategory(repo);
-  const status = config?.status ?? inferStatus(repo);
+  const status = config?.status ?? getStatusFromTopics(repo);
 
   return {
     id: repo.id,
@@ -71,7 +71,7 @@ export function mapGitHubRepositoryToProject(
     primaryLanguage: repo.language,
     topics,
     category,
-    status,
+    ...(status ? { status } : {}),
     isFeatured: config?.featured ?? topics.includes(portfolioTopics.featured),
     isArchived: repo.archived,
     stars: repo.stargazers_count,
@@ -204,15 +204,19 @@ function inferCategory(repo: GitHubRepository): PortfolioCategory {
   return "other";
 }
 
-function inferStatus(repo: GitHubRepository): PortfolioStatus {
-  if (repo.archived) return "archived";
-
+function getStatusFromTopics(repo: GitHubRepository): PortfolioStatus | null {
   const topics = normalizeTopics(repo.topics);
-  if (topics.includes("experimental") || topics.includes("prototype")) {
-    return "experimental";
-  }
+  const statusEntries: [PortfolioStatus, string][] = [
+    ["completed", portfolioTopics.statuses.completed],
+    ["in-development", portfolioTopics.statuses.inDevelopment],
+    ["experimental", portfolioTopics.statuses.experimental],
+    ["archived", portfolioTopics.statuses.archived],
+  ];
+  const topicStatus = statusEntries.find(([, topic]) =>
+    topics.includes(topic),
+  )?.[0];
 
-  return "in-development";
+  return topicStatus ?? null;
 }
 
 function normalizeTopics(topics: string[] | undefined) {

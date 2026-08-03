@@ -11,13 +11,13 @@
         "light": "Aktualny motyw: jasny"
       }
     },
-    "skipToContent": "Przejd? do g??wnej tre?ci",
+    "skipToContent": "Przejdź do głównej treści",
     "cv": {
       "download": "Pobierz CV",
       "aria": "Pobierz CV Emira Yilmaza jako PDF",
       "pdf": "PDF",
-      "unavailableTitle": "Plik CV nie jest jeszcze dost?pny",
-      "unavailableDescription": "Dodaj public/documents/emir-yilmaz-cv.pdf, aby w??czy? ten link."
+      "unavailableTitle": "CV zostanie wkrótce dodane.",
+      "unavailableDescription": "CV zostanie wkrótce dodane."
     }
   },
   "Navigation": {
@@ -35,7 +35,7 @@
       "contact": "Kontakt"
     },
     "cvAria": "Pobierz CV Emira Yilmaza jako PDF",
-    "cvUnavailable": "Plik CV nie jest jeszcze dost?pny",
+    "cvUnavailable": "CV zostanie wkrótce dodane.",
     "cvPdf": "PDF"
   },
   "Footer": {
@@ -142,8 +142,8 @@
     },
     "projects": {
       "eyebrow": "Wyróżnione projekty",
-      "title": "Publiczne prace z GitHub",
-      "description": "Wybrane publiczne repozytoria są synchronizowane z GitHub i filtrówane do skupionego indeksu portfolio.",
+      "title": "Wyróżnione projekty",
+      "description": "Wybrane projekty są automatycznie synchronizowane z mojego profilu GitHub.",
       "viewAll": "Zobacz wszystkie projekty",
       "emptyDescription": "Obecnie nie ma wyróżnionych publicznych repozytoriów."
     },
@@ -163,7 +163,7 @@
         },
         "availability": {
           "label": "Dostępność",
-          "value": "Otwarty na role junior full stack i pokrewne role technologiczne"
+          "value": "Nauka i rozwój przez projekty"
         }
       },
       "languages": {
@@ -236,8 +236,8 @@
     },
     "timeline": {
       "eyebrow": "Edukacja & doświadczenie",
-      "title": "Potwierdzona nauka i staż",
-      "description": "Pokazane są tylko aktualnie potwierdzone informacje o edukacji, szkoleniu i stażu.",
+      "title": "Edukacja i doświadczenie",
+      "description": "Moja edukacja, szkolenie zawodowe i doświadczenie stażowe IT.",
       "labels": {
         "experience": "Doświadczenie",
         "education": "Edukacja",
@@ -322,7 +322,7 @@
   "SkillsPage": {
     "eyebrow": "Umiejętności",
     "title": "Umiejętności techniczne i zawodowe",
-    "description": "Jasna lista zweryfikowanych umiejętności, bez punktacji, procentow ani przesadzonych poziomow.",
+    "description": "Technologie, których używam w projektach i edukacji, oraz moje umiejętności pracy.",
     "groups": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -371,8 +371,8 @@
   },
   "EducationPage": {
     "eyebrow": "Edukacja & doświadczenie",
-    "title": "Potwierdzone tło",
-    "description": "Potwierdzona edukacja, szkolenie certyfikacyjne i staż do portfolio.",
+    "title": "Edukacja i doświadczenie",
+    "description": "Moja edukacja, szkolenie zawodowe i doświadczenie stażowe IT.",
     "items": {
       "education": {
         "label": "Edukacja",
@@ -385,7 +385,7 @@
         ]
       },
       "certification": {
-        "label": "Szkolenie certyfikacyjne",
+        "label": "Szkolenie zawodowe",
         "title": "Projektowe szkolenie Full Stack Web Development",
         "organization": "SmartPro Software Academy",
         "meta": "240 godzin",
@@ -426,20 +426,20 @@
         "aria": "Otwórz profil GitHub Emira"
       }
     },
-    "status": "Otwarty na mo?liwo?ci",
+    "status": "Otwarty na nowe możliwości",
     "cv": {
       "title": "CV"
     },
     "form": {
-      "eyebrow": "Wiadomo??",
-      "title": "Wy?lij wiadomo??",
-      "description": "U?yj formularza w sprawie r?l, projekt?w lub praktycznych pomys??w na wsp??prac?.",
+      "eyebrow": "Wiadomość",
+      "title": "Wyślij wiadomość",
+      "description": "Możesz skontaktować się ze mną w sprawie stanowiska, projektu lub współpracy.",
       "honeypot": "Firma",
-      "privacy": "Twoje dane s? u?ywane wy??cznie do odpowiedzi na wiadomo??.",
-      "emailFallback": "Wy?lij e-mail zamiast tego",
+      "privacy": "Twoje dane są używane wyłącznie do odpowiedzi na wiadomość.",
+      "emailFallback": "Wyślij e-mail zamiast tego",
       "fields": {
         "name": {
-          "label": "Imi? i nazwisko"
+          "label": "Imię"
         },
         "email": {
           "label": "E-mail"
@@ -448,39 +448,39 @@
           "label": "Temat"
         },
         "message": {
-          "label": "Wiadomo??"
+          "label": "Wiadomość"
         }
       },
       "actions": {
-        "submit": "Wy?lij wiadomo??",
-        "sending": "Wysy?anie..."
+        "submit": "Wyślij wiadomość",
+        "sending": "Wysyłanie..."
       },
       "status": {
-        "success": "Twoja wiadomo?? zosta?a wys?ana. Odpowiem tak szybko, jak to mo?liwe.",
-        "validationError": "Sprawd? zaznaczone pola.",
-        "serverError": "Wiadomo?ci nie mo?na teraz wys?a?.",
-        "rateLimited": "Wys?ano zbyt wiele wiadomo?ci. Spr?buj ponownie p??niej.",
-        "unavailable": "Formularz kontaktowy jest tymczasowo niedost?pny."
+        "success": "Twoja wiadomość została wysłana. Odpowiem tak szybko, jak to możliwe.",
+        "validationError": "Sprawdź zaznaczone pola.",
+        "serverError": "Wiadomości nie można teraz wysłać.",
+        "rateLimited": "Wysłano zbyt wiele wiadomości. Spróbuj ponownie później.",
+        "unavailable": "Formularz kontaktowy jest obecnie niedostępny. Możesz wysłać do mnie e-mail bezpośrednio."
       },
       "errors": {
-        "required": "Wype?nij to pole.",
+        "required": "Wypełnij to pole.",
         "nameTooShort": "Wpisz co najmniej 2 znaki.",
-        "nameTooLong": "Utrzymaj nazw? poni?ej 80 znak?w.",
-        "emailInvalid": "Wpisz prawid?owy adres e-mail.",
-        "emailTooLong": "Utrzymaj e-mail poni?ej 254 znak?w.",
+        "nameTooLong": "Utrzymaj nazwę poniżej 80 znaków.",
+        "emailInvalid": "Wpisz prawidłowy adres e-mail.",
+        "emailTooLong": "Utrzymaj e-mail poniżej 254 znaków.",
         "subjectTooShort": "Wpisz temat.",
-        "subjectTooLong": "Utrzymaj temat poni?ej 120 znak?w.",
-        "messageTooShort": "Wiadomo?? musi mie? co najmniej 20 znak?w.",
-        "messageTooLong": "Utrzymaj wiadomo?? poni?ej 3000 znak?w."
+        "subjectTooLong": "Utrzymaj temat poniżej 120 znaków.",
+        "messageTooShort": "Wiadomość musi mieć co najmniej 20 znaków.",
+        "messageTooLong": "Utrzymaj wiadomość poniżej 3000 znaków."
       }
     }
   },
   "Projects": {
     "eyebrow": "Projekty",
-    "title": "Indeks publicznych repozytoriów GitHub",
-    "description": "Widok portfolio na żywo z publicznych repozytoriów, z pobieraniem danych GitHub po stronie serwera, wyszukiwaniem, filtrami i stabilnymi stanami awaryjnymi.",
-    "githubSync": "Synchronizacja GitHub",
-    "publicProjects": "{count} publicznych projektów",
+    "title": "Projekty",
+    "description": "Publiczne prace rozwijane przeze mnie w web developmencie, backendzie i różnych obszarach software.",
+    "githubSync": "Projekty są automatycznie synchronizowane z GitHub.",
+    "publicProjects": "{count} projektów",
     "search": "Szukaj",
     "searchPlaceholder": "Szukaj wedlug nazwy, języka, topicu lub opisu",
     "category": "Kategoria",
@@ -592,7 +592,7 @@
     },
     "education": {
       "title": "Edukacja | Emir Yılmaz",
-      "description": "Potwierdzona edukacja, szkolenie certyfikacyjne i doświadczenie stażowe."
+      "description": "Edukacja, szkolenie zawodowe i doświadczenie stażowe IT."
     },
     "contact": {
       "title": "Kontakt | Emir Yılmaz",
@@ -600,7 +600,7 @@
     },
     "projects": {
       "title": "Projekty | Emir Yılmaz",
-      "description": "Publiczne repozytoria GitHub pokazane jako indeks projektów portfolio."
+      "description": "Publiczne projekty software w web, backendzie i pokrewnych obszarach."
     },
     "projectDetail": {
       "notFoundTitle": "Nie znaleziono projektu",
@@ -615,10 +615,10 @@
     "projectsLink": "Zobacz projekty"
   },
   "ErrorPage": {
-    "eyebrow": "Co? posz?o nie tak",
-    "title": "T? stron? trzeba od?wie?y?.",
-    "description": "Strona nie za?adowa?a si? poprawnie. Mo?esz spr?bowa? ponownie albo wr?ci? na stron? g??wn?.",
-    "retry": "Spr?buj ponownie",
-    "homeLink": "Powr?t do strony g??wnej"
+    "eyebrow": "Coś poszło nie tak",
+    "title": "Tę stronę trzeba odświeżyć.",
+    "description": "Strona nie załadowała się poprawnie. Możesz spróbować ponownie albo wrócić na stronę główną.",
+    "retry": "Spróbuj ponownie",
+    "homeLink": "Powrót do strony głównej"
   }
 }

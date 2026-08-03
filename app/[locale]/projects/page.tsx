@@ -88,6 +88,9 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
             : t("githubSync")}
         </div>
       </div>
+      <p className="mt-4 max-w-3xl text-sm leading-6 text-muted">
+        {t("githubSync")}
+      </p>
 
       {projectsResult.ok ? (
         projectsResult.projects.length > 0 ? (

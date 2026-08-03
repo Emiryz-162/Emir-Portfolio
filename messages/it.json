@@ -16,8 +16,8 @@
       "download": "Scarica CV",
       "aria": "Scarica il CV di Emir Yilmaz in PDF",
       "pdf": "PDF",
-      "unavailableTitle": "Il file CV non ? ancora disponibile",
-      "unavailableDescription": "Aggiungi public/documents/emir-yilmaz-cv.pdf per attivare questo link."
+      "unavailableTitle": "Il CV sarà aggiunto presto.",
+      "unavailableDescription": "Il CV sarà aggiunto presto."
     }
   },
   "Navigation": {
@@ -35,7 +35,7 @@
       "contact": "Contatti"
     },
     "cvAria": "Scarica il CV di Emir Yilmaz in PDF",
-    "cvUnavailable": "Il file CV non ? ancora disponibile",
+    "cvUnavailable": "Il CV sarà aggiunto presto.",
     "cvPdf": "PDF"
   },
   "Footer": {
@@ -142,8 +142,8 @@
     },
     "projects": {
       "eyebrow": "Progetti in evidenza",
-      "title": "Lavori reali da GitHub",
-      "description": "I repository pubblici selezionati vengono sincronizzati da GitHub e trasformati in un indice portfolio mirato.",
+      "title": "Progetti in evidenza",
+      "description": "Progetti selezionati sincronizzati automaticamente dal mio profilo GitHub.",
       "viewAll": "Vedi tutti i progetti",
       "emptyDescription": "Al momento non ci sono repository pubblici da mettere in evidenza."
     },
@@ -163,7 +163,7 @@
         },
         "availability": {
           "label": "Disponibilità",
-          "value": "Aperto a ruoli junior full stack e ruoli tecnologici correlati"
+          "value": "Apprendimento e sviluppo basati su progetti"
         }
       },
       "languages": {
@@ -236,8 +236,8 @@
     },
     "timeline": {
       "eyebrow": "Formazione & esperienza",
-      "title": "Formazione e tirocinio verificati",
-      "description": "Qui sono mostrate solo le informazioni attualmente verificate su formazione, corsi e tirocinio.",
+      "title": "Formazione ed esperienza",
+      "description": "Il mio percorso di formazione, la formazione professionale e il tirocinio IT.",
       "labels": {
         "experience": "Esperienza",
         "education": "Formazione",
@@ -322,7 +322,7 @@
   "SkillsPage": {
     "eyebrow": "Competenze",
     "title": "Competenze tecniche e professionali",
-    "description": "Un elenco chiaro di competenze verificate, senza punteggi, percentuali o livelli esagerati.",
+    "description": "Tecnologie che uso nei miei progetti e nella formazione, insieme alle mie competenze operative.",
     "groups": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -371,8 +371,8 @@
   },
   "EducationPage": {
     "eyebrow": "Formazione & esperienza",
-    "title": "storia verificata",
-    "description": "Formazione, percorso certificato e tirocinio attualmente verificati per il portfolio.",
+    "title": "Formazione ed esperienza",
+    "description": "Il mio percorso di formazione, la formazione professionale e il tirocinio IT.",
     "items": {
       "education": {
         "label": "Istruzione",
@@ -385,7 +385,7 @@
         ]
       },
       "certification": {
-        "label": "Formazione certificata",
+        "label": "Formazione professionale",
         "title": "Formazione Full Stack Web Development basata su progetti",
         "organization": "SmartPro Software Academy",
         "meta": "240 Saat",
@@ -426,7 +426,7 @@
         "aria": "Apri il profilo GitHub di Emir"
       }
     },
-    "status": "Aperto a opportunit?",
+    "status": "Aperto a nuove opportunità",
     "cv": {
       "title": "CV"
     },
@@ -456,11 +456,11 @@
         "sending": "Invio..."
       },
       "status": {
-        "success": "Il tuo messaggio ? stato inviato. Ti risponder? il prima possibile.",
+        "success": "Il tuo messaggio è stato inviato. Ti risponderò il prima possibile.",
         "validationError": "Controlla i campi evidenziati.",
-        "serverError": "Il messaggio non pu? essere inviato al momento.",
-        "rateLimited": "Sono stati inviati troppi messaggi. Riprova pi? tardi.",
-        "unavailable": "Il modulo di contatto ? temporaneamente non disponibile."
+        "serverError": "Il messaggio non può essere inviato al momento.",
+        "rateLimited": "Sono stati inviati troppi messaggi. Riprova più tardi.",
+        "unavailable": "Il modulo di contatto non è al momento disponibile. Puoi inviarmi direttamente un'e-mail."
       },
       "errors": {
         "required": "Compila questo campo.",
@@ -477,10 +477,10 @@
   },
   "Projects": {
     "eyebrow": "Progetti",
-    "title": "Indice dei repository GitHub pubblici",
-    "description": "Una vista portfolio live basata su repository pubblici, con fetch GitHub lato server, ricerca, filtri e stati stabili.",
-    "githubSync": "Sincronizzazione GitHub",
-    "publicProjects": "{count} progetti pubblici",
+    "title": "Progetti",
+    "description": "Lavori pubblici sviluppati in ambito web, backend e diverse aree software.",
+    "githubSync": "I progetti sono sincronizzati automaticamente da GitHub.",
+    "publicProjects": "{count} progetti",
     "search": "Cerca",
     "searchPlaceholder": "Cerca per nome, linguaggio, topic o descrizione",
     "category": "Categoria",
@@ -592,7 +592,7 @@
     },
     "education": {
       "title": "Istruzione | L'emiro Yilmaz",
-      "description": "Formazione verificata, percorso certificato e tirocinio."
+      "description": "Formazione, formazione professionale ed esperienza di tirocinio IT."
     },
     "contact": {
       "title": "Contatto | L'emiro Yilmaz",
@@ -600,7 +600,7 @@
     },
     "projects": {
       "title": "Progetti | Emir Yılmaz",
-      "description": "Repository GitHub pubblici mostrati come indice di progetti portfolio."
+      "description": "Progetti software pubblici in ambito web, backend e aree correlate."
     },
     "projectDetail": {
       "notFoundTitle": "Progetto non trovato",

@@ -28,11 +28,12 @@ import { cn } from "@/lib/cn";
 type ContactFormProps = {
   locale: string;
   email: string;
+  isAvailable: boolean;
 };
 
 const fields = ["name", "email", "subject", "message"] as const;
 
-export function ContactForm({ locale, email }: ContactFormProps) {
+export function ContactForm({ locale, email, isAvailable }: ContactFormProps) {
   const t = useTranslations("ContactPage.form");
   const [state, formAction] = useActionState<ContactFormState, FormData>(
     sendContactMessage,
@@ -59,6 +60,11 @@ export function ContactForm({ locale, email }: ContactFormProps) {
   }, [state.status]);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    if (!isAvailable) {
+      event.preventDefault();
+      return;
+    }
+
     const values = getContactFormValues(new FormData(event.currentTarget));
     const validation = validateContactForm(values);
 
@@ -111,7 +117,7 @@ export function ContactForm({ locale, email }: ContactFormProps) {
         <p className="mt-3 text-sm leading-6 text-muted">{t("description")}</p>
       </div>
 
-      <div className="grid gap-4">
+      <fieldset className="grid gap-4" disabled={!isAvailable}>
         {fields.map((field) => (
           <ContactFieldControl
             key={field}
@@ -119,13 +125,19 @@ export function ContactForm({ locale, email }: ContactFormProps) {
             state={displayedState}
           />
         ))}
-      </div>
+      </fieldset>
 
-      <p className="mt-4 text-xs leading-5 text-muted">{t("privacy")}</p>
+      {isAvailable ? (
+        <p className="mt-4 text-xs leading-5 text-muted">{t("privacy")}</p>
+      ) : null}
 
-      <FormMessage state={displayedState} email={email} />
+      {isAvailable ? (
+        <FormMessage state={displayedState} email={email} />
+      ) : (
+        <FormUnavailableMessage email={email} />
+      )}
 
-      <SubmitButton />
+      <SubmitButton disabled={!isAvailable} />
     </form>
   );
 }
@@ -248,12 +260,36 @@ function FormMessage({
   );
 }
 
-function SubmitButton() {
+function FormUnavailableMessage({ email }: { email: string }) {
+  const t = useTranslations("ContactPage.form");
+
+  return (
+    <div
+      className="mt-5 rounded-[6px] border border-border bg-background px-3 py-3 text-sm leading-6 text-muted-foreground"
+      role="status"
+      aria-live="polite"
+    >
+      <p>{t("status.unavailable")}</p>
+      <a
+        className="mt-2 inline-flex font-semibold text-accent transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        href={`mailto:${email}`}
+      >
+        {t("emailFallback")}
+      </a>
+    </div>
+  );
+}
+
+function SubmitButton({ disabled = false }: { disabled?: boolean }) {
   const t = useTranslations("ContactPage.form");
   const { pending } = useFormStatus();
 
   return (
-    <Button className="mt-6 w-full" type="submit" disabled={pending}>
+    <Button
+      className="mt-6 w-full"
+      type="submit"
+      disabled={pending || disabled}
+    >
       <Send size={16} aria-hidden="true" />
       {pending ? t("actions.sending") : t("actions.submit")}
     </Button>

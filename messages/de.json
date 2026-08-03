@@ -16,8 +16,8 @@
       "download": "CV herunterladen",
       "aria": "Emir Yilmaz CV als PDF herunterladen",
       "pdf": "PDF",
-      "unavailableTitle": "Die CV-Datei ist noch nicht verf?gbar",
-      "unavailableDescription": "F?ge public/documents/emir-yilmaz-cv.pdf hinzu, um diesen Link zu aktivieren."
+      "unavailableTitle": "Der Lebenslauf wird bald ergänzt.",
+      "unavailableDescription": "Der Lebenslauf wird bald ergänzt."
     }
   },
   "Navigation": {
@@ -35,7 +35,7 @@
       "contact": "Kontakt"
     },
     "cvAria": "Emir Yilmaz CV als PDF herunterladen",
-    "cvUnavailable": "Die CV-Datei ist noch nicht verf?gbar",
+    "cvUnavailable": "Der Lebenslauf wird bald ergänzt.",
     "cvPdf": "PDF"
   },
   "Footer": {
@@ -142,8 +142,8 @@
     },
     "projects": {
       "eyebrow": "Ausgewählte Projekte",
-      "title": "Öffentliche Arbeiten von GitHub",
-      "description": "Ausgewählte öffentliche Repositories werden von GitHub synchronisiert und in einen fokussierten Portfolio-Index gefiltert.",
+      "title": "Ausgewählte Projekte",
+      "description": "Ausgewählte Projekte werden automatisch aus meinem GitHub-Profil synchronisiert.",
       "viewAll": "Alle Projekte ansehen",
       "emptyDescription": "Derzeit sind keine hervorgehobenen öffentlichen Repositories verfügbar."
     },
@@ -163,7 +163,7 @@
         },
         "availability": {
           "label": "Verfügbarkeit",
-          "value": "Offen für Junior Full Stack und verwandte Technologie-Rollen"
+          "value": "Projektbasiertes Lernen und Entwickeln"
         }
       },
       "languages": {
@@ -236,8 +236,8 @@
     },
     "timeline": {
       "eyebrow": "Ausbildung & Erfahrung",
-      "title": "Bestätigte Lern- und Praktikumserfahrung",
-      "description": "Hier stehen nur aktuell bestätigte Informationen zu Ausbildung, Training und Praktikum.",
+      "title": "Ausbildung und Erfahrung",
+      "description": "Meine Ausbildung, berufliche Weiterbildung und IT-Praktikumserfahrung.",
       "labels": {
         "experience": "Erfahrung",
         "education": "Ausbildung",
@@ -322,7 +322,7 @@
   "SkillsPage": {
     "eyebrow": "Faehigkeiten",
     "title": "Technische und berufliche Faehigkeiten",
-    "description": "Eine klare Liste verifizierter Faehigkeiten, ohne Punkte, Prozentwerte oder uebertriebene Levelangaben.",
+    "description": "Technologien, die ich in Projekten und Ausbildung nutze, plus meine Arbeitskompetenzen.",
     "groups": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -371,8 +371,8 @@
   },
   "EducationPage": {
     "eyebrow": "Ausbildung & Erfahrung",
-    "title": "Bestätigter Hintergrund",
-    "description": "Aktuell bestätigte Ausbildung, Zertifizierungstraining und Praktikum für das Portfolio.",
+    "title": "Ausbildung und Erfahrung",
+    "description": "Meine Ausbildung, berufliche Weiterbildung und IT-Praktikumserfahrung.",
     "items": {
       "education": {
         "label": "Ausbildung",
@@ -385,7 +385,7 @@
         ]
       },
       "certification": {
-        "label": "Zertifizierungstraining",
+        "label": "Berufliche Weiterbildung",
         "title": "Projektbasiertes Full Stack Web Development Training",
         "organization": "SmartPro Software Academy",
         "meta": "240 Stunden",
@@ -426,14 +426,14 @@
         "aria": "Emirs GitHub-Profil öffnen"
       }
     },
-    "status": "Offen f?r M?glichkeiten",
+    "status": "Offen für neue Möglichkeiten",
     "cv": {
       "title": "CV"
     },
     "form": {
       "eyebrow": "Nachricht",
       "title": "Nachricht senden",
-      "description": "Nutze das Formular f?r Rollen, Projekte oder praktische Ideen zur Zusammenarbeit.",
+      "description": "Du kannst mich zu einer Position, einem Projekt oder einer Zusammenarbeit kontaktieren.",
       "honeypot": "Unternehmen",
       "privacy": "Deine Angaben werden nur verwendet, um auf deine Nachricht zu antworten.",
       "emailFallback": "Stattdessen eine E-Mail senden",
@@ -456,17 +456,17 @@
         "sending": "Wird gesendet..."
       },
       "status": {
-        "success": "Deine Nachricht wurde gesendet. Ich melde mich so bald wie m?glich.",
-        "validationError": "Bitte pr?fe die markierten Felder.",
+        "success": "Deine Nachricht wurde gesendet. Ich melde mich so bald wie möglich.",
+        "validationError": "Bitte prüfe die markierten Felder.",
         "serverError": "Die Nachricht konnte gerade nicht gesendet werden.",
-        "rateLimited": "Es wurden zu viele Nachrichten gesendet. Bitte versuche es sp?ter erneut.",
-        "unavailable": "Das Kontaktformular ist vor?bergehend nicht verf?gbar."
+        "rateLimited": "Es wurden zu viele Nachrichten gesendet. Bitte versuche es später erneut.",
+        "unavailable": "Das Kontaktformular ist derzeit nicht verfügbar. Du kannst mir direkt eine E-Mail senden."
       },
       "errors": {
-        "required": "Bitte f?lle dieses Feld aus.",
+        "required": "Bitte fülle dieses Feld aus.",
         "nameTooShort": "Bitte gib mindestens 2 Zeichen ein.",
         "nameTooLong": "Bitte halte den Namen unter 80 Zeichen.",
-        "emailInvalid": "Gib eine g?ltige E-Mail-Adresse ein.",
+        "emailInvalid": "Gib eine gültige E-Mail-Adresse ein.",
         "emailTooLong": "Bitte halte die E-Mail unter 254 Zeichen.",
         "subjectTooShort": "Bitte gib einen Betreff ein.",
         "subjectTooLong": "Bitte halte den Betreff unter 120 Zeichen.",
@@ -477,10 +477,10 @@
   },
   "Projects": {
     "eyebrow": "Projekte",
-    "title": "Index oeffentlicher GitHub-Repositories",
-    "description": "Eine Live-Portfolioansicht aus oeffentlichen Repositories mit serverseitigem GitHub-Abruf, Suche, Filtern und stabilen Fallbacks.",
-    "githubSync": "GitHub-Sync",
-    "publicProjects": "{count} oeffentliche Projekte",
+    "title": "Projekte",
+    "description": "Öffentliche Arbeiten, die ich in Webentwicklung, Backend und anderen Softwarebereichen entwickelt habe.",
+    "githubSync": "Projekte werden automatisch von GitHub synchronisiert.",
+    "publicProjects": "{count} Projekte",
     "search": "Suche",
     "searchPlaceholder": "Nach Name, Sprache, Topic oder Beschreibung suchen",
     "category": "Kategorie",
@@ -592,7 +592,7 @@
     },
     "education": {
       "title": "Ausbildung | Emir Yılmaz",
-      "description": "Bestätigte Ausbildung, Zertifizierungstraining und Praktikumserfahrung."
+      "description": "Ausbildung, berufliche Weiterbildung und IT-Praktikumserfahrung."
     },
     "contact": {
       "title": "Kontakt | Emir Yılmaz",
@@ -600,7 +600,7 @@
     },
     "projects": {
       "title": "Projekte | Emir Yılmaz",
-      "description": "Öffentliche GitHub-Repositories als fokussierter Portfolio-Projektindex."
+      "description": "Öffentliche Softwareprojekte aus Webentwicklung, Backend und verwandten Bereichen."
     },
     "projectDetail": {
       "notFoundTitle": "Projekt nicht gefunden",
@@ -617,7 +617,7 @@
   "ErrorPage": {
     "eyebrow": "Etwas ist schiefgelaufen",
     "title": "Diese Seite muss neu geladen werden.",
-    "description": "Die Seite konnte nicht korrekt geladen werden. Du kannst es erneut versuchen oder zur Startseite zur?ckkehren.",
+    "description": "Die Seite konnte nicht korrekt geladen werden. Du kannst es erneut versuchen oder zur Startseite zurückkehren.",
     "retry": "Erneut versuchen",
     "homeLink": "Zur Startseite"
   }

@@ -16,8 +16,8 @@
       "download": "CV downloaden",
       "aria": "Download het CV van Emir Yilmaz als PDF",
       "pdf": "PDF",
-      "unavailableTitle": "Het CV-bestand is nog niet beschikbaar",
-      "unavailableDescription": "Voeg public/documents/emir-yilmaz-cv.pdf toe om deze link te activeren."
+      "unavailableTitle": "Het CV wordt binnenkort toegevoegd.",
+      "unavailableDescription": "Het CV wordt binnenkort toegevoegd."
     }
   },
   "Navigation": {
@@ -35,7 +35,7 @@
       "contact": "Contact"
     },
     "cvAria": "Download het CV van Emir Yilmaz als PDF",
-    "cvUnavailable": "Het CV-bestand is nog niet beschikbaar",
+    "cvUnavailable": "Het CV wordt binnenkort toegevoegd.",
     "cvPdf": "PDF"
   },
   "Footer": {
@@ -142,8 +142,8 @@
     },
     "projects": {
       "eyebrow": "Uitgelichte projecten",
-      "title": "Echt werk vanuit GitHub",
-      "description": "Geselecteerde openbare repositories worden vanuit GitHub gesynchroniseerd en omgezet in een gerichte portfolio-index.",
+      "title": "Uitgelichte projecten",
+      "description": "Geselecteerde projecten worden automatisch gesynchroniseerd vanuit mijn GitHub-profiel.",
       "viewAll": "Alle projecten bekijken",
       "emptyDescription": "Er zijn momenteel geen openbare repositories om uit te lichten."
     },
@@ -163,7 +163,7 @@
         },
         "availability": {
           "label": "Beschikbaarheid",
-          "value": "Open voor junior full stack en verwante technologierollen"
+          "value": "Projectgericht leren en ontwikkelen"
         }
       },
       "languages": {
@@ -236,8 +236,8 @@
     },
     "timeline": {
       "eyebrow": "Opleiding & ervaring",
-      "title": "Geverifieerde opleiding en stage",
-      "description": "Hier staan alleen momenteel geverifieerde gegevens over opleiding, cursus en stage.",
+      "title": "Opleiding en ervaring",
+      "description": "Mijn opleiding, professionele training en IT-stage.",
       "labels": {
         "experience": "Ervaring",
         "education": "Opleiding",
@@ -322,7 +322,7 @@
   "SkillsPage": {
     "eyebrow": "Vaardigheden",
     "title": "Technische en professionele vaardigheden",
-    "description": "Een duidelijke lijst met geverifieerde vaardigheden, zonder scores, percentages of overdreven niveaus.",
+    "description": "Technologieën die ik in mijn projecten en opleiding gebruik, samen met mijn werkvaardigheden.",
     "groups": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -371,8 +371,8 @@
   },
   "EducationPage": {
     "eyebrow": "Opleiding & ervaring",
-    "title": "Doğrulanmış geçmiş",
-    "description": "Momenteel geverifieerde opleiding, certificaattraining en stage voor het portfolio.",
+    "title": "Opleiding en ervaring",
+    "description": "Mijn opleiding, professionele training en IT-stage.",
     "items": {
       "education": {
         "label": "Eğitim",
@@ -385,7 +385,7 @@
         ]
       },
       "certification": {
-        "label": "Sertifika Eğitimi",
+        "label": "Professionele training",
         "title": "Projectgerichte Full Stack Web Development-training",
         "organization": "SmartPro Software Academy",
         "meta": "240 Saat",
@@ -410,7 +410,7 @@
   },
   "ContactPage": {
     "eyebrow": "İletişim",
-    "title": "İletişime geçelim.",
+    "title": "Laten we contact opnemen.",
     "description": "Ik sta open voor junior full stack-kansen en verwante software-/technologierollen.",
     "items": {
       "email": {
@@ -426,14 +426,14 @@
         "aria": "Emir’in GitHub profilini aç"
       }
     },
-    "status": "Open voor kansen",
+    "status": "Open voor nieuwe kansen",
     "cv": {
       "title": "CV"
     },
     "form": {
       "eyebrow": "Bericht",
       "title": "Stuur een bericht",
-      "description": "Gebruik het formulier voor rollen, projecten of praktische samenwerkingsidee?n.",
+      "description": "Je kunt contact met me opnemen over een functie, project of samenwerking.",
       "honeypot": "Bedrijf",
       "privacy": "Je gegevens worden alleen gebruikt om op je bericht te reageren.",
       "emailFallback": "Stuur in plaats daarvan een e-mail",
@@ -460,7 +460,7 @@
         "validationError": "Controleer de gemarkeerde velden.",
         "serverError": "Het bericht kan nu niet worden verzonden.",
         "rateLimited": "Er zijn te veel berichten verzonden. Probeer het later opnieuw.",
-        "unavailable": "Het contactformulier is tijdelijk niet beschikbaar."
+        "unavailable": "Het contactformulier is momenteel niet beschikbaar. Je kunt mij direct e-mailen."
       },
       "errors": {
         "required": "Vul dit veld in.",
@@ -477,10 +477,10 @@
   },
   "Projects": {
     "eyebrow": "Projecten",
-    "title": "Index van openbare GitHub-repositories",
-    "description": "Een live portfolio-overzicht op basis van openbare repositories, met server-side GitHub-fetching, zoekfunctie, filters en stabiele statussen.",
-    "githubSync": "GitHub-synchronisatie",
-    "publicProjects": "{count} openbare projecten",
+    "title": "Projecten",
+    "description": "Openbaar werk dat ik heb ontwikkeld in webontwikkeling, backend en verschillende softwaregebieden.",
+    "githubSync": "Projecten worden automatisch gesynchroniseerd vanuit GitHub.",
+    "publicProjects": "{count} projecten",
     "search": "Zoeken",
     "searchPlaceholder": "Zoek op naam, taal, topic of beschrijving",
     "category": "Categorie",
@@ -592,7 +592,7 @@
     },
     "education": {
       "title": "Eğitim | Emir Yılmaz",
-      "description": "Geverifieerde opleiding, certificaattraining en stage."
+      "description": "Opleiding, professionele training en IT-stage."
     },
     "contact": {
       "title": "İletişim | Emir Yılmaz",
@@ -600,7 +600,7 @@
     },
     "projects": {
       "title": "Projecten | Emir Yılmaz",
-      "description": "Openbare GitHub-repositories als gerichte portfolioprojectindex."
+      "description": "Openbare softwareprojecten in web, backend en verwante gebieden."
     },
     "projectDetail": {
       "notFoundTitle": "Proje bulunamadı",

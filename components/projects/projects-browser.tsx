@@ -324,7 +324,9 @@ function ClientProjectCard({
                   formatDate(project.updatedAt, locale),
                 )}
               </span>
-              <span>{labels.statuses[project.status]}</span>
+              {project.status ? (
+                <span>{labels.statuses[project.status]}</span>
+              ) : null}
             </div>
           </div>
 
@@ -365,13 +367,14 @@ function ClientProjectCover({ project }: { project: PortfolioProject }) {
 
   return (
     <div className="relative min-h-56 overflow-hidden border-b border-border bg-background md:border-b-0 md:border-r lg:border-b lg:border-r-0">
-      <div className="absolute inset-5 rounded-[6px] border border-border bg-surface/70" />
-      <div className="absolute inset-x-8 top-10 h-px bg-border" />
-      <div className="absolute inset-x-8 bottom-8 grid grid-cols-4 gap-2">
-        <span className="h-10 rounded-[4px] bg-surface-muted" />
-        <span className="h-10 rounded-[4px] bg-border-strong" />
-        <span className="h-10 rounded-[4px] bg-surface-muted" />
-        <span className="h-10 rounded-[4px] bg-surface-elevated" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:24px_24px] opacity-30" />
+      <div className="absolute inset-5 rounded-[6px] border border-border bg-surface/68" />
+      <span className="absolute right-8 top-8 h-2 w-2 rounded-full bg-accent" />
+      <div className="absolute inset-x-8 bottom-8 flex items-end justify-between gap-4">
+        <p className="min-w-0 truncate font-mono text-[11px] uppercase tracking-normal text-muted">
+          {decorativeCode(project.name)}
+        </p>
+        <span className="h-px flex-1 bg-border" />
       </div>
       <div className="absolute left-8 top-16">
         <div className="flex h-20 w-20 items-center justify-center rounded-[6px] border border-border-strong bg-accent/12 font-mono text-2xl text-foreground transition duration-300 group-hover:scale-[1.02]">
@@ -385,6 +388,14 @@ function ClientProjectCover({ project }: { project: PortfolioProject }) {
       </div>
     </div>
   );
+}
+
+function decorativeCode(name: string) {
+  return `/${name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 18)}`;
 }
 
 function getValidFilter(value: string | null): ProjectFilter {

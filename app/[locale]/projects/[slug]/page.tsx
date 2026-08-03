@@ -109,7 +109,11 @@ export default async function ProjectDetailPage({
         <div>
           <div className="flex flex-wrap gap-2">
             <TechBadge>{t(`categories.${project.category}`)}</TechBadge>
-            <TechBadge>{t(`statuses.${statusKey(project.status)}`)}</TechBadge>
+            {project.status ? (
+              <TechBadge>
+                {t(`statuses.${statusKey(project.status)}`)}
+              </TechBadge>
+            ) : null}
             {project.isArchived ? (
               <span className="inline-flex items-center gap-1 rounded-[6px] border border-border bg-surface px-2.5 py-1 font-mono text-[11px] uppercase tracking-normal text-muted">
                 <Archive size={12} aria-hidden="true" />
@@ -300,6 +304,7 @@ function ProjectCover({
 
   return (
     <div className="relative min-h-72 overflow-hidden rounded-[6px] border border-border bg-background">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:28px_28px] opacity-30" />
       <div className="absolute inset-5 rounded-[6px] border border-border bg-surface/70" />
       <div className="absolute left-8 right-8 top-10 flex items-center gap-2">
         <span className="h-2 w-2 rounded-full bg-accent" />
@@ -315,11 +320,11 @@ function ProjectCover({
           </p>
         ) : null}
       </div>
-      <div className="absolute inset-x-8 bottom-8 grid grid-cols-4 gap-2">
-        <span className="h-12 rounded-[4px] bg-surface-muted" />
-        <span className="h-12 rounded-[4px] bg-border-strong" />
-        <span className="h-12 rounded-[4px] bg-surface-muted" />
-        <span className="h-12 rounded-[4px] bg-surface-elevated" />
+      <div className="absolute inset-x-8 bottom-8 flex items-end justify-between gap-4">
+        <p className="min-w-0 truncate font-mono text-[11px] uppercase tracking-normal text-muted">
+          {decorativeCode(name)}
+        </p>
+        <span className="h-px flex-1 bg-border" />
       </div>
     </div>
   );
@@ -327,4 +332,12 @@ function ProjectCover({
 
 function statusKey(status: string) {
   return status === "in-development" ? "inDevelopment" : status;
+}
+
+function decorativeCode(name: string) {
+  return `/${name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 22)}`;
 }

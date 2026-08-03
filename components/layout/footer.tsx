@@ -15,9 +15,7 @@ export async function Footer() {
           <p>
             © {year} {profile.shortName}
           </p>
-          <p className="mt-1">
-            {profile.role}. {t("builtBy")}
-          </p>
+          <p className="mt-1">{t("builtBy")}</p>
         </div>
         <div className="flex flex-wrap gap-2">
           {socialLinks.map((link) => (
