@@ -5,10 +5,13 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import "@/app/globals.css";
+import { AssistantProvider } from "@/components/assistant/assistant-provider";
+import { AssistantSurface } from "@/components/assistant/assistant-surface";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { routing } from "@/i18n/routing";
+import { getAssistantAvailability } from "@/lib/ai/availability";
 import { createPageMetadata } from "@/lib/metadata";
 
 const geistSans = Geist({
@@ -58,6 +61,7 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Common" });
+  const isAssistantEnabled = getAssistantAvailability();
 
   return (
     <html
@@ -68,17 +72,20 @@ export default async function LocaleLayout({
       <body className="flex min-h-full flex-col bg-background text-foreground antialiased">
         <NextIntlClientProvider>
           <ThemeProvider>
-            <a
-              href="#main-content"
-              className="fixed left-4 top-4 z-[60] -translate-y-20 rounded-[6px] border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground transition focus:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-            >
-              {t("skipToContent")}
-            </a>
-            <Navbar />
-            <main id="main-content" className="flex-1 pt-20" tabIndex={-1}>
-              {children}
-            </main>
-            <Footer />
+            <AssistantProvider enabled={isAssistantEnabled}>
+              <a
+                href="#main-content"
+                className="fixed left-4 top-4 z-[60] -translate-y-20 rounded-[6px] border border-border bg-background px-3 py-2 text-sm font-semibold text-foreground transition focus:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                {t("skipToContent")}
+              </a>
+              <Navbar />
+              <main id="main-content" className="flex-1 pt-20" tabIndex={-1}>
+                {children}
+              </main>
+              <Footer />
+              <AssistantSurface />
+            </AssistantProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

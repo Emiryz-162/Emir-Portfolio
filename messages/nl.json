@@ -58,55 +58,6 @@
           "gameDevelopment": "Game development"
         }
       },
-      "systemFlow": {
-        "title": "Systeemstatus",
-        "steps": {
-          "client": "Client",
-          "frontend": "Frontend",
-          "api": "API",
-          "database": "Database",
-          "deploy": "Deploy"
-        }
-      },
-      "miniGame": {
-        "eyebrow": "Minigame",
-        "title": "Packet Route",
-        "description": "Leid een klein datapakket door de full stack-flow.",
-        "instruction": "Route het verzoek in de juiste systeemvolgorde.",
-        "completedBefore": "Packet Route is ontgrendeld. Je kunt het altijd opnieuw spelen.",
-        "nodes": {
-          "client": "Client",
-          "frontend": "Frontend",
-          "api": "API",
-          "database": "Database",
-          "deploy": "Deploy"
-        },
-        "labels": {
-          "request": "Verzoek",
-          "interface": "Interface",
-          "logic": "Logica",
-          "data": "Data",
-          "production": "Productie"
-        },
-        "actions": {
-          "reset": "Resetten",
-          "skip": "Interactie overslaan",
-          "playAgain": "Opnieuw spelen",
-          "viewProjects": "Projecten bekijken"
-        },
-        "feedback": {
-          "ready": "Begin bij Client en kies de volgende service.",
-          "correct": "Route geaccepteerd",
-          "wrong": "400 - Verkeerde route",
-          "tryAgain": "Probeer een andere service"
-        },
-        "success": {
-          "status": "200 OK",
-          "message": "Deployment geslaagd",
-          "achievement": "Portfolio Explorer ontgrendeld",
-          "dismiss": "Prestatie sluiten"
-        }
-      },
       "contactButton": "Contact opnemen"
     },
     "projects": {
@@ -567,5 +518,68 @@
     "description": "De pagina kon niet goed worden geladen. Je kunt het opnieuw proberen of naar de startpagina gaan.",
     "retry": "Opnieuw proberen",
     "homeLink": "Terug naar home"
+  },
+  "Assistant": {
+    "name": "Emir AI",
+    "role": "Portfolio assistent",
+    "subtitle": "Vraag naar Emirs projecten, vaardigheden en achtergrond.",
+    "launcherLabel": "Open Emir AI paneel",
+    "powered": "Met OpenAI en gebaseerd op dit portfolio.",
+    "status": {
+      "ready": "Klaar",
+      "soon": "Binnenkort"
+    },
+    "preview": {
+      "welcome": "Hallo! Ik kan helpen met Emirs projecten, vaardigheden en achtergrond.",
+      "unavailable": "De assistent preview is klaar, maar berichten zijn nog niet actief.",
+      "cta": "Vraag de assistent",
+      "disabledCta": "Binnenkort",
+      "prompts": {
+        "projects": "Wat zijn zijn sterkste projecten?",
+        "backend": "Welke backend technologieen gebruikt hij?",
+        "roles": "Welke rollen zoekt hij momenteel?"
+      }
+    },
+    "empty": {
+      "title": "Stel een vraag over het portfolio.",
+      "description": "Ik kan Emirs projecten, vaardigheden, opleiding en huidige focus samenvatten met de informatie op deze site."
+    },
+    "suggestions": {
+      "projects": "Vertel me over Emirs sterkste projecten.",
+      "backend": "Vat zijn backend vaardigheden samen.",
+      "gameDevelopment": "Heeft hij ervaring met game development?",
+      "education": "Wat is zijn opleidingsachtergrond?"
+    },
+    "input": {
+      "label": "Bericht voor Emir AI",
+      "placeholder": "Vraag naar projecten, vaardigheden of opleiding...",
+      "send": "Bericht verzenden",
+      "stop": "Antwoord stoppen",
+      "hint": "Antwoorden zijn alleen gebaseerd op informatie in dit portfolio."
+    },
+    "actions": {
+      "close": "Sluiten",
+      "clear": "Gesprek wissen",
+      "newConversation": "Nieuw gesprek"
+    },
+    "errors": {
+      "rateLimited": "Berichten zijn te snel verzonden. Wacht even en probeer opnieuw.",
+      "unavailable": "De assistent kan nu niet antwoorden. Probeer het later opnieuw.",
+      "network": "Er was een verbindingsprobleem.",
+      "streamInterrupted": "Het antwoord werd onderbroken.",
+      "generic": "Er ging iets mis. Probeer het later opnieuw."
+    },
+    "privacy": {
+      "processing": "Je berichten worden alleen verwerkt om een antwoord te maken en worden niet door deze site opgeslagen.",
+      "mistakes": "AI antwoorden kunnen fouten bevatten.",
+      "openai": "Berichten worden naar OpenAI verzonden om het antwoord te maken."
+    },
+    "relatedProjects": {
+      "title": "Gerelateerde projecten",
+      "view": "Project bekijken"
+    },
+    "statusText": {
+      "thinking": "Emir AI denkt na..."
+    }
   }
 }

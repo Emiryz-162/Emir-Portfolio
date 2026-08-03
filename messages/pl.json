@@ -58,55 +58,6 @@
           "gameDevelopment": "Game Development"
         }
       },
-      "systemFlow": {
-        "title": "Status systemu",
-        "steps": {
-          "client": "Klient",
-          "frontend": "Frontend",
-          "api": "API",
-          "database": "Baza danych",
-          "deploy": "Deploy"
-        }
-      },
-      "miniGame": {
-        "eyebrow": "Mini gra",
-        "title": "Packet Route",
-        "description": "Poprowadź mały pakiet danych przez przepływ full stack.",
-        "instruction": "Przekieruj żądanie przez poprawną kolejność systemu.",
-        "completedBefore": "Packet Route jest odblokowany. Możesz zagrać ponownie w dowolnym momencie.",
-        "nodes": {
-          "client": "Client",
-          "frontend": "Frontend",
-          "api": "API",
-          "database": "Database",
-          "deploy": "Deploy"
-        },
-        "labels": {
-          "request": "Zadanie",
-          "interface": "Interfejs",
-          "logic": "Logika",
-          "data": "Dane",
-          "production": "Produkcja"
-        },
-        "actions": {
-          "reset": "Reset",
-          "skip": "Pomiń interakcję",
-          "playAgain": "Zagraj ponownie",
-          "viewProjects": "Zobacz projekty"
-        },
-        "feedback": {
-          "ready": "Zacznij od Client i wybierz następny serwis.",
-          "correct": "Trasa zaakceptowana",
-          "wrong": "400 - Zła trasa",
-          "tryAgain": "Spróbuj innego serwisu"
-        },
-        "success": {
-          "status": "200 OK",
-          "message": "Deployment udany",
-          "achievement": "Portfolio Explorer odblokowany",
-          "dismiss": "Zamknij osiągnięcie"
-        }
-      },
       "contactButton": "Skontaktuj się"
     },
     "projects": {
@@ -567,5 +518,68 @@
     "description": "Strona nie załadowała się poprawnie. Możesz spróbować ponownie albo wrócić na stronę główną.",
     "retry": "Spróbuj ponownie",
     "homeLink": "Powrót do strony głównej"
+  },
+  "Assistant": {
+    "name": "Emir AI",
+    "role": "Asystent portfolio",
+    "subtitle": "Zapytaj o projekty, umiejetnosci i edukacje Emira.",
+    "launcherLabel": "Otworz panel Emir AI",
+    "powered": "Z OpenAI i na podstawie tego portfolio.",
+    "status": {
+      "ready": "Gotowy",
+      "soon": "Wkrotce"
+    },
+    "preview": {
+      "welcome": "Czesc! Pomoge w pytaniach o projekty, umiejetnosci i edukacje Emira.",
+      "unavailable": "Podglad asystenta jest gotowy, ale wiadomosci nie sa jeszcze wlaczone.",
+      "cta": "Zapytaj asystenta",
+      "disabledCta": "Wkrotce",
+      "prompts": {
+        "projects": "Jakie sa jego najmocniejsze projekty?",
+        "backend": "Jakich technologii backend uzywa?",
+        "roles": "Jakich rol obecnie szuka?"
+      }
+    },
+    "empty": {
+      "title": "Zadaj pytanie o portfolio.",
+      "description": "Moge podsumowac projekty, umiejetnosci, edukacje i aktualny kierunek Emira na podstawie informacji z tej strony."
+    },
+    "suggestions": {
+      "projects": "Opowiedz o najmocniejszych projektach Emira.",
+      "backend": "Podsumuj jego umiejetnosci backend.",
+      "gameDevelopment": "Czy ma doswiadczenie w tworzeniu gier?",
+      "education": "Jakie ma wyksztalcenie?"
+    },
+    "input": {
+      "label": "Wiadomosc do Emir AI",
+      "placeholder": "Zapytaj o projekty, umiejetnosci lub edukacje...",
+      "send": "Wyslij wiadomosc",
+      "stop": "Zatrzymaj odpowiedz",
+      "hint": "Odpowiedzi opieraja sie tylko na informacjach dostepnych w tym portfolio."
+    },
+    "actions": {
+      "close": "Zamknij",
+      "clear": "Wyczysc rozmowe",
+      "newConversation": "Nowa rozmowa"
+    },
+    "errors": {
+      "rateLimited": "Wiadomosci wyslano zbyt szybko. Poczekaj chwile i sprobuj ponownie.",
+      "unavailable": "Asystent nie moze teraz odpowiedziec. Sprobuj ponownie za chwile.",
+      "network": "Wystapil problem z polaczeniem.",
+      "streamInterrupted": "Odpowiedz zostala przerwana.",
+      "generic": "Cos poszlo nie tak. Sprobuj ponownie za chwile."
+    },
+    "privacy": {
+      "processing": "Twoje wiadomosci sa przetwarzane tylko w celu wygenerowania odpowiedzi i nie sa przechowywane przez ta strone.",
+      "mistakes": "Odpowiedzi AI moga zawierac bledy.",
+      "openai": "Wiadomosci sa wysylane do OpenAI w celu wygenerowania odpowiedzi."
+    },
+    "relatedProjects": {
+      "title": "Powiazane projekty",
+      "view": "Zobacz projekt"
+    },
+    "statusText": {
+      "thinking": "Emir AI mysli..."
+    }
   }
 }

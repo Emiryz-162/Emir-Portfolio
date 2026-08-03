@@ -58,55 +58,6 @@
           "gameDevelopment": "Game Development"
         }
       },
-      "systemFlow": {
-        "title": "Systemstatus",
-        "steps": {
-          "client": "Client",
-          "frontend": "Frontend",
-          "api": "API",
-          "database": "Datenbank",
-          "deploy": "Deploy"
-        }
-      },
-      "miniGame": {
-        "eyebrow": "Minispiel",
-        "title": "Packet Route",
-        "description": "Führe ein kleines Datenpaket durch den Full-Stack-Ablauf.",
-        "instruction": "Leite die Anfrage in der richtigen Systemreihenfolge weiter.",
-        "completedBefore": "Packet Route ist freigeschaltet. Du kannst es jederzeit erneut spielen.",
-        "nodes": {
-          "client": "Client",
-          "frontend": "Frontend",
-          "api": "API",
-          "database": "Database",
-          "deploy": "Deploy"
-        },
-        "labels": {
-          "request": "Anfrage",
-          "interface": "Interface",
-          "logic": "Logik",
-          "data": "Daten",
-          "production": "Produktion"
-        },
-        "actions": {
-          "reset": "Zurücksetzen",
-          "skip": "Interaktion überspringen",
-          "playAgain": "Erneut spielen",
-          "viewProjects": "Projekte ansehen"
-        },
-        "feedback": {
-          "ready": "Starte beim Client und wähle den nächsten Service.",
-          "correct": "Route akzeptiert",
-          "wrong": "400 - Falsche Route",
-          "tryAgain": "Versuche einen anderen Service"
-        },
-        "success": {
-          "status": "200 OK",
-          "message": "Deployment erfolgreich",
-          "achievement": "Portfolio Explorer freigeschaltet",
-          "dismiss": "Erfolgsmeldung schließen"
-        }
-      },
       "contactButton": "Kontakt aufnehmen"
     },
     "projects": {
@@ -567,5 +518,68 @@
     "description": "Die Seite konnte nicht korrekt geladen werden. Du kannst es erneut versuchen oder zur Startseite zurückkehren.",
     "retry": "Erneut versuchen",
     "homeLink": "Zur Startseite"
+  },
+  "Assistant": {
+    "name": "Emir AI",
+    "role": "Portfolio Assistent",
+    "subtitle": "Frage nach Emirs Projekten, Fahigkeiten und Ausbildung.",
+    "launcherLabel": "Emir AI Panel offnen",
+    "powered": "Mit OpenAI und auf Basis dieses Portfolios.",
+    "status": {
+      "ready": "Bereit",
+      "soon": "Bald"
+    },
+    "preview": {
+      "welcome": "Hallo! Ich kann bei Emirs Projekten, Fahigkeiten und Ausbildung helfen.",
+      "unavailable": "Die Assistentenvorschau ist bereit, aber Nachrichten sind noch nicht aktiv.",
+      "cta": "Assistent fragen",
+      "disabledCta": "Bald verfugbar",
+      "prompts": {
+        "projects": "Was sind seine starksten Projekte?",
+        "backend": "Welche Backend Technologien nutzt er?",
+        "roles": "Welche Rollen sucht er aktuell?"
+      }
+    },
+    "empty": {
+      "title": "Stelle eine Frage zum Portfolio.",
+      "description": "Ich kann Emirs Projekte, Fahigkeiten, Ausbildung und aktuellen Fokus aus dieser Website zusammenfassen."
+    },
+    "suggestions": {
+      "projects": "Erzahle mir von Emirs starksten Projekten.",
+      "backend": "Fasse seine Backend Fahigkeiten zusammen.",
+      "gameDevelopment": "Hat er Erfahrung in der Spieleentwicklung?",
+      "education": "Wie sieht seine Ausbildung aus?"
+    },
+    "input": {
+      "label": "Nachricht an Emir AI",
+      "placeholder": "Frage nach Projekten, Fahigkeiten oder Ausbildung...",
+      "send": "Nachricht senden",
+      "stop": "Antwort stoppen",
+      "hint": "Antworten basieren nur auf den Informationen in diesem Portfolio."
+    },
+    "actions": {
+      "close": "Schliessen",
+      "clear": "Gesprach loschen",
+      "newConversation": "Neues Gesprach"
+    },
+    "errors": {
+      "rateLimited": "Nachrichten wurden zu schnell gesendet. Bitte warte kurz und versuche es erneut.",
+      "unavailable": "Der Assistent kann gerade nicht antworten. Bitte versuche es spater erneut.",
+      "network": "Es gab ein Verbindungsproblem.",
+      "streamInterrupted": "Die Antwort wurde unterbrochen.",
+      "generic": "Etwas ist schiefgelaufen. Bitte versuche es spater erneut."
+    },
+    "privacy": {
+      "processing": "Deine Nachrichten werden nur zum Erzeugen einer Antwort verarbeitet und von dieser Website nicht gespeichert.",
+      "mistakes": "AI Antworten konnen Fehler enthalten.",
+      "openai": "Nachrichten werden an OpenAI gesendet, um die Antwort zu erzeugen."
+    },
+    "relatedProjects": {
+      "title": "Verwandte Projekte",
+      "view": "Projekt ansehen"
+    },
+    "statusText": {
+      "thinking": "Emir AI denkt nach..."
+    }
   }
 }

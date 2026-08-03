@@ -1,7 +1,7 @@
 import { ArrowRight, Mail } from "lucide-react";
-import { PacketRouteGame } from "@/components/mini-game/packet-route-game";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { AssistantPreview } from "@/components/assistant/assistant-preview";
 import { CurrentStackPanel } from "@/components/sections/current-stack-panel";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
@@ -64,7 +64,7 @@ export function HeroSection({ locale }: HeroSectionProps) {
 
         <div className="grid gap-4 lg:pl-6">
           <CurrentStackPanel />
-          <PacketRouteGame />
+          <AssistantPreview />
         </div>
       </Container>
     </section>

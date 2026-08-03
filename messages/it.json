@@ -58,55 +58,6 @@
           "gameDevelopment": "Sviluppo di giochi"
         }
       },
-      "systemFlow": {
-        "title": "Stato del sistema",
-        "steps": {
-          "client": "Client",
-          "frontend": "Frontend",
-          "api": "API",
-          "database": "Database",
-          "deploy": "Deploy"
-        }
-      },
-      "miniGame": {
-        "eyebrow": "Mini gioco",
-        "title": "Packet Route",
-        "description": "Guida un piccolo pacchetto dati nel flusso full stack.",
-        "instruction": "Instrada la richiesta nel corretto ordine di sistema.",
-        "completedBefore": "Packet Route è sbloccato. Puoi rigiocarlo quando vuoi.",
-        "nodes": {
-          "client": "Client",
-          "frontend": "Frontend",
-          "api": "API",
-          "database": "Database",
-          "deploy": "Deploy"
-        },
-        "labels": {
-          "request": "Richiesta",
-          "interface": "Interfaccia",
-          "logic": "Logica",
-          "data": "Dati",
-          "production": "Produzione"
-        },
-        "actions": {
-          "reset": "Reset",
-          "skip": "Salta interazione",
-          "playAgain": "Gioca ancora",
-          "viewProjects": "Vedi progetti"
-        },
-        "feedback": {
-          "ready": "Parti da Client e scegli il servizio successivo.",
-          "correct": "Route accettata",
-          "wrong": "400 - Route sbagliata",
-          "tryAgain": "Prova un altro servizio"
-        },
-        "success": {
-          "status": "200 OK",
-          "message": "Deployment riuscito",
-          "achievement": "Portfolio Explorer sbloccato",
-          "dismiss": "Chiudi notifica achievement"
-        }
-      },
       "contactButton": "Contattami"
     },
     "projects": {
@@ -567,5 +518,68 @@
     "description": "La pagina non ? stata caricata correttamente. Puoi riprovare o tornare alla home.",
     "retry": "Riprova",
     "homeLink": "Torna alla home"
+  },
+  "Assistant": {
+    "name": "Emir AI",
+    "role": "Assistente portfolio",
+    "subtitle": "Chiedi dei progetti, competenze e percorso di Emir.",
+    "launcherLabel": "Apri pannello Emir AI",
+    "powered": "Con OpenAI e basato su questo portfolio.",
+    "status": {
+      "ready": "Pronto",
+      "soon": "Presto"
+    },
+    "preview": {
+      "welcome": "Ciao! Posso aiutare con progetti, competenze e percorso di Emir.",
+      "unavailable": "Lanteprima e pronta, ma i messaggi non sono ancora attivi.",
+      "cta": "Chiedi all assistente",
+      "disabledCta": "Prossimamente",
+      "prompts": {
+        "projects": "Quali sono i suoi progetti migliori?",
+        "backend": "Quali tecnologie backend usa?",
+        "roles": "Quali ruoli sta cercando ora?"
+      }
+    },
+    "empty": {
+      "title": "Fai una domanda sul portfolio.",
+      "description": "Posso riassumere progetti, competenze, formazione e focus attuale di Emir usando le informazioni di questo sito."
+    },
+    "suggestions": {
+      "projects": "Parlami dei progetti piu forti di Emir.",
+      "backend": "Riassumi le sue competenze backend.",
+      "gameDevelopment": "Ha esperienza nello sviluppo di giochi?",
+      "education": "Qual e il suo percorso formativo?"
+    },
+    "input": {
+      "label": "Messaggio per Emir AI",
+      "placeholder": "Chiedi di progetti, competenze o formazione...",
+      "send": "Invia messaggio",
+      "stop": "Ferma risposta",
+      "hint": "Le risposte si basano solo sulle informazioni disponibili in questo portfolio."
+    },
+    "actions": {
+      "close": "Chiudi",
+      "clear": "Cancella conversazione",
+      "newConversation": "Nuova conversazione"
+    },
+    "errors": {
+      "rateLimited": "I messaggi sono stati inviati troppo rapidamente. Attendi un momento e riprova.",
+      "unavailable": "Lassistente non puo rispondere ora. Riprova tra poco.",
+      "network": "Si e verificato un problema di connessione.",
+      "streamInterrupted": "La risposta e stata interrotta.",
+      "generic": "Qualcosa e andato storto. Riprova tra poco."
+    },
+    "privacy": {
+      "processing": "I tuoi messaggi vengono elaborati solo per generare una risposta e non sono salvati da questo sito.",
+      "mistakes": "Le risposte AI possono contenere errori.",
+      "openai": "I messaggi vengono inviati a OpenAI per generare la risposta."
+    },
+    "relatedProjects": {
+      "title": "Progetti correlati",
+      "view": "Vedi progetto"
+    },
+    "statusText": {
+      "thinking": "Emir AI sta pensando..."
+    }
   }
 }

@@ -58,55 +58,6 @@
           "gameDevelopment": "Oyun Geliştirme"
         }
       },
-      "systemFlow": {
-        "title": "Sistem Durumu",
-        "steps": {
-          "client": "İstemci",
-          "frontend": "Frontend",
-          "api": "API",
-          "database": "Veritabanı",
-          "deploy": "Deploy"
-        }
-      },
-      "miniGame": {
-        "eyebrow": "Mini oyun",
-        "title": "Packet Route",
-        "description": "Küçük bir veri paketini full stack akışında doğru yoldan geçir.",
-        "instruction": "İstek paketini doğru sistem sırasından yönlendir.",
-        "completedBefore": "Packet Route açıldı. İstediğin zaman tekrar oynayabilirsin.",
-        "nodes": {
-          "client": "Client",
-          "frontend": "Frontend",
-          "api": "API",
-          "database": "Database",
-          "deploy": "Deploy"
-        },
-        "labels": {
-          "request": "İstek",
-          "interface": "Arayüz",
-          "logic": "Mantık",
-          "data": "Veri",
-          "production": "Üretim"
-        },
-        "actions": {
-          "reset": "Sıfırla",
-          "skip": "Etkileşimi atla",
-          "playAgain": "Tekrar oyna",
-          "viewProjects": "Projeleri Gör"
-        },
-        "feedback": {
-          "ready": "Client ile başla ve sonraki servisi seç.",
-          "correct": "Rota kabul edildi",
-          "wrong": "400 - Yanlış rota",
-          "tryAgain": "Başka bir servis dene"
-        },
-        "success": {
-          "status": "200 OK",
-          "message": "Deployment başarılı",
-          "achievement": "Portfolio Explorer açıldı",
-          "dismiss": "Başarı bildirimini kapat"
-        }
-      },
       "contactButton": "İletişime Geç"
     },
     "projects": {
@@ -566,5 +517,68 @@
     "description": "Sayfa doğru şekilde yüklenemedi. Tekrar deneyebilir veya ana sayfaya dönebilirsiniz.",
     "retry": "Tekrar dene",
     "homeLink": "Ana sayfaya dön"
+  },
+  "Assistant": {
+    "name": "Emir AI",
+    "role": "Portfolio Asistani",
+    "subtitle": "Emir'in projeleri, becerileri ve egitim gecmisi hakkinda sorular sor.",
+    "launcherLabel": "Emir AI panelini ac",
+    "powered": "OpenAI ile calisir ve yanitlar bu portfolyoya dayanir.",
+    "status": {
+      "ready": "Hazir",
+      "soon": "Yakinda"
+    },
+    "preview": {
+      "welcome": "Merhaba! Emir'in projeleri, becerileri ve egitim gecmisi hakkinda yardimci olabilirim.",
+      "unavailable": "Asistan on izlemesi hazir, ancak mesajlasma henuz etkin degil.",
+      "cta": "Asistana Sor",
+      "disabledCta": "Yakinda",
+      "prompts": {
+        "projects": "En guclu projeleri hangileri?",
+        "backend": "Hangi backend teknolojilerini kullaniyor?",
+        "roles": "Su anda hangi pozisyonlari ariyor?"
+      }
+    },
+    "empty": {
+      "title": "Portfolyo hakkinda bir soru sor.",
+      "description": "Bu sitedeki bilgilerden Emir'in projelerini, becerilerini, egitimini ve guncel odagini ozetleyebilirim."
+    },
+    "suggestions": {
+      "projects": "Emir'in en guclu projelerini anlat.",
+      "backend": "Backend becerilerini ozetle.",
+      "gameDevelopment": "Oyun gelistirme deneyimi var mi?",
+      "education": "Egitim gecmisi nedir?"
+    },
+    "input": {
+      "label": "Emir AI icin mesaj",
+      "placeholder": "Projeler, beceriler veya egitim hakkinda sor...",
+      "send": "Mesaj gonder",
+      "stop": "Yaniti durdur",
+      "hint": "Yanitlar yalnizca bu portfolyoda yer alan bilgilere dayanir."
+    },
+    "actions": {
+      "close": "Kapat",
+      "clear": "Konusmayi temizle",
+      "newConversation": "Yeni konusma"
+    },
+    "errors": {
+      "rateLimited": "Cok hizli mesaj gonderildi. Lutfen biraz bekleyip tekrar dene.",
+      "unavailable": "Asistan su anda yanit veremiyor. Biraz sonra tekrar deneyebilirsin.",
+      "network": "Baglanti sirasinda bir sorun olustu.",
+      "streamInterrupted": "Yanit kesintiye ugradi.",
+      "generic": "Bir seyler ters gitti. Lutfen biraz sonra tekrar dene."
+    },
+    "privacy": {
+      "processing": "Mesajlarin yalnizca yanit olusturmak icin islenir ve bu site tarafindan saklanmaz.",
+      "mistakes": "AI yanitlari hata icerebilir.",
+      "openai": "Yanit olusturmak icin mesajlar OpenAIye gonderilir."
+    },
+    "relatedProjects": {
+      "title": "Ilgili projeler",
+      "view": "Projeyi Gor"
+    },
+    "statusText": {
+      "thinking": "Emir AI dusunuyor..."
+    }
   }
 }

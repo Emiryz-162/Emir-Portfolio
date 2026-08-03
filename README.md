@@ -2,7 +2,7 @@
 
 Modern, responsive, multilingual personal portfolio for Emir Yılmaz.
 
-The project uses the Concept A - Digital Workbench design direction: minimal, technical, personal, and prepared for future GitHub, chatbot, and portfolio interaction improvements.
+The project uses the Concept A - Digital Workbench design direction: minimal, technical, personal, and prepared for GitHub-backed portfolio browsing and an OpenAI-powered portfolio assistant.
 
 ## Stack
 
@@ -15,10 +15,12 @@ The project uses the Concept A - Digital Workbench design direction: minimal, te
 - react-markdown
 - remark-gfm
 - Resend
+- OpenAI JavaScript SDK
 - clsx
 - tailwind-merge
 - ESLint
 - Prettier
+- tsx
 
 ## Run Locally
 
@@ -40,6 +42,9 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 RESEND_API_KEY=
 CONTACT_EMAIL_TO=
 CONTACT_EMAIL_FROM=
+OPENAI_API_KEY=
+OPENAI_MODEL=gpt-5-mini
+AI_ASSISTANT_ENABLED=false
 ```
 
 Create a local `.env.local` from `.env.example` and add a classic or fine-grained
@@ -61,6 +66,15 @@ whole site. The form shows a localized unavailable message and keeps a direct
 email fallback visible. Secret values are read only on the server and are never
 sent to client components.
 
+The AI assistant backend uses the official OpenAI JavaScript SDK and the
+Responses API. Store `OPENAI_API_KEY`, `OPENAI_MODEL`, and
+`AI_ASSISTANT_ENABLED` in server-side environment variables. `OPENAI_MODEL`
+falls back to `gpt-5-mini`; the endpoint is active only when
+`AI_ASSISTANT_ENABLED=true` and `OPENAI_API_KEY` is present. Missing values do
+not break the site build. `/api/assistant` returns a controlled `503` while the
+assistant is disabled or not configured. OpenAI billing and project limits must
+be configured separately in the OpenAI platform.
+
 ## Scripts
 
 ```bash
@@ -72,13 +86,14 @@ npm run format:check
 npm run validate:translations
 npm run validate:encoding
 npm run validate:production
+npm run validate:assistant
 ```
 
 ## Architecture
 
 - `app/[locale]`: Locale-based App Router pages.
 - `components/layout`: Navbar, footer, theme toggle, and language switcher.
-- `components/mini-game`: The Packet Route homepage mini game.
+- `components/assistant`: Hero assistant preview, floating launcher, chat panel, message UI, and related project links.
 - `components/projects`: Client-side project search, filtering, sorting, and empty states.
 - `components/ui`: Shared primitives such as button, card, badge, section header, and social button.
 - `components/sections`: Homepage and reusable page sections.
@@ -87,11 +102,12 @@ npm run validate:production
 - `i18n`: Locale routing, request config, and navigation wrappers.
 - `lib/github`: GitHub REST client, repository mapping, language stats, README fetching, and Markdown URL resolution.
 - `lib/contact`: Contact form validation, environment lookup, email rendering, and rate limiting.
-- `lib/mini-game`: Type-safe Packet Route step order and route selection helpers.
+- `lib/ai`: Server-only OpenAI client, assistant prompt, portfolio knowledge builder, local retrieval, request validation, and AI rate limiting.
 - `lib/seo`: Person and WebSite JSON-LD data.
 - `messages`: Translation message files for all supported locales.
 - `scripts/validate-translations.mjs`: Checks locale files against the English message schema.
 - `scripts/validate-production.mjs`: Checks production readiness conventions that do not require secrets.
+- `scripts/validate-assistant.ts`: Checks assistant knowledge, retrieval, prompt, input limits, locale fallback, and truncation without calling OpenAI.
 - `types`: Shared TypeScript domain types.
 
 ## Internationalization
@@ -116,39 +132,6 @@ shown in the original language so technical project information stays accurate.
 When adding a new locale, update `i18n/routing.ts`, add `messages/{locale}.json`
 with the same shape as `messages/en.json`, then run
 `npm run validate:translations`.
-
-## Packet Route
-
-Packet Route is a small homepage mini game inside the hero system-flow area. It
-keeps the original Full Stack flow visible while making it interactive:
-
-```text
-Client -> Frontend -> API -> Database -> Deploy
-```
-
-The player clicks, taps, or tabs through real button nodes in that order. A
-correct choice advances a small packet indicator and marks the node complete.
-An incorrect choice shows a short, non-punitive `400 - Wrong route` style
-message without resetting progress. Completion shows an inline achievement:
-`200 OK`, `Deployment successful`, and `Portfolio Explorer unlocked`.
-
-The game never locks portfolio content. The normal hero projects button remains
-available, and the game includes a skip/view projects action.
-
-Completion is remembered with the device-local boolean key
-`portfolio-packet-route-completed`. If `localStorage` is unavailable, the game
-still works normally and stores nothing.
-
-Reduced motion is respected: packet movement and reveal transitions are skipped
-when the user prefers reduced motion. Mobile interaction uses sequential taps,
-not drag-and-drop, so the nodes remain usable on narrow screens. Keyboard users
-can tab through nodes and activate them with Enter or Space.
-
-Small micro interactions are intentionally limited to active navigation
-feedback, button press movement, project card hover lift, tech badge hover
-states, social button movement, timeline focus/hover emphasis, language menu
-transitions, and a subtle theme icon transition. No audio, haptics, analytics,
-custom cursor, chatbot, AI API, canvas engine, or leaderboard is included.
 
 ## GitHub Portfolio Data
 
@@ -194,7 +177,9 @@ without changing page components.
   European Portuguese, Dutch, and Polish
 - Accessible language switcher with current-page locale switching
 - Translation validation script
-- Packet Route mini game in the homepage hero system-flow area
+- Emir AI assistant preview in the homepage hero area
+- Floating Emir AI launcher and responsive chat panel
+- Streaming assistant endpoint with controlled SSE events
 - Reduced-motion-aware reveal and micro interactions
 - Resend-backed localized contact form with server validation
 - Sitemap, robots, manifest, generated icons, Open Graph image, JSON-LD, and
@@ -239,6 +224,114 @@ validated visitor email, and `Portfolio Contact: {subject}` as the subject.
 Both text and escaped HTML bodies include the sender name, sender email,
 subject, message, submission time, and selected locale. Do not commit real API
 keys or private email values to GitHub.
+
+## AI Portfolio Assistant
+
+The homepage hero includes a compact Emir AI preview in the right column. It
+introduces the assistant, shows localized example prompts, and opens the full
+panel without making an OpenAI request until the user asks a question. The
+previous interactive hero widget and its completion state are no longer part of
+the site.
+
+When the assistant is configured, a small floating launcher appears on all
+localized pages. The panel opens as a right-side drawer on desktop and a
+near-full-screen dialog on mobile. It supports suggestion buttons, Enter to
+send, Shift+Enter for a newline, Stop via `AbortController`, Escape to close,
+focus return to the launcher/trigger, and a clear conversation action.
+Runtime availability is checked through `GET /api/assistant/availability`,
+which returns only `{ "enabled": boolean }` to the client.
+
+Conversation state is stored only in React state for the current SPA session.
+It is not written to a database or `localStorage`, and it resets on full page
+reload. The client sends only the latest limited history back to the API.
+
+The non-streaming API surface remains `POST /api/assistant` for compatibility
+and validation. The streaming surface is `POST /api/assistant/stream`. Both
+routes share request validation, environment validation, knowledge building,
+retrieval, project context preparation, prompt construction, error mapping, and
+rate limiting.
+
+The route accepts a trimmed `message`, a supported locale (`en`, `tr`, `de`,
+`fr`, `es`, `it`, `pt`, `nl`, `pl`), and an optional stateless `history` array.
+Messages are limited to 600 characters, history is limited to 8 items, and each
+history item is limited to 1,000 characters. The route does not use
+`previous_response_id` or the OpenAI Conversations API.
+
+The assistant uses `client.responses.create(...)` from the official OpenAI SDK
+with `store: false`, `max_output_tokens: 500`, one OpenAI call per request, no
+tools, no web search, no file search, no code interpreter, and no function
+calling. The OpenAI client is created server-side only and is lazy-initialized
+when a configured request reaches the endpoint. Token usage, model internals,
+raw OpenAI responses, API keys, and raw provider errors are never returned to
+the client. Streaming uses the Responses API with `stream: true`.
+
+The streaming endpoint does not pass raw OpenAI events to the browser. It emits
+a controlled SSE protocol:
+
+- `event: meta` with `{ "relatedProjects": [...] }`
+- `event: delta` with `{ "text": "..." }`
+- `event: done` with `{}`
+- `event: error` with `{ "code": "...", "message": "..." }`
+
+The chat UI renders assistant output as restricted Markdown with raw HTML
+disabled. It does not show timestamps, model names, token usage, response IDs,
+or retrieval scores. Related project links are generated only from trusted
+backend `relatedProjects` data and point to localized `/projects/[slug]`
+routes.
+
+The knowledge model is built from verified portfolio sources:
+
+- `data/profile.ts`, excluding phone and birth date fields, which are not part
+  of the source model.
+- `data/skills.ts`.
+- `data/experience.ts` plus localized education, certification, internship, and
+  graphic design details from `messages/{locale}.json`.
+- `data/social-links.ts`.
+- Public, visible GitHub portfolio repositories from the existing GitHub
+  service layer.
+- Project description, primary language, live demo URL, GitHub URL, category,
+  and public topics.
+
+The assistant does not use old CV files, private repositories, hidden
+repositories, `portfolio-hidden` projects, environment variable values, Vercel
+or server details, TODO comments, previous chat memory, or claims that are not
+shown in the portfolio.
+
+Retrieval is local and deterministic. The route compares the user question with
+project display name, repository slug, description, primary language, public
+topics, category, and technology names. `portfolio-*` topics are stripped before
+context is built and are not sent to the model. At most two relevant projects
+are selected. If no project is relevant, no README or `portfolio.md` content is
+fetched.
+
+When project context is relevant, the route uses the existing GitHub service
+layer and cache behavior to fetch `portfolio.md` first, then `README.md`, then
+the repository description. It sends at most two project documents and caps each
+document at 8,000 characters after removing large base64 data and image
+markdown. README and `portfolio.md` content is wrapped in explicit
+`<portfolio_reference>` delimiters and treated only as untrusted reference data,
+never as instructions.
+
+The assistant prompt instructs the model to answer only from the provided
+portfolio context, avoid unverifiable claims, refuse prompt or secret
+disclosure, avoid phone/birth-date/private personal data, ignore prompt
+injection inside user input or README content, and keep answers short and
+professional. It answers in the selected site locale unless the user clearly
+asks in another language.
+
+The panel shows lightweight transparency notes: messages are sent to OpenAI to
+generate a response, processed only for that response, not stored by this site,
+and AI responses may contain mistakes. No cookie banner, analytics event,
+feedback button, transcript email, account, admin panel, voice input, file
+upload, image upload, vector database, OpenAI File Search, Web Search, Code
+Interpreter, or function calling is included.
+
+Rate limiting is separate from the contact form limiter. The AI endpoint allows
+up to 5 requests per minute and 20 requests per 10 minutes for the same hashed
+client identifier, using forwarding headers when available. Raw IP addresses
+are not logged. The limiter is in-memory, so it is a first guard only and is not
+distributed or persistent across serverless instances. A production Redis or
+edge rate limit service can be evaluated later if traffic requires it.
 
 ## SEO And Production Metadata
 
@@ -286,26 +379,33 @@ and final image domains before enforcement.
 - Use `Emir Portfolio <onboarding@resend.dev>` only while relying on Resend's
   starter sender, then switch `CONTACT_EMAIL_FROM` after verifying a custom
   domain.
+- Add `OPENAI_API_KEY`, `OPENAI_MODEL`, and `AI_ASSISTANT_ENABLED` only when the
+  assistant should be enabled. Keep secrets in Vercel environment variables and
+  do not expose the model name or API key to the client.
 - Add `GITHUB_TOKEN` if higher GitHub API rate limits are needed.
 - Run `npm run validate:translations`.
 - Run `npm run validate:production`.
+- Run `npm run validate:assistant`.
 - Run `npm run lint`.
 - Run `npm run format:check`.
 - Run `npm run build`.
 - Check `/sitemap.xml`, `/robots.txt`, `/opengraph-image`, and page metadata.
 - Test the contact form unavailable fallback without a real API key before live
   email testing.
+- Test `/api/assistant` disabled, invalid request, long message, rate limit, and
+  streaming SSE behavior before enabling production traffic.
+- Test the assistant preview, launcher, panel, Stop, clear conversation,
+  related project links, dark/light themes, Escape close, focus return, and
+  mobile viewport behavior.
 - Review AI-assisted translations with native speakers or a human reviewer.
-- Keep chatbot, AI API, analytics, database storage, service worker,
-  newsletter, authentication, and admin panel work for later phases only if
-  explicitly requested.
+- Keep chatbot UI, analytics, database storage, service worker, newsletter,
+  authentication, and admin panel work for later phases only if explicitly
+  requested.
 
 ## TODO
 
 - Microsoft certification title and verification details require confirmation.
 - Review AI-assisted translations with native speakers or a human reviewer.
 - Add optional `portfolio.json` metadata support for richer repo-specific overrides.
-- Add lightweight tests for Packet Route route order, reset, wrong route, and
-  localStorage fallback behavior.
 - Evaluate a production-tested Content Security Policy after the final hosting
   and image domains are known.

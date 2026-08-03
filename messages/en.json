@@ -58,55 +58,6 @@
           "gameDevelopment": "Game Development"
         }
       },
-      "systemFlow": {
-        "title": "System Status",
-        "steps": {
-          "client": "Client",
-          "frontend": "Frontend",
-          "api": "API",
-          "database": "Database",
-          "deploy": "Deploy"
-        }
-      },
-      "miniGame": {
-        "eyebrow": "Mini game",
-        "title": "Packet Route",
-        "description": "Guide a small data packet through the full stack flow.",
-        "instruction": "Route the request through the correct system order.",
-        "completedBefore": "Packet Route is unlocked. You can replay it anytime.",
-        "nodes": {
-          "client": "Client",
-          "frontend": "Frontend",
-          "api": "API",
-          "database": "Database",
-          "deploy": "Deploy"
-        },
-        "labels": {
-          "request": "Request",
-          "interface": "Interface",
-          "logic": "Logic",
-          "data": "Data",
-          "production": "Production"
-        },
-        "actions": {
-          "reset": "Reset",
-          "skip": "Skip interaction",
-          "playAgain": "Play again",
-          "viewProjects": "View Projects"
-        },
-        "feedback": {
-          "ready": "Start from Client and choose the next service.",
-          "correct": "Route accepted",
-          "wrong": "400 - Wrong route",
-          "tryAgain": "Try another service"
-        },
-        "success": {
-          "status": "200 OK",
-          "message": "Deployment successful",
-          "achievement": "Portfolio Explorer unlocked",
-          "dismiss": "Dismiss achievement"
-        }
-      },
       "contactButton": "Contact me"
     },
     "projects": {
@@ -566,5 +517,68 @@
     "description": "The page could not be loaded correctly. You can try again or return home.",
     "retry": "Try again",
     "homeLink": "Back to home"
+  },
+  "Assistant": {
+    "name": "Emir AI",
+    "role": "Portfolio Assistant",
+    "subtitle": "Ask about Emir's projects, skills and background.",
+    "launcherLabel": "Open Emir AI panel",
+    "powered": "Powered by OpenAI and grounded in this portfolio.",
+    "status": {
+      "ready": "Ready",
+      "soon": "Soon"
+    },
+    "preview": {
+      "welcome": "Hi! I can help with Emir's projects, skills and background.",
+      "unavailable": "The assistant preview is ready, but messaging is not enabled yet.",
+      "cta": "Ask the Assistant",
+      "disabledCta": "Coming Soon",
+      "prompts": {
+        "projects": "What are his strongest projects?",
+        "backend": "Which backend technologies does he use?",
+        "roles": "What roles is he currently looking for?"
+      }
+    },
+    "empty": {
+      "title": "Ask a question about the portfolio.",
+      "description": "I can summarize Emir's projects, skills, education and current focus from the information on this site."
+    },
+    "suggestions": {
+      "projects": "Tell me about Emir's strongest projects.",
+      "backend": "Summarize his backend skills.",
+      "gameDevelopment": "Does he have game development experience?",
+      "education": "What is his education background?"
+    },
+    "input": {
+      "label": "Message for Emir AI",
+      "placeholder": "Ask about projects, skills or education...",
+      "send": "Send message",
+      "stop": "Stop response",
+      "hint": "Answers are based only on information available in this portfolio."
+    },
+    "actions": {
+      "close": "Close",
+      "clear": "Clear conversation",
+      "newConversation": "New conversation"
+    },
+    "errors": {
+      "rateLimited": "Messages were sent too quickly. Please wait a moment and try again.",
+      "unavailable": "The assistant cannot answer right now. Please try again shortly.",
+      "network": "There was a connection problem.",
+      "streamInterrupted": "The response was interrupted.",
+      "generic": "Something went wrong. Please try again shortly."
+    },
+    "privacy": {
+      "processing": "Your messages are processed only to generate a response and are not stored by this site.",
+      "mistakes": "AI answers may contain mistakes.",
+      "openai": "Messages are sent to OpenAI to generate the response."
+    },
+    "relatedProjects": {
+      "title": "Related projects",
+      "view": "View Project"
+    },
+    "statusText": {
+      "thinking": "Emir AI is thinking..."
+    }
   }
 }
