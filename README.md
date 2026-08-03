@@ -46,9 +46,9 @@ Create a local `.env.local` from `.env.example` and add a classic or fine-graine
 token only if needed. The token is read only on the server and is never exposed
 to client components.
 
-`NEXT_PUBLIC_SITE_URL` is used for metadata alternates and hreflang URLs. Keep
-the localhost value for development only, and set the production origin when the
-real domain is available.
+`NEXT_PUBLIC_SITE_URL` is used for metadata alternates, hreflang, sitemap,
+robots, Open Graph URLs, and Twitter image URLs. Keep the localhost value for
+development only. Production should use `https://emir-portfolio-nine.vercel.app`.
 
 The contact form sends email through Resend from a server action. Add a Resend
 API key and a verified sender address in `CONTACT_EMAIL_FROM`; production
@@ -66,6 +66,7 @@ npm run lint
 npm run format
 npm run format:check
 npm run validate:translations
+npm run validate:encoding
 npm run validate:production
 ```
 
@@ -217,14 +218,10 @@ Add the CV PDF file to:
 public/documents/emir-yilmaz-cv.pdf
 ```
 
-All Download CV buttons point to `/documents/emir-yilmaz-cv.pdf`.
-
-If the file is not present, the site does not create a fake or empty PDF and it
-does not render broken CV links. Header and hero CV actions are disabled, and
-the contact page shows a localized development-friendly note naming the missing
-path. After adding the real file, the same central profile CV path enables the
-header, hero, and contact CV links. The links open the PDF in a new tab and use
-the `download` attribute when supported.
+The live UI does not currently render CV download buttons. Header and hero
+actions point users to the localized Contact page instead, so a missing PDF
+cannot create a broken visitor-facing link. The central CV path remains in the
+profile data for a future dedicated CV phase.
 
 ## Contact Form
 
@@ -283,13 +280,13 @@ unconfirmed claims are not included.
   magnetometer, and gyroscope
 - `X-Frame-Options: DENY`
 
-A Content Security Policy is intentionally left as a production hardening TODO
-because it should be tested against Next.js development/HMR behavior, remote
-GitHub README images, and any final deployment/image domains before enforcement.
+A Content Security Policy is intentionally left as a production security TODO
+because it should be tested against Next.js development/HMR behavior, Vercel,
+remote GitHub README images, Resend server actions, generated Open Graph routes,
+and final image domains before enforcement.
 
 ## Production Checklist
 
-- Add `public/documents/emir-yilmaz-cv.pdf`.
 - Set `NEXT_PUBLIC_SITE_URL` to the production origin.
 - Verify the Resend sender domain or sender address.
 - Add `RESEND_API_KEY`, `CONTACT_EMAIL_TO`, and `CONTACT_EMAIL_FROM`.
@@ -309,7 +306,8 @@ GitHub README images, and any final deployment/image domains before enforcement.
 
 ## TODO
 
-- Add the CV PDF file to `public/documents/emir-yilmaz-cv.pdf`.
+- Decide whether a future CV phase should reintroduce a download action after
+  adding `public/documents/emir-yilmaz-cv.pdf`.
 - Graphic Design education details require confirmation.
 - Microsoft certification title and verification details require confirmation.
 - Review AI-assisted translations with native speakers or a human reviewer.

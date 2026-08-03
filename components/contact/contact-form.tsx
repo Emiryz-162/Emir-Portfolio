@@ -162,6 +162,7 @@ function ContactFieldControl({
     "aria-describedby": hasError ? errorId : undefined,
     className: cn(
       "mt-2 w-full rounded-[6px] border border-border bg-background px-3 py-2.5 text-sm text-foreground outline-none transition placeholder:text-muted focus:border-border-strong focus:ring-2 focus:ring-ring",
+      "disabled:cursor-not-allowed disabled:border-border disabled:bg-surface-muted disabled:text-muted disabled:opacity-75",
       hasError && "border-[#d26a5c]",
     ),
   };

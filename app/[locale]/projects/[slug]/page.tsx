@@ -20,10 +20,7 @@ import { TechBadge } from "@/components/ui/tech-badge";
 import { buildLocalizedHref } from "@/i18n/routing";
 import { formatDate, formatNumber, truncateText } from "@/lib/format";
 import { getProjectMarkdownContent } from "@/lib/github/readme";
-import {
-  getPortfolioProject,
-  getPortfolioProjectResult,
-} from "@/lib/github/repositories";
+import { getPortfolioProjectResult } from "@/lib/github/repositories";
 import { getGitHubRepositoryLanguages } from "@/lib/github/repository-details";
 import { createPageMetadata, getMetadataBase } from "@/lib/metadata";
 
@@ -39,14 +36,18 @@ export async function generateMetadata({
     locale,
     namespace: "Metadata.projectDetail",
   });
-  const project = await getPortfolioProject(slug);
+  const projectResult = await getPortfolioProjectResult(slug);
 
-  if (!project) {
+  if (!projectResult.ok) {
     return {
       metadataBase: getMetadataBase(),
       title: t("notFoundTitle"),
     };
   }
+
+  if (!projectResult.project) notFound();
+
+  const project = projectResult.project;
 
   return createPageMetadata({
     title: `${project.name} | Emir Yılmaz`,

@@ -108,7 +108,7 @@ for (const header of [
 const cvPath = join(root, "public", "documents", "emir-yilmaz-cv.pdf");
 if (!existsSync(cvPath)) {
   console.warn(
-    "! public/documents/emir-yilmaz-cv.pdf is not present; CV links should remain disabled.",
+    "! public/documents/emir-yilmaz-cv.pdf is not present; the UI should avoid broken CV download links.",
   );
 }
 

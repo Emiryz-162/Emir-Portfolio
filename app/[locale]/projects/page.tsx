@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Suspense } from "react";
 import { ProjectsBrowser } from "@/components/projects/projects-browser";
 import { ProjectsUnavailableState } from "@/components/projects/projects-empty-state";
 import { Container } from "@/components/ui/container";
@@ -94,11 +95,13 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
 
       {projectsResult.ok ? (
         projectsResult.projects.length > 0 ? (
-          <ProjectsBrowser
-            locale={locale}
-            projects={projectsResult.projects}
-            labels={labels}
-          />
+          <Suspense fallback={<ProjectsBrowserFallback />}>
+            <ProjectsBrowser
+              locale={locale}
+              projects={projectsResult.projects}
+              labels={labels}
+            />
+          </Suspense>
         ) : (
           <ProjectsUnavailableState
             className="mt-10"
@@ -112,5 +115,21 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
         />
       )}
     </Container>
+  );
+}
+
+function ProjectsBrowserFallback() {
+  return (
+    <div className="mt-10">
+      <div className="h-28 animate-pulse rounded-[6px] border border-border bg-surface/72 motion-reduce:animate-none" />
+      <div className="mt-8 grid gap-5 lg:grid-cols-2">
+        {[0, 1, 2, 3].map((item) => (
+          <div
+            key={item}
+            className="h-96 animate-pulse rounded-[6px] border border-border bg-surface/72 motion-reduce:animate-none"
+          />
+        ))}
+      </div>
+    </div>
   );
 }

@@ -2,13 +2,36 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { routing, type Locale } from "@/i18n/routing";
 
+let warnedMissingProductionSiteUrl = false;
+let warnedLocalhostProductionSiteUrl = false;
+
 export function getSiteUrl() {
-  const configuredUrl = siteConfig.url || siteConfig.developmentUrl;
+  const configuredUrl =
+    siteConfig.url ||
+    (process.env.NODE_ENV === "production"
+      ? siteConfig.productionUrl
+      : siteConfig.developmentUrl);
 
   try {
     const url = new URL(configuredUrl);
     if (process.env.NODE_ENV === "production" && isLocalhostUrl(url)) {
+      if (!warnedLocalhostProductionSiteUrl) {
+        console.warn(
+          "[metadata] NEXT_PUBLIC_SITE_URL points to localhost in production; metadata URLs were skipped.",
+        );
+        warnedLocalhostProductionSiteUrl = true;
+      }
       return null;
+    }
+    if (
+      process.env.NODE_ENV === "production" &&
+      !siteConfig.url &&
+      !warnedMissingProductionSiteUrl
+    ) {
+      console.warn(
+        "[metadata] NEXT_PUBLIC_SITE_URL is missing in production; using the central production URL fallback.",
+      );
+      warnedMissingProductionSiteUrl = true;
     }
     return url;
   } catch {
@@ -16,7 +39,10 @@ export function getSiteUrl() {
   }
 }
 
-export function getLocalizedAlternates(pathname = "/"): Metadata["alternates"] {
+export function getLocalizedAlternates(
+  pathname = "/",
+  locale: string = routing.defaultLocale,
+): Metadata["alternates"] {
   const siteUrl = getSiteUrl();
 
   if (!siteUrl) return undefined;
@@ -25,15 +51,23 @@ export function getLocalizedAlternates(pathname = "/"): Metadata["alternates"] {
   const pathWithoutLocale = stripLeadingLocale(normalizedPath);
 
   return {
-    canonical: localizedUrl(siteUrl, routing.defaultLocale, pathWithoutLocale),
+    canonical: localizedUrl(
+      siteUrl,
+      locale as Locale,
+      pathWithoutLocale,
+    ).toString(),
     languages: Object.fromEntries([
       ...routing.locales.map((locale) => [
         locale,
-        localizedUrl(siteUrl, locale, pathWithoutLocale),
+        localizedUrl(siteUrl, locale, pathWithoutLocale).toString(),
       ]),
       [
         "x-default",
-        localizedUrl(siteUrl, routing.defaultLocale, pathWithoutLocale),
+        localizedUrl(
+          siteUrl,
+          routing.defaultLocale,
+          pathWithoutLocale,
+        ).toString(),
       ],
     ]),
   };
@@ -55,7 +89,7 @@ export function createPageMetadata({
   locale: string;
 }): Metadata {
   const siteUrl = getSiteUrl();
-  const alternates = getLocalizedAlternates(pathname);
+  const alternates = getLocalizedAlternates(pathname, locale);
   const url = siteUrl
     ? localizedUrl(
         siteUrl,
