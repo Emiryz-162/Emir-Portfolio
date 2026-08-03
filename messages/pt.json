@@ -560,14 +560,18 @@
     "actions": {
       "close": "Fechar",
       "clear": "Limpar conversa",
-      "newConversation": "Nova conversa"
+      "newConversation": "Nova conversa",
+      "retry": "Tentar novamente"
     },
     "errors": {
       "rateLimited": "As mensagens foram enviadas demasiado rapido. Espera um pouco e tenta novamente.",
       "unavailable": "O assistente nao consegue responder agora. Tenta novamente daqui a pouco.",
       "network": "Ocorreu um problema de ligacao.",
       "streamInterrupted": "A resposta foi interrompida.",
-      "generic": "Algo correu mal. Tenta novamente daqui a pouco."
+      "generic": "Algo correu mal. Tenta novamente daqui a pouco.",
+      "inProgress": "Ja existe uma resposta em curso.",
+      "responseIncomplete": "A resposta terminou mais cedo do que esperado. Podes tentar novamente.",
+      "cancelled": "Resposta parada."
     },
     "privacy": {
       "processing": "As tuas mensagens sao processadas apenas para gerar uma resposta e nao sao guardadas por este site.",

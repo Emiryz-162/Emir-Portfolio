@@ -13,10 +13,13 @@ import {
 import { useLocale, useTranslations } from "next-intl";
 
 import type { AssistantMessage } from "@/types/assistant";
-import { parseSseBuffer } from "@/lib/ai/sse-client";
+import { buildCompletedConversationHistory } from "@/lib/ai/conversation/build-history";
+import { flushSseBuffer, parseSseBuffer } from "@/lib/ai/sse-client";
 
 type ChatMessage = AssistantMessage & {
   id: string;
+  requestId?: string;
+  status?: "pending" | "streaming" | "completed" | "error" | "cancelled";
   relatedProjects?: RelatedProject[];
 };
 
@@ -43,7 +46,6 @@ type AssistantContextValue = {
 };
 
 const AssistantContext = createContext<AssistantContextValue | null>(null);
-const maxHistoryMessages = 8;
 
 export function AssistantProvider({
   children,
@@ -62,6 +64,11 @@ export function AssistantProvider({
   const [hasStartedStreaming, setHasStartedStreaming] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const abortRef = useRef<AbortController | null>(null);
+  const activeRequestRef = useRef<{
+    requestId: string;
+    assistantMessageId: string;
+    controller: AbortController;
+  } | null>(null);
   const lastTriggerRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -95,8 +102,9 @@ export function AssistantProvider({
   }, []);
 
   const clearConversation = useCallback(() => {
-    abortRef.current?.abort();
+    activeRequestRef.current?.controller.abort();
     abortRef.current = null;
+    activeRequestRef.current = null;
     setMessages([]);
     setDraft("");
     setError(null);
@@ -105,17 +113,42 @@ export function AssistantProvider({
   }, []);
 
   const stopStreaming = useCallback(() => {
-    abortRef.current?.abort();
+    const activeRequest = activeRequestRef.current;
+    if (!activeRequest) return;
+
+    activeRequest.controller.abort();
+    markAssistantCancelled(
+      activeRequest.assistantMessageId,
+      t("cancelled"),
+      setMessages,
+    );
     abortRef.current = null;
+    activeRequestRef.current = null;
     setIsPending(false);
     setHasStartedStreaming(false);
-  }, []);
+  }, [t]);
 
   const sendMessage = useCallback(
     async (messageOverride?: string) => {
       const message = (messageOverride ?? draft).trim();
-      if (!availabilityEnabled || isPending || !message) return;
+      if (
+        !availabilityEnabled ||
+        isPending ||
+        activeRequestRef.current ||
+        !message
+      ) {
+        return;
+      }
 
+      const requestId = createMessageId();
+      const assistantMessageId = createMessageId();
+      const abortController = new AbortController();
+      activeRequestRef.current = {
+        requestId,
+        assistantMessageId,
+        controller: abortController,
+      };
+      abortRef.current = abortController;
       setIsOpen(true);
       setDraft("");
       setError(null);
@@ -124,22 +157,21 @@ export function AssistantProvider({
 
       const userMessage: ChatMessage = {
         id: createMessageId(),
+        requestId,
         role: "user",
         content: message,
+        status: "completed",
       };
       const assistantMessage: ChatMessage = {
-        id: createMessageId(),
+        id: assistantMessageId,
+        requestId,
         role: "assistant",
         content: "",
+        status: "pending",
       };
-      const history = messages
-        .slice(-maxHistoryMessages)
-        .map(({ role, content }) => ({ role, content }));
+      const history = buildCompletedConversationHistory(messages, message);
 
       setMessages((current) => [...current, userMessage, assistantMessage]);
-
-      const abortController = new AbortController();
-      abortRef.current = abortController;
 
       try {
         const streamResponse = await fetch("/api/assistant/stream", {
@@ -160,9 +192,11 @@ export function AssistantProvider({
             message,
             locale,
             history,
-            assistantMessageId: assistantMessage.id,
+            requestId,
+            assistantMessageId,
             setMessages,
             setError,
+            unavailableMessage: t("unavailable"),
             abortSignal: abortController.signal,
           });
           return;
@@ -174,9 +208,11 @@ export function AssistantProvider({
             message,
             locale,
             history,
-            assistantMessageId: assistantMessage.id,
+            requestId,
+            assistantMessageId,
             setMessages,
             setError,
+            unavailableMessage: t("unavailable"),
             abortSignal: abortController.signal,
           });
           return;
@@ -186,6 +222,7 @@ export function AssistantProvider({
         const decoder = new TextDecoder();
         let buffer = "";
         let receivedDelta = false;
+        let completed = false;
         let relatedProjects: RelatedProject[] = [];
 
         while (true) {
@@ -209,37 +246,77 @@ export function AssistantProvider({
             ) {
               receivedDelta = true;
               setHasStartedStreaming(true);
+              markAssistantStatus(assistantMessageId, "streaming", setMessages);
               appendAssistantText(
-                assistantMessage.id,
+                assistantMessageId,
                 event.data.text,
                 setMessages,
               );
             }
 
             if (event.event === "error") {
-              setError(
+              const messageText =
                 typeof event.data.message === "string"
                   ? event.data.message
-                  : t("unavailable"),
-              );
+                  : t("unavailable");
+              setError(messageText);
+              markAssistantError(assistantMessageId, messageText, setMessages);
+            }
+
+            if (event.event === "done") {
+              completed = true;
+              markAssistantStatus(assistantMessageId, "completed", setMessages);
             }
           }
         }
 
-        if (receivedDelta && relatedProjects.length > 0) {
+        buffer += decoder.decode();
+        const flushed = flushSseBuffer(buffer);
+        for (const event of flushed.events) {
+          if (event.event === "delta" && typeof event.data.text === "string") {
+            receivedDelta = true;
+            appendAssistantText(
+              assistantMessageId,
+              event.data.text,
+              setMessages,
+            );
+          }
+
+          if (event.event === "done") {
+            completed = true;
+            markAssistantStatus(assistantMessageId, "completed", setMessages);
+          }
+
+          if (event.event === "error") {
+            const messageText =
+              typeof event.data.message === "string"
+                ? event.data.message
+                : t("unavailable");
+            setError(messageText);
+            markAssistantError(assistantMessageId, messageText, setMessages);
+          }
+        }
+
+        if (completed && receivedDelta && relatedProjects.length > 0) {
           attachRelatedProjects(
-            assistantMessage.id,
+            assistantMessageId,
             relatedProjects,
             setMessages,
           );
         }
       } catch (fetchError) {
         if (abortController.signal.aborted) return;
-        setError(fetchError instanceof TypeError ? t("network") : t("generic"));
+        const messageText =
+          fetchError instanceof TypeError ? t("network") : t("generic");
+        setError(messageText);
+        markAssistantError(assistantMessageId, messageText, setMessages);
       } finally {
-        if (abortRef.current === abortController) abortRef.current = null;
-        setIsPending(false);
-        setHasStartedStreaming(false);
+        if (activeRequestRef.current?.requestId === requestId) {
+          activeRequestRef.current = null;
+          abortRef.current = null;
+          setIsPending(false);
+          setHasStartedStreaming(false);
+        }
       }
     },
     [availabilityEnabled, draft, isPending, locale, messages, t],
@@ -315,6 +392,61 @@ function appendAssistantText(
   );
 }
 
+function markAssistantStatus(
+  messageId: string,
+  status: NonNullable<ChatMessage["status"]>,
+  setMessages: React.Dispatch<React.SetStateAction<ChatMessage[]>>,
+) {
+  setMessages((current) =>
+    current.map((message) =>
+      message.id === messageId
+        ? {
+            ...message,
+            status,
+          }
+        : message,
+    ),
+  );
+}
+
+function markAssistantError(
+  messageId: string,
+  errorMessage: string,
+  setMessages: React.Dispatch<React.SetStateAction<ChatMessage[]>>,
+) {
+  setMessages((current) =>
+    current.map((message) =>
+      message.id === messageId
+        ? {
+            ...message,
+            content: message.content
+              ? `${message.content}\n\n${errorMessage}`
+              : errorMessage,
+            status: "error",
+          }
+        : message,
+    ),
+  );
+}
+
+function markAssistantCancelled(
+  messageId: string,
+  cancelledMessage: string,
+  setMessages: React.Dispatch<React.SetStateAction<ChatMessage[]>>,
+) {
+  setMessages((current) =>
+    current.map((message) =>
+      message.id === messageId
+        ? {
+            ...message,
+            content: message.content || cancelledMessage,
+            status: "cancelled",
+          }
+        : message,
+    ),
+  );
+}
+
 function attachRelatedProjects(
   messageId: string,
   projects: RelatedProject[],
@@ -348,16 +480,20 @@ async function runJsonFallback({
   locale,
   history,
   assistantMessageId,
+  requestId,
   setMessages,
   setError,
+  unavailableMessage,
   abortSignal,
 }: {
   message: string;
   locale: string;
   history: { role: "user" | "assistant"; content: string }[];
   assistantMessageId: string;
+  requestId: string;
   setMessages: React.Dispatch<React.SetStateAction<ChatMessage[]>>;
   setError: (value: string | null) => void;
+  unavailableMessage: string;
   abortSignal: AbortSignal;
 }) {
   const response = await fetch("/api/assistant", {
@@ -381,17 +517,21 @@ async function runJsonFallback({
   } | null;
 
   if (!response.ok || !payload?.answer) {
-    setError(payload?.message ?? payload?.error ?? null);
+    const messageText =
+      payload?.message ?? payload?.error ?? unavailableMessage;
+    setError(messageText);
+    markAssistantError(assistantMessageId, messageText, setMessages);
     return;
   }
 
   setMessages((current) =>
     current.map((item) =>
-      item.id === assistantMessageId
+      item.id === assistantMessageId && item.requestId === requestId
         ? {
             ...item,
             content: payload.answer ?? "",
             relatedProjects: (payload.relatedProjects ?? []).slice(0, 2),
+            status: "completed",
           }
         : item,
     ),

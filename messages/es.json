@@ -560,14 +560,18 @@
     "actions": {
       "close": "Cerrar",
       "clear": "Limpiar conversacion",
-      "newConversation": "Nueva conversacion"
+      "newConversation": "Nueva conversacion",
+      "retry": "Reintentar"
     },
     "errors": {
       "rateLimited": "Los mensajes se enviaron demasiado rapido. Espera un poco e intentalo otra vez.",
       "unavailable": "El asistente no puede responder ahora. Intentalo de nuevo en breve.",
       "network": "Hubo un problema de conexion.",
       "streamInterrupted": "La respuesta se interrumpio.",
-      "generic": "Algo salio mal. Intentalo de nuevo en breve."
+      "generic": "Algo salio mal. Intentalo de nuevo en breve.",
+      "inProgress": "Ya hay una respuesta en curso.",
+      "responseIncomplete": "La respuesta termino antes de lo esperado. Puedes intentarlo otra vez.",
+      "cancelled": "Respuesta detenida."
     },
     "privacy": {
       "processing": "Tus mensajes se procesan solo para generar una respuesta y este sitio no los almacena.",

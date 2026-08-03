@@ -1,7 +1,12 @@
 import { strict as assert } from "node:assert";
 
 import { isAssistantEnabledFromValues } from "@/lib/ai/availability-core";
+import { buildCompletedConversationHistory } from "@/lib/ai/conversation/build-history";
 import { getAssistantPublicErrorCode } from "@/lib/ai/errors";
+import {
+  getResponseStatus,
+  isCompletedResponse,
+} from "@/lib/ai/openai-response";
 import { buildPortfolioAssistantInstructions } from "@/lib/ai/prompts/portfolio-assistant";
 import { buildPortfolioKnowledge } from "@/lib/ai/knowledge/build-portfolio-knowledge";
 import { formatCompactPortfolioContext } from "@/lib/ai/knowledge/format-context";
@@ -16,7 +21,8 @@ import {
   truncateProjectMarkdown,
 } from "@/lib/ai/retrieval/retrieve-project-context";
 import { serializeSseEvent } from "@/lib/ai/sse";
-import { parseSseBuffer } from "@/lib/ai/sse-client";
+import { flushSseBuffer, parseSseBuffer } from "@/lib/ai/sse-client";
+import { getFinalizedTextSuffix } from "@/lib/ai/stream/finalize-text";
 import { buildLocalizedHref } from "@/i18n/routing";
 import type { AssistantProjectSummary } from "@/types/assistant";
 
@@ -177,6 +183,36 @@ async function main() {
     "Hello",
     "streaming delta parser extracts text",
   );
+  assertSseParserFixtures();
+  assertConversationHistory();
+  assert.equal(
+    getFinalizedTextSuffix("Merhaba E-pos", "Merhaba E-posta"),
+    "ta",
+    "finalized text suffix completes a missing stream ending",
+  );
+  assert.equal(
+    getFinalizedTextSuffix("Hello", "Hello"),
+    "",
+    "finalized text suffix does not duplicate completed text",
+  );
+  assert.equal(
+    isCompletedResponse({ status: "completed" }),
+    true,
+    "completed response is accepted",
+  );
+  assert.equal(
+    isCompletedResponse({
+      status: "incomplete",
+      incomplete_details: { reason: "max_output_tokens" },
+    }),
+    false,
+    "incomplete response is not accepted as done",
+  );
+  assert.equal(
+    getResponseStatus({ status: "failed" }),
+    "failed",
+    "response status helper reads failed status",
+  );
   assert.equal(
     buildLocalizedHref(
       "tr",
@@ -187,6 +223,184 @@ async function main() {
   );
 
   console.log("Assistant validation passed.");
+}
+
+function assertSseParserFixtures() {
+  const eventText = [
+    serializeSseEvent({ event: "delta", data: { text: "Mer" } }),
+    serializeSseEvent({ event: "delta", data: { text: "haba" } }),
+  ].join("");
+  let buffer = "";
+  const parsedEvents = [];
+  for (const character of eventText) {
+    buffer += character;
+    const parsed = parseSseBuffer(buffer);
+    parsedEvents.push(...parsed.events);
+    buffer = parsed.rest;
+  }
+  parsedEvents.push(...flushSseBuffer(buffer).events);
+  assert.equal(
+    parsedEvents.map((event) => event.data.text).join(""),
+    "Merhaba",
+    "SSE parser handles one-character chunks",
+  );
+
+  const multi = parseSseBuffer(
+    `${serializeSseEvent({ event: "meta", data: { relatedProjects: [] } })}${serializeSseEvent({ event: "done", data: {} })}`,
+  );
+  assert.deepEqual(
+    multi.events.map((event) => event.event),
+    ["meta", "done"],
+    "SSE parser handles multiple events in one chunk",
+  );
+
+  const encoder = new TextEncoder();
+  const decoder = new TextDecoder();
+  const unicodeEvent = serializeSseEvent({
+    event: "delta",
+    data: { text: "Tuerkce karakter: ı" },
+  });
+  const bytes = encoder.encode(unicodeEvent);
+  const splitAt = bytes.findIndex((byte) => byte > 127);
+  const first = decoder.decode(bytes.slice(0, splitAt + 1), { stream: true });
+  const second = decoder.decode(bytes.slice(splitAt + 1), { stream: true });
+  const final = decoder.decode();
+  const unicode = parseSseBuffer(`${first}${second}${final}`);
+  assert.equal(
+    unicode.events[0]?.data.text,
+    "Tuerkce karakter: ı",
+    "SSE parser preserves Unicode across decoder chunk boundaries",
+  );
+
+  const crlf = parseSseBuffer('event: delta\r\ndata: {"text":"ok"}\r\n\r\n');
+  assert.equal(crlf.events[0]?.data.text, "ok", "SSE parser supports CRLF");
+
+  const flushed = flushSseBuffer('event: delta\ndata: {"text":"final"}');
+  assert.equal(
+    flushed.events[0]?.data.text,
+    "final",
+    "SSE parser flushes a final event without double newline",
+  );
+}
+
+function assertConversationHistory() {
+  const history = buildCompletedConversationHistory(
+    [
+      {
+        id: "u1",
+        requestId: "r1",
+        role: "user",
+        content: "First",
+        status: "completed",
+      },
+      {
+        id: "a1",
+        requestId: "r1",
+        role: "assistant",
+        content: "First answer",
+        status: "completed",
+      },
+      {
+        id: "u2",
+        requestId: "r2",
+        role: "user",
+        content: "Orphan",
+        status: "completed",
+      },
+      {
+        id: "a2",
+        requestId: "r2",
+        role: "assistant",
+        content: "",
+        status: "pending",
+      },
+      {
+        id: "u3",
+        requestId: "r3",
+        role: "user",
+        content: "Cancelled",
+        status: "completed",
+      },
+      {
+        id: "a3",
+        requestId: "r3",
+        role: "assistant",
+        content: "Partial",
+        status: "cancelled",
+      },
+      {
+        id: "u4",
+        requestId: "r4",
+        role: "user",
+        content: "Error",
+        status: "completed",
+      },
+      {
+        id: "a4",
+        requestId: "r4",
+        role: "assistant",
+        content: "Error message",
+        status: "error",
+      },
+    ],
+    "Current",
+  );
+
+  assert.deepEqual(
+    history,
+    [
+      { role: "user", content: "First" },
+      { role: "assistant", content: "First answer" },
+    ],
+    "history includes only completed user-assistant pairs",
+  );
+
+  const currentDuplicate = buildCompletedConversationHistory(
+    [
+      {
+        id: "u1",
+        requestId: "r1",
+        role: "user",
+        content: "Current",
+        status: "completed",
+      },
+      {
+        id: "a1",
+        requestId: "r1",
+        role: "assistant",
+        content: "Answer",
+        status: "completed",
+      },
+    ],
+    "Current",
+  );
+  assert.deepEqual(
+    currentDuplicate,
+    [],
+    "current user message is not duplicated into history",
+  );
+
+  const manyMessages = Array.from({ length: 6 }).flatMap((_, index) => [
+    {
+      id: `u${index}`,
+      requestId: `r${index}`,
+      role: "user" as const,
+      content: `Q${index}`,
+      status: "completed" as const,
+    },
+    {
+      id: `a${index}`,
+      requestId: `r${index}`,
+      role: "assistant" as const,
+      content: `A${index}`,
+      status: "completed" as const,
+    },
+  ]);
+  assert.equal(
+    buildCompletedConversationHistory(manyMessages, "Next").length,
+    8,
+    "history is capped at 8 messages",
+  );
 }
 
 main().catch((error) => {

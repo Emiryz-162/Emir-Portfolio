@@ -10,7 +10,13 @@ import {
 } from "@/lib/ai/assistant-request";
 import { getAssistantErrorMessage } from "@/lib/ai/errors";
 import { getOpenAIClient } from "@/lib/ai/openai-client";
+import {
+  ASSISTANT_MAX_OUTPUT_TOKENS,
+  getResponseStatus,
+  isCompletedResponse,
+} from "@/lib/ai/openai-response";
 import { getAssistantStreamHeaders, serializeSseEvent } from "@/lib/ai/sse";
+import { getFinalizedTextSuffix } from "@/lib/ai/stream/finalize-text";
 import { routing } from "@/i18n/routing";
 
 export const dynamic = "force-dynamic";
@@ -68,7 +74,7 @@ export async function POST(request: NextRequest) {
             model: prepared.model,
             instructions: prepared.instructions,
             input: prepared.input,
-            max_output_tokens: 500,
+            max_output_tokens: ASSISTANT_MAX_OUTPUT_TOKENS,
             store: false,
             stream: true,
           },
@@ -76,6 +82,9 @@ export async function POST(request: NextRequest) {
             signal: abortController.signal,
           },
         );
+
+        let accumulatedText = "";
+        let sawTerminalEvent = false;
 
         for await (const event of openaiStream) {
           if (abortController.signal.aborted) break;
@@ -85,6 +94,7 @@ export async function POST(request: NextRequest) {
             typeof event.delta === "string" &&
             event.delta.length > 0
           ) {
+            accumulatedText += event.delta;
             send(
               serializeSseEvent({
                 event: "delta",
@@ -94,15 +104,73 @@ export async function POST(request: NextRequest) {
               }),
             );
           }
+
+          if (
+            event.type === "response.output_text.done" &&
+            "text" in event &&
+            typeof event.text === "string"
+          ) {
+            const suffix = getFinalizedTextSuffix(accumulatedText, event.text);
+            if (suffix) {
+              accumulatedText += suffix;
+              send(
+                serializeSseEvent({
+                  event: "delta",
+                  data: {
+                    text: suffix,
+                  },
+                }),
+              );
+            }
+          }
+
+          if (event.type === "response.completed" && "response" in event) {
+            sawTerminalEvent = true;
+            if (isCompletedResponse(event.response)) {
+              send(
+                serializeSseEvent({
+                  event: "done",
+                  data: {},
+                }),
+              );
+            } else {
+              sendResponseIncomplete(prepared.locale, send);
+            }
+          }
+
+          if (
+            (event.type === "response.incomplete" ||
+              event.type === "response.failed") &&
+            "response" in event
+          ) {
+            sawTerminalEvent = true;
+            logAssistantError(
+              `response:${getResponseStatus(event.response) ?? event.type}`,
+              "/api/assistant/stream",
+            );
+            sendResponseIncomplete(prepared.locale, send);
+          }
+
+          if (event.type === "error") {
+            sawTerminalEvent = true;
+            logAssistantError("openaiStreamError", "/api/assistant/stream");
+            send(
+              serializeSseEvent({
+                event: "error",
+                data: {
+                  code: "assistant_unavailable",
+                  message: getAssistantErrorMessage(
+                    prepared.locale,
+                    "openaiUnavailable",
+                  ),
+                },
+              }),
+            );
+          }
         }
 
-        if (!abortController.signal.aborted) {
-          send(
-            serializeSseEvent({
-              event: "done",
-              data: {},
-            }),
-          );
+        if (!abortController.signal.aborted && !sawTerminalEvent) {
+          sendResponseIncomplete(prepared.locale, send);
         }
       } catch (error) {
         if (abortController.signal.aborted) return;
@@ -133,6 +201,21 @@ export async function POST(request: NextRequest) {
   return new Response(stream, {
     headers: getAssistantStreamHeaders(),
   });
+}
+
+function sendResponseIncomplete(
+  locale: Parameters<typeof getAssistantErrorMessage>[0],
+  send: (value: string) => void,
+) {
+  send(
+    serializeSseEvent({
+      event: "error",
+      data: {
+        code: "response_incomplete",
+        message: getAssistantErrorMessage(locale, "responseIncomplete"),
+      },
+    }),
+  );
 }
 
 function errorResponse(

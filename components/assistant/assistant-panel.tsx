@@ -140,6 +140,7 @@ export function AssistantPanel() {
                   <button
                     key={suggestion}
                     type="button"
+                    disabled={assistant.isPending}
                     onClick={() => assistant.sendMessage(suggestion)}
                     className="rounded-[6px] border border-border bg-surface px-3 py-2 text-left text-sm leading-6 text-muted-foreground transition hover:border-border-strong hover:bg-surface-elevated hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
@@ -188,14 +189,18 @@ export function AssistantPanel() {
                   </div>
                 </div>
               ))}
-              {assistant.error && (
-                <div
-                  role="status"
-                  className="rounded-[6px] border border-border bg-surface-muted px-3 py-2 text-sm text-muted-foreground"
-                >
-                  {assistant.error}
-                </div>
-              )}
+              {assistant.error &&
+                !assistant.messages.some(
+                  (message) =>
+                    message.role === "assistant" && message.status === "error",
+                ) && (
+                  <div
+                    role="status"
+                    className="rounded-[6px] border border-border bg-surface-muted px-3 py-2 text-sm text-muted-foreground"
+                  >
+                    {assistant.error}
+                  </div>
+                )}
             </div>
           )}
         </div>
@@ -215,7 +220,6 @@ export function AssistantPanel() {
               id={inputId}
               ref={inputRef}
               value={assistant.draft}
-              disabled={assistant.isPending}
               maxLength={ASSISTANT_LIMITS.messageMax}
               rows={1}
               placeholder={t("input.placeholder")}

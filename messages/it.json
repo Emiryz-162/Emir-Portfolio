@@ -560,14 +560,18 @@
     "actions": {
       "close": "Chiudi",
       "clear": "Cancella conversazione",
-      "newConversation": "Nuova conversazione"
+      "newConversation": "Nuova conversazione",
+      "retry": "Riprova"
     },
     "errors": {
       "rateLimited": "I messaggi sono stati inviati troppo rapidamente. Attendi un momento e riprova.",
       "unavailable": "Lassistente non puo rispondere ora. Riprova tra poco.",
       "network": "Si e verificato un problema di connessione.",
       "streamInterrupted": "La risposta e stata interrotta.",
-      "generic": "Qualcosa e andato storto. Riprova tra poco."
+      "generic": "Qualcosa e andato storto. Riprova tra poco.",
+      "inProgress": "Una risposta e gia in corso.",
+      "responseIncomplete": "La risposta si e interrotta prima del previsto. Puoi riprovare.",
+      "cancelled": "Risposta fermata."
     },
     "privacy": {
       "processing": "I tuoi messaggi vengono elaborati solo per generare una risposta e non sono salvati da questo sito.",

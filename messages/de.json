@@ -560,14 +560,18 @@
     "actions": {
       "close": "Schliessen",
       "clear": "Gesprach loschen",
-      "newConversation": "Neues Gesprach"
+      "newConversation": "Neues Gesprach",
+      "retry": "Erneut versuchen"
     },
     "errors": {
       "rateLimited": "Nachrichten wurden zu schnell gesendet. Bitte warte kurz und versuche es erneut.",
       "unavailable": "Der Assistent kann gerade nicht antworten. Bitte versuche es spater erneut.",
       "network": "Es gab ein Verbindungsproblem.",
       "streamInterrupted": "Die Antwort wurde unterbrochen.",
-      "generic": "Etwas ist schiefgelaufen. Bitte versuche es spater erneut."
+      "generic": "Etwas ist schiefgelaufen. Bitte versuche es spater erneut.",
+      "inProgress": "Eine Antwort laeuft bereits.",
+      "responseIncomplete": "Die Antwort endete frueher als erwartet. Du kannst es erneut versuchen.",
+      "cancelled": "Antwort gestoppt."
     },
     "privacy": {
       "processing": "Deine Nachrichten werden nur zum Erzeugen einer Antwort verarbeitet und von dieser Website nicht gespeichert.",

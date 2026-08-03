@@ -559,14 +559,18 @@
     "actions": {
       "close": "Close",
       "clear": "Clear conversation",
-      "newConversation": "New conversation"
+      "newConversation": "New conversation",
+      "retry": "Retry"
     },
     "errors": {
       "rateLimited": "Messages were sent too quickly. Please wait a moment and try again.",
       "unavailable": "The assistant cannot answer right now. Please try again shortly.",
       "network": "There was a connection problem.",
       "streamInterrupted": "The response was interrupted.",
-      "generic": "Something went wrong. Please try again shortly."
+      "generic": "Something went wrong. Please try again shortly.",
+      "inProgress": "A response is already in progress.",
+      "responseIncomplete": "The response ended earlier than expected. You can try again.",
+      "cancelled": "Response stopped."
     },
     "privacy": {
       "processing": "Your messages are processed only to generate a response and are not stored by this site.",

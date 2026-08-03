@@ -560,14 +560,18 @@
     "actions": {
       "close": "Sluiten",
       "clear": "Gesprek wissen",
-      "newConversation": "Nieuw gesprek"
+      "newConversation": "Nieuw gesprek",
+      "retry": "Opnieuw proberen"
     },
     "errors": {
       "rateLimited": "Berichten zijn te snel verzonden. Wacht even en probeer opnieuw.",
       "unavailable": "De assistent kan nu niet antwoorden. Probeer het later opnieuw.",
       "network": "Er was een verbindingsprobleem.",
       "streamInterrupted": "Het antwoord werd onderbroken.",
-      "generic": "Er ging iets mis. Probeer het later opnieuw."
+      "generic": "Er ging iets mis. Probeer het later opnieuw.",
+      "inProgress": "Er loopt al een antwoord.",
+      "responseIncomplete": "Het antwoord stopte eerder dan verwacht. Je kunt het opnieuw proberen.",
+      "cancelled": "Antwoord gestopt."
     },
     "privacy": {
       "processing": "Je berichten worden alleen verwerkt om een antwoord te maken en worden niet door deze site opgeslagen.",

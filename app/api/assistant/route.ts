@@ -9,6 +9,10 @@ import {
   prepareAssistantRequest,
 } from "@/lib/ai/assistant-request";
 import { getOpenAIClient } from "@/lib/ai/openai-client";
+import {
+  ASSISTANT_MAX_OUTPUT_TOKENS,
+  isCompletedResponse,
+} from "@/lib/ai/openai-response";
 import { routing } from "@/i18n/routing";
 
 export const dynamic = "force-dynamic";
@@ -43,10 +47,14 @@ export async function POST(request: NextRequest) {
       model: prepared.model,
       instructions: prepared.instructions,
       input: prepared.input,
-      max_output_tokens: 500,
+      max_output_tokens: ASSISTANT_MAX_OUTPUT_TOKENS,
       store: false,
     });
     const answer = response.output_text?.trim();
+
+    if (!isCompletedResponse(response)) {
+      return errorResponse(prepared.locale, "responseIncomplete", 502);
+    }
 
     if (!answer) {
       return errorResponse(prepared.locale, "emptyResponse", 502);

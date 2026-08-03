@@ -560,14 +560,18 @@
     "actions": {
       "close": "Fermer",
       "clear": "Effacer la conversation",
-      "newConversation": "Nouvelle conversation"
+      "newConversation": "Nouvelle conversation",
+      "retry": "Reessayer"
     },
     "errors": {
       "rateLimited": "Les messages ont ete envoyes trop vite. Attends un peu puis reessaie.",
       "unavailable": "Assistant ne peut pas repondre pour le moment. Reessaie dans un instant.",
       "network": "Un probleme de connexion est survenu.",
       "streamInterrupted": "La reponse a ete interrompue.",
-      "generic": "Un probleme est survenu. Reessaie dans un instant."
+      "generic": "Un probleme est survenu. Reessaie dans un instant.",
+      "inProgress": "Une reponse est deja en cours.",
+      "responseIncomplete": "La reponse sest arretee plus tot que prevu. Tu peux reessayer.",
+      "cancelled": "Reponse arretee."
     },
     "privacy": {
       "processing": "Tes messages sont traites seulement pour generer une reponse et ne sont pas stockes par ce site.",

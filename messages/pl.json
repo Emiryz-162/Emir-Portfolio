@@ -560,14 +560,18 @@
     "actions": {
       "close": "Zamknij",
       "clear": "Wyczysc rozmowe",
-      "newConversation": "Nowa rozmowa"
+      "newConversation": "Nowa rozmowa",
+      "retry": "Sprobuj ponownie"
     },
     "errors": {
       "rateLimited": "Wiadomosci wyslano zbyt szybko. Poczekaj chwile i sprobuj ponownie.",
       "unavailable": "Asystent nie moze teraz odpowiedziec. Sprobuj ponownie za chwile.",
       "network": "Wystapil problem z polaczeniem.",
       "streamInterrupted": "Odpowiedz zostala przerwana.",
-      "generic": "Cos poszlo nie tak. Sprobuj ponownie za chwile."
+      "generic": "Cos poszlo nie tak. Sprobuj ponownie za chwile.",
+      "inProgress": "Odpowiedz jest juz w toku.",
+      "responseIncomplete": "Odpowiedz zakonczyla sie wczesniej niz oczekiwano. Sprobuj ponownie.",
+      "cancelled": "Odpowiedz zatrzymana."
     },
     "privacy": {
       "processing": "Twoje wiadomosci sa przetwarzane tylko w celu wygenerowania odpowiedzi i nie sa przechowywane przez ta strone.",

@@ -9,6 +9,7 @@ type AssistantErrorCode =
   | "openaiRateLimit"
   | "openaiUnavailable"
   | "emptyResponse"
+  | "responseIncomplete"
   | "serverError";
 
 const messages: Record<Locale, Record<AssistantErrorCode, string>> = {
@@ -22,6 +23,8 @@ const messages: Record<Locale, Record<AssistantErrorCode, string>> = {
       "The AI assistant is busy right now. Please try again shortly.",
     openaiUnavailable: "The AI assistant is temporarily unavailable.",
     emptyResponse: "The AI assistant could not produce an answer.",
+    responseIncomplete:
+      "The response ended earlier than expected. You can try again.",
     serverError: "The AI assistant could not respond right now.",
   },
   tr: {
@@ -35,6 +38,8 @@ const messages: Record<Locale, Record<AssistantErrorCode, string>> = {
       "AI asistani su anda yogun. Lutfen kisa sure sonra tekrar deneyin.",
     openaiUnavailable: "AI asistani gecici olarak kullanilamiyor.",
     emptyResponse: "AI asistani bir yanit uretemedi.",
+    responseIncomplete:
+      "Yanit beklenenden erken kesildi. Tekrar deneyebilirsin.",
     serverError: "AI asistani su anda yanit veremedi.",
   },
   de: {
@@ -48,6 +53,8 @@ const messages: Record<Locale, Record<AssistantErrorCode, string>> = {
       "Der KI-Assistent ist gerade ausgelastet. Bitte versuche es gleich erneut.",
     openaiUnavailable: "Der KI-Assistent ist voruebergehend nicht verfuegbar.",
     emptyResponse: "Der KI-Assistent konnte keine Antwort erzeugen.",
+    responseIncomplete:
+      "Die Antwort endete frueher als erwartet. Du kannst es erneut versuchen.",
     serverError: "Der KI-Assistent konnte gerade nicht antworten.",
   },
   fr: {
@@ -60,6 +67,8 @@ const messages: Record<Locale, Record<AssistantErrorCode, string>> = {
       "L'assistant IA est occupe. Veuillez reessayer dans un instant.",
     openaiUnavailable: "L'assistant IA est temporairement indisponible.",
     emptyResponse: "L'assistant IA n'a pas pu produire de reponse.",
+    responseIncomplete:
+      "La reponse s'est arretee plus tot que prevu. Tu peux reessayer.",
     serverError: "L'assistant IA ne peut pas repondre pour le moment.",
   },
   es: {
@@ -72,6 +81,8 @@ const messages: Record<Locale, Record<AssistantErrorCode, string>> = {
       "El asistente de IA esta ocupado. Intentalo de nuevo en breve.",
     openaiUnavailable: "El asistente de IA no esta disponible temporalmente.",
     emptyResponse: "El asistente de IA no pudo generar una respuesta.",
+    responseIncomplete:
+      "La respuesta termino antes de lo esperado. Puedes intentarlo otra vez.",
     serverError: "El asistente de IA no pudo responder ahora mismo.",
   },
   it: {
@@ -83,6 +94,8 @@ const messages: Record<Locale, Record<AssistantErrorCode, string>> = {
     openaiRateLimit: "L'assistente AI e occupato. Riprova tra poco.",
     openaiUnavailable: "L'assistente AI e temporaneamente non disponibile.",
     emptyResponse: "L'assistente AI non ha prodotto una risposta.",
+    responseIncomplete:
+      "La risposta si e interrotta prima del previsto. Puoi riprovare.",
     serverError: "L'assistente AI non ha potuto rispondere ora.",
   },
   pt: {
@@ -95,6 +108,8 @@ const messages: Record<Locale, Record<AssistantErrorCode, string>> = {
       "O assistente de IA esta ocupado. Tenta novamente daqui a pouco.",
     openaiUnavailable: "O assistente de IA esta temporariamente indisponivel.",
     emptyResponse: "O assistente de IA nao conseguiu produzir uma resposta.",
+    responseIncomplete:
+      "A resposta terminou mais cedo do que esperado. Podes tentar novamente.",
     serverError: "O assistente de IA nao conseguiu responder agora.",
   },
   nl: {
@@ -106,6 +121,8 @@ const messages: Record<Locale, Record<AssistantErrorCode, string>> = {
     openaiRateLimit: "De AI-assistent is bezig. Probeer het zo opnieuw.",
     openaiUnavailable: "De AI-assistent is tijdelijk niet beschikbaar.",
     emptyResponse: "De AI-assistent kon geen antwoord maken.",
+    responseIncomplete:
+      "Het antwoord stopte eerder dan verwacht. Je kunt het opnieuw proberen.",
     serverError: "De AI-assistent kon nu niet antwoorden.",
   },
   pl: {
@@ -117,6 +134,8 @@ const messages: Record<Locale, Record<AssistantErrorCode, string>> = {
     openaiRateLimit: "Asystent AI jest zajety. Sprobuj ponownie za chwile.",
     openaiUnavailable: "Asystent AI jest tymczasowo niedostepny.",
     emptyResponse: "Asystent AI nie mogl przygotowac odpowiedzi.",
+    responseIncomplete:
+      "Odpowiedz zakonczyla sie wczesniej niz oczekiwano. Sprobuj ponownie.",
     serverError: "Asystent AI nie mogl teraz odpowiedziec.",
   },
 };
@@ -139,6 +158,7 @@ export function getAssistantPublicErrorCode(code: AssistantErrorCode) {
     return "assistant_unavailable";
   }
   if (code === "emptyResponse") return "assistant_unavailable";
+  if (code === "responseIncomplete") return "response_incomplete";
 
   return "generic_error";
 }

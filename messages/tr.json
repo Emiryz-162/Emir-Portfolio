@@ -559,14 +559,18 @@
     "actions": {
       "close": "Kapat",
       "clear": "Konusmayi temizle",
-      "newConversation": "Yeni konusma"
+      "newConversation": "Yeni konusma",
+      "retry": "Tekrar dene"
     },
     "errors": {
       "rateLimited": "Cok hizli mesaj gonderildi. Lutfen biraz bekleyip tekrar dene.",
       "unavailable": "Asistan su anda yanit veremiyor. Biraz sonra tekrar deneyebilirsin.",
       "network": "Baglanti sirasinda bir sorun olustu.",
       "streamInterrupted": "Yanit kesintiye ugradi.",
-      "generic": "Bir seyler ters gitti. Lutfen biraz sonra tekrar dene."
+      "generic": "Bir seyler ters gitti. Lutfen biraz sonra tekrar dene.",
+      "inProgress": "Bir yanit zaten devam ediyor.",
+      "responseIncomplete": "Yanit beklenenden erken kesildi. Tekrar deneyebilirsin.",
+      "cancelled": "Yanit durduruldu."
     },
     "privacy": {
       "processing": "Mesajlarin yalnizca yanit olusturmak icin islenir ve bu site tarafindan saklanmaz.",

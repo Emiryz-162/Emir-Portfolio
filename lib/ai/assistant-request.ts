@@ -33,6 +33,7 @@ export type AssistantErrorCode =
   | "openaiRateLimit"
   | "openaiUnavailable"
   | "emptyResponse"
+  | "responseIncomplete"
   | "serverError";
 
 export type AssistantPreparation =
@@ -169,6 +170,7 @@ export function getAssistantHttpStatus(code: AssistantErrorCode) {
     return 503;
   }
   if (code === "emptyResponse") return 502;
+  if (code === "responseIncomplete") return 502;
 
   return 500;
 }
