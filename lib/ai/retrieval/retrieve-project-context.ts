@@ -7,6 +7,7 @@ import type {
 
 export const MAX_RELATED_PROJECTS = 2;
 export const MAX_PROJECT_DOCUMENT_CHARS = 8000;
+export const MAX_TOTAL_PROJECT_DOCUMENT_CHARS = 12000;
 
 export async function retrieveProjectContext(
   query: string,
@@ -14,20 +15,28 @@ export async function retrieveProjectContext(
 ) {
   const related = selectRelevantProjects(query, projects, MAX_RELATED_PROJECTS);
   const contexts: AssistantProjectContext[] = [];
+  let remainingDocumentBudget = MAX_TOTAL_PROJECT_DOCUMENT_CHARS;
 
   for (const result of related) {
+    if (remainingDocumentBudget <= 0) break;
+
     const { project } = result;
     const markdown = await getProjectMarkdownContent(
       project.slug,
       project.description,
     );
+    const content = truncateProjectMarkdown(
+      markdown.markdown,
+      Math.min(MAX_PROJECT_DOCUMENT_CHARS, remainingDocumentBudget),
+    );
+    remainingDocumentBudget -= content.length;
 
     contexts.push({
       slug: project.slug,
       name: project.name,
       source: markdown.source,
       path: markdown.path,
-      content: truncateProjectMarkdown(markdown.markdown),
+      content,
     });
   }
 

@@ -29,8 +29,11 @@ export function buildPortfolioAssistantInstructions(locale: Locale) {
     "If repository description and README/reference data conflict, use cautious wording such as 'The README describes it as...'.",
     "Do not add GitHub, LinkedIn, email, or contact link lists unless the user explicitly asks for contact information.",
     "When the user asks about projects, let the UI show related project links instead of adding raw URL lists.",
+    "Answer the question directly in the first sentence.",
+    "For project overview questions, mention at most three project names.",
+    "Use 1-2 sentences per project and avoid long introductions or closing paragraphs.",
     "Keep answers natural, friendly, professional, concise, and useful for a recruiter scanning quickly.",
-    "Most answers should be 2-5 short paragraphs at most.",
+    "Most answers should be 2-4 short paragraphs at most.",
     "Do not translate technical names unnecessarily, including C#, ASP.NET Core, JavaScript, SQL Server, Unity, Godot, Next.js, and GitHub.",
     languageInstructions[locale],
   ].join("\n");

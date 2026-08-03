@@ -44,6 +44,7 @@ CONTACT_EMAIL_TO=
 CONTACT_EMAIL_FROM=
 OPENAI_API_KEY=
 OPENAI_MODEL=gpt-5-mini
+OPENAI_MAX_OUTPUT_TOKENS=1200
 AI_ASSISTANT_ENABLED=false
 ```
 
@@ -67,13 +68,15 @@ email fallback visible. Secret values are read only on the server and are never
 sent to client components.
 
 The AI assistant backend uses the official OpenAI JavaScript SDK and the
-Responses API. Store `OPENAI_API_KEY`, `OPENAI_MODEL`, and
-`AI_ASSISTANT_ENABLED` in server-side environment variables. `OPENAI_MODEL`
-falls back to `gpt-5-mini`; the endpoint is active only when
-`AI_ASSISTANT_ENABLED=true` and `OPENAI_API_KEY` is present. Missing values do
-not break the site build. `/api/assistant` returns a controlled `503` while the
-assistant is disabled or not configured. OpenAI billing and project limits must
-be configured separately in the OpenAI platform.
+Responses API. Store `OPENAI_API_KEY`, `OPENAI_MODEL`,
+`OPENAI_MAX_OUTPUT_TOKENS`, and `AI_ASSISTANT_ENABLED` in server-side
+environment variables. `OPENAI_MODEL` falls back to `gpt-5-mini`;
+`OPENAI_MAX_OUTPUT_TOKENS` defaults to `1200` and accepts values from `800` to
+`2000`. The endpoint is active only when `AI_ASSISTANT_ENABLED=true` and
+`OPENAI_API_KEY` is present. Missing values do not break the site build.
+`/api/assistant` returns a controlled `503` while the assistant is disabled or
+not configured. OpenAI billing and project limits must be configured separately
+in the OpenAI platform.
 
 ## Scripts
 
@@ -379,9 +382,10 @@ and final image domains before enforcement.
 - Use `Emir Portfolio <onboarding@resend.dev>` only while relying on Resend's
   starter sender, then switch `CONTACT_EMAIL_FROM` after verifying a custom
   domain.
-- Add `OPENAI_API_KEY`, `OPENAI_MODEL`, and `AI_ASSISTANT_ENABLED` only when the
-  assistant should be enabled. Keep secrets in Vercel environment variables and
-  do not expose the model name or API key to the client.
+- Add `OPENAI_API_KEY`, `OPENAI_MODEL`, `OPENAI_MAX_OUTPUT_TOKENS`, and
+  `AI_ASSISTANT_ENABLED` only when the assistant should be enabled. Keep secrets
+  in Vercel environment variables and do not expose the model name or API key to
+  the client.
 - Add `GITHUB_TOKEN` if higher GitHub API rate limits are needed.
 - Run `npm run validate:translations`.
 - Run `npm run validate:production`.

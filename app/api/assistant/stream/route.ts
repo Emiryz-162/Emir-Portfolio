@@ -10,9 +10,12 @@ import {
 } from "@/lib/ai/assistant-request";
 import { getAssistantErrorMessage } from "@/lib/ai/errors";
 import { getOpenAIClient } from "@/lib/ai/openai-client";
+import { buildAssistantOpenAIResponseConfig } from "@/lib/ai/openai-response-config";
 import {
-  ASSISTANT_MAX_OUTPUT_TOKENS,
+  classifyIncompleteReason,
+  getResponseIncompleteReason,
   getResponseStatus,
+  getUsageDiagnostics,
   isCompletedResponse,
 } from "@/lib/ai/openai-response";
 import { getAssistantStreamHeaders, serializeSseEvent } from "@/lib/ai/sse";
@@ -71,11 +74,11 @@ export async function POST(request: NextRequest) {
           prepared.apiKey,
         ).responses.create(
           {
-            model: prepared.model,
-            instructions: prepared.instructions,
-            input: prepared.input,
-            max_output_tokens: ASSISTANT_MAX_OUTPUT_TOKENS,
-            store: false,
+            ...buildAssistantOpenAIResponseConfig({
+              model: prepared.model,
+              instructions: prepared.instructions,
+              input: prepared.input,
+            }),
             stream: true,
           },
           {
@@ -84,10 +87,25 @@ export async function POST(request: NextRequest) {
         );
 
         let accumulatedText = "";
+        let outputTextChars = 0;
         let sawTerminalEvent = false;
+        let terminalSent = false;
+
+        const sendTerminal = (
+          event:
+            | { event: "done"; data: Record<string, never> }
+            | {
+                event: "error";
+                data: { code: string; message: string };
+              },
+        ) => {
+          if (terminalSent) return;
+          terminalSent = true;
+          send(serializeSseEvent(event));
+        };
 
         for await (const event of openaiStream) {
-          if (abortController.signal.aborted) break;
+          if (abortController.signal.aborted || terminalSent) break;
 
           if (
             event.type === "response.output_text.delta" &&
@@ -110,6 +128,7 @@ export async function POST(request: NextRequest) {
             "text" in event &&
             typeof event.text === "string"
           ) {
+            outputTextChars = event.text.length;
             const suffix = getFinalizedTextSuffix(accumulatedText, event.text);
             if (suffix) {
               accumulatedText += suffix;
@@ -126,15 +145,22 @@ export async function POST(request: NextRequest) {
 
           if (event.type === "response.completed" && "response" in event) {
             sawTerminalEvent = true;
+            logAssistantStreamDiagnostics({
+              requestId: prepared.requestId,
+              model: prepared.model,
+              response: event.response,
+              accumulatedTextChars: accumulatedText.length,
+              outputTextChars,
+              context: prepared.diagnostics,
+            });
+
             if (isCompletedResponse(event.response)) {
-              send(
-                serializeSseEvent({
-                  event: "done",
-                  data: {},
-                }),
-              );
+              sendTerminal({
+                event: "done",
+                data: {},
+              });
             } else {
-              sendResponseIncomplete(prepared.locale, send);
+              sendResponseIncomplete(prepared.locale, sendTerminal);
             }
           }
 
@@ -144,33 +170,39 @@ export async function POST(request: NextRequest) {
             "response" in event
           ) {
             sawTerminalEvent = true;
+            logAssistantStreamDiagnostics({
+              requestId: prepared.requestId,
+              model: prepared.model,
+              response: event.response,
+              accumulatedTextChars: accumulatedText.length,
+              outputTextChars,
+              context: prepared.diagnostics,
+            });
             logAssistantError(
-              `response:${getResponseStatus(event.response) ?? event.type}`,
+              `responseIncomplete:${classifyIncompleteReason(getResponseIncompleteReason(event.response))}`,
               "/api/assistant/stream",
             );
-            sendResponseIncomplete(prepared.locale, send);
+            sendResponseIncomplete(prepared.locale, sendTerminal);
           }
 
           if (event.type === "error") {
             sawTerminalEvent = true;
             logAssistantError("openaiStreamError", "/api/assistant/stream");
-            send(
-              serializeSseEvent({
-                event: "error",
-                data: {
-                  code: "assistant_unavailable",
-                  message: getAssistantErrorMessage(
-                    prepared.locale,
-                    "openaiUnavailable",
-                  ),
-                },
-              }),
-            );
+            sendTerminal({
+              event: "error",
+              data: {
+                code: "assistant_unavailable",
+                message: getAssistantErrorMessage(
+                  prepared.locale,
+                  "openaiUnavailable",
+                ),
+              },
+            });
           }
         }
 
         if (!abortController.signal.aborted && !sawTerminalEvent) {
-          sendResponseIncomplete(prepared.locale, send);
+          sendResponseIncomplete(prepared.locale, sendTerminal);
         }
       } catch (error) {
         if (abortController.signal.aborted) return;
@@ -205,16 +237,60 @@ export async function POST(request: NextRequest) {
 
 function sendResponseIncomplete(
   locale: Parameters<typeof getAssistantErrorMessage>[0],
-  send: (value: string) => void,
+  sendTerminal: (event: {
+    event: "error";
+    data: { code: string; message: string };
+  }) => void,
 ) {
-  send(
-    serializeSseEvent({
-      event: "error",
-      data: {
-        code: "response_incomplete",
-        message: getAssistantErrorMessage(locale, "responseIncomplete"),
-      },
-    }),
+  sendTerminal({
+    event: "error",
+    data: {
+      code: "response_incomplete",
+      message: getAssistantErrorMessage(locale, "responseIncomplete"),
+    },
+  });
+}
+
+function logAssistantStreamDiagnostics({
+  requestId,
+  model,
+  response,
+  accumulatedTextChars,
+  outputTextChars,
+  context,
+}: {
+  requestId: string;
+  model: string;
+  response: unknown;
+  accumulatedTextChars: number;
+  outputTextChars: number;
+  context: {
+    baseContextChars: number;
+    projectContextCount: number;
+    totalProjectContextChars: number;
+    finalInputApproxChars: number;
+  };
+}) {
+  if (process.env.NODE_ENV === "production") return;
+
+  const usage = getUsageDiagnostics(response);
+  console.error(
+    [
+      "[assistant-diagnostic]",
+      `request=${requestId.slice(0, 8)}`,
+      "endpoint=streaming",
+      `model=${model}`,
+      `status=${getResponseStatus(response) ?? "unknown"}`,
+      `incomplete=${getResponseIncompleteReason(response)}`,
+      `output_tokens=${usage.outputTokens ?? "unknown"}`,
+      `reasoning_tokens=${usage.reasoningTokens ?? "unknown"}`,
+      `accumulated_chars=${accumulatedTextChars}`,
+      `output_text_chars=${outputTextChars}`,
+      `base_context_chars=${context.baseContextChars}`,
+      `project_context_count=${context.projectContextCount}`,
+      `project_context_chars=${context.totalProjectContextChars}`,
+      `input_chars=${context.finalInputApproxChars}`,
+    ].join(" "),
   );
 }
 

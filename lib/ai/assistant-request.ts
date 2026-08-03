@@ -1,5 +1,6 @@
 import "server-only";
 
+import { randomUUID } from "node:crypto";
 import { headers } from "next/headers";
 import OpenAI from "openai";
 import type { EasyInputMessage } from "openai/resources/responses/responses";
@@ -41,10 +42,17 @@ export type AssistantPreparation =
       ok: true;
       apiKey: string;
       model: string;
+      requestId: string;
       locale: Locale;
       instructions: string;
       input: EasyInputMessage[];
       relatedProjects: { slug: string; name: string }[];
+      diagnostics: {
+        baseContextChars: number;
+        projectContextCount: number;
+        totalProjectContextChars: number;
+        finalInputApproxChars: number;
+      };
     }
   | {
       ok: false;
@@ -118,29 +126,47 @@ export async function prepareAssistantRequest(
     validation.request.message,
     knowledge.projects,
   );
+  const baseContext = formatCompactPortfolioContext(knowledge);
+  const projectContext = formatProjectReferenceContext(retrieval.contexts);
   const context = [
     "<portfolio_context>",
-    formatCompactPortfolioContext(knowledge),
+    baseContext,
     "</portfolio_context>",
-    formatProjectReferenceContext(retrieval.contexts),
+    projectContext,
   ]
     .filter(Boolean)
     .join("\n\n");
+  const input = buildResponseInput(
+    context,
+    validation.request.history,
+    validation.request.message,
+  );
 
   return {
     ok: true,
     apiKey: env.apiKey,
     model: env.model,
+    requestId: randomUUID(),
     locale: validation.request.locale,
     instructions: buildPortfolioAssistantInstructions(
       validation.request.locale,
     ),
-    input: buildResponseInput(
-      context,
-      validation.request.history,
-      validation.request.message,
-    ),
+    input,
     relatedProjects: retrieval.relatedProjects,
+    diagnostics: {
+      baseContextChars: baseContext.length,
+      projectContextCount: retrieval.contexts.length,
+      totalProjectContextChars: retrieval.contexts.reduce(
+        (total, project) => total + project.content.length,
+        0,
+      ),
+      finalInputApproxChars: input.reduce(
+        (total, message) =>
+          total +
+          (typeof message.content === "string" ? message.content.length : 0),
+        0,
+      ),
+    },
   };
 }
 

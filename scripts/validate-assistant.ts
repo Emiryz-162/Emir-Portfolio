@@ -4,6 +4,13 @@ import { isAssistantEnabledFromValues } from "@/lib/ai/availability-core";
 import { buildCompletedConversationHistory } from "@/lib/ai/conversation/build-history";
 import { getAssistantPublicErrorCode } from "@/lib/ai/errors";
 import {
+  buildAssistantOpenAIResponseConfig,
+  DEFAULT_ASSISTANT_MAX_OUTPUT_TOKENS,
+  getAssistantMaxOutputTokens,
+  getReasoningConfig,
+} from "@/lib/ai/openai-response-config";
+import {
+  classifyIncompleteReason,
   getResponseStatus,
   isCompletedResponse,
 } from "@/lib/ai/openai-response";
@@ -212,6 +219,67 @@ async function main() {
     getResponseStatus({ status: "failed" }),
     "failed",
     "response status helper reads failed status",
+  );
+  assert.equal(
+    DEFAULT_ASSISTANT_MAX_OUTPUT_TOKENS,
+    1200,
+    "default max output tokens is 1200",
+  );
+  assert.deepEqual(
+    getReasoningConfig("gpt-5-mini"),
+    { reasoning: { effort: "minimal" } },
+    "gpt-5-mini uses minimal reasoning",
+  );
+  assert.deepEqual(
+    getReasoningConfig("gpt-4.1-mini"),
+    {},
+    "non-reasoning model does not receive reasoning config",
+  );
+  assert.equal(
+    getAssistantMaxOutputTokens("bad"),
+    1200,
+    "invalid max output env value falls back",
+  );
+  assert.equal(
+    getAssistantMaxOutputTokens("300"),
+    1200,
+    "too-low max output env value falls back",
+  );
+  assert.equal(
+    getAssistantMaxOutputTokens("1600"),
+    1600,
+    "valid max output env value is accepted",
+  );
+  assert.equal(
+    classifyIncompleteReason("max_output_tokens"),
+    "token_limit",
+    "max_output_tokens classifies as token limit",
+  );
+  assert.equal(
+    classifyIncompleteReason("max_tokens"),
+    "token_limit",
+    "max_tokens classifies as token limit",
+  );
+  assert.equal(
+    classifyIncompleteReason("content_filter"),
+    "content_filter",
+    "content_filter is not classified as token limit",
+  );
+  assert.deepEqual(
+    buildAssistantOpenAIResponseConfig({
+      model: "gpt-5-mini",
+      instructions: "test",
+      input: [{ role: "user", content: "hello" }],
+    }),
+    {
+      model: "gpt-5-mini",
+      instructions: "test",
+      input: [{ role: "user", content: "hello" }],
+      max_output_tokens: 1200,
+      store: false,
+      reasoning: { effort: "minimal" },
+    },
+    "streaming and non-streaming can share the same config builder",
   );
   assert.equal(
     buildLocalizedHref(
