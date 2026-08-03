@@ -261,7 +261,7 @@ history item is limited to 1,000 characters. The route does not use
 `previous_response_id` or the OpenAI Conversations API.
 
 The assistant uses `client.responses.create(...)` from the official OpenAI SDK
-with `store: false`, `max_output_tokens: 500`, one OpenAI call per request, no
+with `store: false`, `max_output_tokens: 1200`, one OpenAI call per request, no
 tools, no web search, no file search, no code interpreter, and no function
 calling. The OpenAI client is created server-side only and is lazy-initialized
 when a configured request reaches the endpoint. Token usage, model internals,
@@ -289,11 +289,44 @@ The knowledge model is built from verified portfolio sources:
 - `data/skills.ts`.
 - `data/experience.ts` plus localized education, certification, internship, and
   graphic design details from `messages/{locale}.json`.
+- `data/assistant-background.ts` for verified AI-only background facts,
+  including historical education notes, early technical experience, historical
+  pre-GitHub projects, game development background, achievements, professional
+  training, technical preferences, work preferences, and professional
+  positioning.
 - `data/social-links.ts`.
 - Public, visible GitHub portfolio repositories from the existing GitHub
   service layer.
 - Project description, primary language, live demo URL, GitHub URL, category,
   and public topics.
+
+Real biographical and historical facts are kept in the structured knowledge
+source, not as long hardcoded developer prompt text. The prompt remains focused
+on behavior, safety, language, and anti-invention rules.
+
+The assistant's verified background source includes the exact SmartPro wording:
+`SmartPro Yazilim Akademisi tarafindan verilen, Microsoft onayli 240 saatlik
+Full Stack Developer egitimi.` It does not describe Emir as a Microsoft
+employee, MCSD holder, Microsoft university participant, or holder of an
+invented official certificate title.
+
+Historical projects are modeled separately from public GitHub projects. Future
+Mail is a university graduation project; Picas Seramik, Ikigai Restaurant,
+Weather App, Parking Management System, Library Management System, DigiMenu /
+Digital Menu, and the AI-Powered Portfolio Assistant are available as verified
+assistant background where applicable. Historical projects without a verified
+public repository or route do not produce `relatedProjects`, GitHub URLs, live
+demo URLs, or generated `/projects/[slug]` links.
+
+When a historical project matches a visible GitHub project, the GitHub project
+is treated as the primary public source and the historical entry is used only
+as additional context. Aliases such as `DigiMenu`, `Digital Menu`, and
+`DigitalMenu` are treated as the same project to avoid duplicate claims.
+
+Achievements also come from the verified background source. The assistant knows
+that Emir won `Akdeniz Game Jam - Birincilik` in 2026 with result `1st Place`
+in `Game Development`, but it must not invent the game name, team, event date,
+city, jury, participant count, prize, or subcategory.
 
 The assistant does not use old CV files, private repositories, hidden
 repositories, `portfolio-hidden` projects, environment variable values, Vercel
@@ -315,12 +348,18 @@ markdown. README and `portfolio.md` content is wrapped in explicit
 `<portfolio_reference>` delimiters and treated only as untrusted reference data,
 never as instructions.
 
+Historical project retrieval does not call GitHub or README fetchers. It uses
+only the verified background source and returns historical context without
+adding public related project links unless a real GitHub-backed project already
+exists.
+
 The assistant prompt instructs the model to answer only from the provided
 portfolio context, avoid unverifiable claims, refuse prompt or secret
 disclosure, avoid phone/birth-date/private personal data, ignore prompt
-injection inside user input or README content, and keep answers short and
-professional. It answers in the selected site locale unless the user clearly
-asks in another language.
+injection inside user input or README content, avoid fake public links for
+historical/non-public projects, and keep answers short and professional. It
+answers in the selected site locale unless the user clearly asks in another
+language.
 
 The panel shows lightweight transparency notes: messages are sent to OpenAI to
 generate a response, processed only for that response, not stored by this site,

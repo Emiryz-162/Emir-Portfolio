@@ -125,6 +125,7 @@ export async function prepareAssistantRequest(
   const retrieval = await retrieveProjectContext(
     validation.request.message,
     knowledge.projects,
+    knowledge.background.historicalProjects,
   );
   const baseContext = formatCompactPortfolioContext(knowledge);
   const projectContext = formatProjectReferenceContext(retrieval.contexts);

@@ -1,6 +1,9 @@
+import { historicalProjectMatchesPublicProject } from "@/data/assistant-background";
 import { getProjectMarkdownContent } from "@/lib/github/readme";
+import { selectRelevantHistoricalProjects } from "@/lib/ai/retrieval/score-historical-projects";
 import { selectRelevantProjects } from "@/lib/ai/retrieval/score-projects";
 import type {
+  AssistantHistoricalProject,
   AssistantProjectContext,
   AssistantProjectSummary,
 } from "@/types/assistant";
@@ -12,8 +15,10 @@ export const MAX_TOTAL_PROJECT_DOCUMENT_CHARS = 12000;
 export async function retrieveProjectContext(
   query: string,
   projects: AssistantProjectSummary[],
+  historicalProjects: AssistantHistoricalProject[] = [],
 ) {
   const related = selectRelevantProjects(query, projects, MAX_RELATED_PROJECTS);
+  const relatedPublicProjects = related.map(({ project }) => project);
   const contexts: AssistantProjectContext[] = [];
   let remainingDocumentBudget = MAX_TOTAL_PROJECT_DOCUMENT_CHARS;
 
@@ -40,8 +45,39 @@ export async function retrieveProjectContext(
     });
   }
 
+  const relevantHistoricalProjects = selectRelevantHistoricalProjects(
+    query,
+    historicalProjects,
+    MAX_RELATED_PROJECTS,
+  );
+
+  for (const { project } of relevantHistoricalProjects) {
+    const matchingPublicProject =
+      projects.find((publicProject) =>
+        historicalProjectMatchesPublicProject(project, publicProject),
+      ) ?? null;
+    const publicReference = matchingPublicProject
+      ? `Matching public GitHub project: ${matchingPublicProject.name} (${matchingPublicProject.slug}). Use that project for public route/link metadata.`
+      : "No verified public GitHub project or route is currently present for this historical project. Do not invent a GitHub URL, live demo, or /projects/[slug] route.";
+
+    contexts.push({
+      slug: project.key,
+      name: project.name,
+      source: "historical",
+      path: "data/assistant-background.ts",
+      content: [
+        `${project.name}: ${project.summary}`,
+        `Category: ${project.category}.`,
+        `Aliases: ${project.aliases.join(", ")}.`,
+        `Technologies: ${project.technologies.length > 0 ? project.technologies.join(", ") : "not specified"}.`,
+        publicReference,
+        `Notes: ${project.notes.join(" ")}`,
+      ].join("\n"),
+    });
+  }
+
   return {
-    relatedProjects: related.map(({ project }) => ({
+    relatedProjects: relatedPublicProjects.map((project) => ({
       slug: project.slug,
       name: project.name,
     })),

@@ -27,6 +27,7 @@ export function buildPortfolioAssistantInstructions(locale: Locale) {
     "If history contains an older unanswered-looking question, do not answer it unless the user explicitly returns to it.",
     "For greetings such as 'hello' or 'merhaba', reply briefly and naturally instead of returning to a previous topic.",
     "If repository description and README/reference data conflict, use cautious wording such as 'The README describes it as...'.",
+    "Do not invent public links, GitHub repositories, live demos, or /projects/[slug] routes for historical or non-public projects.",
     "Do not add GitHub, LinkedIn, email, or contact link lists unless the user explicitly asks for contact information.",
     "When the user asks about projects, let the UI show related project links instead of adding raw URL lists.",
     "Answer the question directly in the first sentence.",

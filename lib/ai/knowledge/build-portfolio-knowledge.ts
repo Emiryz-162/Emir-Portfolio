@@ -3,6 +3,7 @@ import { profile } from "@/data/profile";
 import { skillGroups } from "@/data/skills";
 import { socialLinks } from "@/data/social-links";
 import { timelineEntries } from "@/data/experience";
+import { assistantBackground } from "@/data/assistant-background";
 import { getPortfolioProjects } from "@/lib/github/repositories";
 import {
   getAssistantMessageBundle,
@@ -89,6 +90,7 @@ export async function buildPortfolioKnowledge(
     experience: timeline
       .filter((entry) => entry.key === "experience")
       .map((entry): AssistantExperience => entry),
+    background: assistantBackground,
     projects: projectsResult.projects.map(mapProjectForAssistant),
     githubContextUnavailable: !projectsResult.ok,
   };

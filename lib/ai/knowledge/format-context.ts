@@ -1,5 +1,10 @@
+import {
+  getStandaloneHistoricalProjects,
+  historicalProjectMatchesPublicProject,
+} from "@/data/assistant-background";
 import type {
   AssistantKnowledgeBase,
+  AssistantHistoricalProject,
   AssistantProjectContext,
 } from "@/types/assistant";
 
@@ -35,6 +40,62 @@ export function formatCompactPortfolioContext(
       (item) => `- ${item.title}, ${item.organization}, ${item.meta}`,
     ),
     "",
+    "Verified education background:",
+    ...knowledge.background.educationBackground.map((item) => {
+      const period = item.period ? `, ${item.period}` : "";
+
+      return `- ${item.institution}, ${item.program}${period}, status: ${item.status}; ${item.notes.join(" ")}`;
+    }),
+    "",
+    "Professional training:",
+    ...knowledge.background.professionalTraining.map(
+      (item) =>
+        `- ${item.summary} Technologies: ${item.technologies.join(", ")}. Guardrails: ${item.guardrails.join(" ")}`,
+    ),
+    "",
+    "Technical background:",
+    `- Main: ${knowledge.background.technicalPreferences.main.join(", ")}`,
+    `- Additional: ${knowledge.background.technicalPreferences.additional.join(", ")}`,
+    "",
+    "Game development background:",
+    ...knowledge.background.gameDevelopmentBackground.map(
+      (item) => `- ${item}`,
+    ),
+    "",
+    "Achievements:",
+    ...knowledge.background.achievements.map(
+      (item) =>
+        `- ${item.title}, ${item.year}, result: ${item.result}, category: ${item.category}. ${item.notes.join(" ")}`,
+    ),
+    "",
+    "Historical projects without public project links:",
+    ...formatHistoricalProjects(
+      getStandaloneHistoricalProjects(
+        knowledge.background.historicalProjects,
+        knowledge.projects,
+      ),
+    ),
+    "",
+    "Historical context attached to matching public GitHub projects:",
+    ...formatHistoricalProjects(
+      knowledge.background.historicalProjects.filter((historicalProject) =>
+        knowledge.projects.some((project) =>
+          historicalProjectMatchesPublicProject(historicalProject, project),
+        ),
+      ),
+    ),
+    "",
+    "Work preferences:",
+    ...knowledge.background.workPreferences.map((item) => `- ${item}`),
+    "",
+    "Professional positioning:",
+    ...knowledge.background.professionalPositioning.map((item) => `- ${item}`),
+    "",
+    "Source priority:",
+    ...knowledge.background.sourcePriority.map(
+      (item, index) => `${index + 1}. ${item}`,
+    ),
+    "",
     "Visible projects:",
     ...knowledge.projects.map((project) => {
       const description = project.description ?? "No repository description";
@@ -53,6 +114,31 @@ export function formatCompactPortfolioContext(
   }
 
   return lines.join("\n");
+}
+
+function formatHistoricalProjects(projects: AssistantHistoricalProject[]) {
+  if (projects.length === 0) return ["- None currently matched."];
+
+  return projects.map((project) => {
+    const technologies =
+      project.technologies.length > 0
+        ? project.technologies.join(", ")
+        : "not specified";
+    const publicRepository =
+      project.publicRepositoryAvailable === true
+        ? "available"
+        : project.publicRepositoryAvailable === false
+          ? "not present"
+          : "unknown unless matched by GitHub metadata";
+    const publicDemo =
+      project.publicDemoAvailable === true
+        ? "available"
+        : project.publicDemoAvailable === false
+          ? "not present"
+          : "unknown unless matched by GitHub metadata";
+
+    return `- ${project.name}: ${project.summary} Category: ${project.category}. Technologies: ${technologies}. Public repository: ${publicRepository}. Public demo: ${publicDemo}. Notes: ${project.notes.join(" ")}`;
+  });
 }
 
 export function formatProjectReferenceContext(

@@ -56,9 +56,63 @@ export type AssistantProjectSummary = {
 export type AssistantProjectContext = {
   slug: string;
   name: string;
-  source: "portfolio" | "readme" | "description";
+  source: "portfolio" | "readme" | "description" | "historical";
   path: string | null;
   content: string;
+};
+
+export type AssistantBackgroundEducation = {
+  key: string;
+  institution: string;
+  program: string;
+  period: string | null;
+  status: "completed" | "in-progress";
+  notes: string[];
+};
+
+export type AssistantHistoricalProject = {
+  key: string;
+  name: string;
+  aliases: string[];
+  category: string;
+  summary: string;
+  technologies: string[];
+  notes: string[];
+  githubProjectAliases?: string[];
+  publicRepositoryAvailable: boolean | "unknown";
+  publicDemoAvailable: boolean | "unknown";
+};
+
+export type AssistantAchievement = {
+  key: string;
+  title: string;
+  year: number;
+  result: string;
+  category: string;
+  notes: string[];
+};
+
+export type AssistantBackground = {
+  educationBackground: AssistantBackgroundEducation[];
+  earlyTechnicalExperience: string[];
+  historicalProjects: AssistantHistoricalProject[];
+  gameDevelopmentBackground: string[];
+  achievements: AssistantAchievement[];
+  professionalTraining: {
+    key: string;
+    provider: string;
+    summary: string;
+    hours: number;
+    technologies: string[];
+    guardrails: string[];
+  }[];
+  technicalPreferences: {
+    main: string[];
+    additional: string[];
+  };
+  workPreferences: string[];
+  professionalPositioning: string[];
+  sourcePriority: string[];
 };
 
 export type AssistantKnowledgeBase = {
@@ -67,6 +121,7 @@ export type AssistantKnowledgeBase = {
   skills: AssistantSkillGroup[];
   education: AssistantEducation[];
   experience: AssistantExperience[];
+  background: AssistantBackground;
   projects: AssistantProjectSummary[];
   githubContextUnavailable: boolean;
 };
