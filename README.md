@@ -38,7 +38,7 @@ but recommended for a higher GitHub API rate limit:
 GITHUB_TOKEN=
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 RESEND_API_KEY=
-CONTACT_EMAIL_TO=yz.emir@hotmail.com
+CONTACT_EMAIL_TO=
 CONTACT_EMAIL_FROM=
 ```
 
@@ -50,12 +50,16 @@ to client components.
 robots, Open Graph URLs, and Twitter image URLs. Keep the localhost value for
 development only. Production should use `https://emir-portfolio-nine.vercel.app`.
 
-The contact form sends email through Resend from a server action. Add a Resend
-API key and a verified sender address in `CONTACT_EMAIL_FROM`; production
-domains should be verified in Resend before using a custom sender. Missing
-contact environment variables do not break the whole site. The form shows a
-localized unavailable message and keeps a direct email fallback visible. Secret
-values are read only on the server and are never sent to client components.
+The contact form sends email through Resend from a server action. Store
+`RESEND_API_KEY`, `CONTACT_EMAIL_TO`, and `CONTACT_EMAIL_FROM` in Vercel
+Environment Variables, not in source control. The default sender can be
+`Emir Portfolio <onboarding@resend.dev>`; with this Resend starter sender,
+delivery is limited to the address registered in the Resend account. After a
+custom sending domain is verified, `CONTACT_EMAIL_FROM` can be changed to that
+domain's sender address. Missing contact environment variables do not break the
+whole site. The form shows a localized unavailable message and keeps a direct
+email fallback visible. Secret values are read only on the server and are never
+sent to client components.
 
 ## Scripts
 
@@ -229,7 +233,12 @@ reCAPTCHA can be evaluated later if traffic requires it.
 
 Form data is not saved to a database. It is used to send the Resend email and to
 reply to the sender. User-provided content is escaped before HTML email output,
-and the user email is used as `Reply-To`, not as the sender.
+and the user email is used as `Reply-To`, not as the sender. The email payload
+uses `from: CONTACT_EMAIL_FROM`, `to: CONTACT_EMAIL_TO`, `replyTo` from the
+validated visitor email, and `Portfolio Contact: {subject}` as the subject.
+Both text and escaped HTML bodies include the sender name, sender email,
+subject, message, submission time, and selected locale. Do not commit real API
+keys or private email values to GitHub.
 
 ## SEO And Production Metadata
 
@@ -273,8 +282,10 @@ and final image domains before enforcement.
 ## Production Checklist
 
 - Set `NEXT_PUBLIC_SITE_URL` to the production origin.
-- Verify the Resend sender domain or sender address.
-- Add `RESEND_API_KEY`, `CONTACT_EMAIL_TO`, and `CONTACT_EMAIL_FROM`.
+- Add `RESEND_API_KEY`, `CONTACT_EMAIL_TO`, and `CONTACT_EMAIL_FROM` in Vercel.
+- Use `Emir Portfolio <onboarding@resend.dev>` only while relying on Resend's
+  starter sender, then switch `CONTACT_EMAIL_FROM` after verifying a custom
+  domain.
 - Add `GITHUB_TOKEN` if higher GitHub API rate limits are needed.
 - Run `npm run validate:translations`.
 - Run `npm run validate:production`.

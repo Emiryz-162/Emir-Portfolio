@@ -88,13 +88,9 @@ export async function sendContactMessage(
       ...initialContactFormState,
       status: "success",
     };
-  } catch (error) {
+  } catch {
     if (process.env.NODE_ENV !== "production") {
-      console.error(
-        error instanceof Error
-          ? `[contact] Resend request failed: ${error.message}`
-          : "[contact] Resend request failed",
-      );
+      console.error("[contact] Resend request failed");
     }
 
     return {

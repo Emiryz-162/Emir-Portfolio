@@ -2,9 +2,10 @@ import type { ContactFormValues } from "@/lib/contact/validation";
 
 export function buildContactEmail(values: ContactFormValues) {
   const submittedAt = new Date().toISOString();
+  const subject = sanitizeEmailHeader(values.subject);
 
   return {
-    subject: `Portfolio Contact: ${values.subject}`,
+    subject: `Portfolio Contact: ${subject}`,
     text: [
       `Name: ${values.name}`,
       `Email: ${values.email}`,
@@ -26,6 +27,10 @@ export function buildContactEmail(values: ContactFormValues) {
       `<p>${escapeHtml(values.message).replace(/\n/g, "<br />")}</p>`,
     ].join(""),
   };
+}
+
+function sanitizeEmailHeader(value: string) {
+  return value.replace(/[\r\n]+/g, " ").trim();
 }
 
 function escapeHtml(value: string) {
